@@ -1,0 +1,67 @@
+---
+title: "Racing Life — Australia's home for racing"
+summary: "An independent racing media platform combining live odds, expert previews, and the culture around the sport. Launched in 2025. Built for the modern Australian fan who wants more than a form guide and less than a betting app."
+client: "Racing Life"
+sector: "Sports media · Australian horse racing"
+year: "2026"
+role: "Architecture · Full-stack · Design system · Brand"
+live: "https://racinglife.com.au"
+backdropColor: "#082040"
+backdropTone: "light"
+accentColor: "#AAFFD7"
+cover: "/work/racing-life/cover.jpg"
+tags: ["Web", "Product", "Editorial"]
+palette:
+  - { name: "Navy", hex: "#082040" }
+  - { name: "Mint", hex: "#AAFFD7" }
+  - { name: "Coral", hex: "#FF5C5C" }
+  - { name: "Slate", hex: "#64748B" }
+fonts:
+  - { role: "Display", family: "Plus Jakarta Sans" }
+  - { role: "Body", family: "Inter" }
+  - { role: "Editorial", family: "Merriweather" }
+  - { role: "Numerics", family: "JetBrains Mono" }
+stack:
+  - "Next.js 16"
+  - "Express"
+  - "PostgreSQL"
+  - "TimescaleDB"
+  - "Redis"
+  - "socket.io"
+  - "Bull"
+  - "Tiptap"
+  - "Anthropic Claude"
+  - "Sentry"
+gallery:
+  - { src: "/work/racing-life/site-hero.jpg", alt: "Live homepage — race cards, featured meeting, next-to-jump", layout: "half", caption: "Homepage — featured meeting, next-to-jump carousel, live odds." }
+  - { src: "/work/racing-life/race-card.jpg", alt: "Race detail — Queen Elizabeth Stakes runners table with live odds and sparklines", layout: "half", caption: "Race detail — runners with form, market movement sparklines, and the RL Insights panel." }
+---
+
+## Brief
+
+Australian racing media never grew up with its audience. Coverage was either dry form guides written for hardcore punters or gambling-heavy content with no personality. Nothing in the middle for the fans who care about the sport AND the experience around it — the carnival, the fashion, the personalities, the culture.
+
+Racing Life launched in 2025 to fill that gap. The vision: Australia's home for racing — an independent racing media platform where expert previews and live odds sit next to the lifestyle, style, and stories that make racing more than just a bet. Not a tipping service, not a bookmaker, not a news aggregator.
+
+## Approach
+
+Racing Life sits at the intersection of two things most racing media keeps separate: **racing intelligence** and **racing culture**. The product reflects that on every page.
+
+On the intelligence side: live odds comparison across every major Australian bookmaker, expert race previews and form analysis, lay-of-the-day picks, and entity profiles for every horse, jockey, trainer, and meeting in the database. On the culture side: carnival fashion, race-day style, profiles of the personalities shaping the sport, and editorial that treats racing as a lifestyle vertical instead of a gambling one. The product is built to give fans a reason to show up every day — whether they're backing their selections with sharper odds, getting across the fields before a Saturday card, or working out what to wear to Caulfield.
+
+Technically it's a three-app monorepo: a **Next.js frontend** (server-rendered, hydrated with TanStack Query for live odds), an **Express + Postgres backend** with a Bull worker queue and TimescaleDB hypertables for tracking odds movement over time, and a separate **Next.js CMS** where the editorial team drafts, reviews, and schedules everything with a Tiptap editor. Every racing entity is a first-class citizen in the data model — a horse profile, a race card, and a Lay of the Day editorial post all hydrate from the same Postgres tables.
+
+The signature engineering decision is the **content pipeline**. AI scales daily previews — but only inside a pipeline that refuses to ship slop:
+
+- A **deterministic builder** assembles a structured brief from the database (race entrants, recent form, market movements) before any LLM is called
+- A **stop-slop score** quantifies generic AI filler on a per-article basis and surfaces it in the CMS quality dashboard
+- A **fact-check stage** verifies claims against the live database before an article can be approved
+- **Synthetic author voices** keep tone consistent — the "data analyst" voice and the "tipster" voice produce identifiably different copy from the same brief
+
+The result: AI helps the editorial team scale daily output without losing the byline or the brand voice.
+
+## Outcome
+
+Racing Life is becoming the daily destination for the modern Australian racing fan — the 25–45 year old who follows racing across social and mobile and wants something smarter and more engaging than a form guide or a betting app. Punters get sharper odds. Carnival fans get the culture. Everyone gets a community to belong to.
+
+The editorial backbone is in. Community features are next. The platform is built to scale with the brand's ambition — and that ambition is large.

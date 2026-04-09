@@ -1,0 +1,72 @@
+---
+title: "Beth Bakes Cakes — a custom storefront built to replace the DMs"
+summary: "A York-based artisan baker drowning in Instagram messages. A six-page mobile-first Next.js site with a bespoke cake builder, a custom CRM, and 24/7 ordering — built to turn the website into the actual sales channel and let Beth get her time back to bake."
+client: "Beth Bakes Cakes"
+sector: "E-commerce · Independent food brand"
+year: "2026"
+role: "Discovery · Design · Development · Brand integration"
+backdropColor: "#FBDCE2"
+backdropTone: "dark"
+accentColor: "#6B4226"
+cover: "/work/bethbakescakes/photos/01-abundance-flatlay.jpg"
+tags: ["Web", "Product"]
+palette:
+  - { name: "Chocolate", hex: "#6B4226" }
+  - { name: "Blush", hex: "#FBDCE2" }
+  - { name: "Caramel", hex: "#C8845C" }
+  - { name: "Cream", hex: "#FFFAF4" }
+fonts:
+  - { role: "Display", family: "Fraunces" }
+  - { role: "Body", family: "DM Sans" }
+  - { role: "Logo accent", family: "Nixie One" }
+stack:
+  - "Next.js 16"
+  - "NestJS"
+  - "Prisma"
+  - "PostgreSQL"
+  - "Stripe"
+  - "Resend"
+  - "Tailwind CSS 4"
+  - "Framer Motion"
+  - "Docker"
+gallery:
+  - { src: "/work/bethbakescakes/photos/06-tiered-wedding.jpg", alt: "Elegant tiered wedding cake", layout: "feature-left", caption: "Every cake is shot in studio against the brand pink so the catalogue reads as one continuous brand moment, not a stock-photo dump." }
+  - { src: "/work/bethbakescakes/site-hero.jpg", alt: "Live storefront — homepage with brand pink hero and Fraunces wordmark", layout: "feature-right", caption: "The live storefront — Beth's brand pink, her studio photography, and a cake builder that does the spec'ing for her." }
+---
+
+## Brief
+
+Beth runs a celebration cake business out of York — birthdays, weddings, custom orders, and the bestselling chocolate loaf she sells from a hot pink horsebox at Christmas markets. By the time she came to me she'd outgrown the only sales channel she had: Instagram DMs.
+
+With a fast-growing following, half her potential orders were going unanswered. Bespoke cake requests took days of back-and-forth in the inbox. Market and event bookings lived in a notebook. The brand looked sharp on Instagram and felt amateur everywhere else. The brief was simple to state and harder to build: turn the website into the actual sales channel, replace the DMs as the customer entry point, and let Beth get her time back to bake.
+
+## Approach
+
+The site is built around three things Beth's old setup was missing — **24/7 ordering**, a **bespoke cake builder**, and a **CRM** that does the chasing for her.
+
+The customer side is a six-page mobile-first Next.js build:
+
+- **Home** — hero, featured cakes, Instagram feed, the headline products front and centre
+- **About** — Beth's personal story, the kind of relatable content that turns followers into customers
+- **Products** — celebration cakes, wedding cakes, cupcakes, brownies, seasonal specials, and corporate orders, browsable by category and occasion
+- **Bespoke** — a multi-step cake builder that takes occasion → size → flavour → decoration → delivery → add-ons, with image upload for inspiration and real-time pricing
+- **Events** — a calendar of upcoming markets, the Beth Horsebox showcase, and a private-event enquiry form
+- **Contact** — FAQs designed to deflect the easy DMs entirely, with a fallback enquiry form
+
+Behind the site is a small but real backend — **NestJS + Prisma + PostgreSQL** with **Stripe** for checkout and a custom CRM dashboard where Beth manages standard orders, bespoke briefs, and event enquiries from a single queue. **Resend** handles transactional email: order confirmations, bespoke quote emails, and automated follow-ups when an enquiry goes quiet for 48 hours. The follow-up alone is the difference between leads going cold and leads converting.
+
+The signature interaction is the **bespoke cake builder**. Bespoke orders used to be a five-message back-and-forth in Beth's inbox; now they arrive in the admin queue fully specified — occasion, size, flavour, decoration style, colour theme, delivery method, add-ons (fresh flowers, macarons, toppers), and any inspiration photos the customer wants to share. Beth replies once with a quote and a deposit link instead of negotiating across a week.
+
+## Brand integration
+
+The visual system stays anchored in Beth's existing identity — warm chocolate `#6B4226`, blush `#FBDCE2`, and caramel `#C8845C`, with **Fraunces** for display, **DM Sans** for body, and **Nixie One** for the hand-drawn headline accents that match her instagram-grown brand. The blush hero overlay sits at 90% opacity over a flat-lay of cakes — soft but legible, recognisably hers from the first scroll.
+
+Every product gets a studio shot on the same blush background. It's the most boring rule in the system and the one that does the most heavy lifting: the catalogue reads as one continuous brand moment instead of a stock-photo dump.
+
+## Outcome
+
+Beth's website is now her primary sales channel. Customers browse, order, and pay without sending a DM. Bespoke briefs land in the queue fully specified instead of arriving as a five-message Instagram thread. Automated follow-ups catch the leads that would have gone cold. The horsebox calendar lives in one place instead of three notebooks. And Beth gets to spend her time baking instead of triaging DMs.
+
+The brief was: turn the website into the sales channel. That's what the site does.
+
+> Beth Bakes Cakes is preparing to migrate from her legacy site at bethbakescakes.co.uk. Live link will be added once the cutover is complete.

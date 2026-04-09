@@ -1,0 +1,627 @@
+{
+  "$schema": "russle/design-spec/v1",
+  "meta": {
+    "name": "russle",
+    "tagline": "Web design, development, and branding studio",
+    "canonical": "https://russle.co.uk",
+    "locale": "en-GB",
+    "description": "russle is a one-person studio designing, building, and branding modern websites for ambitious teams.",
+    "ogImage": "/og.png",
+    "favicon": "/favicon.ico",
+    "themeColor": "#DF5613"
+  },
+  "siteType": "marketing + lead-capture (no e-commerce, no auth)",
+  "stack": {
+    "framework": "Next.js 16 (App Router)",
+    "language": "TypeScript",
+    "styling": "Tailwind CSS 4 (CSS-first config via @theme)",
+    "animation": "Framer Motion",
+    "icons": "lucide-react",
+    "fonts": {
+      "display": { "family": "Satoshi", "source": "self-hosted from Fontshare", "weights": [400, 500, 700], "format": "woff2" },
+      "mono":    { "family": "Geist Mono", "source": "geist npm package", "weights": [400, 500] }
+    }
+  },
+
+  "tokens": {
+    "color": {
+      "bg":          "#F8F7F5",
+      "surface":     "#EFEDE6",
+      "surface2":    "#E6E2D6",
+      "text":        "#1A1410",
+      "textMute":    "rgba(26,20,16,0.54)",
+      "textSoft":    "rgba(26,20,16,0.32)",
+      "line":        "rgba(26,20,16,0.08)",
+      "line2":       "rgba(26,20,16,0.16)",
+      "dark":        "#1A1410",
+      "dark2":       "#26201B",
+      "onDark":      "#F8F7F5",
+      "onDarkMute":  "rgba(248,247,245,0.64)",
+      "accent":      "#DF5613",
+      "accentHi":    "#F26A24",
+      "accentLo":    "#B8430A",
+      "accentTint":  "rgba(223,86,19,0.08)",
+      "onAccent":    "#FFFFFF"
+    },
+    "type": {
+      "h1": { "size": [72, 48], "weight": 500, "lh": "100%", "track": [-4, -3] },
+      "h2": { "size": [48, 36], "weight": 500, "lh": "100%", "track": [-3, -2] },
+      "h3": { "size": [40, 32], "weight": 500, "lh": "100%", "track": -1 },
+      "h4": { "size": [32, 28], "weight": 500, "lh": "100%", "track": [-2, -1] },
+      "h5": { "size": [28, 24], "weight": 500, "lh": ["114%", "100%"], "track": -1 },
+      "h6": { "size": [24, 20], "weight": 500, "lh": ["116%", "120%"], "track": -0.5 },
+      "big":   { "size": [24, 20], "weight": 400, "lh": "140%", "track": [-0.4, 0] },
+      "body":  { "size": [16, 14], "weight": 400, "lh": "150%", "track": -0.25 },
+      "small": { "size": [12, 10], "weight": 400, "lh": "133%", "track": 0 },
+      "label": { "size": [12, 10], "weight": 700, "lh": ["133%", "120%"], "track": 1, "transform": "uppercase" }
+    },
+    "space": {
+      "containerMain": "1800px",
+      "containerNarrow": "900px",
+      "padX":   { "mobile": "16px", "tablet": "24px", "desktop": "32px" },
+      "section": { "xs": "48px", "s": "64px", "m": "80px", "l": "96px", "xl": "120px", "xxl": "160px" },
+      "heroTop": { "mobile": "120px", "desktop": "160px" }
+    },
+    "radius": {
+      "xs": "4px", "s": "8px", "m": "16px", "l": "24px", "xl": "32px", "pill": "100vw"
+    },
+    "motion": {
+      "easeOut": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "duration": { "fast": "200ms", "base": "400ms", "slow": "600ms" },
+      "reveal":   { "y": "30px", "opacity": [0, 1], "duration": "600ms" }
+    }
+  },
+
+  "components": {
+    "Navbar": {
+      "behavior": "transparent at top, on scroll past 80px adds bg-1 fill + 1px line2 bottom border, fixed top",
+      "structure": "logo (left) | nav links (center, hidden < md) | CTA (right)",
+      "links": [
+        { "label": "Work",    "href": "/work" },
+        { "label": "About",   "href": "/about" },
+        { "label": "Contact", "href": "/contact" }
+      ],
+      "cta": { "label": "Start a project", "href": "/start", "variant": "primary" },
+      "mobile": "hamburger opens full-screen overlay with stacked links + CTA"
+    },
+    "Footer": {
+      "background": "dark",
+      "structure": "4 columns: brand+blurb | sitemap | contact | social",
+      "bottomBar": "© 2026 russle · built in this repo · privacy",
+      "decorative": "huge 'russle' wordmark spanning the bottom edge in --color-dark2 (subtle)"
+    },
+    "Button": {
+      "variants": {
+        "primary":   "fill: text, color: bg, hover bg: dark2",
+        "accent":    "fill: accent, color: onAccent, hover bg: accentLo",
+        "secondary": "border: line2, color: text, hover bg: surface",
+        "ghost":     "no border, color: text, hover underline + accent"
+      },
+      "size":   { "md": "px-6 h-12 text-sm", "lg": "px-8 h-14 text-base" },
+      "radius": "xl (32px)",
+      "label":  "uppercase, 700, +1px tracking"
+    },
+    "Card": {
+      "default": "surface fill on bg, radius l (24px), padding 32-48px, no shadow",
+      "onDark":  "dark2 fill on dark, radius l, onDark text",
+      "hover":   "translate-y -4px, surface → surface2, 200ms ease"
+    },
+    "Section": {
+      "props": ["tone: bg | surface | dark", "spacing: xs | s | m | l | xl | xxl", "container: main | narrow"],
+      "behavior": "vertical padding from spacing token, container max-width applied, horizontal padX responsive"
+    },
+    "Tag": {
+      "structure": "leading bullet (•) + uppercase label, +1px tracking, 700",
+      "tones": ["default (text/textMute)", "accent (accent)"]
+    },
+    "Marquee": {
+      "behavior": "horizontal infinite scroll, ~30s loop, pause on hover, gap 64px",
+      "use": "logo wall, large headline marquee on home"
+    },
+    "FAQ": {
+      "structure": "single-column accordion, full-width row, plus icon rotates 45deg on open",
+      "rowHeight": "large tap target (min 80px)"
+    },
+    "Reveal": {
+      "behavior": "wraps any block, IntersectionObserver triggers once, fade + 30px translate-up, stagger children by 80ms",
+      "respects": "prefers-reduced-motion"
+    }
+  },
+
+  "routes": [
+    {
+      "path": "/",
+      "title": "russle — Web design, development, and branding",
+      "sections": [
+        {
+          "id": "hero",
+          "type": "centered-hero",
+          "tone": "bg",
+          "spacing": "heroTop",
+          "content": {
+            "label": "• Independent studio",
+            "h1": "A studio for ambitious teams who care how things look, feel, and work.",
+            "sub": "russle is a one-person practice designing, building, and branding modern websites — without the agency overhead.",
+            "primaryCta": { "label": "See the work", "href": "/work" },
+            "secondaryCta": { "label": "Start a project", "href": "/start" },
+            "callouts": [
+              { "label": "Design",      "value": "Brand systems & web UI" },
+              { "label": "Development", "value": "Next.js, Tailwind, modern stacks" },
+              { "label": "Branding",    "value": "Identity, voice, motion" }
+            ]
+          },
+          "accentRule": "primary CTA uses accent fill"
+        },
+        {
+          "id": "logo-wall",
+          "type": "marquee-logos",
+          "tone": "bg",
+          "spacing": "s",
+          "content": {
+            "eyebrow": "Trusted by teams across the UK",
+            "logos": "PLACEHOLDER — 8 client logos as SVG, currentColor"
+          }
+        },
+        {
+          "id": "services",
+          "type": "feature-grid-6",
+          "tone": "surface",
+          "spacing": "xl",
+          "content": {
+            "eyebrow": "• What I do",
+            "h2": "Three disciplines, one practice.",
+            "items": [
+              { "icon": "PenTool",   "title": "Brand identity",     "body": "Logos, type systems, colour, voice. The foundation everything else builds on." },
+              { "icon": "Layout",    "title": "Web design",          "body": "Bespoke layouts, design systems, prototypes. Figma in, production-ready out." },
+              { "icon": "Code",      "title": "Web development",     "body": "Next.js, TypeScript, Tailwind. Fast sites you can actually maintain." },
+              { "icon": "Sparkles",  "title": "Motion & interaction","body": "Microinteractions, page transitions, scroll choreography — never gratuitous." },
+              { "icon": "Megaphone", "title": "Launch support",      "body": "DNS, analytics, transactional email, on-call for the first month." },
+              { "icon": "RefreshCw", "title": "Iteration",           "body": "Most sites get better after launch. I stay involved." }
+            ]
+          }
+        },
+        {
+          "id": "selected-work",
+          "type": "case-study-grid-3",
+          "tone": "bg",
+          "spacing": "xl",
+          "content": {
+            "eyebrow": "• Selected work",
+            "h2": "Recent projects.",
+            "items": "PLACEHOLDER — 3 case studies (image, client, sector, year, link to /work/[slug])",
+            "footerCta": { "label": "All projects", "href": "/work" }
+          }
+        },
+        {
+          "id": "process",
+          "type": "image-text-alternating",
+          "tone": "surface",
+          "spacing": "xl",
+          "content": {
+            "eyebrow": "• How it works",
+            "h2": "A small process for big outcomes.",
+            "rows": [
+              { "step": "01", "title": "Discovery",   "body": "We start with a 60-min call. You explain the business, the audience, the constraints. I leave with a shape of the work." },
+              { "step": "02", "title": "Direction",   "body": "Within a week you get a brand or design direction document — tokens, type, references, the why behind every move." },
+              { "step": "03", "title": "Production",  "body": "Iterative builds with weekly reviews. You see the work in the browser, not just Figma." },
+              { "step": "04", "title": "Launch & after", "body": "Domain, analytics, email, the lot. Then a month of free iteration once you've used the live site with real users." }
+            ]
+          }
+        },
+        {
+          "id": "testimonial",
+          "type": "single-quote",
+          "tone": "bg",
+          "spacing": "l",
+          "content": {
+            "quote": "PLACEHOLDER — strongest 1-2 sentence quote from a client.",
+            "author": "Name, Role",
+            "company": "Company"
+          }
+        },
+        {
+          "id": "faq",
+          "type": "faq-accordion",
+          "tone": "bg",
+          "spacing": "xl",
+          "content": {
+            "eyebrow": "• FAQ",
+            "h2": "Common questions.",
+            "items": [
+              { "q": "How long does a project take?",            "a": "A typical site is 4–8 weeks from kickoff to launch. Brand-only projects are 2–4 weeks. I take one project at a time, so the timeline is about how much you can review, not how busy I am." },
+              { "q": "How much does it cost?",                    "a": "Most websites land between £4k and £15k depending on scope. Branding is £2k–£8k. I quote a fixed price after the discovery call — no hourly games." },
+              { "q": "Do you work with agencies?",                "a": "Yes — happy to white-label or work as part of a larger team. Get in touch with the agency name and what you need." },
+              { "q": "What stack do you build on?",               "a": "Next.js + TypeScript + Tailwind for the front end. Resend for email, Vercel for hosting unless you need otherwise. Backend depends on the project — Postgres + Express, Supabase, or just static." },
+              { "q": "Will I be able to update the site myself?", "a": "Yes. Either via a CMS layer (Sanity, Payload) or via simple Markdown files in a repo, depending on your team. We choose during discovery." },
+              { "q": "What if I already have a brand?",           "a": "Even better — I'll work inside your existing system. The brand-direction doc still gets written, just inheriting your tokens." }
+            ]
+          }
+        },
+        {
+          "id": "cta",
+          "type": "cta-strip",
+          "tone": "dark",
+          "spacing": "xl",
+          "content": {
+            "h2": "Got a project in mind?",
+            "sub": "Tell me about it. I respond to every enquiry within 24 hours.",
+            "primaryCta":   { "label": "Start a project", "href": "/start" },
+            "secondaryCta": { "label": "Book a call",     "href": "/contact#call" }
+          },
+          "accentRule": "primary CTA uses accent fill (only accent on this section)"
+        }
+      ]
+    },
+
+    {
+      "path": "/work",
+      "title": "Work — russle",
+      "sections": [
+        {
+          "id": "header",
+          "type": "page-header",
+          "tone": "bg",
+          "spacing": "heroTop",
+          "content": {
+            "label": "• Work",
+            "h1": "Recent projects.",
+            "sub": "A selection of websites, brands, and product work from the last 18 months."
+          }
+        },
+        {
+          "id": "filter-tags",
+          "type": "tag-row",
+          "tone": "bg",
+          "spacing": "xs",
+          "content": {
+            "tags": ["All", "Web", "Brand", "Product"]
+          }
+        },
+        {
+          "id": "case-grid",
+          "type": "case-study-grid-2",
+          "tone": "bg",
+          "spacing": "xl",
+          "content": {
+            "items": "PLACEHOLDER — array of case studies, each with image, client, sector, year, tags, link"
+          }
+        },
+        { "id": "cta", "type": "cta-strip", "tone": "dark", "spacing": "xl", "ref": "shared.cta-start-project" }
+      ]
+    },
+
+    {
+      "path": "/work/[slug]",
+      "title": "Case study — russle",
+      "isTemplate": true,
+      "sections": [
+        {
+          "id": "header",
+          "type": "case-study-header",
+          "tone": "bg",
+          "spacing": "heroTop",
+          "content": {
+            "tags": "[from frontmatter]",
+            "h1": "[from frontmatter — project name]",
+            "sub": "[from frontmatter — one-line summary]",
+            "meta": ["Client", "Sector", "Year", "Role", "Link →"]
+          }
+        },
+        {
+          "id": "cover",
+          "type": "full-bleed-image",
+          "tone": "bg",
+          "spacing": "s",
+          "content": { "image": "[from frontmatter]" }
+        },
+        {
+          "id": "brief",
+          "type": "two-column-text",
+          "tone": "bg",
+          "spacing": "l",
+          "content": {
+            "left": "Brief",
+            "right": "[markdown body — the brief, in client's words where possible]"
+          }
+        },
+        {
+          "id": "approach",
+          "type": "two-column-text",
+          "tone": "surface",
+          "spacing": "xl",
+          "content": {
+            "left": "Approach",
+            "right": "[markdown body — what we did and why]"
+          }
+        },
+        {
+          "id": "gallery",
+          "type": "image-stack",
+          "tone": "bg",
+          "spacing": "l",
+          "content": { "images": "[from frontmatter — array of process/screen images]" }
+        },
+        {
+          "id": "outcome",
+          "type": "two-column-text",
+          "tone": "bg",
+          "spacing": "l",
+          "content": {
+            "left": "Outcome",
+            "right": "[markdown body — measurable results where possible]"
+          }
+        },
+        {
+          "id": "next",
+          "type": "next-prev-case",
+          "tone": "surface",
+          "spacing": "l",
+          "content": "auto-generated from sibling case studies"
+        },
+        { "id": "cta", "type": "cta-strip", "tone": "dark", "spacing": "xl", "ref": "shared.cta-start-project" }
+      ],
+      "contentSource": "MDX files in /content/work/*.mdx with frontmatter (slug, title, summary, client, sector, year, role, link, cover, gallery, tags)"
+    },
+
+    {
+      "path": "/about",
+      "title": "About — russle",
+      "sections": [
+        {
+          "id": "hero",
+          "type": "huge-statement",
+          "tone": "bg",
+          "spacing": "heroTop",
+          "content": {
+            "label": "• About",
+            "h1": "I'm a designer-developer who'd rather do one project well than ten projects fast."
+          }
+        },
+        {
+          "id": "principles",
+          "type": "three-column",
+          "tone": "surface",
+          "spacing": "xl",
+          "content": {
+            "eyebrow": "• Principles",
+            "items": [
+              { "title": "Slow craft.",      "body": "I take one project at a time. You get my full attention, not a Slack channel staffed by juniors." },
+              { "title": "Direct contact.",  "body": "No PMs, no proxies. You talk to the person doing the work, every day." },
+              { "title": "Real software.",   "body": "I write production code. Your site doesn't get handed off to a build team — it gets built by the person who designed it." }
+            ]
+          }
+        },
+        {
+          "id": "story",
+          "type": "two-column-text",
+          "tone": "bg",
+          "spacing": "xl",
+          "content": {
+            "left": "Story",
+            "right": "PLACEHOLDER — first-person founder story, 200-400 words. Where you started, what you learned, why russle exists."
+          }
+        },
+        {
+          "id": "stack",
+          "type": "stack-grid",
+          "tone": "surface",
+          "spacing": "l",
+          "content": {
+            "eyebrow": "• Stack",
+            "items": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Figma", "Resend", "Vercel", "Supabase", "Postgres"]
+          }
+        },
+        { "id": "cta", "type": "cta-strip", "tone": "dark", "spacing": "xl", "ref": "shared.cta-start-project" }
+      ]
+    },
+
+    {
+      "path": "/contact",
+      "title": "Contact — russle",
+      "sections": [
+        {
+          "id": "header",
+          "type": "page-header",
+          "tone": "bg",
+          "spacing": "heroTop",
+          "content": {
+            "label": "• Contact",
+            "h1": "Let's talk.",
+            "sub": "Got a project in mind, a question about the work, or just want to say hello?"
+          }
+        },
+        {
+          "id": "contact-grid",
+          "type": "two-column",
+          "tone": "bg",
+          "spacing": "l",
+          "container": "main",
+          "content": {
+            "left": {
+              "type": "simple-form",
+              "fields": [
+                { "id": "name",    "label": "Your name",    "type": "text",     "required": true },
+                { "id": "email",   "label": "Email",        "type": "email",    "required": true },
+                { "id": "company", "label": "Company",      "type": "text",     "required": false },
+                { "id": "message", "label": "Your message", "type": "textarea", "required": true, "rows": 5 }
+              ],
+              "submit": { "label": "Send message", "endpoint": "/api/contact" },
+              "successCopy": "Thanks — message received. I reply within 24 hours.",
+              "footnote": "For a longer brief, use the project intake →",
+              "longBriefCta": { "label": "Project intake", "href": "/start" }
+            },
+            "right": {
+              "type": "info-panel",
+              "tone": "surface",
+              "blocks": [
+                { "label": "Email",  "value": "hello@russle.co.uk", "href": "mailto:hello@russle.co.uk" },
+                { "label": "Based",  "value": "United Kingdom" },
+                { "label": "Hours",  "value": "Mon–Fri, 9–6 GMT" },
+                { "label": "Social", "value": ["Instagram", "LinkedIn", "GitHub"] }
+              ]
+            }
+          }
+        },
+        {
+          "id": "call",
+          "type": "calendly-embed",
+          "tone": "surface",
+          "spacing": "xl",
+          "anchor": "call",
+          "content": {
+            "eyebrow": "• Or book direct",
+            "h2": "Book a 30-min discovery call.",
+            "sub": "If you'd rather talk than type, grab a slot. No commitment, no sales pitch.",
+            "embedSrc": "https://cal.com/russle/discovery",
+            "fallback": "If the embed doesn't load, email hello@russle.co.uk."
+          }
+        }
+      ]
+    },
+
+    {
+      "path": "/start",
+      "title": "Start a project — russle",
+      "sections": [
+        {
+          "id": "intake",
+          "type": "multi-step-questionnaire",
+          "tone": "bg",
+          "spacing": "heroTop",
+          "container": "narrow",
+          "content": {
+            "label": "• Project intake",
+            "h1": "Tell me about your project.",
+            "sub": "Eight short steps. Takes about 5 minutes. The more you share, the faster I can come back with a real proposal.",
+            "stepsSource": "Lifted from /Users/henry/Desktop/russle/src/app/page.tsx (Guest Digital intake form), restyled to russle tokens, branded as russle, submission goes to /api/intake (Resend)",
+            "stepGroups": [
+              "Business Goals",
+              "Scope of Work",
+              "Content & Assets",
+              "Design & Branding",
+              "Technical Requirements",
+              "Maintenance & Support",
+              "Value & ROI",
+              "Your Details"
+            ],
+            "submit": { "endpoint": "/api/intake" },
+            "successCopy": "Thanks — your project brief is in. I'll be in touch within 24 hours with next steps."
+          }
+        }
+      ],
+      "notes": "This is the Guest Digital questionnaire ported into russle's design system. Same step structure and field IDs (so the schema is identical), restyled with russle tokens. Form lives at the narrow container width (900px) for legibility."
+    }
+  ],
+
+  "shared": {
+    "cta-start-project": {
+      "type": "cta-strip",
+      "content": {
+        "h2": "Ready to start something?",
+        "sub": "Tell me about it. I respond within 24 hours.",
+        "primaryCta":   { "label": "Start a project", "href": "/start" },
+        "secondaryCta": { "label": "Book a call",     "href": "/contact#call" }
+      },
+      "accentRule": "primary CTA uses accent fill"
+    }
+  },
+
+  "api": {
+    "/api/contact": {
+      "method": "POST",
+      "input": { "name": "string", "email": "string", "company": "string?", "message": "string" },
+      "behavior": "Validate (zod), send via Resend to hello@russle.co.uk, return { ok: true }",
+      "rateLimited": "in-memory bucket, 5/min/IP"
+    },
+    "/api/intake": {
+      "method": "POST",
+      "input": "all questionnaire field IDs from /start",
+      "behavior": "Validate (zod, all required client_name + client_email), format into Markdown email, send via Resend to hello@russle.co.uk, return { ok: true }",
+      "rateLimited": "in-memory bucket, 3/min/IP"
+    }
+  },
+
+  "integrations": {
+    "Resend": {
+      "purpose": "transactional email for /api/contact and /api/intake",
+      "envVar":  "RESEND_API_KEY",
+      "from":    "russle <noreply@russle.co.uk>",
+      "to":      "hello@russle.co.uk"
+    },
+    "GoogleAnalytics4": {
+      "purpose": "page view + outbound link tracking",
+      "envVar":  "NEXT_PUBLIC_GA_ID",
+      "loader":  "next/script with strategy='afterInteractive', mounted in app/layout.tsx",
+      "consent": "default-allow with a small dismissable banner linking to /privacy (Phase 4 if needed)"
+    },
+    "CalCom": {
+      "purpose": "discovery call booking embedded on /contact#call",
+      "embed":   "iframe-based embed from cal.com/russle/discovery",
+      "fallback": "plain mailto: link"
+    }
+  },
+
+  "seo": {
+    "sitemap":      "/sitemap.xml — auto-generated from routes, work MDX files",
+    "robots":       "/robots.txt — allow all, sitemap reference",
+    "metadata":     "Next 16 metadata API per route",
+    "ogImageRoute": "/api/og — dynamic OG image with russle wordmark + page title (Satoshi 500)"
+  },
+
+  "accessibility": {
+    "minContrast":     "WCAG AA (verified in brand-direction.md)",
+    "focusVisible":    "2px accent ring (#DF5613) with 2px offset on all interactive elements",
+    "skipLink":        "visible on focus, jumps to #main",
+    "reducedMotion":   "all reveal/marquee animations check prefers-reduced-motion",
+    "altText":         "every image requires alt; case study cover/gallery alts come from MDX frontmatter",
+    "semanticHTML":    "header/main/footer landmarks, h1 once per page, button vs link discipline"
+  },
+
+  "fileTreeTarget": {
+    "russle-site/": {
+      "package.json": "deps: next@16, react, typescript, tailwindcss@4, framer-motion, lucide-react, resend, zod, geist, gray-matter, next-mdx-remote",
+      "next.config.ts": "experimental.mdxRs: true, images.remotePatterns: []",
+      "postcss.config.mjs": "tailwindcss + autoprefixer",
+      "tailwind.config not used": "Tailwind 4 uses CSS @theme in globals.css",
+      "src/app/": {
+        "layout.tsx": "fonts (Satoshi local + Geist Mono via geist), Navbar, Footer, GA4 script",
+        "page.tsx": "home route — composed of section components",
+        "work/page.tsx": "work index",
+        "work/[slug]/page.tsx": "case study detail, MDX-driven",
+        "about/page.tsx": "about",
+        "contact/page.tsx": "contact",
+        "start/page.tsx": "intake questionnaire (ported from src/app/page.tsx)",
+        "globals.css": "@theme tokens, font-face declarations, base layer resets",
+        "api/contact/route.ts": "POST handler",
+        "api/intake/route.ts": "POST handler",
+        "api/og/route.tsx": "dynamic OG image (next/og)",
+        "sitemap.ts": "static + work MDX",
+        "robots.ts": "allow all"
+      },
+      "src/components/": {
+        "layout/": ["Navbar.tsx", "Footer.tsx", "Container.tsx", "Section.tsx"],
+        "ui/": ["Button.tsx", "Card.tsx", "Tag.tsx", "Marquee.tsx", "FAQ.tsx", "Input.tsx", "Textarea.tsx"],
+        "animations/": ["Reveal.tsx", "MarqueeRow.tsx"],
+        "sections/": ["Hero.tsx", "LogoWall.tsx", "FeatureGrid.tsx", "CaseStudyGrid.tsx", "ProcessSteps.tsx", "Testimonial.tsx", "FAQSection.tsx", "CTAStrip.tsx", "PageHeader.tsx", "InfoPanel.tsx", "CalEmbed.tsx", "IntakeForm.tsx"]
+      },
+      "src/lib/": ["resend.ts", "analytics.ts", "mdx.ts", "rateLimit.ts"],
+      "src/content/work/": "MDX case studies (3 placeholder files)",
+      "public/fonts/": "Satoshi-Variable.woff2",
+      "public/": "favicon, og.png placeholder, logo.svg, client logos placeholder"
+    }
+  },
+
+  "phase3Plan": {
+    "1_scaffold":         "create-next-app with TypeScript + Tailwind 4 + App Router at russle-site/",
+    "2_fonts":            "download Satoshi variable woff2 from Fontshare into public/fonts/, install geist",
+    "3_tokens":           "write globals.css with @theme tokens from this spec",
+    "4_layout_primitives":"Container, Section, Button, Card, Tag, Reveal, Marquee, Navbar, Footer",
+    "5_home":             "compose home from section components with placeholder content per spec",
+    "6_about_contact":    "build about + contact pages",
+    "7_intake":           "port src/app/page.tsx → src/app/start/page.tsx, restyle with russle tokens",
+    "8_work":             "work index + dynamic [slug] route + 3 placeholder MDX files",
+    "9_apis":             "api/contact, api/intake, api/og routes",
+    "10_seo_a11y":        "sitemap, robots, metadata, focus rings",
+    "11_install_run":     "npm install + npm run build to verify"
+  }
+}

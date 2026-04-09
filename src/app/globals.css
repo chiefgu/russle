@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/* ────────────────────────────────────────────────────────────
+   Fonts — Satoshi self-hosted from Fontshare, Geist Mono via geist npm
+   ──────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.woff2') format('woff2-variations');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-VariableItalic.woff2') format('woff2-variations');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ────────────────────────────────────────────────────────────
+   Tailwind 4 — design tokens
+   Lifted from /research/brand-direction.md (locked).
+   Only edit if brand-direction.md changes first.
+   ──────────────────────────────────────────────────────────── */
+@theme {
+  /* Color */
+  --color-bg:            #F8F7F5;
+  --color-surface:       #EFEDE6;
+  --color-surface-2:     #E6E2D6;
+  --color-text:          #1A1410;
+  --color-text-mute:     rgba(26, 20, 16, 0.54);
+  --color-text-soft:     rgba(26, 20, 16, 0.32);
+  --color-line:          rgba(26, 20, 16, 0.08);
+  --color-line-2:        rgba(26, 20, 16, 0.16);
+  --color-dark:          #1A1410;
+  --color-dark-2:        #26201B;
+  --color-on-dark:       #F8F7F5;
+  --color-on-dark-mute:  rgba(248, 247, 245, 0.64);
+  --color-accent:        #DF5613;
+  --color-accent-hi:     #F26A24;
+  --color-accent-lo:     #B8430A;
+  --color-accent-tint:   rgba(223, 86, 19, 0.08);
+  --color-on-accent:     #FFFFFF;
+
+  /* Fonts */
+  --font-sans: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Type scale (desktop) */
+  --text-h1: 4.5rem;        /* 72px */
+  --text-h2: 3rem;          /* 48px */
+  --text-h3: 2.5rem;        /* 40px */
+  --text-h4: 2rem;          /* 32px */
+  --text-h5: 1.75rem;       /* 28px */
+  --text-h6: 1.5rem;        /* 24px */
+  --text-big: 1.5rem;       /* 24px */
+  --text-body: 1rem;        /* 16px */
+  --text-small: 0.75rem;    /* 12px */
+  --text-label: 0.75rem;    /* 12px */
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-s:  8px;
+  --radius-m:  16px;
+  --radius-l:  24px;
+  --radius-xl: 32px;
+  --radius-pill: 100vw;
+
+  /* Containers */
+  --container-narrow: 900px;
+  --container-main:   1800px;
+
+  /* Section spacing */
+  --space-section-xs:  48px;
+  --space-section-s:   64px;
+  --space-section-m:   80px;
+  --space-section-l:   96px;
+  --space-section-xl:  120px;
+  --space-section-xxl: 160px;
+
+  /* Motion */
+  --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:   200ms;
+  --duration-base:   400ms;
+  --duration-slow:   600ms;
+}
+
+/* ────────────────────────────────────────────────────────────
+   Base layer
+   ──────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  /* Focus rings — accent at 2px with 2px offset */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Body links underline */
+  .prose-links a,
+  a.link {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color var(--duration-fast) ease;
+  }
+  .prose-links a:hover,
+  a.link:hover {
+    color: var(--color-accent);
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   Typography utilities — heading mixins
+   These map onto the locked type ramp from brand-direction.md.
+   Always 500 weight, aggressive negative tracking.
+   ──────────────────────────────────────────────────────────── */
+@layer components {
+  .h1 {
+    font-family: var(--font-sans);
+    font-size: 3rem;            /* 48px mobile */
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.06em;    /* ≈ -3px */
+  }
+  @media (min-width: 768px) {
+    .h1 { font-size: 4.5rem; letter-spacing: -0.065em; }  /* 72px / -4px */
+  }
+
+  .h2 {
+    font-family: var(--font-sans);
+    font-size: 2.25rem;          /* 36px mobile */
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  @media (min-width: 768px) {
+    .h2 { font-size: 3rem; letter-spacing: -0.05em; }     /* 48px / -3px */
+  }
+
+  .h3 {
+    font-family: var(--font-sans);
+    font-size: 2rem;             /* 32px mobile */
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+  @media (min-width: 768px) {
+    .h3 { font-size: 2.5rem; }   /* 40px */
+  }
+
+  .h4 {
+    font-family: var(--font-sans);
+    font-size: 1.75rem;          /* 28px mobile */
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+  @media (min-width: 768px) {
+    .h4 { font-size: 2rem; letter-spacing: -0.04em; }     /* 32px / -2px */
+  }
+
+  .h5 {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;           /* 24px mobile */
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  @media (min-width: 768px) {
+    .h5 { font-size: 1.75rem; line-height: 1.14; }
+  }
+
+  .h6 {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;          /* 20px mobile */
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  @media (min-width: 768px) {
+    .h6 { font-size: 1.5rem; line-height: 1.16; }
+  }
+
+  .text-big {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  @media (min-width: 768px) {
+    .text-big { font-size: 1.5rem; letter-spacing: -0.015em; }
+  }
+
+  .text-body {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+  @media (min-width: 768px) {
+    .text-body { font-size: 1rem; }
+  }
+
+  .text-small {
+    font-size: 0.625rem;
+    line-height: 1.33;
+    font-weight: 400;
+  }
+  @media (min-width: 768px) {
+    .text-small { font-size: 0.75rem; }
+  }
+
+  .label {
+    font-size: 0.625rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  @media (min-width: 768px) {
+    .label { font-size: 0.75rem; line-height: 1.33; }
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   Animation utilities
+   ──────────────────────────────────────────────────────────── */
+@layer utilities {
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
+  }
+  .marquee:hover { animation-play-state: paused; }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { animation: none; }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
