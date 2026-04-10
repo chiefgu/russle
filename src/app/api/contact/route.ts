@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { resend, EMAIL_FROM, EMAIL_TO, isResendConfigured } from '@/lib/resend';
 import { rateLimit, getClientIp } from '@/lib/rateLimit';
+import { renderContactEmail, renderContactConfirmation } from '@/lib/email-templates';
 
 export const runtime = 'nodejs';
 
@@ -37,7 +38,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const { name, email, company, message } = parsed.data;
+  const { email } = parsed.data;
+  const { subject, html, text } = renderContactEmail(parsed.data);
 
   if (!isResendConfigured() || !resend) {
     // In dev: log the submission so the form is testable without a key.
@@ -54,39 +56,51 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, dev: true });
   }
 
-  const subject = `New enquiry from ${name}${company ? ` (${company})` : ''}`;
-  const text = [
-    `Name: ${name}`,
-    `Email: ${email}`,
-    company && `Company: ${company}`,
-    '',
-    'Message:',
-    message,
-  ]
-    .filter(Boolean)
-    .join('\n');
-
+  // 1. Notification to the studio (the critical one — must succeed or we
+  //    return 502 because we can't recover the message later).
   try {
     const result = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       replyTo: email,
       subject,
+      html,
       text,
     });
     // The Resend SDK returns { data, error } and does NOT throw on rejection.
     // We have to inspect the response or silent failures slip through.
     if (result.error) {
-      console.error('[contact] Resend rejected the send:', result.error);
+      console.error('[contact] Resend rejected the studio notification:', result.error);
       return NextResponse.json(
         { error: `Email failed to send: ${result.error.message}` },
         { status: 502 },
       );
     }
-    console.log('[contact] sent:', result.data?.id);
+    console.log('[contact] notification sent:', result.data?.id);
   } catch (err) {
-    console.error('[contact] Resend threw:', err);
+    console.error('[contact] Resend threw on studio notification:', err);
     return NextResponse.json({ error: 'Email failed to send.' }, { status: 502 });
+  }
+
+  // 2. Confirmation to the submitter (best-effort — we already have their
+  //    message, so a failed confirmation doesn't justify a 502).
+  try {
+    const confirmation = renderContactConfirmation(parsed.data);
+    const result = await resend.emails.send({
+      from: EMAIL_FROM,
+      to: email,
+      replyTo: EMAIL_TO,
+      subject: confirmation.subject,
+      html: confirmation.html,
+      text: confirmation.text,
+    });
+    if (result.error) {
+      console.error('[contact] Confirmation failed (non-fatal):', result.error);
+    } else {
+      console.log('[contact] confirmation sent:', result.data?.id);
+    }
+  } catch (err) {
+    console.error('[contact] Confirmation threw (non-fatal):', err);
   }
 
   return NextResponse.json({ ok: true });

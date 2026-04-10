@@ -9,7 +9,7 @@ import { Reveal } from '@/components/animations/Reveal';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Got a project in mind, a question about the work, or just want to say hello?',
+    'Got a project in mind, or a question about the work?',
 };
 
 export default function ContactPage() {
@@ -18,7 +18,7 @@ export default function ContactPage() {
       <PageHeader
         label="Contact"
         title="Let's talk."
-        sub="Got a project in mind, a question about the work, or just want to say hello?"
+        sub="Got a project in mind, or a question about the work?"
       />
 
       <Section tone="bg" spacing="l" container="main">

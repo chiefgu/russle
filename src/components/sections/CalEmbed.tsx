@@ -28,7 +28,7 @@ export function CalEmbed() {
             <Tag>Or book direct</Tag>
             <h2 className="h2 mt-6 text-balance">Book a 30-min discovery call.</h2>
             <p className="text-big mt-6 max-w-md text-[var(--color-text-mute)]">
-              If you&apos;d rather talk than type, grab a slot. No commitment, no sales pitch.
+              Rather talk than type? Grab a slot.
             </p>
             <p className="text-small mt-6 text-[var(--color-text-soft)]">
               If the embed doesn&apos;t load,{' '}

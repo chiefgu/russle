@@ -30,7 +30,7 @@ type SectionDef = {
 const SECTIONS: SectionDef[] = [
   {
     title: 'Business Goals',
-    blurb: 'Start with the why. The clearer this is, the easier the rest gets.',
+    blurb: 'Start with why. Be specific.',
     fields: [
       { id: 'primary_goal', label: "What's the primary business goal of the website?", type: 'textarea' },
       { id: 'target_audience', label: 'Who is the target audience or market?', type: 'textarea' },
@@ -39,7 +39,7 @@ const SECTIONS: SectionDef[] = [
   },
   {
     title: 'Scope of Work',
-    blurb: 'How big is this thing? Honest answers — we can refine in the call.',
+    blurb: 'How big is it? Honest answers — we can refine on the call.',
     fields: [
       { id: 'page_count', label: 'How many pages will the site need?', type: 'text' },
       {
@@ -65,7 +65,7 @@ const SECTIONS: SectionDef[] = [
   },
   {
     title: 'Content & Assets',
-    blurb: 'What do you have, what do you need? Real content always beats lorem ipsum.',
+    blurb: 'What do you have, what do you need?',
     fields: [
       {
         id: 'content_provided',
@@ -126,7 +126,7 @@ const SECTIONS: SectionDef[] = [
   },
   {
     title: 'Maintenance & Support',
-    blurb: 'What happens after launch matters as much as launch day.',
+    blurb: 'Who looks after the site once it is live?',
     fields: [
       {
         id: 'maintenance_owner',
@@ -150,7 +150,7 @@ const SECTIONS: SectionDef[] = [
   },
   {
     title: 'Value & ROI',
-    blurb: 'Helps me size the investment to the outcome you need.',
+    blurb: 'Helps me match the budget to the outcome.',
     fields: [
       {
         id: 'revenue_contribution',
@@ -227,9 +227,9 @@ export function IntakeForm() {
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[var(--color-accent)] text-[var(--color-on-accent)]">
           <Check className="h-8 w-8" />
         </div>
-        <h2 className="h2 mt-8">Your brief is in.</h2>
+        <h2 className="h2 mt-8">Got it.</h2>
         <p className="text-big mt-4 text-[var(--color-text-mute)]">
-          Thanks for taking the time. I&apos;ll come back within 24 hours with next steps.
+          I&apos;ll read your brief and reply within 24 hours.
         </p>
         <p className="text-small mt-8 text-[var(--color-text-soft)]">
           russle · hello@russle.co.uk

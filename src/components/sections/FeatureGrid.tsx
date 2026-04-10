@@ -12,27 +12,27 @@ const FEATURES = [
   {
     icon: Layout,
     title: 'Web design',
-    body: 'Bespoke layouts and design systems for marketing sites, e-commerce, and product UI. Figma when it helps, the browser whenever I can.',
+    body: 'Bespoke layouts and design systems for marketing sites, e-commerce, and product UI. Figma when it helps, the browser when it does not.',
   },
   {
     icon: Code,
     title: 'Web development',
-    body: 'Next.js + Tailwind for custom builds, Squarespace with the defaults torn out for lower-touch ones. The favourite tool never wins — the right tool does.',
+    body: 'Next.js and Tailwind for custom builds, Squarespace with the defaults torn out for lower-touch ones. Right tool, every time.',
   },
   {
     icon: Boxes,
     title: 'Custom features',
-    body: 'Multi-step intake forms, bespoke product builders, CRMs, Stripe checkouts, content systems. The interesting half of the build.',
+    body: 'Multi-step intake forms, product builders, CRMs, Stripe checkouts, content systems. The bits clients usually outsource elsewhere.',
   },
   {
     icon: Megaphone,
     title: 'Launch support',
-    body: 'DNS, hosting, transactional email, analytics, and on-call for the first month after launch. The boring bits matter most when something breaks.',
+    body: 'DNS, hosting, transactional email, analytics. On-call for the first month after launch.',
   },
   {
     icon: RefreshCw,
     title: 'Iteration',
-    body: 'Most sites get better after launch. I plan a month of iteration into every project so the post-launch surprises actually get fixed.',
+    body: 'Most sites get better after launch. A month of paid iteration is built into every project for the surprises real users find.',
   },
 ];
 

@@ -6,7 +6,7 @@ import { IntakeForm } from '@/components/sections/IntakeForm';
 export const metadata: Metadata = {
   title: 'Start a project',
   description:
-    'Eight short steps. Tell me about your project and I&apos;ll come back with a real proposal within 24 hours.',
+    "Eight short steps, about five minutes. Tell me about your project and I'll come back within 24 hours.",
 };
 
 export default function StartPage() {
@@ -17,7 +17,7 @@ export default function StartPage() {
           <Tag>Project intake</Tag>
           <h1 className="h1 mt-6 text-balance">Tell me about your project.</h1>
           <p className="text-big mt-8 max-w-xl text-[var(--color-text-mute)]">
-            Eight short steps. Takes about 5 minutes. The more you share, the faster I can come back with a real proposal.
+            Eight steps, about five minutes. The more detail, the better my reply.
           </p>
         </div>
         <IntakeForm />

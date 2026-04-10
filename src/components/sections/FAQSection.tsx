@@ -18,11 +18,11 @@ const ITEMS: FAQItem[] = [
   },
   {
     q: 'What stack do you build on?',
-    a: "Depends on the project. For custom marketing sites and product work it's usually Next.js + Tailwind on the front end with a custom backend (NestJS, Prisma, Postgres, Stripe, Resend). For lower-touch builds it's Squarespace with the defaults torn out — same standard of design, half the maintenance. The right tool always beats the favourite tool.",
+    a: "Depends on the project. For custom marketing sites and product work it's usually Next.js and Tailwind on the front end with a custom backend (NestJS, Prisma, Postgres, Stripe, Resend). For lower-touch builds it's Squarespace with the defaults torn out — same standard of design, half the maintenance.",
   },
   {
     q: 'Will I be able to update the site myself?',
-    a: "Yes. The right answer depends on the platform. Squarespace lets you edit everything inline. On a custom build it's usually a small CMS layer (Sanity or Payload) or Markdown files in a repo. We choose during discovery, based on how often you'll actually update things.",
+    a: "Yes. The right answer depends on the platform. Squarespace lets you edit everything inline. On a custom build it's usually a small CMS layer (Sanity or Payload) or Markdown files in a repo. We choose during discovery, based on how often you'll touch the content.",
   },
   {
     q: 'What if I already have a brand?',

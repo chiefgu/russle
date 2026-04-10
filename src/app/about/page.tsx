@@ -87,13 +87,13 @@ export default function AboutPage() {
             <Reveal delay={0.05}>
               <div className="text-big max-w-3xl space-y-6 text-[var(--color-text)]">
                 <p>
-                  russle is independent. One person, no team, no agency, no overhead — which means you talk to the person who designs and builds your project, and that person takes the time to do it well.
+                  russle is independent. One person — which means the person designing your site is the same person writing the code, sending the invoice, and answering the late email.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  I work with founders, marketing leads, and small teams who want a website that feels deliberate. The work is design, brand, and code — end to end, on the same project, by the same hands. The Figma, the React, the Postgres schema, the brand-direction document, the post-launch DNS surprise at 9pm — all me, all the time.
+                  Most clients are founders, marketing leads, and small teams who have outgrown the cheap end of the market and don&apos;t want an agency relationship to manage. The work covers design, brand, and code. The Figma, the React, the Postgres schema, the brand-direction document, the 9pm DNS panic on launch night — same job, same person.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Most projects start with a single 60-minute call, end with a launch four to twelve weeks later, and continue from there. I take on one client at a time so the work gets the attention it deserves.
+                  Projects start with a 60-minute call and ship four to twelve weeks later. One client at a time.
                 </p>
               </div>
             </Reveal>

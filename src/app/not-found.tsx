@@ -7,9 +7,9 @@ export default function NotFound() {
     <Section tone="bg" spacing="heroTop" container="narrow">
       <div className="text-center">
         <Tag>404</Tag>
-        <h1 className="h1 mt-6">Lost in the wilderness.</h1>
+        <h1 className="h1 mt-6">Nothing here.</h1>
         <p className="text-big mt-8 text-[var(--color-text-mute)]">
-          The page you&apos;re looking for doesn&apos;t exist. Let&apos;s get you back on track.
+          The page you&apos;re after doesn&apos;t exist. Try one of these instead.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <ButtonLink href="/" variant="primary" size="lg">

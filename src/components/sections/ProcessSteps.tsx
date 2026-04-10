@@ -6,12 +6,12 @@ const STEPS = [
   {
     n: '01',
     title: 'Discovery',
-    body: 'We start with a 60-min call. You explain the business, the audience, the constraints. I leave with a shape of the work.',
+    body: 'A 60-minute call. You walk me through the business and what you are trying to do. I come away with the shape of the work.',
   },
   {
     n: '02',
     title: 'Direction',
-    body: 'Within a week you get a brand or design direction document — tokens, type, references, the why behind every move.',
+    body: 'Within a week, a brand-direction document covering colours, type, references, and the reasoning behind every choice.',
   },
   {
     n: '03',
@@ -21,7 +21,7 @@ const STEPS = [
   {
     n: '04',
     title: 'Launch & after',
-    body: "Domain, analytics, email, the lot. Then a month of free iteration once you've used the live site with real users.",
+    body: "Domain, analytics, email, the lot. Then a month of free iteration once you have lived with the site.",
   },
 ];
 
@@ -31,7 +31,7 @@ export function ProcessSteps() {
       <div className="mb-12 max-w-2xl md:mb-16">
         <Reveal>
           <Tag>How it works</Tag>
-          <h2 className="h2 mt-6 text-balance">A small process for big outcomes.</h2>
+          <h2 className="h2 mt-6 text-balance">Four phases.</h2>
         </Reveal>
       </div>
 

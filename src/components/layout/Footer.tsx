@@ -39,7 +39,7 @@ export function Footer() {
               <span aria-hidden className="h-3 w-3 rounded-full bg-[var(--color-accent)]" />
             </Link>
             <p className="text-big mt-6 max-w-md text-[var(--color-on-dark-mute)]">
-              Designing, building, and branding modern websites for founders, marketers, and small teams. One project at a time.
+              Independent studio. Web design, development, and brand. One client at a time.
             </p>
             <a
               href="mailto:hello@russle.co.uk"
