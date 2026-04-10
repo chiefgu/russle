@@ -1,3 +1,4 @@
+import type { Viewport } from 'next';
 import { Hero } from '@/components/sections/Hero';
 import { LogoWall } from '@/components/sections/LogoWall';
 import { FeatureGrid } from '@/components/sections/FeatureGrid';
@@ -8,21 +9,40 @@ import { FAQSection } from '@/components/sections/FAQSection';
 import { CTAStrip } from '@/components/sections/CTAStrip';
 import { getAllWork } from '@/lib/mdx';
 
+// Override the layout-level theme-color so the iOS status bar tint matches
+// the coral gradient on the home page only. Picks the leftmost stop of the
+// gradient because that's what sits behind the notch in portrait.
+export const viewport: Viewport = {
+  themeColor: '#F3A183',
+};
+
 export default function HomePage() {
   const work = getAllWork().slice(0, 3);
 
   return (
     <>
       {/*
-        Inject the coral gradient onto <html> so iOS rubber-band scrolling
-        at the top of the page reveals coral instead of the cream default.
-        The same gradient is repeated on the wrapping <div> below so the
-        visible band still ends where it should.
+        Paint the coral gradient onto html AND body so the safe-area insets
+        on iPhone (notch / dynamic island in portrait, bezel in landscape,
+        rubber-band overscroll) all show coral instead of the cream default.
+        The visible band still ends correctly because the wrapping <div>
+        below repeats the gradient and the FeatureGrid below has its own
+        opaque surface background.
+
+        Three layers needed because iOS Safari paints in this order:
+          1. html background  → visible during rubber-band overscroll
+          2. body background  → visible in the viewport area outside any child
+          3. element bg       → visible inside its own paint area
+        Without 1+2, the safe-area inset above the body shows cream.
       */}
       <style
         dangerouslySetInnerHTML={{
-          __html:
-            'html { background: #EC6F66; background: linear-gradient(to right, #F3A183, #EC6F66); }',
+          __html: `
+            html, body {
+              background: #EC6F66;
+              background: linear-gradient(to right, #F3A183, #EC6F66);
+            }
+          `,
         }}
       />
       {/* Coral gradient hero band — Hero + LogoWall sit on one continuous surface */}
