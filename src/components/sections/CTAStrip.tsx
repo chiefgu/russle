@@ -25,9 +25,8 @@ export function CTAStrip({
             </ButtonLink>
             <ButtonLink
               href="/contact#call"
-              variant="secondary"
+              variant="secondary-on-dark"
               size="lg"
-              className="border-[var(--color-on-dark-mute)] text-[var(--color-on-dark)] hover:bg-[var(--color-dark-2)]"
             >
               Book a call
             </ButtonLink>

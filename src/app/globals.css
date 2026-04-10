@@ -92,6 +92,9 @@
    ──────────────────────────────────────────────────────────── */
 @layer base {
   html {
+    /* Background lives on <html> (not body) so iOS rubber-band scrolling
+       picks it up. Per-page overrides target html via injected <style> tags. */
+    background: var(--color-bg);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
   }

@@ -1,9 +1,18 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { GeistMono } from 'geist/font/mono';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import './globals.css';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  // Render edge-to-edge on devices with safe areas (iPhone notch, dynamic island,
+  // bottom home indicator). Lets per-page backgrounds extend behind the bezel.
+  viewportFit: 'cover',
+  themeColor: '#F8F7F5',
+};
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://russle.co.uk';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';

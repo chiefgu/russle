@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
-type Variant = 'primary' | 'accent' | 'secondary' | 'ghost';
+type Variant = 'primary' | 'accent' | 'secondary' | 'secondary-on-dark' | 'ghost';
 type Size = 'md' | 'lg';
 
 type CommonProps = {
@@ -39,6 +39,10 @@ const variants: Record<Variant, string> = {
     'bg-[var(--color-accent)] text-[var(--color-on-accent)] hover:bg-[var(--color-accent-lo)]',
   secondary:
     'border border-[var(--color-line-2)] text-[var(--color-text)] hover:bg-[var(--color-surface)]',
+  // Same as secondary but inverted for use on the dark CTA strip / footer.
+  // Solid 1px border at 64% white, white text, hover lifts to dark-2 fill.
+  'secondary-on-dark':
+    'border border-[var(--color-on-dark-mute)] text-[var(--color-on-dark)] hover:bg-[var(--color-dark-2)]',
   ghost:
     'text-[var(--color-text)] hover:text-[var(--color-accent)] px-2',
 };

@@ -13,6 +13,18 @@ export default function HomePage() {
 
   return (
     <>
+      {/*
+        Inject the coral gradient onto <html> so iOS rubber-band scrolling
+        at the top of the page reveals coral instead of the cream default.
+        The same gradient is repeated on the wrapping <div> below so the
+        visible band still ends where it should.
+      */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html:
+            'html { background: #EC6F66; background: linear-gradient(to right, #F3A183, #EC6F66); }',
+        }}
+      />
       {/* Coral gradient hero band — Hero + LogoWall sit on one continuous surface */}
       <div className="bg-[#EC6F66] bg-gradient-to-r from-[#F3A183] to-[#EC6F66]">
         <Hero />
