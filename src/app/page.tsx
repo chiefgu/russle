@@ -10,10 +10,13 @@ import { CTAStrip } from '@/components/sections/CTAStrip';
 import { getAllWork } from '@/lib/mdx';
 
 // Override the layout-level theme-color so the iOS status bar tint matches
-// the coral gradient on the home page only. Picks the leftmost stop of the
-// gradient because that's what sits behind the notch in portrait.
+// the coral gradient on the home page only. iOS theme-color can only be a
+// single colour, never a gradient — so we pick the visual midpoint of the
+// gradient (#F3A183 → #EC6F66 averages to ~#EF8875) so the safe-area strip
+// reads as a continuation of the band underneath the navbar instead of a
+// flat slab.
 export const viewport: Viewport = {
-  themeColor: '#F3A183',
+  themeColor: '#EF8875',
 };
 
 export default function HomePage() {

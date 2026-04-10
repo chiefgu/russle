@@ -46,8 +46,13 @@ export function Navbar() {
       data-scrolled={isOnFill ? 'true' : 'false'}
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        // When scrolled: a translucent dark tint + heavy blur. Picks up
+        // whatever colour is behind it (cream on most pages, coral on the
+        // home gradient) instead of forcing a cream fill that fights the
+        // underlying surface. The 8% black dims the background just enough
+        // to maintain text contrast on light AND coral.
         isOnFill
-          ? 'bg-[var(--color-bg)]/95 backdrop-blur-md border-b border-[var(--color-line)]'
+          ? 'bg-black/[0.06] backdrop-blur-xl backdrop-saturate-150 border-b border-[var(--color-line)]'
           : 'bg-transparent',
       )}
     >
@@ -100,7 +105,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — opaque so dropdown content doesn't bleed through */}
       {open && (
         <div className="border-t border-[var(--color-line)] bg-[var(--color-bg)] md:hidden">
           <nav className="flex flex-col gap-2 px-4 py-8 sm:px-6">
