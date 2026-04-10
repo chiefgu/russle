@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
@@ -38,6 +38,20 @@ export async function generateMetadata({
   };
 }
 
+// Per-route theme-color so the iOS notch tint matches the case study's
+// brand backdrop. Same colour as the navbar, same colour as the hero.
+export async function generateViewport({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Viewport> {
+  const { slug } = await params;
+  const post = getWorkBySlug(slug);
+  return {
+    themeColor: post?.backdropColor || '#F8F7F5',
+  };
+}
+
 export default async function WorkDetailPage({
   params,
 }: {
@@ -60,24 +74,31 @@ export default async function WorkDetailPage({
       ? 'text-[var(--color-on-dark-mute)]'
       : 'text-[var(--color-text-mute)]';
 
-  // When the case study hero is dark (light text on dark backdrop), the
-  // navbar's default dark text becomes invisible while sitting transparently
-  // over the hero. Override the navbar text variables — but only for the
-  // un-scrolled state, so the cream-filled scrolled state still uses dark text.
-  const navOverride =
-    post.backdropTone === 'light'
-      ? `header[data-navbar][data-scrolled="false"] {
-          --nav-text: var(--color-on-dark);
-          --nav-text-mute: var(--color-on-dark-mute);
-          --nav-border: rgba(248, 247, 245, 0.20);
-        }`
-      : null;
+  // The navbar is solid and matches the case study backdrop on every page.
+  // We set --nav-bg here, plus html/body so the iPhone safe-area / rubber-
+  // band insets pick up the same colour as the navbar and the hero.
+  // On dark backdrops we also flip the navbar text to the on-dark tokens.
+  const navOverride = `
+    html, body {
+      background: ${post.backdropColor};
+    }
+    :root {
+      --nav-bg: ${post.backdropColor};
+    }
+    ${
+      post.backdropTone === 'light'
+        ? `header[data-navbar] {
+             --nav-text: var(--color-on-dark);
+             --nav-text-mute: var(--color-on-dark-mute);
+             --nav-border: rgba(248, 247, 245, 0.20);
+           }`
+        : ''
+    }
+  `;
 
   return (
     <>
-      {navOverride && (
-        <style dangerouslySetInnerHTML={{ __html: navOverride }} />
-      )}
+      <style dangerouslySetInnerHTML={{ __html: navOverride }} />
       {/* Backdrop hero — full-bleed brand colour with project hero crop */}
       <ProjectBackdrop
         backdropColor={post.backdropColor}

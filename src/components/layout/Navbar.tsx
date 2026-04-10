@@ -14,16 +14,8 @@ const NAV_LINKS = [
 ];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -38,22 +30,16 @@ export function Navbar() {
     };
   }, [open]);
 
-  const isOnFill = scrolled || open;
-
   return (
     <header
       data-navbar
-      data-scrolled={isOnFill ? 'true' : 'false'}
+      // Solid background that matches the page hero. Each page sets
+      // --nav-bg via an injected style tag (see app/page.tsx and
+      // app/work/[slug]/page.tsx). Defaults to cream for any page that
+      // doesn't override.
+      style={{ background: 'var(--nav-bg, var(--color-bg))' }}
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        // When scrolled: a translucent dark tint + heavy blur. Picks up
-        // whatever colour is behind it (cream on most pages, coral on the
-        // home gradient) instead of forcing a cream fill that fights the
-        // underlying surface. The 8% black dims the background just enough
-        // to maintain text contrast on light AND coral.
-        isOnFill
-          ? 'bg-black/[0.06] backdrop-blur-xl backdrop-saturate-150 border-b border-[var(--color-line)]'
-          : 'bg-transparent',
+        'fixed inset-x-0 top-0 z-50',
       )}
     >
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-4 py-5 sm:px-6 md:px-8">
