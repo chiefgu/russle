@@ -9,13 +9,10 @@ import { FAQSection } from '@/components/sections/FAQSection';
 import { CTAStrip } from '@/components/sections/CTAStrip';
 import { getAllWork } from '@/lib/mdx';
 
-// Override the layout-level theme-color so the iOS status bar tint matches
-// the navbar on the home page. The navbar uses the same coral gradient as
-// the hero, but iOS theme-color can only be a single colour — so we pick
-// the visual midpoint of the gradient (~#EF8875). The notch tint and the
-// solid navbar are within a tone of each other, no visible seam.
+// Solid peach navbar + matching notch on the home page. Same colour, no
+// gradient, no mismatch.
 export const viewport: Viewport = {
-  themeColor: '#EF8875',
+  themeColor: '#F3A183',
 };
 
 export default function HomePage() {
@@ -24,27 +21,19 @@ export default function HomePage() {
   return (
     <>
       {/*
-        Three things in one style block:
-
-        1. Paint the coral gradient onto html AND body so iPhone safe-area
-           insets (notch in portrait, bezel in landscape, rubber-band
-           overscroll) all show coral instead of the cream default.
-
-        2. Set --nav-bg to the same gradient so the solid navbar disappears
-           into the hero band. The navbar reads var(--nav-bg) at runtime.
-
-        3. The notch theme-color is set separately via the viewport export
-           above (single colour, gradient midpoint).
+        Solid peach navbar + matching notch + matching html/body
+        background. The hero gradient sits BELOW the navbar inside
+        its own wrapping <div>, so the gradient still shows in the
+        hero band but the navbar above it is a single flat colour.
       */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
             html, body {
-              background: #EC6F66;
-              background: linear-gradient(to right, #F3A183, #EC6F66);
+              background: #F3A183;
             }
             :root {
-              --nav-bg: linear-gradient(to right, #F3A183, #EC6F66);
+              --nav-bg: #F3A183;
             }
           `,
         }}
