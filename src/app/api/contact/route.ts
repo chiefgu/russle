@@ -67,15 +67,25 @@ export async function POST(request: Request) {
     .join('\n');
 
   try {
-    await resend.emails.send({
+    const result = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       replyTo: email,
       subject,
       text,
     });
+    // The Resend SDK returns { data, error } and does NOT throw on rejection.
+    // We have to inspect the response or silent failures slip through.
+    if (result.error) {
+      console.error('[contact] Resend rejected the send:', result.error);
+      return NextResponse.json(
+        { error: `Email failed to send: ${result.error.message}` },
+        { status: 502 },
+      );
+    }
+    console.log('[contact] sent:', result.data?.id);
   } catch (err) {
-    console.error('[contact] Resend error', err);
+    console.error('[contact] Resend threw:', err);
     return NextResponse.json({ error: 'Email failed to send.' }, { status: 502 });
   }
 

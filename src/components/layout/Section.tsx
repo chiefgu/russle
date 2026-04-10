@@ -1,7 +1,7 @@
 import { cn } from '@/lib/cn';
 import { Container } from './Container';
 
-type Tone = 'bg' | 'surface' | 'dark';
+type Tone = 'bg' | 'surface' | 'dark' | 'transparent';
 type Spacing = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'heroTop';
 
 type SectionProps = {
@@ -18,6 +18,9 @@ const toneClasses: Record<Tone, string> = {
   bg: 'bg-[var(--color-bg)] text-[var(--color-text)]',
   surface: 'bg-[var(--color-surface)] text-[var(--color-text)]',
   dark: 'bg-[var(--color-dark)] text-[var(--color-on-dark)]',
+  // Inherits parent background. Use when the parent wraps Section in a
+  // custom-coloured container (e.g. the home page coral gradient hero band).
+  transparent: 'text-[var(--color-text)]',
 };
 
 const spacingClasses: Record<Spacing, string> = {

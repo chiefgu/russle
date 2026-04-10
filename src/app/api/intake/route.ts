@@ -150,15 +150,23 @@ export async function POST(request: Request) {
   }
 
   try {
-    await resend.emails.send({
+    const result = await resend.emails.send({
       from: EMAIL_FROM,
       to: EMAIL_TO,
       replyTo: data.client_email,
       subject,
       text: brief,
     });
+    if (result.error) {
+      console.error('[intake] Resend rejected the send:', result.error);
+      return NextResponse.json(
+        { error: `Email failed to send: ${result.error.message}` },
+        { status: 502 },
+      );
+    }
+    console.log('[intake] sent:', result.data?.id);
   } catch (err) {
-    console.error('[intake] Resend error', err);
+    console.error('[intake] Resend threw:', err);
     return NextResponse.json({ error: 'Email failed to send.' }, { status: 502 });
   }
 

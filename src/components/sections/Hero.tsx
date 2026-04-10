@@ -5,7 +5,7 @@ import { Reveal, Stagger, StaggerItem } from '@/components/animations/Reveal';
 
 export function Hero() {
   return (
-    <Section tone="bg" spacing="heroTop" container="main">
+    <Section tone="transparent" spacing="heroTop" container="main">
       <div className="mx-auto max-w-5xl text-center">
         <Reveal>
           <Tag tone="default">Independent studio</Tag>
@@ -25,7 +25,7 @@ export function Hero() {
 
         <Reveal delay={0.25}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink href="/start" variant="accent" size="lg" withArrow>
+            <ButtonLink href="/start" variant="primary" size="lg" withArrow>
               Start a project
             </ButtonLink>
             <ButtonLink href="/work" variant="secondary" size="lg">

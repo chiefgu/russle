@@ -13,7 +13,7 @@ export function LogoWall() {
   if (work.length === 0) return null;
 
   return (
-    <Section tone="bg" spacing="s" container="main">
+    <Section tone="transparent" spacing="s" container="main">
       <Reveal>
         <p className="label text-center text-[var(--color-text-soft)]">
           Recent work
