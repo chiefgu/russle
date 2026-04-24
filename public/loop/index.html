@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>loop · brand proposal for Sophie</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Manrope:wght@400;500;600&display=swap"
+/>
+<style>
+  :root {
+    /* Bloom palette. This IS the brand. */
+    --primary:   #C2544D;
+    --secondary: #8B2F2A;
+    --accent:    #F3C9BD;
+    --bg:        #FAF6F1;
+    --bg-alt:    #EFE4D8;
+    --fg:        #1A1412;
+    --fg-muted:  #6C5F59;
+    --border:    #E7DBCE;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--fg);
+    font-family: "Manrope", -apple-system, sans-serif;
+    font-size: 15px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell { max-width: 1280px; margin: 0 auto; padding: 80px 48px 120px; }
+
+  /* --- header --- */
+  .header-eyebrow {
+    font-family: "Manrope", sans-serif;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--primary); font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .header-title {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 400; font-size: 72px;
+    line-height: 1.02; margin: 0 0 24px; letter-spacing: -0.015em;
+    color: var(--fg);
+  }
+  .header-title em { font-style: italic; }
+  .intro-note {
+    font-family: "Manrope", sans-serif;
+    font-size: 17px; line-height: 1.65;
+    color: var(--fg);
+    max-width: 680px;
+    margin: 0 0 40px;
+  }
+  .intro-note p { margin: 0 0 18px; }
+  .intro-note p:last-child { margin-bottom: 0; }
+  .intro-signature {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic; font-weight: 400;
+    font-size: 22px;
+    color: var(--primary);
+  }
+
+  /* --- section --- */
+  section { margin-top: 96px; }
+  .section-eyebrow {
+    font-family: "Manrope", sans-serif;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 400; font-size: 40px;
+    line-height: 1.05; margin: 0 0 28px; letter-spacing: -0.005em;
+    color: var(--fg);
+  }
+  .section-title em { font-style: italic; }
+  .section-body {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px; line-height: 1.65;
+    color: var(--fg);
+    max-width: 640px;
+    margin: 0 0 32px;
+  }
+  .section-body p { margin: 0 0 14px; }
+  .section-body p:last-child { margin-bottom: 0; }
+  .divider {
+    border: 0; height: 1px; background: var(--border);
+    margin: 96px 0 0;
+  }
+
+  /* --- palette --- */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+  .swatch {
+    aspect-ratio: 1;
+    padding: 18px 20px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border-right: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-family: "Manrope", sans-serif;
+  }
+  .swatch .label {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 600;
+  }
+  .swatch .hex {
+    font-family: ui-monospace, "SF Mono", monospace;
+    font-size: 13px; font-weight: 500;
+  }
+  .sw-primary   { background: var(--primary);   color: var(--bg); }
+  .sw-secondary { background: var(--secondary); color: var(--bg); }
+  .sw-accent    { background: var(--accent);    color: var(--fg); }
+  .sw-bg        { background: var(--bg);        color: var(--fg); }
+  .sw-bg-alt    { background: var(--bg-alt);    color: var(--fg); }
+  .sw-fg        { background: var(--fg);        color: var(--bg); }
+  .sw-muted     { background: var(--fg-muted);  color: var(--bg); }
+  .sw-border    { background: var(--border);    color: var(--fg); }
+
+  /* --- typography specimen --- */
+  .type-specimen {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 56px 56px;
+  }
+  .type-specimen .spec-eyebrow {
+    font-family: "Manrope", sans-serif;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .type-specimen .spec-headline {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 400; font-size: 52px;
+    line-height: 1.06; letter-spacing: -0.005em;
+    color: var(--fg);
+    margin: 0 0 22px;
+  }
+  .type-specimen .spec-headline em { font-style: italic; }
+  .type-specimen .spec-subhead {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic; font-weight: 400; font-size: 22px;
+    line-height: 1.5;
+    color: var(--fg-muted);
+    margin: 0 0 28px;
+    max-width: 620px;
+  }
+  .type-specimen .spec-body {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px; line-height: 1.65;
+    color: var(--fg);
+    max-width: 620px;
+    margin: 0 0 28px;
+  }
+  .type-specimen .spec-cta {
+    display: inline-block;
+    background: var(--primary); color: var(--bg);
+    font-family: "Manrope", sans-serif;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 14px 26px;
+    margin-right: 12px;
+  }
+  .type-specimen .spec-cta-ghost {
+    display: inline-block;
+    border: 1px solid var(--fg); color: var(--fg);
+    font-family: "Manrope", sans-serif;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 13px 25px;
+  }
+
+  .type-ladder {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px 40px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-family: "Manrope", sans-serif;
+  }
+  .type-ladder .role {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 600;
+    padding-top: 6px;
+  }
+  .type-ladder .sample { font-family: "Newsreader", Georgia, serif; color: var(--fg); line-height: 1; margin-bottom: 8px; }
+  .type-ladder .sample-sans { font-family: "Manrope", sans-serif; color: var(--fg); margin-bottom: 8px; }
+
+  /* --- wordmark hero --- */
+  .wordmark-hero {
+    border: 1px solid var(--border);
+    aspect-ratio: 16 / 7;
+    background: var(--primary);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .wordmark-hero svg { width: 100%; height: 100%; display: block; }
+  .wordmark-hero .label {
+    position: absolute; left: 24px; top: 20px;
+    font-family: "Manrope", sans-serif;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.7); font-weight: 600;
+  }
+
+  .wordmark-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .wordmark-tile {
+    border: 1px solid var(--border);
+    aspect-ratio: 800 / 320;
+    position: relative; overflow: hidden;
+  }
+  .wordmark-tile svg { width: 100%; height: 100%; display: block; }
+  .wordmark-tile.bg-paper { background: var(--bg); }
+  .wordmark-tile.bg-espresso { background: var(--fg); }
+  .wordmark-tile.bg-blush { background: var(--accent); }
+  .wordmark-tile .tile-label {
+    position: absolute; left: 14px; top: 12px;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(0,0,0,0.45); font-weight: 600;
+  }
+  .wordmark-tile.dark .tile-label { color: rgba(255,255,255,0.65); }
+
+  /* --- monogram row --- */
+  .monogram-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .monogram-tile {
+    border: 1px solid var(--border);
+    aspect-ratio: 1;
+    position: relative; overflow: hidden;
+  }
+  .monogram-tile svg { width: 100%; height: 100%; display: block; }
+  .monogram-tile .tile-label {
+    position: absolute; left: 12px; bottom: 12px;
+    font-family: "Manrope", sans-serif;
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.8); font-weight: 600;
+  }
+
+  /* --- the hero mock (system in context) --- */
+  .context-hero {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .context-hero::before {
+    /* Warm paper wash with subtle gradient */
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, var(--bg) 0%, #F5EEDF 60%, var(--accent) 130%);
+    z-index: 0;
+  }
+  .context-hero .c-nav {
+    position: relative; z-index: 3;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 26px 44px;
+    border-bottom: 1px solid rgba(230, 220, 205, 0.5);
+  }
+  .context-hero .c-wm svg { height: 42px; display: block; }
+  .context-hero .c-nav-links {
+    display: flex; gap: 32px;
+    font-family: "Manrope", sans-serif;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--fg);
+  }
+  .context-hero .c-nav-cta {
+    display: inline-block;
+    background: var(--primary); color: var(--bg);
+    font-family: "Manrope", sans-serif;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 12px 22px;
+  }
+  .context-hero .c-watermark {
+    position: absolute; z-index: 1;
+    inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none;
+    opacity: 0.18;
+  }
+  .context-hero .c-watermark svg { width: 36%; height: auto; }
+  .context-hero .c-body {
+    position: relative; z-index: 2;
+    padding: 70px 72px;
+    max-width: 620px;
+  }
+  .context-hero .c-crumb {
+    font-family: "Manrope", sans-serif;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--fg-muted); font-weight: 600;
+    margin-bottom: 22px;
+  }
+  .context-hero .c-headline {
+    font-family: "Newsreader", Georgia, serif;
+    font-weight: 400; font-size: 54px;
+    line-height: 1.05; letter-spacing: -0.01em;
+    color: var(--fg);
+    margin: 0 0 18px;
+  }
+  .context-hero .c-headline em { font-style: italic; }
+  .context-hero .c-desc {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px; line-height: 1.6;
+    color: #3c3530;
+    margin: 0 0 28px;
+    max-width: 540px;
+  }
+  .context-hero .c-cta-row { display: flex; gap: 12px; align-items: center; }
+  .context-hero .c-cta {
+    display: inline-block;
+    background: var(--primary); color: var(--bg);
+    font-family: "Manrope", sans-serif;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 14px 26px;
+  }
+  .context-hero .c-cta-ghost {
+    display: inline-block;
+    color: var(--fg);
+    font-family: "Manrope", sans-serif;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 14px 4px;
+  }
+
+  /* --- usage contexts (ported from V2 dark grounds) --- */
+  .contexts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .ctx {
+    border: 1px solid var(--border);
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+    background: #2a2a2e;
+  }
+  .ctx .ctx-label {
+    position: absolute; left: 16px; top: 14px;
+    font-family: "Manrope", sans-serif;
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); font-weight: 600;
+    z-index: 2;
+  }
+
+  /* Home screen mock */
+  .ctx.home {
+    background: linear-gradient(160deg, #4a2b24 0%, #1f1512 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ctx.home .icon-wrap {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .ctx.home .app-icon {
+    width: 128px; height: 128px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+  }
+  .ctx.home .app-icon svg { width: 100%; height: 100%; display: block; }
+  .ctx.home .app-name {
+    color: rgba(255,255,255,0.88);
+    font-family: "Manrope", sans-serif;
+    font-size: 14px; font-weight: 500;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* Browser tab mock */
+  .ctx.tab {
+    background: #2a2a2e;
+    display: flex; flex-direction: column;
+  }
+  .ctx.tab .chrome {
+    background: #3a3a40;
+    height: 36px;
+    display: flex; align-items: center; gap: 8px;
+    padding: 0 12px;
+  }
+  .ctx.tab .dots { display: flex; gap: 6px; }
+  .ctx.tab .dot { width: 10px; height: 10px; border-radius: 50%; background: #555; }
+  .ctx.tab .tab-strip {
+    background: #232328;
+    height: 36px;
+    display: flex; align-items: flex-end;
+    padding-left: 80px;
+  }
+  .ctx.tab .tab-real {
+    display: flex; align-items: center; gap: 8px;
+    background: #2a2a2e;
+    padding: 6px 14px 6px 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .ctx.tab .tab-real .favicon {
+    width: 16px; height: 16px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .ctx.tab .tab-real .tab-title {
+    font-family: "Manrope", sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+  }
+  .ctx.tab .body { flex: 1; background: #1a1a1f; }
+
+  /* Social avatar mock */
+  .ctx.avatar {
+    background: linear-gradient(180deg, #2a2a2e 0%, #17171a 100%);
+    display: flex; align-items: center; justify-content: flex-start;
+    padding: 24px;
+    gap: 14px;
+  }
+  .ctx.avatar .pic {
+    width: 72px; height: 72px; border-radius: 50%; overflow: hidden;
+    flex-shrink: 0;
+  }
+  .ctx.avatar .pic svg { width: 100%; height: 100%; display: block; }
+  .ctx.avatar .avatar-meta {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .ctx.avatar .handle-row {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .ctx.avatar .handle {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-style: italic; font-weight: 400; font-size: 22px;
+    color: rgba(255,255,255,0.92);
+  }
+  .ctx.avatar .verified { color: #C2544D; font-size: 14px; }
+  .ctx.avatar .avatar-sub {
+    font-family: "Manrope", sans-serif; font-size: 12px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* --- outro --- */
+  .outro {
+    margin-top: 120px;
+    padding: 56px 0 0;
+    border-top: 1px solid var(--border);
+  }
+  .outro .line-1 {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic; font-weight: 400;
+    font-size: 32px; line-height: 1.3;
+    color: var(--primary);
+    margin: 0 0 14px;
+    max-width: 640px;
+  }
+  .outro .line-2 {
+    font-family: "Manrope", sans-serif;
+    font-size: 16px; line-height: 1.6;
+    color: var(--fg);
+    max-width: 620px;
+  }
+  .outro .signoff {
+    margin-top: 40px;
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic; font-size: 22px;
+    color: var(--primary);
+  }
+
+  /* ==========================================================
+     RESPONSIVE — mobile & tablet
+     ========================================================== */
+  @media (max-width: 880px) {
+    .shell { padding: 56px 24px 80px; }
+
+    /* Header */
+    .header-title { font-size: 48px; line-height: 1.04; }
+    .intro-note { font-size: 16px; }
+    .intro-note p { margin-bottom: 14px; }
+
+    /* Sections */
+    section { margin-top: 72px; }
+    .section-title { font-size: 30px; }
+    .section-body { font-size: 15px; }
+    .divider { margin: 72px 0 0; }
+
+    /* Palette — 4 cols → 2 cols */
+    .palette-grid { grid-template-columns: repeat(2, 1fr); }
+    .swatch { padding: 14px 16px; }
+
+    /* Type specimen */
+    .type-specimen { padding: 32px 24px; }
+    .type-specimen .spec-headline { font-size: 34px; }
+    .type-specimen .spec-subhead { font-size: 18px; }
+    .type-specimen .spec-body { font-size: 15px; }
+    .type-specimen .spec-cta,
+    .type-specimen .spec-cta-ghost { display: inline-block; margin-bottom: 8px; }
+
+    /* Type ladder — collapse to single column stacked */
+    .type-ladder { grid-template-columns: 1fr; gap: 6px 0; margin-top: 28px; padding-top: 28px; }
+    .type-ladder .role { padding-top: 14px; }
+    .type-ladder .role:first-child { padding-top: 0; }
+
+    /* Wordmark row — 3 cols → 1 col */
+    .wordmark-row { grid-template-columns: 1fr; gap: 12px; }
+
+    /* Monogram row — 4 cols → 2 cols */
+    .monogram-row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+    /* Usage contexts — 3 cols → 1 col (stack all for readability) */
+    .contexts { grid-template-columns: 1fr; gap: 12px; }
+    .ctx { aspect-ratio: 16 / 10; }
+
+    /* In-context hero mock — relax aspect, shrink paddings */
+    .context-hero { aspect-ratio: auto; min-height: 460px; }
+    .context-hero .c-nav {
+      padding: 16px 20px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .context-hero .c-nav-links { display: none; }
+    .context-hero .c-wm svg { height: 32px; }
+    .context-hero .c-nav-cta { font-size: 10px; padding: 8px 14px; letter-spacing: 0.1em; }
+    .context-hero .c-body {
+      padding: 44px 24px 56px;
+      max-width: 100%;
+    }
+    .context-hero .c-headline { font-size: 32px; }
+    .context-hero .c-desc { font-size: 15px; }
+    .context-hero .c-cta,
+    .context-hero .c-cta-ghost { font-size: 12px; padding: 12px 18px; letter-spacing: 0.1em; }
+    .context-hero .c-watermark svg { width: 70%; }
+
+    /* Outro */
+    .outro .line-1 { font-size: 24px; }
+    .outro .line-2 { font-size: 15px; }
+    .outro .signoff { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .shell { padding: 40px 16px 64px; }
+
+    .header-eyebrow { font-size: 11px; letter-spacing: 0.18em; }
+    .header-title { font-size: 38px; }
+    .intro-note { font-size: 15px; }
+
+    section { margin-top: 56px; }
+    .section-title { font-size: 26px; }
+    .section-eyebrow { font-size: 10px; letter-spacing: 0.18em; }
+
+    /* Palette — 2 cols stays (4 rows of 2 at phone width) */
+    .palette-grid { grid-template-columns: repeat(2, 1fr); }
+    .swatch .label { font-size: 10px; }
+    .swatch .hex { font-size: 11px; }
+
+    /* Type specimen — further shrink */
+    .type-specimen { padding: 24px 18px; }
+    .type-specimen .spec-headline { font-size: 26px; }
+    .type-specimen .spec-subhead { font-size: 16px; }
+    .type-specimen .spec-body { font-size: 14px; }
+
+    /* Monogram — stays 2 cols */
+    .monogram-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+    /* Wordmark row stays 1 col */
+
+    /* Context hero — tighter */
+    .context-hero { min-height: 400px; }
+    .context-hero .c-nav { padding: 14px 18px; }
+    .context-hero .c-wm svg { height: 28px; }
+    .context-hero .c-body { padding: 36px 20px 48px; }
+    .context-hero .c-headline { font-size: 26px; }
+    .context-hero .c-desc { font-size: 14px; }
+
+    /* Usage contexts on small phone: keep app-icon prominent */
+    .ctx { aspect-ratio: 4 / 3; }
+    .ctx.home .app-icon { width: 104px; height: 104px; border-radius: 23px; }
+    .ctx.avatar .pic { width: 60px; height: 60px; }
+    .ctx.avatar .handle { font-size: 20px; }
+    .ctx.avatar .avatar-sub { font-size: 11px; }
+
+    /* Outro */
+    .outro { margin-top: 80px; padding-top: 40px; }
+    .outro .line-1 { font-size: 22px; }
+    .outro .line-2 { font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <div class="header-eyebrow">brand proposal · thursday</div>
+  <h1 class="header-title">Helllooo <em>Soph</em>, here's where i've landed.</h1>
+
+  <div class="intro-note">
+    <p>Chucked everything onto one page so you can see it all together before i start the build. Have a scroll, tell me if anything's off, and once you're happy i'll crack on with the waitlist site for mid-may.</p>
+    <p>Five bits to look at: colour, type, the wordmark, the app icon, and a quick mock of how the site might feel. Whole page is sitting on the paper that'll actually be the site background, so what you're looking at is basically the real thing.</p>
+  </div>
+  <div class="intro-signature">H</div>
+
+  <!-- ============================================================
+       COLOUR
+       ============================================================ -->
+  <section>
+    <div class="section-eyebrow">01 · colour</div>
+    <h2 class="section-title"><em>Bloom</em>. warm paper and a terracotta red.</h2>
+    <div class="section-body">
+      <p>Went with warm paper and a terracotta red instead of full pink. Gets us closer to that sheerluxe editorial feel you wanted without tipping into beauty brand. Warmer than plain black and white, a bit quieter than a straight red, and the espresso text keeps it grown up.</p>
+      <p>Blush and sand are the two softer tones for alt sections and badges, so the site doesn't end up all one colour. Everything you're looking at on this page is already in the palette, so what you see is basically what you'd get.</p>
+    </div>
+    <div class="palette-grid">
+      <div class="swatch sw-primary"><span class="label">Primary</span><span class="hex">#C2544D</span></div>
+      <div class="swatch sw-secondary"><span class="label">Secondary</span><span class="hex">#8B2F2A</span></div>
+      <div class="swatch sw-accent"><span class="label">Accent · Blush</span><span class="hex">#F3C9BD</span></div>
+      <div class="swatch sw-bg"><span class="label">Canvas · Paper</span><span class="hex">#FAF6F1</span></div>
+      <div class="swatch sw-bg-alt"><span class="label">Alt · Sand</span><span class="hex">#EFE4D8</span></div>
+      <div class="swatch sw-fg"><span class="label">Text · Espresso</span><span class="hex">#1A1412</span></div>
+      <div class="swatch sw-muted"><span class="label">Muted</span><span class="hex">#6C5F59</span></div>
+      <div class="swatch sw-border"><span class="label">Border</span><span class="hex">#E7DBCE</span></div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ============================================================
+       TYPE
+       ============================================================ -->
+  <section>
+    <div class="section-eyebrow">02 · typography</div>
+    <h2 class="section-title"><em>Newsreader</em> for headings, Manrope for everything else.</h2>
+    <div class="section-body">
+      <p>Newsreader's the serif. Feels more like an indie magazine than a wedding invite, which is what we want. It'll do the hero headlines and any italic pullquotes from your manifesto. Manrope handles everything else, body copy, buttons, nav, forms. Clean but not cold.</p>
+      <p>Both are free from google fonts so no faff with licensing. This whole page is set in them, so you're reading the actual thing. The italic you're reading right now is how the manifesto italics would look.</p>
+    </div>
+
+    <div class="type-specimen">
+      <div class="spec-eyebrow">Sample hero block</div>
+      <h3 class="spec-headline">Show up for <em>each other</em>, in real life.</h3>
+      <p class="spec-subhead">Small prompts. Real-world moments. The people you know turning into the people you actually see.</p>
+      <p class="spec-body">
+        Loop is a simple idea. Friendships drift not from lack of care, but from lack of structure and time and the little prompts that say <em>go, show up, be there.</em> We're building the thing that makes that step feel easy again, starting with a website, a waitlist, and a handful of events in Byron, Newcastle and the Sunshine Coast.
+      </p>
+      <span class="spec-cta">Join the loop</span>
+      <span class="spec-cta-ghost">Read the manifesto</span>
+
+      <div class="type-ladder">
+        <div class="role">H1 · Newsreader 52/400</div>
+        <div><span class="sample" style="font-size:52px;">Show up for each other.</span></div>
+        <div class="role">H2 · Newsreader 34/400</div>
+        <div><span class="sample" style="font-size:34px;">A better loop.</span></div>
+        <div class="role">Italic pullquote</div>
+        <div><span class="sample" style="font-size:22px; font-style:italic;">Turning intention into action.</span></div>
+        <div class="role">Body · Manrope 16/400</div>
+        <div><span class="sample-sans" style="font-size:16px;">Loop is a simple idea. The people you know turning into the people you actually see.</span></div>
+        <div class="role">UI · Manrope 13/500 caps</div>
+        <div><span class="sample-sans" style="font-size:13px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;">Join the loop</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ============================================================
+       WORDMARK
+       ============================================================ -->
+  <section>
+    <div class="section-eyebrow">03 · wordmark</div>
+    <h2 class="section-title">The <em>italic l</em> stayed, the rest is upright.</h2>
+    <div class="section-body">
+      <p>Kept the italic l since you liked it. Paired it with a normal upright oop. The swash on the l does the character bit, the oop keeps it readable. Little gap after the l so the swash has room to breathe into the first o without crashing into it. Instrument Serif throughout.</p>
+      <p>Works on primary, on paper, on espresso. Three grounds we'd actually use in production below.</p>
+    </div>
+
+    <div class="wordmark-hero">
+      <span class="label">Primary wordmark · Paper on Primary</span>
+      <svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <rect fill="#C2544D" x="0" y="0" width="800" height="350" />
+        <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="280" fill="#FAF6F1"
+              x="400" y="240" text-anchor="middle" letter-spacing="-11"><tspan font-style="italic" dx="0">l</tspan><tspan dx="10">oop</tspan></text>
+      </svg>
+    </div>
+
+    <div class="wordmark-row">
+      <div class="wordmark-tile bg-paper">
+        <span class="tile-label">Primary on Paper</span>
+        <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="280" fill="#C2544D" x="400" y="224" text-anchor="middle" letter-spacing="-11"><tspan font-style="italic" dx="0">l</tspan><tspan dx="10">oop</tspan></text>
+        </svg>
+      </div>
+      <div class="wordmark-tile bg-espresso dark">
+        <span class="tile-label">Primary on Espresso</span>
+        <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="280" fill="#C2544D" x="400" y="224" text-anchor="middle" letter-spacing="-11"><tspan font-style="italic" dx="0">l</tspan><tspan dx="10">oop</tspan></text>
+        </svg>
+      </div>
+      <div class="wordmark-tile bg-blush">
+        <span class="tile-label">Primary on Blush</span>
+        <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="280" fill="#C2544D" x="400" y="224" text-anchor="middle" letter-spacing="-11"><tspan font-style="italic" dx="0">l</tspan><tspan dx="10">oop</tspan></text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ============================================================
+       MONOGRAM / APP ICON
+       ============================================================ -->
+  <section>
+    <div class="section-eyebrow">04 · app icon · monogram</div>
+    <h2 class="section-title">Two stacked <em>o</em>'s for the square spaces.</h2>
+    <div class="section-body">
+      <p>For anywhere the full word doesn't fit, app icon, insta profile pic, favicon, I've gone with the two rotated o's stacked. They overlap enough that it doesn't look like a figure 8, and the rotation kills any remaining infinity vibes. Double-o is kinda the motif now, there's a loop literally inside the letters.</p>
+      <p>Four grounds first, then a quick mock of how it'd look on your phone, in a browser tab, and as an insta profile pic.</p>
+    </div>
+
+    <div class="monogram-row">
+      <div class="monogram-tile">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#C2544D" x="0" y="0" width="512" height="512" />
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+        </svg>
+        <span class="tile-label">Paper on Primary</span>
+      </div>
+      <div class="monogram-tile">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#1A1412" x="0" y="0" width="512" height="512" />
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+        </svg>
+        <span class="tile-label">Paper on Espresso</span>
+      </div>
+      <div class="monogram-tile">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#8B2F2A" x="0" y="0" width="512" height="512" />
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#F3C9BD" x="256" y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#F3C9BD" x="256" y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+        </svg>
+        <span class="tile-label">Blush on Secondary</span>
+      </div>
+      <div class="monogram-tile">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#1A1412" x="0" y="0" width="512" height="512" />
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#C2544D" x="256" y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#C2544D" x="256" y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+        </svg>
+        <span class="tile-label">Primary on Espresso</span>
+      </div>
+    </div>
+
+    <!-- Usage contexts: home screen, browser tab, social avatar -->
+    <div class="contexts">
+
+      <!-- Home screen app icon -->
+      <div class="ctx home">
+        <span class="ctx-label">Home screen · iOS</span>
+        <div class="icon-wrap">
+          <div class="app-icon">
+            <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <rect fill="#C2544D" x="0" y="0" width="512" height="512" />
+              <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+              <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+            </svg>
+          </div>
+          <div class="app-name">loop</div>
+        </div>
+      </div>
+
+      <!-- Browser tab favicon -->
+      <div class="ctx tab">
+        <span class="ctx-label">Browser tab · favicon</span>
+        <div class="chrome">
+          <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
+        <div class="tab-strip">
+          <div class="tab-real">
+            <div class="favicon">
+              <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <rect fill="#1A1412" x="0" y="0" width="512" height="512" />
+                <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+                <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+              </svg>
+            </div>
+            <span class="tab-title">loop, find your people</span>
+          </div>
+        </div>
+        <div class="body"></div>
+      </div>
+
+      <!-- Social avatar -->
+      <div class="ctx avatar">
+        <span class="ctx-label">Social · avatar</span>
+        <div class="pic">
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <rect fill="#C2544D" x="0" y="0" width="512" height="512" />
+            <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+            <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#FAF6F1" x="256" y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+          </svg>
+        </div>
+        <div class="avatar-meta">
+          <div class="handle-row">
+            <span class="handle">loop</span>
+            <span class="verified">●</span>
+          </div>
+          <span class="avatar-sub">@hereinloop · 842 following</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ============================================================
+       SYSTEM IN CONTEXT
+       ============================================================ -->
+  <section>
+    <div class="section-eyebrow">05 · in context</div>
+    <h2 class="section-title">How the top of <em>loop.[tld]</em> could land.</h2>
+    <div class="section-body">
+      <p>Rough mock of what the top of the site might look like with everything doing its job together. Wordmark top-left, giant monogram as a watermark behind, headline in newsreader italic, body in manrope, terracotta button. Nothing final, just so you can see it breathing.</p>
+    </div>
+
+    <div class="context-hero">
+      <!-- watermark -->
+      <div class="c-watermark">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#C2544D" x="256" y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#C2544D" x="256" y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+        </svg>
+      </div>
+      <!-- nav -->
+      <div class="c-nav">
+        <div class="c-wm">
+          <svg width="120" height="44" viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+            <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="280" fill="#C2544D" x="400" y="224" text-anchor="middle" letter-spacing="-11"><tspan font-style="italic" dx="0">l</tspan><tspan dx="10">oop</tspan></text>
+          </svg>
+        </div>
+        <div class="c-nav-links">
+          <span>Manifesto</span>
+          <span>Events</span>
+          <span>Waitlist</span>
+        </div>
+        <span class="c-nav-cta">Join the loop</span>
+      </div>
+      <!-- body -->
+      <div class="c-body">
+        <div class="c-crumb">Sydney · Byron · Newcastle</div>
+        <h3 class="c-headline">Show up for <em>each other</em>, in real life.</h3>
+        <p class="c-desc">Small, thoughtful prompts that turn "we should catch up" into actual plans. And the people you already know into the people you actually see.</p>
+        <div class="c-cta-row">
+          <span class="c-cta">Join the loop →</span>
+          <span class="c-cta-ghost">Read the manifesto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OUTRO
+       ============================================================ -->
+  <div class="outro">
+    <p class="line-1">That's the lot. Five bits, one system.</p>
+    <p class="line-2">
+      If you're happy with everything i'll get cracking on the waitlist site this week and aim for mid-may like we said.
+    </p>
+    <div class="signoff">speak soon, H</div>
+  </div>
+
+</div>
+</body>
+</html>
