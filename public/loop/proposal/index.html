@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>loop · project proposal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=Manrope:wght@400;500;600;700&display=swap" />
+
+  <!-- ============================================================
+       PASSWORD GATE
+       ============================================================ -->
+  <style>
+    body.gate-locked { overflow: hidden; }
+    body.gate-locked > *:not(#loop-gate) { display: none !important; }
+
+    #loop-gate {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #FAF6F1;
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: "Manrope", -apple-system, sans-serif;
+    }
+    body.gate-locked #loop-gate { display: flex; }
+
+    #loop-gate .gate-card {
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+    }
+    #loop-gate .gate-mark {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 24px;
+    }
+    #loop-gate .gate-mark svg { width: 100%; height: 100%; display: block; }
+    #loop-gate .gate-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #6C5F59;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    #loop-gate .gate-title {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 1.1;
+      letter-spacing: -0.008em;
+      margin: 0 0 12px;
+      color: #1A1412;
+    }
+    #loop-gate .gate-title em { font-style: italic; color: #C2544D; }
+    #loop-gate .gate-text {
+      font-size: 15px;
+      color: #6C5F59;
+      margin: 0 0 28px;
+      line-height: 1.55;
+    }
+    #loop-gate form {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    #loop-gate input {
+      flex: 1;
+      padding: 14px 16px;
+      border: 1px solid #E7DBCE;
+      background: #fff;
+      font-family: "Manrope", sans-serif;
+      font-size: 15px;
+      color: #1A1412;
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    #loop-gate input:focus { border-color: #C2544D; }
+    #loop-gate button {
+      padding: 14px 24px;
+      background: #C2544D;
+      color: #FAF6F1;
+      border: 0;
+      font-family: "Manrope", sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0;
+      transition: background 0.15s ease;
+    }
+    #loop-gate button:hover { background: #8B2F2A; }
+    #loop-gate .gate-error {
+      font-size: 13px;
+      color: #C2544D;
+      min-height: 18px;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 480px) {
+      #loop-gate .gate-title { font-size: 28px; }
+      #loop-gate form { flex-direction: column; }
+    }
+  </style>
+  <style>
+    :root {
+      --primary: #C2544D;
+      --secondary: #8B2F2A;
+      --accent: #F3C9BD;
+      --bg: #FAF6F1;
+      --bg-alt: #EFE4D8;
+      --fg: #1A1412;
+      --fg-muted: #6C5F59;
+      --border: #E7DBCE;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Manrope", -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .shell {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* ============================================================
+     SECTION CONTAINERS
+     ============================================================ */
+    section.bg-paper {
+      background: var(--bg);
+      padding: 88px 0;
+    }
+
+    section.bg-sand {
+      background: var(--bg-alt);
+      padding: 88px 0;
+    }
+
+    /* ============================================================
+     HERO
+     ============================================================ */
+    .hero {
+      background: var(--bg);
+      padding: 96px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .watermark {
+      position: absolute;
+      right: -120px;
+      top: 60px;
+      width: 460px;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .hero .watermark svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 76px;
+      line-height: 1.0;
+      margin: 0 0 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+    }
+
+    .hero-meta {
+      font-family: "Manrope", sans-serif;
+      font-size: 13px;
+      color: var(--fg-muted);
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      margin-top: 24px;
+    }
+
+    .hero-meta .meta-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px;
+      padding: 4px 0;
+    }
+
+    .hero-meta .meta-key {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-weight: 600;
+    }
+
+    .hero-meta .meta-val {
+      color: var(--fg);
+    }
+
+    /* ============================================================
+     LETTER + SUMMARY
+     ============================================================ */
+    .letter-wrap {
+      max-width: 720px;
+    }
+
+    .letter-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .letter-title {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 44px;
+      line-height: 1.05;
+      margin: 0 0 28px;
+      letter-spacing: -0.012em;
+    }
+
+    .letter-title em {
+      font-style: italic;
+    }
+
+    .letter-body {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--fg);
+    }
+
+    .letter-body p {
+      margin: 0 0 16px;
+    }
+
+    .letter-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .letter-sig {
+      margin-top: 24px;
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--primary);
+    }
+
+    /* Summary block */
+    .summary {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      padding: 40px 44px;
+      margin-top: 64px;
+    }
+
+    .summary-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .summary-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .summary-key {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-weight: 600;
+      padding-top: 4px;
+    }
+
+    .summary-val {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--fg);
+    }
+
+    .summary-val .price {
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 22px;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .one-liner {
+      margin-top: 36px;
+      padding: 24px 28px;
+      border-left: 2px solid var(--primary);
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--fg);
+      max-width: 720px;
+    }
+
+    /* ============================================================
+     SECTION HEADERS
+     ============================================================ */
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-num {
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 18px;
+      color: var(--primary);
+      margin-right: 6px;
+    }
+
+    .section-title {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 44px;
+      line-height: 1.06;
+      margin: 0 0 28px;
+      letter-spacing: -0.012em;
+      max-width: 880px;
+    }
+
+    .section-title em {
+      font-style: italic;
+    }
+
+    .section-lead {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--fg);
+      max-width: 720px;
+      margin: 0 0 28px;
+    }
+
+    /* ============================================================
+     BRAND DELIVERED LIST
+     ============================================================ */
+    .delivered {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 56px;
+      max-width: 880px;
+    }
+
+    .delivered .item {
+      border-top: 1px solid var(--border);
+      padding: 14px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .delivered .marker {
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--primary);
+      min-width: 28px;
+      flex-shrink: 0;
+    }
+
+    .delivered .text {
+      font-size: 14.5px;
+      color: var(--fg);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+     NINE AREAS GRID
+     ============================================================ */
+    .areas-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .area-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 22px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .area-card .ac-num {
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 14px;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+    }
+
+    .area-card .ac-name {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--fg);
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    .area-card .ac-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--fg);
+      margin: 0;
+    }
+
+    /* ============================================================
+     PAGE CARDS
+     ============================================================ */
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .page-card {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .page-card .pc-head {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+
+    .page-card .pc-num {
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-size: 20px;
+      color: var(--primary);
+    }
+
+    .page-card .pc-route {
+      font-family: ui-monospace, "SF Mono", monospace;
+      font-size: 11.5px;
+      color: var(--fg-muted);
+      background: var(--bg-alt);
+      padding: 3px 8px;
+      margin-left: auto;
+    }
+
+    .page-card .pc-name {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--fg);
+      margin: 0;
+    }
+
+    .page-card .pc-name em {
+      font-style: italic;
+    }
+
+    .page-card .pc-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--fg);
+      margin: 0;
+    }
+
+    /* ============================================================
+     FEATURE TABLE
+     ============================================================ */
+    .features {
+      margin-top: 24px;
+      max-width: 880px;
+    }
+
+    .feat {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .feat:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feat .name {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--fg);
+      line-height: 1.2;
+    }
+
+    .feat .desc {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--fg);
+    }
+
+    /* ============================================================
+     TIMELINE
+     ============================================================ */
+    .timeline {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .week {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 28px 26px;
+    }
+
+    .week .w-num {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .week .w-title {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 24px;
+      color: var(--fg);
+      margin: 0 0 6px;
+      line-height: 1.15;
+    }
+
+    .week .w-title em {
+      font-style: italic;
+    }
+
+    .week .w-blurb {
+      font-size: 13px;
+      color: var(--fg-muted);
+      margin: 0 0 16px;
+    }
+
+    .week ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .week ul li {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13.5px;
+      color: var(--fg);
+      line-height: 1.5;
+    }
+
+    .week ul li:last-child {
+      border-bottom: 0;
+    }
+
+    /* ============================================================
+     DELIVERABLES CHECKLIST
+     ============================================================ */
+    .checklist {
+      columns: 2;
+      column-gap: 48px;
+      margin-top: 24px;
+      max-width: 880px;
+    }
+
+    .checklist .item {
+      break-inside: avoid;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14.5px;
+      color: var(--fg);
+      line-height: 1.5;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .checklist .item::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* ============================================================
+     TERMS
+     ============================================================ */
+    .terms {
+      margin-top: 24px;
+      max-width: 880px;
+    }
+
+    .terms .term {
+      border-top: 1px solid var(--border);
+      padding: 22px 0;
+    }
+
+    .terms .term:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terms .t-head {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--fg);
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+
+    .terms .t-body {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--fg);
+    }
+
+    .terms .t-body p {
+      margin: 0 0 8px;
+    }
+
+    .terms .t-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms .t-body .price-row {
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 20px;
+      color: var(--primary);
+      margin: 4px 0 8px;
+    }
+
+    /* ============================================================
+     FINAL NOTE
+     ============================================================ */
+    .final-note {
+      background: var(--bg);
+      padding: 96px 0 72px;
+    }
+
+    .final-note .fn-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .final-note .fn-line {
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 30px;
+      line-height: 1.3;
+      color: var(--primary);
+      margin: 0 0 14px;
+      max-width: 720px;
+    }
+
+    .final-note .fn-body {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--fg);
+      max-width: 660px;
+    }
+
+    .final-note .fn-sig {
+      margin-top: 28px;
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--primary);
+    }
+
+    /* ============================================================
+     FOOTER
+     ============================================================ */
+    .footer {
+      background: var(--fg);
+      color: var(--bg);
+      padding: 48px 0 40px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer .meta {
+      font-size: 12px;
+      color: rgba(250, 246, 241, 0.55);
+      letter-spacing: 0.1em;
+    }
+
+    .footer .signoff {
+      font-family: "Newsreader", Georgia, serif;
+      font-style: italic;
+      font-size: 22px;
+      color: var(--accent);
+    }
+
+    /* ============================================================
+     MOBILE
+     ============================================================ */
+    @media (max-width: 880px) {
+      .shell {
+        padding: 0 24px;
+      }
+
+      .hero {
+        padding: 64px 0 48px;
+      }
+
+      .hero-title {
+        font-size: 50px;
+      }
+
+      .hero-meta .meta-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        padding: 8px 0;
+      }
+
+      section.bg-paper,
+      section.bg-sand {
+        padding: 64px 0;
+      }
+
+      .letter-title {
+        font-size: 32px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .summary {
+        padding: 28px 24px;
+      }
+
+      .summary-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .pages-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .delivered {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .feat {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .checklist {
+        columns: 1;
+      }
+
+      .final-note {
+        padding: 64px 0 56px;
+      }
+
+      .final-note .fn-line {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .shell {
+        padding: 0 16px;
+      }
+
+      .hero-title {
+        font-size: 38px;
+      }
+
+      .letter-title {
+        font-size: 26px;
+      }
+
+      .section-title {
+        font-size: 26px;
+      }
+
+      .week {
+        padding: 22px 22px;
+      }
+
+      .week .w-title {
+        font-size: 22px;
+      }
+
+      .areas-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .area-card {
+        padding: 18px 20px 20px;
+      }
+
+      .page-card {
+        padding: 20px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body class="gate-locked">
+
+  <!-- ============================================================
+       PASSWORD GATE
+       ============================================================ -->
+  <div id="loop-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-card">
+      <div class="gate-mark">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="#C2544D" x="0" y="0" width="512" height="512" />
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460"
+            fill="#FAF6F1" x="256" y="337" text-anchor="middle"
+            transform="rotate(90 256 222)">o</text>
+          <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460"
+            fill="#FAF6F1" x="256" y="405" text-anchor="middle"
+            transform="rotate(90 256 290)">o</text>
+        </svg>
+      </div>
+      <div class="gate-eyebrow">loop · proposal</div>
+      <h1 class="gate-title" id="gate-title">For <em>invited eyes</em> only.</h1>
+      <p class="gate-text">Drop in the password Henry sent you.</p>
+      <form id="gate-form" autocomplete="off">
+        <input type="password" id="gate-input" name="gate" autocomplete="off"
+          autocapitalize="off" spellcheck="false" placeholder="password" aria-label="Password" />
+        <button type="submit">Open</button>
+      </form>
+      <div class="gate-error" id="gate-error" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var KEY = 'loop-proposal-unlocked';
+      var PASSWORD = 'teamloop';
+
+      function unlock() {
+        document.body.classList.remove('gate-locked');
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) { }
+      }
+
+      // If already unlocked this session, skip the gate immediately.
+      try {
+        if (sessionStorage.getItem(KEY) === '1') {
+          unlock();
+        }
+      } catch (e) { /* sessionStorage unavailable, leave locked */ }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('gate-form');
+        var input = document.getElementById('gate-input');
+        var err = document.getElementById('gate-error');
+        if (!form) return;
+
+        // Auto-focus on the input when locked
+        if (document.body.classList.contains('gate-locked')) {
+          setTimeout(function () { input.focus(); }, 100);
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var v = (input.value || '').trim().toLowerCase();
+          if (v === PASSWORD) {
+            err.textContent = '';
+            unlock();
+          } else {
+            err.textContent = 'That’s not it. Ask Henry.';
+            input.value = '';
+            input.focus();
+          }
+        });
+      });
+    })();
+  </script>
+
+
+  <!-- ============================================================
+     HERO
+     ============================================================ -->
+  <div class="hero">
+    <div class="watermark">
+      <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#C2544D" x="256"
+          y="337" text-anchor="middle" transform="rotate(90 256 222)">o</text>
+        <text font-family="Instrument Serif, Georgia, serif" font-weight="400" font-size="460" fill="#C2544D" x="256"
+          y="405" text-anchor="middle" transform="rotate(90 256 290)">o</text>
+      </svg>
+    </div>
+    <div class="shell">
+      <div class="hero-eyebrow">loop · project proposal</div>
+      <h1 class="hero-title"><em>loop</em> — the build.</h1>
+      <div class="hero-meta">
+        <div class="meta-row">
+          <div class="meta-key">For</div>
+          <div class="meta-val">Sophie Ashton</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">From</div>
+          <div class="meta-val">Henry</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">Date</div>
+          <div class="meta-val">28 April 2026</div>
+        </div>
+        <div class="meta-row">
+          <div class="meta-key">Status</div>
+          <div class="meta-val">Draft for discussion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+     LETTER + SUMMARY
+     ============================================================ -->
+  <section class="bg-paper">
+    <div class="shell">
+      <div class="letter-wrap">
+        <div class="letter-eyebrow">Hi Soph</div>
+        <h2 class="letter-title">Putting the full thing on a page so you can <em>understand the scope of the build</em>.
+        </h2>
+        <div class="letter-body">
+          <p>The proposal itself is below. Let me know if you have any questions.</p>
+        </div>
+        <div class="letter-sig">Speak soon, Henry</div>
+      </div>
+
+      <div class="summary">
+        <div class="summary-eyebrow">Summary</div>
+        <div class="summary-row">
+          <div class="summary-key">What</div>
+          <div class="summary-val">Marketing site for Loop, with a referral-driven waitlist, event RSVP capture, and a
+            long-form manifesto. Phase 1 of the broader Loop product roadmap.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Scope</div>
+          <div class="summary-val">8 pages, full-stack (frontend + backend), email + analytics, mobile-first.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Timeline</div>
+          <div class="summary-val">3 weeks of focused build. Target launch mid-May 2026.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Investment</div>
+          <div class="summary-val"><span class="price">£1,250</span> &nbsp;fixed fee. 50% on kick-off, 50% on launch.
+          </div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Includes</div>
+          <div class="summary-val">Brand work (already delivered), full build, deploy, hand-over, 2 weeks of post-launch
+            fixes.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Excludes</div>
+          <div class="summary-val">The Loop app itself, and any of the 9 feature areas as functioning products. All
+            separate conversations.</div>
+        </div>
+        <div class="summary-row">
+          <div class="summary-key">Brand</div>
+          <div class="summary-val">Already complete. <a href="https://russle.co.uk/loop"
+              style="color:var(--primary);">russle.co.uk/loop</a> and the brand-assets bundle.</div>
+        </div>
+      </div>
+
+      <p class="one-liner">
+        What Loop is, in one line: a community platform that helps people show up for each other in real life, starting
+        with a brand-led waitlist for the Phase 1 launch in Australia.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     01 · BRAND
+     ============================================================ -->
+  <section class="bg-sand">
+    <div class="shell">
+      <div class="section-eyebrow"><span class="section-num">01.</span> already delivered</div>
+      <h2 class="section-title">The brand. <em>Done.</em></h2>
+
+      <div class="delivered">
+        <div class="item"><span class="marker">i.</span><span class="text">Brand strategy + design DNA document</span>
+        </div>
+        <div class="item"><span class="marker">ii.</span><span class="text">Bloom palette (eight colour tokens,
+            locked)</span></div>
+        <div class="item"><span class="marker">iii.</span><span class="text">Type system: Newsreader headings, Manrope
+            body, Instrument Serif for the wordmark</span></div>
+        <div class="item"><span class="marker">iv.</span><span class="text">Hybrid wordmark (italic l + upright oop), 4
+            colourways, SVG + PNG</span></div>
+        <div class="item"><span class="marker">v.</span><span class="text">V2 monogram (rotated stacked oo), 4
+            colourways, app-icon ready</span></div>
+        <div class="item"><span class="marker">vi.</span><span class="text">Square wordmark variants for Instagram and
+            social avatars</span></div>
+        <div class="item"><span class="marker">vii.</span><span class="text">Brand-assets bundle (27 files, all
+            formats), already with you</span></div>
+        <div class="item"><span class="marker">viii.</span><span class="text">Brand proposal page, live at
+            russle.co.uk/loop</span></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     02 · LOOP'S NINE AREAS
+     ============================================================ -->
+  <section class="bg-paper">
+    <div class="shell">
+      <div class="section-eyebrow"><span class="section-num">02.</span> what loop will become</div>
+      <h2 class="section-title">Loop's <em>nine areas</em>. What the home page teases.</h2>
+      <p class="section-lead">These are the areas Loop becomes after launch. The home page teases them as a 3×3 grid;
+        the
+        manifesto page goes deep on each one. Phase 1 doesn't build any of them as functioning products, but we
+        communicate to people what they're signing up for.</p>
+
+      <div class="areas-grid">
+        <div class="area-card">
+          <span class="ac-num">01</span>
+          <h3 class="ac-name">Profile</h3>
+          <p class="ac-desc">A profile to build real identity.</p>
+        </div>
+        <div class="area-card">
+          <span class="ac-num">02</span>
+          <h3 class="ac-name">Messaging</h3>
+          <p class="ac-desc">Communities to feel less lonely in.</p>
+        </div>
+        <div class="area-card">
+          <span class="ac-num">03</span>
+          <h3 class="ac-name">Careers</h3>
+          <p class="ac-desc">Hiring without LinkedIn.</p>
+        </div>
+        <div class="area-card">
+          <span class="ac-num">04</span>
+          <h3 class="ac-name">Food &amp; drinks</h3>
+          <p class="ac-desc">A monthly editorial in your area.</p>
+        </div>
+        <div class="area-card">
+          <span class="ac-num">05</span>
+          <h3 class="ac-name">Events</h3>
+          <p class="ac-desc">Local meets, big festivals, easy invites.</p>
+        </div>
+        <div class="area-card">
+          <span class="ac-num">06</span>
+          <h3 class="ac-name">Task helper</h3>
+          <p class="ac-desc">Borrow a car, a couch, a hand.</p>
+        </div>
+        <div class="area-card">
+          <span class="ac-num">07</span>
+          <h3 class="ac-name">Brands</h3>
+          <p class="ac-desc">Marketplace, with taste.</p>
+        </div>
+        <div class="area-card">
+          <span class="ac-num">08</span>
+          <h3 class="ac-name">Lifestyle</h3>
+          <p class="ac-desc">Films, fitness, music, mental health.</p>
+        </div>
+        <div class="area-card">
+          <span class="ac-num">09</span>
+          <h3 class="ac-name">Travel</h3>
+          <p class="ac-desc">"I'm landing in LA, anyone for coffee?"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     03 · THE BUILD
+     ============================================================ -->
+  <section class="bg-sand">
+    <div class="shell">
+      <div class="section-eyebrow"><span class="section-num">03.</span> the build</div>
+      <h2 class="section-title">Eight pages, <em>one purpose</em>: get people on the waitlist.</h2>
+      <p class="section-lead">Every page is engineered to do one thing: get the right people on the waitlist and bring
+        their friends. Each card below is what the page does, what's in it, and the route it lives at.</p>
+
+      <div class="pages-grid">
+
+        <div class="page-card">
+          <div class="pc-head">
+            <span class="pc-num">01</span>
+            <h3 class="pc-name"><em>Home</em></h3>
+            <span class="pc-route">/</span>
+          </div>
+          <p class="pc-desc">Hero with the wordmark and oversized monogram watermark, the manifesto headline, a
+            feature-grid teaser of the nine areas Loop will become, the Phase 1 events, and the final waitlist CTA.</p>
+        </div>
+
+        <div class="page-card">
+          <div class="pc-head">
+            <span class="pc-num">02</span>
+            <h3 class="pc-name"><em>Manifesto</em></h3>
+            <span class="pc-route">/manifesto</span>
+          </div>
+          <p class="pc-desc">Long-form, magazine-style page. Sophie's manifesto in her voice, then the deep dive into
+            the nine feature areas. Built to scroll, designed to make readers believe in the idea.</p>
+        </div>
+
+        <div class="page-card">
+          <div class="pc-head">
+            <span class="pc-num">03</span>
+            <h3 class="pc-name"><em>About</em></h3>
+            <span class="pc-route">/about</span>
+          </div>
+          <p class="pc-desc">Sophie's founder letter, a global rollout map in each market, and the "why now" framing.
+          </p>
+        </div>
+
+        <div class="page-card">
+          <div class="pc-head">
+            <span class="pc-num">04</span>
+            <h3 class="pc-name"><em>Events</em></h3>
+            <span class="pc-route">/events</span>
+          </div>
+          <p class="pc-desc">Three Phase 1 launch event cards (Byron, Newcastle, Sunshine Coast), each with its own RSVP
+            form. New events can be added by editing a single file.</p>
+        </div>
+
+        <div class="page-card">
+          <div class="pc-head">
+            <span class="pc-num">05</span>
+            <h3 class="pc-name"><em>Waitlist</em></h3>
+            <span class="pc-route">/waitlist</span>
+          </div>
+          <p class="pc-desc">The conversion page. Form fields: name, email, city, "how did you hear?". Submit generates
+            a unique referral token and confirmation email.</p>
+        </div>
+
+        <div class="page-card">
+          <div class="pc-head">
+            <span class="pc-num">06</span>
+            <h3 class="pc-name"><em>Thanks</em></h3>
+            <span class="pc-route">/waitlist/thanks</span>
+          </div>
+          <p class="pc-desc">After-signup state. Personalised welcome, current queue position, shareable referral link
+            with copy / WhatsApp / email buttons. Live position update when friends join via the link.</p>
+        </div>
+
+        <div class="page-card">
+          <div class="pc-head">
+            <span class="pc-num">07</span>
+            <h3 class="pc-name"><em>Privacy</em></h3>
+            <span class="pc-route">/privacy</span>
+          </div>
+          <p class="pc-desc">GDPR-compliant privacy policy. What we collect, how long we keep it, how to request
+            deletion.</p>
+        </div>
+
+        <div class="page-card">
+          <div class="pc-head">
+            <span class="pc-num">08</span>
+            <h3 class="pc-name"><em>Terms</em></h3>
+            <span class="pc-route">/terms</span>
+          </div>
+          <p class="pc-desc">Standard terms of service. Use of the waitlist, liability, IP.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     04 · WHAT IT DOES
+     ============================================================ -->
+  <section class="bg-paper">
+    <div class="shell">
+      <div class="section-eyebrow"><span class="section-num">04.</span> what it does</div>
+      <h2 class="section-title">Features <em>in detail</em>.</h2>
+      <p class="section-lead">The website is the visible part. Underneath will include.</p>
+
+      <div class="features">
+        <div class="feat">
+          <div class="name">Referral waitlist</div>
+          <div class="desc">Each signup generates a unique tokenised link. Friends who join via that link increment the
+            original signup's referral count, which moves them up the queue. Position changes trigger an email
+            notification ("you moved from #847 to #623").</div>
+        </div>
+        <div class="feat">
+          <div class="name">Event RSVP capture</div>
+          <div class="desc">Separate forms per event, all writing to the same database with an event_id discriminator.
+            RSVP confirmation emails sent automatically.</div>
+        </div>
+        <div class="feat">
+          <div class="name">Email automation</div>
+          <div class="desc">All transactional emails (welcome, referral notifications, event RSVP confirmations) sent
+            via Resend.</div>
+        </div>
+        <div class="feat">
+          <div class="name">Cookie consent banner</div>
+          <div class="desc">GDPR + UK PECR compliant. Required given Google Analytics is in use.</div>
+        </div>
+        <div class="feat">
+          <div class="name">Admin view</div>
+          <div class="desc">Magic-link authenticated dashboard at a private route. View all signups, sort by position,
+            see referral counts, export to CSV with a documented schema.
+          </div>
+        </div>
+        <div class="feat">
+          <div class="name">SEO + sharing</div>
+          <div class="desc">Open Graph cards for every page (image, title, description), sitemap.xml, robots.txt, custom
+            favicon and app icons.</div>
+        </div>
+        <div class="feat">
+          <div class="name">Analytics</div>
+          <div class="desc">Google Analytics 4 (per the cookie banner) plus Vercel Analytics for performance and Core
+            Web Vitals.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     05 · TIMELINE
+     ============================================================ -->
+  <section class="bg-sand">
+    <div class="shell">
+      <div class="section-eyebrow"><span class="section-num">05.</span> timeline</div>
+      <h2 class="section-title">Three weeks, <em>cleanly broken up</em>.</h2>
+
+      <div class="timeline">
+        <div class="week">
+          <div class="w-num">Week 1</div>
+          <h3 class="w-title">Foundations.</h3>
+          <p class="w-blurb">Project scaffolding, brand integration, marketing pages.</p>
+          <ul>
+            <li>Next.js project set up</li>
+            <li>Bloom palette, fonts, spacing wired into Tailwind theme</li>
+            <li>Home page complete</li>
+            <li>About page complete</li>
+            <li>Manifesto page (long-form)</li>
+          </ul>
+        </div>
+
+        <div class="week">
+          <div class="w-num">Week 2</div>
+          <h3 class="w-title"><em>Mechanics.</em></h3>
+          <p class="w-blurb">Backend, waitlist, referral system, email.</p>
+          <ul>
+            <li>Postgres database provisioned</li>
+            <li>Express backend deployed</li>
+            <li>Waitlist signup form working end-to-end</li>
+            <li>Referral mechanic working with live position tracking</li>
+            <li>Confirmation emails sending via Resend</li>
+            <li>Events page with RSVP forms</li>
+            <li>Footer newsletter signup</li>
+            <li>Magic-link admin dashboard</li>
+          </ul>
+        </div>
+
+        <div class="week">
+          <div class="w-num">Week 3</div>
+          <h3 class="w-title">Polish, <em>QA, ship</em>.</h3>
+          <p class="w-blurb">Tightening, testing, and production deploy.</p>
+          <ul>
+            <li>Privacy + Terms pages</li>
+            <li>Cookie consent banner</li>
+            <li>Animation polish (scroll reveals, hover states)</li>
+            <li>Accessibility audit (WCAG AA)</li>
+            <li>Mobile QA on real iOS + Android devices</li>
+            <li>SEO + Open Graph cards on every page</li>
+            <li>Sitemap, robots, favicon, app icons, 404 page</li>
+            <li>Analytics live (GA4 + Vercel)</li>
+            <li>Production deploy to your domain</li>
+            <li>Hand-over docs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     06 · DELIVERABLES
+     ============================================================ -->
+  <section class="bg-paper">
+    <div class="shell">
+      <div class="section-eyebrow"><span class="section-num">06.</span> deliverables</div>
+      <h2 class="section-title">What you <em>walk away with</em>.</h2>
+
+      <div class="checklist">
+        <div class="item">Live website on your custom domain</div>
+        <div class="item">Source code in a private GitHub repo, owned by you</div>
+        <div class="item">Working transactional email (welcome + referral notifications)</div>
+        <div class="item">Magic-link authenticated admin dashboard</div>
+        <div class="item">CSV export of waitlist + RSVPs with documented schema</div>
+        <div class="item">Google Analytics 4 dashboard (in your account)</div>
+        <div class="item">Vercel Analytics dashboard</div>
+        <div class="item">Mobile-first responsive layout (verified on real devices)</div>
+        <div class="item">GDPR/PECR-compliant cookie consent banner</div>
+        <div class="item">Open Graph cards, sitemap.xml, robots.txt, favicon, app icons, 404 page</div>
+        <div class="item">Privacy + Terms pages drafted</div>
+        <div class="item">Brand-assets bundle (already delivered)</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     07 · TERMS
+     ============================================================ -->
+  <section class="bg-sand">
+    <div class="shell">
+      <div class="section-eyebrow"><span class="section-num">07.</span> terms</div>
+      <h2 class="section-title">The boring but <em>necessary stuff</em>. Skim it.</h2>
+
+      <div class="terms">
+        <div class="term">
+          <h3 class="t-head">Payment</h3>
+          <div class="t-body">
+            <p class="price-row">£1,250 fixed fee, total.</p>
+            <p>£625 on signed agreement and project kick-off.</p>
+            <p>£625 on production launch.</p>
+          </div>
+        </div>
+        <div class="term">
+          <h3 class="t-head">Scope</h3>
+          <div class="t-body">
+            <p>The eight pages, features, and deliverables listed above.</p>
+          </div>
+        </div>
+        <div class="term">
+          <h3 class="t-head">IP ownership</h3>
+          <div class="t-body">
+            <p>You own everything I produce: brand, code, copy, assets, the lot. Full IP transfer on final payment. I
+              retain portfolio rights — I can show this work as a case study on my own site once Loop has launched
+              publicly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+     FINAL NOTE
+     ============================================================ -->
+  <div class="final-note">
+    <div class="shell">
+      <div class="fn-eyebrow">Final note</div>
+      <p class="fn-line">I'm very keen to build this. I think Loop is a great idea.</p>
+      <div class="fn-sig">Speak soon, Henry</div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+     FOOTER
+     ============================================================ -->
+  <div class="footer">
+    <div class="shell">
+      <div class="footer-row">
+        <div class="signoff">x</div>
+        <div class="meta">loop · project proposal · 28 april 2026</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
