@@ -11,6 +11,7 @@ import { ProjectBackdrop } from '@/components/sections/ProjectBackdrop';
 import { DesignNotes } from '@/components/sections/DesignNotes';
 import { Gallery } from '@/components/sections/Gallery';
 import { CaseStudyBody } from '@/components/sections/CaseStudyBody';
+import { CaseStudyResults } from '@/components/sections/CaseStudyResults';
 import { getAllWork, getWorkBySlug, getWorkSlugs } from '@/lib/mdx';
 
 type Params = { slug: string };
@@ -270,6 +271,14 @@ export default async function WorkDetailPage({
           </aside>
         </div>
       </Section>
+
+      {/* Results panel — driven by outcome_kpis frontmatter */}
+      {post.outcome_kpis && post.outcome_kpis.length > 0 && (
+        <CaseStudyResults
+          items={post.outcome_kpis}
+          accentColor={post.accentColor || post.backdropColor}
+        />
+      )}
 
       {/* Gallery — varying-width image stack */}
       {post.gallery && post.gallery.length > 0 && (
