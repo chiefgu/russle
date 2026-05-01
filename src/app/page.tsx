@@ -13,11 +13,8 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Coral gradient hero band, Hero + LogoWall sit on one continuous surface */}
-      <div className="bg-[#EC6F66] bg-gradient-to-r from-[#F3A183] to-[#EC6F66]">
-        <Hero />
-        <LogoWall />
-      </div>
+      <Hero />
+      <LogoWall />
       <CaseStudyGrid items={work} variant="home" />
       <OfferBlock />
       <ProcessSteps />
