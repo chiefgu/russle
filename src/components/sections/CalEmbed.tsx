@@ -5,19 +5,60 @@ import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { Reveal } from '@/components/animations/Reveal';
 
-const CAL_LINK = process.env.NEXT_PUBLIC_CAL_LINK || 'russle/discovery';
-
 export function CalEmbed() {
   useEffect(() => {
-    // Lazy-load Cal.com embed script. The script self-bootstraps an iframe
-    // into the [data-cal-link] anchor below.
-    const script = document.createElement('script');
-    script.src = 'https://app.cal.com/embed/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
+    // Cal.com inline embed bootstrap (EU instance, russle/30min).
+    // Mirrors the snippet at https://cal.com/embed-snippets and is
+    // idempotent: the loader script only attaches once per page.
+    (function (C: Window, A: string, L: string) {
+      const w = C as unknown as { Cal: CalGlobal; document: Document };
+      const p = function (a: { q: unknown[] }, ar: unknown) {
+        a.q.push(ar);
+      };
+      const d = w.document;
+      w.Cal =
+        w.Cal ||
+        function (...args: unknown[]) {
+          const cal = w.Cal;
+          const ar = args;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            const s = d.createElement('script');
+            s.src = A;
+            d.head.appendChild(s);
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function (...inner: unknown[]) {
+              p(api as unknown as { q: unknown[] }, inner);
+            };
+            const namespace = ar[1] as string | undefined;
+            (api as unknown as { q: unknown[] }).q = [];
+            if (typeof namespace === 'string') {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal as unknown as { q: unknown[] }, ['initNamespace', namespace]);
+            } else {
+              p(cal as unknown as { q: unknown[] }, ar);
+            }
+            return;
+          }
+          p(cal as unknown as { q: unknown[] }, ar);
+        };
+    })(window, 'https://app.cal.eu/embed/embed.js', 'init');
+
+    const Cal = (window as unknown as { Cal: CalGlobal }).Cal;
+    Cal('init', '30min', { origin: 'https://app.cal.eu' });
+    Cal.ns['30min']('inline', {
+      elementOrSelector: '#my-cal-inline-30min',
+      config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
+      calLink: 'russle/30min',
+    });
+    Cal.ns['30min']('ui', {
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+    });
   }, []);
 
   return (
@@ -44,17 +85,9 @@ export function CalEmbed() {
           <Reveal delay={0.1}>
             <div className="overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-bg)] p-2">
               <div
-                className="aspect-[4/3] w-full"
-                data-cal-link={CAL_LINK}
-                data-cal-config='{"theme":"light"}'
-              >
-                <iframe
-                  src={`https://cal.com/${CAL_LINK}`}
-                  title="Book a discovery call"
-                  className="h-full w-full rounded-[var(--radius-m)]"
-                  loading="lazy"
-                />
-              </div>
+                id="my-cal-inline-30min"
+                className="h-[700px] w-full overflow-scroll rounded-[var(--radius-m)]"
+              />
             </div>
           </Reveal>
         </div>
@@ -62,3 +95,15 @@ export function CalEmbed() {
     </Section>
   );
 }
+
+type CalApi = {
+  (...args: unknown[]): void;
+  q: unknown[];
+};
+
+type CalGlobal = {
+  (...args: unknown[]): void;
+  loaded?: boolean;
+  ns: Record<string, CalApi>;
+  q: unknown[];
+};
