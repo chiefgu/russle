@@ -13,7 +13,7 @@ export function Hero() {
 
         <Reveal delay={0.05}>
           <h1 className="h1 mt-6 text-balance text-[var(--color-text)]">
-            One studio. Brand and site, launched together.
+            One studio.<br />Brand and site, launched together.
           </h1>
         </Reveal>
 
