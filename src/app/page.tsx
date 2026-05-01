@@ -1,5 +1,4 @@
 import { Hero } from '@/components/sections/Hero';
-import { LogoWall } from '@/components/sections/LogoWall';
 import { CaseStudyShowcase } from '@/components/sections/CaseStudyShowcase';
 import { OfferBlock } from '@/components/sections/OfferBlock';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
@@ -14,7 +13,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <LogoWall />
       <CaseStudyShowcase items={work} />
       <OfferBlock />
       <ProcessSteps />
