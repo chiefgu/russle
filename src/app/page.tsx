@@ -13,8 +13,10 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero />
-      <LogoWall />
+      <div className="bg-[var(--color-surface)]">
+        <Hero />
+        <LogoWall />
+      </div>
       <CaseStudyGrid items={work} variant="home" />
       <OfferBlock />
       <ProcessSteps />

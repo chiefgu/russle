@@ -5,10 +5,10 @@ import { Reveal } from '@/components/animations/Reveal';
 
 export function Hero() {
   return (
-    <Section tone="transparent" spacing="heroTop" container="main">
+    <Section tone="transparent" spacing="heroTopTight" container="main">
       <div className="mx-auto max-w-5xl text-center">
         <Reveal>
-          <Tag tone="default">Independent studio</Tag>
+          <Tag tone="accent">Independent studio</Tag>
         </Reveal>
 
         <Reveal delay={0.05}>

@@ -2,7 +2,7 @@ import { cn } from '@/lib/cn';
 import { Container } from './Container';
 
 type Tone = 'bg' | 'surface' | 'dark' | 'transparent';
-type Spacing = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'heroTop';
+type Spacing = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'heroTop' | 'heroTopTight';
 
 type SectionProps = {
   children: React.ReactNode;
@@ -31,6 +31,7 @@ const spacingClasses: Record<Spacing, string> = {
   xl: 'py-24 md:py-[120px]',
   xxl: 'py-[120px] md:py-[160px]',
   heroTop: 'pt-[120px] md:pt-[160px] pb-16 md:pb-24',
+  heroTopTight: 'pt-[120px] md:pt-[160px] pb-6 md:pb-10',
 };
 
 export function Section({
