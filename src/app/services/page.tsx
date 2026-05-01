@@ -188,7 +188,7 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      {/* Section 4: Process — reuse existing component */}
+      {/* Section 4: Process, reuse existing component */}
       <ProcessSteps />
 
       <CTAStrip />

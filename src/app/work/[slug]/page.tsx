@@ -33,7 +33,7 @@ export async function generateMetadata({
     title: post.title,
     description: post.summary,
     openGraph: {
-      title: `${post.title} — russle`,
+      title: `${post.title} · russle`,
       description: post.summary,
       images: post.cover ? [{ url: post.cover }] : [{ url: '/og.png' }],
     },
@@ -101,7 +101,7 @@ export default async function WorkDetailPage({
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: navOverride }} />
-      {/* Backdrop hero — full-bleed brand colour with project hero crop */}
+      {/* Backdrop hero, full-bleed brand colour with project hero crop */}
       <ProjectBackdrop
         backdropColor={post.backdropColor}
         backdropTone={post.backdropTone}
@@ -214,7 +214,7 @@ export default async function WorkDetailPage({
             )}
           </div>
 
-          {/* Cover image — natural aspect, sits on the brand backdrop */}
+          {/* Cover image, natural aspect, sits on the brand backdrop */}
           {post.cover && (
             <Reveal delay={0.3}>
               <div className="mt-16 flex justify-center md:mt-24">
@@ -256,7 +256,7 @@ export default async function WorkDetailPage({
         </Container>
       </ProjectBackdrop>
 
-      {/* Body — two-column with design notes sidebar */}
+      {/* Body, two-column with design notes sidebar */}
       <Section tone="bg" spacing="xl" container="main">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-8">
@@ -273,7 +273,7 @@ export default async function WorkDetailPage({
         </div>
       </Section>
 
-      {/* Results panel — driven by outcome_kpis frontmatter */}
+      {/* Results panel, driven by outcome_kpis frontmatter */}
       {post.outcome_kpis && post.outcome_kpis.length > 0 && (
         <CaseStudyResults
           items={post.outcome_kpis}
@@ -281,14 +281,14 @@ export default async function WorkDetailPage({
         />
       )}
 
-      {/* Gallery — varying-width image stack */}
+      {/* Gallery, varying-width image stack */}
       {post.gallery && post.gallery.length > 0 && (
         <Section tone="surface" spacing="l" container="main">
           <Gallery items={post.gallery} />
         </Section>
       )}
 
-      {/* Pull-quote — only renders when frontmatter quote is present */}
+      {/* Pull-quote, only renders when frontmatter quote is present */}
       {post.quote && (
         <Testimonial
           quote={post.quote.text}

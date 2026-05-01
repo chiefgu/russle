@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────────
-   Fonts — Satoshi self-hosted from Fontshare, Geist Mono via geist npm
+   Fonts, Satoshi self-hosted from Fontshare, Geist Mono via geist npm
    ──────────────────────────────────────────────────────────── */
 @font-face {
   font-family: 'Satoshi';
@@ -20,7 +20,7 @@
 }
 
 /* ────────────────────────────────────────────────────────────
-   Tailwind 4 — design tokens
+   Tailwind 4, design tokens
    Lifted from /research/brand-direction.md (locked).
    Only edit if brand-direction.md changes first.
    ──────────────────────────────────────────────────────────── */
@@ -114,7 +114,7 @@
     color: var(--color-on-accent);
   }
 
-  /* Focus rings — accent at 2px with 2px offset */
+  /* Focus rings, accent at 2px with 2px offset */
   :focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
@@ -136,7 +136,7 @@
 }
 
 /* ────────────────────────────────────────────────────────────
-   Typography utilities — heading mixins
+   Typography utilities, heading mixins
    These map onto the locked type ramp from brand-direction.md.
    Always 500 weight, aggressive negative tracking.
    ──────────────────────────────────────────────────────────── */

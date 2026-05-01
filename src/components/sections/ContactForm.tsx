@@ -42,7 +42,7 @@ export function ContactForm() {
     return (
       <div className="rounded-[var(--radius-l)] bg-[var(--color-surface)] p-10">
         <p className="label text-[var(--color-accent)]">Message received</p>
-        <h3 className="h3 mt-4">Thanks — I&apos;ll reply within 24 hours.</h3>
+        <h3 className="h3 mt-4">Thanks. I&apos;ll reply within 24 hours.</h3>
         <p className="text-body mt-4 text-[var(--color-text-mute)]">
           For a longer brief or a project intake,{' '}
           <a href="/start" className="link">

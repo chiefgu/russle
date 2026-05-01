@@ -7,7 +7,7 @@ type MarqueeProps = {
 };
 
 /**
- * Pure CSS marquee — duplicates children once and animates a 50% transform
+ * Pure CSS marquee, duplicates children once and animates a 50% transform
  * so the loop is seamless. The `marquee` keyframes live in globals.css.
  */
 export function Marquee({ children, duration = 30, className }: MarqueeProps) {

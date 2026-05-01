@@ -24,7 +24,7 @@ export type GalleryItem = {
   alt: string;
   layout?: GalleryLayout;     // default 'wide'
   caption?: string;           // optional editorial caption
-  // Aspect override — by default we let the image find its natural ratio.
+  // Aspect override, by default we let the image find its natural ratio.
   aspect?: '16:9' | '4:5' | '1:1' | '3:2' | 'auto';
   // Optional bg colour drawn behind the image (e.g. project backdrop)
   bg?: string;

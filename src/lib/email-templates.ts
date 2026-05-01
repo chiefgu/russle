@@ -3,14 +3,14 @@
  *
  * Constraints these templates work around:
  * - **No web fonts.** Outlook ignores them, Gmail mangles them. We use a
- *   system font stack — SF on Apple, Segoe UI on Outlook, sensible fallbacks
+ *   system font stack, SF on Apple, Segoe UI on Outlook, sensible fallbacks
  *   elsewhere.
  * - **Tables for layout.** Outlook 2016+ still requires table-based layouts.
  *   Divs work in Apple Mail and Gmail but break in Outlook desktop.
  * - **Inline CSS only.** Most email clients strip <style> blocks. The one
  *   exception is media queries (dark mode), which we include in <head>.
  * - **All user input is HTML-escaped.** Names and free-text fields go into
- *   HTML — without escaping, a `<script>` in a name would execute in some
+ *   HTML, without escaping, a `<script>` in a name would execute in some
  *   clients. Belt and braces.
  * - **Plain-text twin.** Resend can send both. Some clients show text-only.
  *
@@ -82,7 +82,7 @@ function formattedDate(): string {
 }
 
 /* ────────────────────────────────────────────────────────────
-   Shared chrome — header + footer
+   Shared chrome, header + footer
    ──────────────────────────────────────────────────────────── */
 
 function chromeHead(title: string): string {
@@ -121,7 +121,7 @@ function chromeBodyOpen(): string {
     <td align="center" style="padding:48px 16px;">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
 
-        <!-- header — wordmark + accent dot -->
+        <!-- header, wordmark + accent dot -->
         <tr><td style="padding:0 4px 32px 4px;">
           <table role="presentation" cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -170,7 +170,7 @@ function cardClose(): string {
   return `</td></tr>`;
 }
 
-/** Eyebrow label — uppercase, +1px letter-spacing, soft. */
+/** Eyebrow label, uppercase, +1px letter-spacing, soft. */
 function label(text: string): string {
   return `<p class="text-mute" style="margin:0;font-family:${FONT_STACK};font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:${BRAND.textMute};">${esc(text)}</p>`;
 }
@@ -241,7 +241,7 @@ ${chromeBodyOpen()}
 ${chromeBodyClose()}`;
 
   const text = [
-    `New enquiry — russle`,
+    `New enquiry, russle`,
     `=`.repeat(40),
     ``,
     `From:    ${p.name}${p.company ? ` (${p.company})` : ''}`,
@@ -263,7 +263,7 @@ ${chromeBodyClose()}`;
    ──────────────────────────────────────────────────────────── */
 
 export function renderContactConfirmation(p: ContactPayload): RenderedEmail {
-  const subject = `Got it — russle`;
+  const subject = `Got it, russle`;
 
   const html = `${chromeHead(subject)}
 ${chromeBodyOpen()}
@@ -289,7 +289,7 @@ ${chromeBodyOpen()}
           </div>
         ${cardClose()}
 
-        <!-- signoff outside the card — feels more like a personal note -->
+        <!-- signoff outside the card, feels more like a personal note -->
         <tr><td style="padding:24px 4px 0 4px;">
           <p class="text-mute" style="margin:0;font-family:${FONT_STACK};font-size:14px;line-height:1.6;color:${BRAND.textMute};">
             <span class="text" style="color:${BRAND.text};">russle</span>
@@ -407,7 +407,7 @@ export function renderIntakeEmail(data: Record<string, string>): RenderedEmail {
     data.client_company ? ` (${data.client_company})` : ''
   }`;
 
-  // Top: client meta block — render any provided client detail fields as
+  // Top: client meta block, render any provided client detail fields as
   // a 2-column grid of label/value pairs inside the card.
   const metaRows: string[] = [];
   const filledClientDetails = CLIENT_DETAIL_FIELDS.filter((f) => (data[f.id] ?? '').trim());
@@ -447,7 +447,7 @@ export function renderIntakeEmail(data: Record<string, string>): RenderedEmail {
       </div>`);
   }
 
-  // If there's an "anything_else" — call it out at the very end as its own
+  // If there's an "anything_else", call it out at the very end as its own
   // emphasised block, since it's where the most useful colour usually lives.
   const anythingElse = data.anything_else?.trim();
 
@@ -489,7 +489,7 @@ ${chromeBodyClose()}`;
 
   // Plain-text twin
   const textLines: string[] = [];
-  textLines.push(`New project brief — russle`);
+  textLines.push(`New project brief, russle`);
   textLines.push(`=`.repeat(40));
   textLines.push(``);
   textLines.push(`From:    ${data.client_name}${data.client_company ? ` (${data.client_company})` : ''}`);
@@ -531,7 +531,7 @@ ${chromeBodyClose()}`;
    ──────────────────────────────────────────────────────────── */
 
 export function renderIntakeConfirmation(data: Record<string, string>): RenderedEmail {
-  const subject = `Brief received — russle`;
+  const subject = `Brief received, russle`;
   const firstName = (data.client_name || '').split(' ')[0] || 'there';
 
   const html = `${chromeHead(subject)}
@@ -550,13 +550,13 @@ ${chromeBodyOpen()}
           ${label("What happens next")}
           <div class="text" style="margin:14px 0 0 0;font-family:${FONT_STACK};font-size:15px;line-height:1.65;color:${BRAND.text};">
             <p style="margin:0 0 14px 0;">
-              <strong style="color:${BRAND.text};">Next 24 hours</strong> — questions or a call slot.
+              <strong style="color:${BRAND.text};">Next 24 hours</strong>, questions or a call slot.
             </p>
             <p style="margin:0 0 14px 0;">
-              <strong style="color:${BRAND.text};">After the call</strong> — fixed-price proposal with scope and timeline.
+              <strong style="color:${BRAND.text};">After the call</strong>, fixed-price proposal with scope and timeline.
             </p>
             <p style="margin:0;">
-              <strong style="color:${BRAND.text};">If we go ahead</strong> — kickoff within two weeks.
+              <strong style="color:${BRAND.text};">If we go ahead</strong>, kickoff within two weeks.
             </p>
           </div>
         ${cardClose()}
@@ -575,9 +575,9 @@ ${chromeBodyClose()}`;
     ``,
     `What happens next:`,
     `--`,
-    `• Next 24 hours — questions or a call slot.`,
-    `• After the call — fixed-price proposal with scope and timeline.`,
-    `• If we go ahead — kickoff within two weeks.`,
+    `• Next 24 hours, questions or a call slot.`,
+    `• After the call, fixed-price proposal with scope and timeline.`,
+    `• If we go ahead, kickoff within two weeks.`,
     ``,
     `russle`,
     `${SITE_URL}`,

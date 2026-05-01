@@ -4,7 +4,7 @@ import { Reveal } from '@/components/animations/Reveal';
 import { getAllWork } from '@/lib/mdx';
 
 /**
- * Recent work strip — pulls real client names from the case study MDX files
+ * Recent work strip, pulls real client names from the case study MDX files
  * and displays them as text wordmarks linking to each case study. No fake
  * logos. As more case studies ship, this scales automatically.
  */

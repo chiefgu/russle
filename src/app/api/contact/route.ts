@@ -56,7 +56,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, dev: true });
   }
 
-  // 1. Notification to the studio (the critical one — must succeed or we
+  // 1. Notification to the studio (the critical one, must succeed or we
   //    return 502 because we can't recover the message later).
   try {
     const result = await resend.emails.send({
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Email failed to send.' }, { status: 502 });
   }
 
-  // 2. Confirmation to the submitter (best-effort — we already have their
+  // 2. Confirmation to the submitter (best-effort, we already have their
   //    message, so a failed confirmation doesn't justify a 502).
   try {
     const confirmation = renderContactConfirmation(parsed.data);

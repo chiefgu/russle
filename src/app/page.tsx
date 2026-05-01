@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Coral gradient hero band — Hero + LogoWall sit on one continuous surface */}
+      {/* Coral gradient hero band, Hero + LogoWall sit on one continuous surface */}
       <div className="bg-[#EC6F66] bg-gradient-to-r from-[#F3A183] to-[#EC6F66]">
         <Hero />
         <LogoWall />
@@ -22,7 +22,7 @@ export default function HomePage() {
       <OfferBlock />
       <ProcessSteps />
       <Testimonial
-        quote="russle understood that I needed less, not more. No price page, no booking calendar, no essay about me — just the photography, the testimonials, and an enquiry form designed to convert. It's the first site I've had that I'm happy to send people to."
+        quote="russle understood that I needed less, not more. No price page, no booking calendar, no essay about me. Just the photography, the testimonials, and an enquiry form designed to convert. It's the first site I've had that I'm happy to send people to."
         author="Abigail"
         role="Owner"
         company="Makeup by Abigail"

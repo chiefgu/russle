@@ -59,7 +59,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, dev: true });
   }
 
-  // 1. Studio notification (critical — return 502 on failure).
+  // 1. Studio notification (critical, return 502 on failure).
   try {
     const result = await resend.emails.send({
       from: EMAIL_FROM,
@@ -82,7 +82,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Email failed to send.' }, { status: 502 });
   }
 
-  // 2. Submitter confirmation (best-effort — never fails the request).
+  // 2. Submitter confirmation (best-effort, never fails the request).
   try {
     const confirmation = renderIntakeConfirmation(data);
     const result = await resend.emails.send({

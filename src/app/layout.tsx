@@ -20,11 +20,11 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'russle — Web design, development, and branding',
-    template: '%s — russle',
+    default: 'russle · Web design, development, and branding',
+    template: '%s · russle',
   },
   description:
-    'russle is a one-person studio designing, building, and branding modern websites for ambitious teams.',
+    'russle is an independent studio designing brand identities and websites for food, hospitality, and lifestyle businesses. From £2,500.',
   keywords: [
     'web design',
     'web development',
@@ -40,16 +40,16 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: SITE_URL,
     siteName: 'russle',
-    title: 'russle — Web design, development, and branding',
+    title: 'russle · Web design, development, and branding',
     description:
-      'A one-person studio designing, building, and branding modern websites for ambitious teams.',
+      'An independent studio designing brand identities and websites for food, hospitality, and lifestyle businesses. From £2,500.',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'russle' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'russle — Web design, development, and branding',
+    title: 'russle · Web design, development, and branding',
     description:
-      'A one-person studio designing, building, and branding modern websites.',
+      'An independent studio designing brand identities and websites for food, hospitality, and lifestyle businesses.',
     images: ['/og.png'],
   },
   robots: { index: true, follow: true },

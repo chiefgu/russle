@@ -92,7 +92,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu — opaque so dropdown content doesn't bleed through */}
+      {/* Mobile menu, opaque so dropdown content doesn't bleed through */}
       {open && (
         <div className="border-t border-[var(--color-line)] bg-[var(--color-bg)] md:hidden">
           <nav className="flex flex-col gap-2 px-4 py-8 sm:px-6">

@@ -42,7 +42,7 @@ const STACK = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero — single huge statement */}
+      {/* Hero, single huge statement */}
       <Section tone="bg" spacing="heroTop" container="main">
         <div className="max-w-5xl">
           <Reveal>
@@ -73,7 +73,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* Practice */}
+      {/* The work */}
       <Section tone="bg" spacing="xl">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-3">
