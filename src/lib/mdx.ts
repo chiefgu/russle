@@ -40,6 +40,14 @@ export type FontEntry = {
   family: string;
 };
 
+export type WorkStatus = 'live' | 'launching-soon' | 'private';
+
+export type Quote = {
+  text: string;
+  author: string;
+  role: string;
+};
+
 export type WorkMeta = {
   slug: string;
   title: string;
@@ -54,7 +62,7 @@ export type WorkMeta = {
   backdropColor: string;
   backdropTone: 'light' | 'dark';
   accentColor?: string;
-  // The case study cover image — should be the strongest brand asset, NOT
+  // The case study cover image should be the strongest brand asset, not
   // a website screenshot. The screenshot lives in the gallery.
   cover?: string;
   // Optional positioning hint for the cover image inside the backdrop
@@ -66,6 +74,10 @@ export type WorkMeta = {
   palette?: PaletteSwatch[];
   fonts?: FontEntry[];
   stack?: string[];
+  status: WorkStatus;
+  scope?: string[];
+  outcome_kpis?: string[];
+  quote?: Quote;
 };
 
 export type WorkPost = WorkMeta & {

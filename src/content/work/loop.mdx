@@ -1,0 +1,86 @@
+---
+title: "loop — a waitlist site for a community platform built around showing up in real life"
+summary: "An editorial waitlist site and brand identity for Sophie Ashton's coastal-Australia launch of loop — a community platform that turns 'we should catch up' into actual plans. A full Next.js + Express build with a tokenised referral queue, event RSVPs, and a Resend-powered admin dashboard."
+client: "loop"
+sector: "Community platform · Consumer waitlist"
+year: "2026"
+role: "Brand · Discovery · Design · Development"
+backdropColor: "#FAF6F1"
+backdropTone: "light"
+accentColor: "#C2544D"
+cover: "/work/loop/brand/wordmark-primary-on-paper.png"
+coverFit: "contain"
+coverPosition: "center"
+tags: ["Web", "Brand", "Product"]
+palette:
+  - { name: "Bloom", hex: "#C2544D" }
+  - { name: "Espresso", hex: "#8B2F2A" }
+  - { name: "Paper", hex: "#FAF6F1" }
+  - { name: "Sand", hex: "#EFE4D8" }
+  - { name: "Foreground", hex: "#1A1412" }
+fonts:
+  - { role: "Display", family: "Newsreader" }
+  - { role: "Body", family: "Manrope" }
+  - { role: "Wordmark", family: "Instrument Serif" }
+stack:
+  - "Next.js 16"
+  - "Express"
+  - "PostgreSQL"
+  - "Prisma"
+  - "Resend"
+  - "Tailwind CSS 4"
+  - "Framer Motion"
+  - "Vercel"
+status: launching-soon
+scope:
+  - "Brand identity"
+  - "Web design (8-page editorial)"
+  - "Web build (Next.js + Express)"
+  - "Tokenised referral queue"
+  - "Resend (5 templates)"
+  - "Magic-link admin dashboard"
+outcome_kpis:
+  - "Brand identity locked, editorial-first and paper-on-paper"
+  - "8-page manifesto site with live referral position polling"
+  - "Admin dashboard hands the queue, RSVPs, and CSV export to Sophie"
+  - "Infrastructure ready to scale through the international rollout"
+quote:
+  text: "The brand felt like loop before the product even shipped."
+  author: "Sophie Ashton"
+  role: "Founder, loop"
+gallery:
+  - { src: "/work/loop/brand/wordmark-paper-on-primary.png", alt: "loop wordmark, paper on bloom red — italic l, upright oop", layout: "feature-left", caption: "The wordmark is set in Instrument Serif: an italic l followed by upright oop. The italic l is the gesture — leaning in, leaning toward someone." }
+  - { src: "/work/loop/brand/icon-app.png", alt: "loop monogram — overlapping o glyphs forming a connected ring", layout: "half" }
+  - { src: "/work/loop/brand/icon-on-espresso.png", alt: "loop monogram in paper on espresso ground", layout: "half" }
+  - { src: "/work/loop/photos/long-table-shared-dinner.png", alt: "Long shared dinner table — candlelight, plates, conversation", layout: "feature-right", caption: "The site uses long-table dinners, beach picnics and supper clubs as its core editorial language. The product is connection in real life — the imagery had to be the same." }
+  - { src: "/work/loop/photos/founder-sophie.jpg", alt: "Sophie Ashton, founder of loop", layout: "half", caption: "Sophie Ashton — founder. Ten years of brand work for Moët, Polestar and Agent Provocateur, now building loop." }
+  - { src: "/work/loop/photos/byron-sunset-surfer.jpg", alt: "Sunset surfer at Byron Bay — coastal Australia launch imagery", layout: "half" }
+---
+
+## Brief
+
+Sophie Ashton spent ten years building global campaigns for Moët, Polestar and Agent Provocateur before stepping out to build her own thing. loop is that thing — a community platform that turns intention into action, designed around small thoughtful prompts that get people back to actually seeing each other.
+
+She came to me with a deck, a manifesto, and a launch window: three coastal-Australia events through the middle of 2026 — Byron, Newcastle, Sunshine Coast — to seed a community in real life before the product itself ships. The brief was the brand identity, the waitlist site, and the full referral mechanic underneath it. Editorial, not techy. A community moment, not a product demo.
+
+## Approach
+
+The site is a full-stack build that has to do three jobs at once: hold an editorial-grade manifesto, run a tokenised referral waitlist that actually moves people up the queue, and capture event RSVPs into the same database. Eight pages — Home, Manifesto (long-form, nine areas), About, Events, Waitlist, Thanks, Privacy, Terms — built around a single conversion: get on the list, get a referral link, move up.
+
+The signature interaction is the **referral queue**. A signup creates a `WaitlistEntry` with a unique tokenised URL. Friends who join via that link bump the original signup up the queue, and the position recomputes in a background job that fires whenever someone joins with a `referred_by_token`. The thanks page polls the live position every 60 seconds, and Resend sends a "you moved up" email when the threshold trips. Event RSVPs write into the same waitlist table with an `event_id` discriminator so the three launch events feed the same audience.
+
+Behind the site is **Express + Prisma + PostgreSQL** with a magic-link admin dashboard for Sophie — view signups by position, see referral counts, export CSV, manage RSVPs, all from one queue. **Resend** handles five transactional templates: waitlist welcome, referral position updates, event RSVP confirmations, newsletter welcome, and the admin magic link. Cookie consent is GDPR + UK PECR compliant by default; analytics fire only after opt-in.
+
+## Brand integration
+
+The visual system is editorial-first, square-edged, paper-on-paper. The wordmark — set in **Instrument Serif**, italic l followed by upright oop — is the central gesture: a lean, a glance, the physical shape of leaning toward someone. The monogram extends the same idea by overlapping the two o glyphs into a connected ring.
+
+Colour is built around `#C2544D` *bloom* over a warm paper `#FAF6F1`, with espresso `#8B2F2A` for headings and sand `#EFE4D8` for alternate sections. Typography pairs **Newsreader** (display, italic axis used as an accent across headlines like *"show up for each other, in real life"*) with **Manrope** for all body, UI, and captions. There are no rounded corners, no shadows, and no illustrations — the editorial feel is carried by typography, italic pull-quotes, and a 3 × 3 numbered grid of the nine product areas, set like a magazine table of contents.
+
+Imagery is photographic and curated: long-table dinners, supper clubs, surfers at Byron, friends at café tables. The same energy as the manifesto — small, thoughtful, in real life.
+
+## Outcome
+
+The brand identity is locked. The site is built around the manifesto, the nine areas, and the referral queue — ready to absorb signups from the launch events through April–August 2026. The admin dashboard goes to Sophie. The infrastructure scales straight through to the international rollout phases that follow.
+
+> The waitlist site goes live ahead of loop's coastal-Australia launch in May 2026. Live link will be added once Sophie's domain switches over.
