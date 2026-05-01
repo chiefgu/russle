@@ -136,7 +136,7 @@ export default async function WorkDetailPage({
                 <Meta label="Sector" value={post.sector} tone={post.backdropTone} />
                 <Meta label="Year" value={post.year} tone={post.backdropTone} />
                 <Meta label="Role" value={post.role} tone={post.backdropTone} />
-                {post.live && (
+                {post.status === 'live' && post.live && (
                   <div>
                     <p
                       className={`label ${
@@ -145,7 +145,7 @@ export default async function WorkDetailPage({
                           : 'text-black/50'
                       }`}
                     >
-                      Live
+                      Status
                     </p>
                     <a
                       href={post.live}
@@ -158,8 +158,58 @@ export default async function WorkDetailPage({
                     </a>
                   </div>
                 )}
+                {post.status === 'launching-soon' && (
+                  <div>
+                    <p
+                      className={`label ${
+                        post.backdropTone === 'light'
+                          ? 'text-white/50'
+                          : 'text-black/50'
+                      }`}
+                    >
+                      Status
+                    </p>
+                    <p className={`text-body mt-2 ${onBackdrop}`}>
+                      Launching soon
+                    </p>
+                  </div>
+                )}
               </div>
             </Reveal>
+
+            {post.scope && post.scope.length > 0 && (
+              <Reveal delay={0.25}>
+                <div
+                  className={`mt-8 flex flex-wrap gap-2 border-t pt-6 ${
+                    post.backdropTone === 'light'
+                      ? 'border-white/15'
+                      : 'border-black/10'
+                  }`}
+                >
+                  <p
+                    className={`label mr-3 self-center ${
+                      post.backdropTone === 'light'
+                        ? 'text-white/50'
+                        : 'text-black/50'
+                    }`}
+                  >
+                    Scope
+                  </p>
+                  {post.scope.map((s) => (
+                    <span
+                      key={s}
+                      className={`rounded-[var(--radius-pill)] border px-3 py-1 text-small ${
+                        post.backdropTone === 'light'
+                          ? 'border-white/20 text-white/80'
+                          : 'border-black/15 text-black/70'
+                      }`}
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </Reveal>
+            )}
           </div>
 
           {/* Cover image — natural aspect, sits on the brand backdrop */}
