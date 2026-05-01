@@ -21,7 +21,7 @@ const PRINCIPLES = [
   },
   {
     title: 'Real software.',
-    body: "I write production code. Your site doesn't get handed off to a build team — it gets built by the person who designed it.",
+    body: "I write production code. Your site doesn't get handed off to a build team. It's built by the person who designed it.",
   },
 ];
 
@@ -35,10 +35,8 @@ const STACK = [
   'PostgreSQL',
   'Stripe',
   'Resend',
-  'Squarespace',
   'Figma',
   'Vercel',
-  'Swift / SwiftUI',
 ];
 
 export default function AboutPage() {
@@ -80,20 +78,20 @@ export default function AboutPage() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-3">
             <Reveal>
-              <Tag>The practice</Tag>
+              <Tag>The work</Tag>
             </Reveal>
           </div>
           <div className="md:col-span-9">
             <Reveal delay={0.05}>
               <div className="text-big max-w-3xl space-y-6 text-[var(--color-text)]">
                 <p>
-                  russle is independent. One person — which means the person designing your site is the same person writing the code, sending the invoice, and answering the late email.
+                  russle is independent. One person, which means the person designing your site is the same person writing the code, sending the invoice, and answering the late email.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Most clients are founders, marketing leads, and small teams who have outgrown the cheap end of the market and don&apos;t want an agency relationship to manage. The work covers design, brand, and code. The Figma, the React, the Postgres schema, the brand-direction document, the 9pm DNS panic on launch night — same job, same person.
+                  Most clients are independent food, hospitality, and lifestyle founders who have outgrown the cheap end of the market and don&apos;t want an agency relationship to manage. The work covers design, brand, and code. The Figma, the React, the Postgres schema, the brand-direction document, the 9pm DNS panic on launch night, same job, same person.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Projects start with a 60-minute call and ship four to twelve weeks later. One client at a time.
+                  Projects start with the intake form at /start, and ship four to six weeks later. One client at a time.
                 </p>
               </div>
             </Reveal>
