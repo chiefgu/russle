@@ -15,10 +15,8 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="bg-[var(--color-surface)]">
-        <Hero />
-        <LogoWall />
-      </div>
+      <Hero />
+      <LogoWall />
       <CaseStudyShowcase items={work} />
       <Section tone="bg" spacing="m">
         <div className="flex justify-center">
