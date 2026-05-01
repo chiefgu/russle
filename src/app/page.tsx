@@ -1,7 +1,7 @@
 import { Hero } from '@/components/sections/Hero';
 import { LogoWall } from '@/components/sections/LogoWall';
-import { FeatureGrid } from '@/components/sections/FeatureGrid';
 import { CaseStudyGrid } from '@/components/sections/CaseStudyGrid';
+import { OfferBlock } from '@/components/sections/OfferBlock';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { Testimonial } from '@/components/sections/Testimonial';
 import { FAQSection } from '@/components/sections/FAQSection';
@@ -18,8 +18,8 @@ export default function HomePage() {
         <Hero />
         <LogoWall />
       </div>
-      <FeatureGrid />
       <CaseStudyGrid items={work} variant="home" />
+      <OfferBlock />
       <ProcessSteps />
       <Testimonial
         quote="russle understood that I needed less, not more. No price page, no booking calendar, no essay about me — just the photography, the testimonials, and an enquiry form designed to convert. It's the first site I've had that I'm happy to send people to."
