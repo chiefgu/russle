@@ -41,7 +41,7 @@ function CaseStudyBand({ item, flip }: { item: WorkMeta; flip: boolean }) {
 
   return (
     <section
-      className="relative overflow-hidden py-20 md:py-32"
+      className="relative overflow-hidden py-16 md:py-24"
       style={{ background: item.backdropColor }}
     >
       <Container size="main">
@@ -139,11 +139,7 @@ function CaseStudyBand({ item, flip }: { item: WorkMeta; flip: boolean }) {
                   <img
                     src={item.cover}
                     alt={`${item.title} cover`}
-                    className={`h-full w-full ${
-                      item.coverFit === 'contain'
-                        ? 'object-contain'
-                        : 'object-cover'
-                    } rounded-[var(--radius-m)] shadow-2xl`}
+                    className="max-h-full max-w-full rounded-[var(--radius-m)] object-contain shadow-2xl"
                   />
                 ) : (
                   <span
