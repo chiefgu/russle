@@ -12,6 +12,7 @@ import { DesignNotes } from '@/components/sections/DesignNotes';
 import { Gallery } from '@/components/sections/Gallery';
 import { CaseStudyBody } from '@/components/sections/CaseStudyBody';
 import { CaseStudyResults } from '@/components/sections/CaseStudyResults';
+import { Testimonial } from '@/components/sections/Testimonial';
 import { getAllWork, getWorkBySlug, getWorkSlugs } from '@/lib/mdx';
 
 type Params = { slug: string };
@@ -285,6 +286,15 @@ export default async function WorkDetailPage({
         <Section tone="surface" spacing="l" container="main">
           <Gallery items={post.gallery} />
         </Section>
+      )}
+
+      {/* Pull-quote — only renders when frontmatter quote is present */}
+      {post.quote && (
+        <Testimonial
+          quote={post.quote.text}
+          author={post.quote.author}
+          role={post.quote.role}
+        />
       )}
 
       {/* Next case */}
