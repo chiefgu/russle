@@ -2,8 +2,6 @@ import { Hero } from '@/components/sections/Hero';
 import { LogoWall } from '@/components/sections/LogoWall';
 import { CaseStudyShowcase } from '@/components/sections/CaseStudyShowcase';
 import { OfferBlock } from '@/components/sections/OfferBlock';
-import { Section } from '@/components/layout/Section';
-import { ButtonLink } from '@/components/ui/Button';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { Testimonial } from '@/components/sections/Testimonial';
 import { FAQSection } from '@/components/sections/FAQSection';
@@ -18,13 +16,6 @@ export default function HomePage() {
       <Hero />
       <LogoWall />
       <CaseStudyShowcase items={work} />
-      <Section tone="bg" spacing="m">
-        <div className="flex justify-center">
-          <ButtonLink href="/work" variant="secondary" size="lg" withArrow>
-            All projects
-          </ButtonLink>
-        </div>
-      </Section>
       <OfferBlock />
       <ProcessSteps />
       <Testimonial
