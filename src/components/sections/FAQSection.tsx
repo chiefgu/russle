@@ -13,10 +13,6 @@ const ITEMS: FAQItem[] = [
     a: "That's fine. Book just the website portion à la carte. See services.",
   },
   {
-    q: "What's included in the £2,500?",
-    a: 'Brand identity (logo, palette, type, basic guidelines), a custom-designed and built website, and domain + hosting setup. Full breakdown on services.',
-  },
-  {
     q: 'Will you write my content?',
     a: 'Content (copy, photography, social, ads) sits on top of the £2,500 base, à la carte. If you bring your own copy and photos, the base launch covers the rest.',
   },
