@@ -9,16 +9,32 @@ const ITEMS: FAQItem[] = [
     a: 'Four to six weeks from kickoff to live, depending on scope. Most projects land around five.',
   },
   {
-    q: 'What if I already have a brand or logo?',
-    a: "That's fine. Book just the website portion à la carte. See services.",
+    q: 'Why not just use a Squarespace template?',
+    a: "Templates are free, and every other business in your sector uses the same one. Your brand becomes interchangeable. We build something that's only yours, on a stack you actually own (no platform lock-in, no per-sale fees).",
+  },
+  {
+    q: 'Why not hire a freelancer for a few hundred quid?',
+    a: "A cheap freelancer can ship a working site. They can't build a brand and a site that match, and they can't run the SEO, email, and local systems behind it. You end up with three people, three invoices, and three things that don't talk to each other.",
+  },
+  {
+    q: 'Why not go to a proper agency?',
+    a: "Agencies bill £15k+ for the launch alone, quote in PowerPoints, and assign your project to a junior. We're the studio you'd hire if you knew where to look. Same standard of work, none of the overhead.",
+  },
+  {
+    q: 'What if I already have a brand?',
+    a: "Fine. Book just the website portion à la carte. See services for the breakdown.",
+  },
+  {
+    q: 'What if I don\'t like what you make?',
+    a: "After the discovery call, the first thing you get is a brand-direction document and a homepage concept. If either misses, we revise on the studio's time. The launch fee covers two rounds of revision per stage; the goal is alignment, not invoice padding.",
   },
   {
     q: 'Will you write my content?',
-    a: 'Content (copy, photography, social, ads) sits on top of the £2,500 base, à la carte. If you bring your own copy and photos, the base launch covers the rest.',
+    a: 'Content (copy, photography direction, social) sits in the Manage tier, or on top of any launch à la carte. If you bring your own copy and photos, the base launch covers the rest.',
   },
   {
-    q: 'What does ongoing care cover?',
-    a: "Site updates, post-launch iterations, hosting and domain management, and small fixes. It's technical, not editorial.",
+    q: 'What does Grow actually cover?',
+    a: "Site updates and iterations, SEO setup and ongoing optimisation, email marketing setup and campaigns, local business optimisation (Google Business Profile, citations, reviews), and monthly reporting. It's the systems that turn a website into a working sales channel.",
   },
   {
     q: "What if I'm not sure exactly what I need yet?",
@@ -26,7 +42,7 @@ const ITEMS: FAQItem[] = [
   },
   {
     q: 'Where are you based, and who am I working with?',
-    a: "I'm Henry. Independent, UK-based. You'll work with me directly through the whole project, not a project manager and a junior.",
+    a: "russle is an independent UK studio. You work directly with the team that designs and builds your project, not a project manager and a junior.",
   },
   {
     q: 'Can we talk before I fill in the form?',
@@ -43,9 +59,9 @@ export function FAQSection() {
             <Tag>FAQ</Tag>
             <h2 className="h2 mt-6 text-balance">Common questions.</h2>
             <p className="text-body mt-6 max-w-sm text-[var(--color-text-mute)]">
-              Can&apos;t see what you&apos;re looking for? Just{' '}
+              Can&apos;t see what you&apos;re looking for?{' '}
               <a href="mailto:hello@russle.co.uk" className="link">
-                email me
+                Email the studio
               </a>
               .
             </p>

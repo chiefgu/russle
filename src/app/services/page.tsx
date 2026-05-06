@@ -5,11 +5,12 @@ import { ButtonLink } from '@/components/ui/Button';
 import { CTAStrip } from '@/components/sections/CTAStrip';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { Reveal } from '@/components/animations/Reveal';
+import { getAllWork } from '@/lib/mdx';
 
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Three ways to work together. Brand + site as one piece, ongoing care once you are live, or just the slice you need.',
+    'Brand, website, and the systems that grow them. Three tiers: Launch, Grow, Manage. From £2,500.',
 };
 
 const LAUNCH_INCLUDED = [
@@ -17,145 +18,220 @@ const LAUNCH_INCLUDED = [
   'Custom-designed website (typically 5–7 pages)',
   'Built and shipped on Next.js',
   'Domain and hosting setup',
+  'Analytics and email handed over',
   '4–6 week timeline',
 ];
 
-const LAUNCH_YOU_BRING = [
-  'Copy and photography for the site',
-  'A view on what you want it to feel like (or trust me to find it)',
-  'Decisions, on time',
+const GROW_INCLUDED = [
+  'Site updates and iterations after launch',
+  'SEO setup and ongoing optimisation',
+  'Email marketing (templates, automations, campaigns)',
+  'Local business optimisation (Google Business Profile, citations, reviews)',
+  'Hosting + domain handled',
+  'Monthly reporting and recommendations',
+];
+
+const MANAGE_INCLUDED = [
+  'Everything in Grow',
+  'Content creation (copy, photography direction, social)',
+  'Ongoing campaign work',
+  'Higher-touch monthly strategy calls',
+  'Quarterly review and planning',
 ];
 
 const ALA_CARTE = [
-  {
-    title: 'Web only',
-    body: 'You already have a brand.',
-  },
-  {
-    title: 'Brand only',
-    body: "You already have a site or don't need one yet.",
-  },
-  {
-    title: 'One-page site',
-    body: 'A launch page, an event, a single product.',
-  },
-  {
-    title: 'Content',
-    body: 'Copy, photography, social, ads. Added on top of any launch.',
-  },
+  { title: 'Web only', body: 'You already have a brand.' },
+  { title: 'Brand only', body: "You already have a site or don't need one yet." },
+  { title: 'One-page site', body: 'A launch page, an event, a single product.' },
+  { title: 'Content', body: 'Copy, photography direction, social. On top of any tier.' },
 ];
 
+type TierProps = {
+  tag: string;
+  title: string;
+  blurb: string;
+  price: string;
+  ctaLabel: string;
+  ctaHref: string;
+  ctaVariant: 'primary' | 'secondary';
+  bullets: string[];
+  tone: 'bg' | 'surface';
+  delay?: number;
+};
+
+function Tier({
+  tag,
+  title,
+  blurb,
+  price,
+  ctaLabel,
+  ctaHref,
+  ctaVariant,
+  bullets,
+  tone,
+}: TierProps) {
+  return (
+    <Section tone={tone} spacing="xl">
+      <div className="grid gap-12 md:grid-cols-12">
+        <div className="md:col-span-4">
+          <Reveal>
+            <Tag>{tag}</Tag>
+            <h2 className="h2 mt-6 text-balance">{title}</h2>
+            <p className="text-big mt-6 text-[var(--color-text-mute)]">
+              {blurb}
+            </p>
+            <p className="text-big mt-6 text-[var(--color-text)]">{price}</p>
+            <div className="mt-8">
+              <ButtonLink
+                href={ctaHref}
+                variant={ctaVariant}
+                size="lg"
+                withArrow={ctaVariant === 'primary'}
+              >
+                {ctaLabel}
+              </ButtonLink>
+            </div>
+          </Reveal>
+        </div>
+        <div className="md:col-span-8">
+          <Reveal delay={0.05}>
+            <p className="label text-[var(--color-text-soft)]">
+              What&apos;s included
+            </p>
+            <ul className="mt-4 grid gap-3 text-body text-[var(--color-text)] md:grid-cols-2 md:gap-x-8">
+              {bullets.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span
+                    aria-hidden
+                    className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-text-mute)]"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
 export default function ServicesPage() {
+  const work = getAllWork();
+
   return (
     <>
       {/* Hero */}
       <Section tone="bg" spacing="heroTop" container="main">
         <div className="max-w-5xl">
           <Reveal>
-            <Tag>Services</Tag>
+            <Tag tone="accent">Services</Tag>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="h1 mt-6 text-balance">What you can book.</h1>
+            <h1 className="h1 mt-6 text-balance">
+              Brand, website, and the systems that grow them.
+            </h1>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-              Three ways to work together. Brand + site as one piece, ongoing care once you&apos;re live, or just the slice you need.
+            <p className="text-big mt-8 max-w-3xl text-[var(--color-text-mute)]">
+              Three tiers, one studio. Launch starts at £2,500. Grow and Manage are monthly retainers, scoped to where the business is and where it is going.
             </p>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <div className="mt-10">
+              <ButtonLink href="/start" variant="primary" size="lg" withArrow>
+                Start a project
+              </ButtonLink>
+            </div>
           </Reveal>
         </div>
       </Section>
 
-      {/* Section 1: Brand + Site (the launch) */}
-      <Section tone="surface" spacing="xl">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-4">
-            <Reveal>
-              <Tag>The launch</Tag>
-              <h2 className="h2 mt-6 text-balance">
-                Brand + site, launched together.
-              </h2>
-              <p className="text-big mt-6 text-[var(--color-text-mute)]">
-                From £2,500.
-              </p>
-              <div className="mt-8">
-                <ButtonLink href="/start" variant="primary" size="lg" withArrow>
-                  Start a project
-                </ButtonLink>
-              </div>
-            </Reveal>
-          </div>
-          <div className="grid gap-12 md:col-span-8 md:grid-cols-2">
-            <Reveal delay={0.05}>
-              <div>
-                <p className="label text-[var(--color-text-soft)]">
-                  What&apos;s included
-                </p>
-                <ul className="mt-4 space-y-3 text-body text-[var(--color-text)]">
-                  {LAUNCH_INCLUDED.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span
-                        aria-hidden
-                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-text-mute)]"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div>
-                <p className="label text-[var(--color-text-soft)]">
-                  What you bring
-                </p>
-                <ul className="mt-4 space-y-3 text-body text-[var(--color-text)]">
-                  {LAUNCH_YOU_BRING.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span
-                        aria-hidden
-                        className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-text-mute)]"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-small mt-6 text-[var(--color-text-mute)]">
-                  If you&apos;d rather not, content services can be added on top, à la carte.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </Section>
+      <Tier
+        tag="Launch"
+        title="Brand and website, built together."
+        blurb="The starting point for most projects. Brand identity and a custom website, designed and shipped as one engagement."
+        price="From £2,500"
+        ctaLabel="Start a project"
+        ctaHref="/start"
+        ctaVariant="primary"
+        bullets={LAUNCH_INCLUDED}
+        tone="surface"
+      />
 
-      {/* Section 2: Ongoing care */}
+      <Tier
+        tag="Grow"
+        title="Once you're live, the systems that grow it."
+        blurb="A monthly retainer. Site care plus the marketing systems that turn a website into a working sales channel."
+        price="On enquiry"
+        ctaLabel="Get in touch"
+        ctaHref="/contact"
+        ctaVariant="secondary"
+        bullets={GROW_INCLUDED}
+        tone="bg"
+      />
+
+      <Tier
+        tag="Manage"
+        title="Full ongoing partnership."
+        blurb="For businesses that want a studio embedded in the work, not a series of one-offs."
+        price="On enquiry"
+        ctaLabel="Get in touch"
+        ctaHref="/contact"
+        ctaVariant="secondary"
+        bullets={MANAGE_INCLUDED}
+        tone="surface"
+      />
+
+      {/* Proof bar */}
       <Section tone="bg" spacing="xl">
-        <div className="grid gap-12 md:grid-cols-12">
+        <div className="grid gap-12 md:grid-cols-12 md:items-end">
           <div className="md:col-span-4">
             <Reveal>
-              <Tag>Ongoing care</Tag>
-              <h2 className="h2 mt-6 text-balance">After launch.</h2>
-              <p className="text-big mt-6 text-[var(--color-text-mute)]">
-                Pricing on enquiry.
+              <Tag>Recent</Tag>
+              <h2 className="h2 mt-6 text-balance">Who we&apos;ve built for.</h2>
+              <p className="text-body mt-6 text-[var(--color-text-mute)]">
+                A range of businesses. The work crosses sectors.
               </p>
               <div className="mt-8">
-                <ButtonLink href="/contact" variant="secondary" size="lg">
-                  Get in touch
+                <ButtonLink href="/work" variant="ghost" withArrow>
+                  See the work
                 </ButtonLink>
               </div>
             </Reveal>
           </div>
           <div className="md:col-span-8">
             <Reveal delay={0.05}>
-              <p className="text-big text-[var(--color-text)]">
-                The retainer covers technical upkeep: site updates, iterations, hosting, fixes. Content work like copywriting or photography is scoped separately, à la carte.
-              </p>
+              <ul className="grid gap-x-12 gap-y-4 sm:grid-cols-2 md:gap-x-16">
+                {work.map((item) => (
+                  <li key={item.slug} className="flex items-baseline gap-3">
+                    <span className="h-1 w-1 shrink-0 rounded-full bg-[var(--color-text-soft)]" />
+                    <span className="text-big text-[var(--color-text)]">
+                      {item.client}
+                    </span>
+                    <span className="text-small text-[var(--color-text-soft)]">
+                      {item.sector}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <blockquote className="mt-12 border-l-2 border-[var(--color-line-2)] pl-6">
+                <p className="text-big text-balance text-[var(--color-text)]">
+                  &ldquo;russle understood that I needed less, not more. It&apos;s the first site I&apos;ve had that I&apos;m happy to send people to.&rdquo;
+                </p>
+                <footer className="mt-4">
+                  <p className="text-body text-[var(--color-text)]">Abigail</p>
+                  <p className="text-small text-[var(--color-text-mute)]">
+                    Owner, Makeup by Abigail
+                  </p>
+                </footer>
+              </blockquote>
             </Reveal>
           </div>
         </div>
       </Section>
 
-      {/* Section 3: À la carte */}
+      {/* À la carte */}
       <Section tone="surface" spacing="xl">
         <div className="mb-12 max-w-3xl">
           <Reveal>
@@ -188,8 +264,7 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      {/* Section 4: Process, reuse existing component (tone=bg so it
-          alternates from the À la carte section above). */}
+      {/* Process — bg tone so it alternates from à la carte surface above */}
       <ProcessSteps tone="bg" />
 
       <CTAStrip />

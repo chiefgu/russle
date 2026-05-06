@@ -16,7 +16,8 @@ type OfferCard = {
 
 const CARDS: OfferCard[] = [
   {
-    title: 'Brand + Site, launched together',
+    title: 'Launch',
+    description: 'Brand identity and a custom-designed website, built and shipped together.',
     bullets: [
       'Brand identity (logo, palette, type, basic guidelines)',
       'Custom-designed website',
@@ -31,26 +32,33 @@ const CARDS: OfferCard[] = [
     emphasis: true,
   },
   {
-    title: 'Ongoing care',
+    title: 'Grow',
+    description: 'Once you are live, the systems that grow the business.',
     bullets: [
-      'Site updates',
-      'Iterations after launch',
+      'Site updates and iterations',
+      'SEO setup and ongoing optimisation',
+      'Email marketing (templates, automations, campaigns)',
+      'Local business optimisation (Google Business Profile, citations, reviews)',
       'Hosting + domain handled',
-      'Light design tweaks',
+      'Monthly reporting',
+    ],
+    price: 'On enquiry',
+    ctaLabel: 'See more',
+    ctaHref: '/services',
+    ctaVariant: 'secondary',
+  },
+  {
+    title: 'Manage',
+    description: 'Everything in Grow, plus the work that needs constant attention.',
+    bullets: [
+      'Content creation (copy, photography direction, social)',
+      'Ongoing campaign work',
+      'Higher-touch monthly strategy calls',
+      'Quarterly review and planning',
     ],
     price: 'On enquiry',
     ctaLabel: 'Get in touch',
     ctaHref: '/contact',
-    ctaVariant: 'secondary',
-  },
-  {
-    title: 'À la carte',
-    description:
-      'Already have a brand? Need just a logo? Need a one-page site? Need copy, photos, social, or ads? Pick the parts you need.',
-    bullets: [],
-    price: 'On enquiry',
-    ctaLabel: 'See options',
-    ctaHref: '/services',
     ctaVariant: 'secondary',
   },
 ];

@@ -18,13 +18,13 @@ export function Hero() {
 
         <Reveal delay={0.05}>
           <h1 className="h1 mt-6 text-balance text-[var(--color-text)]">
-            One studio.<br />Brand and site, launched together.
+            Brand, website, and the systems that grow them.
           </h1>
         </Reveal>
 
         <Reveal delay={0.15}>
           <p className="text-big mx-auto mt-8 max-w-2xl text-balance text-[var(--color-text-mute)]">
-            For food, hospitality, and lifestyle brands. Identity and a live website, built end to end. From £2,500.
+            We design the brand, ship the website, then run the SEO, email, and local systems that grow it. From £2,500.
           </p>
         </Reveal>
 
@@ -45,7 +45,7 @@ export function Hero() {
             <span aria-hidden className="hidden h-4 w-px bg-[var(--color-line-2)] sm:block" />
             <span>Live in 4&ndash;6 weeks</span>
             <span aria-hidden className="hidden h-4 w-px bg-[var(--color-line-2)] sm:block" />
-            <span>By one person, end to end</span>
+            <span>Brand to growth, in-house</span>
           </div>
         </Reveal>
       </div>

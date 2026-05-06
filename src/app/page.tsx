@@ -1,4 +1,6 @@
 import { Hero } from '@/components/sections/Hero';
+import { WhyRussle } from '@/components/sections/WhyRussle';
+import { VersusBlock } from '@/components/sections/VersusBlock';
 import { CaseStudyShowcase } from '@/components/sections/CaseStudyShowcase';
 import { OfferBlock } from '@/components/sections/OfferBlock';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
@@ -13,6 +15,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <WhyRussle />
+      <VersusBlock />
       <CaseStudyShowcase items={work} />
       <OfferBlock />
       <ProcessSteps />

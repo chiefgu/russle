@@ -7,21 +7,21 @@ import { Reveal } from '@/components/animations/Reveal';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    "I'm a designer-developer who'd rather do one project well than ten projects fast.",
+    'russle is an independent UK studio. Brand, website, and the systems that grow them.',
 };
 
 const PRINCIPLES = [
   {
-    title: 'Slow craft.',
-    body: 'I take one project at a time. You get my full attention, not a Slack channel staffed by juniors.',
+    title: 'Brand-led growth.',
+    body: 'A brand and a site that look like the same business. SEO, email, and local that compound on top. Nothing fights itself.',
   },
   {
     title: 'Direct contact.',
-    body: 'No PMs, no proxies. You talk to the person doing the work, every day.',
+    body: 'No PMs, no proxies. You talk to the team doing the work, every day. Every email gets answered.',
   },
   {
     title: 'Real software.',
-    body: "I write production code. Your site doesn't get handed off to a build team. It's built by the person who designed it.",
+    body: "Production code, not no-code stitched together. The site is fast, accessible, and yours to own. No platform lock-in.",
   },
 ];
 
@@ -42,15 +42,15 @@ const STACK = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero, single huge statement */}
+      {/* Hero, single statement */}
       <Section tone="bg" spacing="heroTop" container="main">
         <div className="max-w-5xl">
           <Reveal>
-            <Tag>About</Tag>
+            <Tag tone="accent">About</Tag>
           </Reveal>
           <Reveal delay={0.05}>
             <h1 className="h1 mt-6 text-balance">
-              I&apos;m a designer-developer who&apos;d rather do one project well than ten projects fast.
+              An independent UK studio for brand, website, and the systems that grow them.
             </h1>
           </Reveal>
         </div>
@@ -85,13 +85,13 @@ export default function AboutPage() {
             <Reveal delay={0.05}>
               <div className="text-big max-w-3xl space-y-6 text-[var(--color-text)]">
                 <p>
-                  russle is independent. One person, which means the person designing your site is the same person writing the code, sending the invoice, and answering the late email.
+                  russle is independent. The work covers brand, design, and code through to the systems that grow the business once it&apos;s live: SEO, email marketing, and local optimisation.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Most clients are independent food, hospitality, and lifestyle founders who have outgrown the cheap end of the market and don&apos;t want an agency relationship to manage. The work covers design, brand, and code. The Figma, the React, the Postgres schema, the brand-direction document, the 9pm DNS panic on launch night, same job, same person.
+                  Clients are independent businesses that have outgrown the cheap end of the market and don&apos;t want an agency relationship to manage. The brand-direction document, the React, the Postgres schema, the SEO setup, the email automations, the 9pm DNS panic on launch night, all the same studio.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Projects start with the intake form at /start, and ship four to six weeks later. One client at a time.
+                  Projects start with the intake form at /start, and ship four to six weeks later.
                 </p>
               </div>
             </Reveal>
@@ -106,7 +106,7 @@ export default function AboutPage() {
             <Reveal>
               <Tag>Stack</Tag>
               <p className="text-body mt-4 max-w-xs text-[var(--color-text-mute)]">
-                The tools I reach for first. Happy to work in your stack if needed.
+                The tools the studio reaches for first. Happy to work in your stack if needed.
               </p>
             </Reveal>
           </div>
