@@ -16,7 +16,11 @@ export function CaseStudyGrid({ items, variant = 'home', showHeader = true }: Ca
   const cols = variant === 'home' ? 'md:grid-cols-3' : 'md:grid-cols-2';
 
   return (
-    <Section tone="bg" spacing="xl">
+    <Section
+      tone="bg"
+      spacing="xl"
+      className={!showHeader ? 'pt-0 md:pt-0' : ''}
+    >
       {showHeader && (
         <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
           <Reveal>
