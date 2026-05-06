@@ -1,22 +1,21 @@
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { Reveal } from '@/components/animations/Reveal';
+import { Placeholder } from '@/components/ui/Placeholder';
 
 export function WhyRussle() {
   return (
     <Section tone="surface" spacing="xl">
-      <div className="grid gap-12 md:grid-cols-12">
-        <div className="md:col-span-4">
+      <div className="grid gap-12 md:grid-cols-12 md:items-center">
+        <div className="md:col-span-7">
           <Reveal>
             <Tag>Why russle</Tag>
             <h2 className="h2 mt-6 text-balance">
               One studio for the work that should be one thing.
             </h2>
           </Reveal>
-        </div>
-        <div className="md:col-span-8">
           <Reveal delay={0.05}>
-            <div className="text-big max-w-3xl space-y-6 text-[var(--color-text)]">
+            <div className="text-big mt-10 max-w-3xl space-y-6 text-[var(--color-text)]">
               <p>
                 Most independent businesses end up with a brand from one designer, a website from another, and their marketing from a third. Nothing fits together. The brand looks sharp on Instagram and amateur everywhere else.
               </p>
@@ -27,6 +26,15 @@ export function WhyRussle() {
                 One brief. One timeline. One quote. One number to call when something needs changing.
               </p>
             </div>
+          </Reveal>
+        </div>
+        <div className="md:col-span-5">
+          <Reveal delay={0.1}>
+            <Placeholder
+              label="An editorial image showing brand + website + marketing as one unified system. Could be a flat-lay of a brand book, screens, and stationery, or an abstract diagram of the three combining."
+              hint="1200 × 1500 (4:5) recommended"
+              aspect="4:3"
+            />
           </Reveal>
         </div>
       </div>

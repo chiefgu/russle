@@ -5,6 +5,7 @@ import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { CTAStrip } from '@/components/sections/CTAStrip';
 import { Reveal } from '@/components/animations/Reveal';
+import { Placeholder } from '@/components/ui/Placeholder';
 import { getAllWork } from '@/lib/mdx';
 
 export const metadata: Metadata = {
@@ -178,6 +179,15 @@ export default function ServicesPage() {
                 </ul>
               </div>
             </Reveal>
+            <Reveal delay={0.1}>
+              <div className="mt-8">
+                <Placeholder
+                  label="A representative Launch project. Brand mood + the live website together. Could be a flat-lay of a brand book next to a laptop showing the site."
+                  hint="1600 × 1200 (4:3)"
+                  aspect="4:3"
+                />
+              </div>
+            </Reveal>
           </div>
         </div>
       </Section>
@@ -225,6 +235,15 @@ export default function ServicesPage() {
                 </Reveal>
               ))}
             </div>
+            <Reveal delay={0.2}>
+              <div className="mt-8">
+                <Placeholder
+                  label="Marketing in action. A simple analytics chart trending up, or an email open in a client's inbox, or a Google Business Profile screenshot. Tasteful, not stocky."
+                  hint="2400 × 1000 (12:5)"
+                  aspect="21:9"
+                />
+              </div>
+            </Reveal>
           </div>
         </div>
       </Section>
@@ -276,6 +295,15 @@ export default function ServicesPage() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="mt-8">
+                <Placeholder
+                  label="A working session. Two or three people around a screen, sketches on a wall, real conversation. Should feel like collaboration, not a stock 'business meeting'."
+                  hint="1600 × 1200 (4:3)"
+                  aspect="4:3"
+                />
               </div>
             </Reveal>
           </div>
