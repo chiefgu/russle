@@ -62,14 +62,31 @@ const PROCESS_STEPS = [
   { n: '04', title: 'Launch' },
 ];
 
-function Bridge({ children }: { children: React.ReactNode }) {
+function Bridge({
+  to,
+  children,
+}: {
+  to?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <section className="bg-[var(--color-bg)] py-16 md:py-20">
+    <section className="bg-[var(--color-bg)] py-20 md:py-32">
       <Container size="main">
         <Reveal>
-          <p className="h3 max-w-3xl text-balance text-[var(--color-text-mute)]">
-            {children}
-          </p>
+          <div className="mx-auto max-w-3xl text-center">
+            <span
+              aria-hidden
+              className="inline-block h-px w-12 bg-[var(--color-accent)]"
+            />
+            {to && (
+              <p className="label mt-8 text-[var(--color-text-soft)]">
+                Next &middot; {to}
+              </p>
+            )}
+            <p className="h3 mt-6 text-balance italic text-[var(--color-text)]">
+              {children}
+            </p>
+          </div>
         </Reveal>
       </Container>
     </section>
@@ -107,7 +124,7 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      <Bridge>
+      <Bridge to="01 Launch">
         Most projects start here. A new brand, a new site, both designed and built together.
       </Bridge>
 
@@ -165,7 +182,7 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      <Bridge>
+      <Bridge to="02 Grow">
         Once you&apos;re live, the question becomes: how do you turn this into a working sales channel?
       </Bridge>
 
@@ -212,7 +229,7 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      <Bridge>
+      <Bridge to="03 Manage">
         For businesses ready to lean in deeper, with a studio working alongside them month to month.
       </Bridge>
 
