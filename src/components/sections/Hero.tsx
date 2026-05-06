@@ -5,7 +5,12 @@ import { Reveal } from '@/components/animations/Reveal';
 
 export function Hero() {
   return (
-    <Section tone="transparent" spacing="heroTopTight" container="main">
+    <Section
+      tone="transparent"
+      spacing="heroTopTight"
+      container="main"
+      className="flex min-h-screen flex-col justify-center"
+    >
       <div className="mx-auto max-w-5xl text-center">
         <Reveal>
           <Tag tone="accent">Independent studio</Tag>
