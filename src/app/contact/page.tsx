@@ -21,7 +21,7 @@ export default function ContactPage() {
         sub="Or not ready to start yet. Drop a line, book a quick chat, or head to /start when you're ready."
       />
 
-      <Section tone="bg" spacing="xl" container="main">
+      <Section tone="bg" spacing="xl" container="main" className="pt-0 md:pt-0">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
             <Reveal>
