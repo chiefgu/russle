@@ -283,7 +283,7 @@ export default async function WorkDetailPage({
 
       {/* Gallery, varying-width image stack */}
       {post.gallery && post.gallery.length > 0 && (
-        <Section tone="surface" spacing="l" container="main">
+        <Section tone="bg" spacing="xl" container="main">
           <Gallery items={post.gallery} />
         </Section>
       )}

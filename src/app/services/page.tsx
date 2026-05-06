@@ -188,8 +188,9 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      {/* Section 4: Process, reuse existing component */}
-      <ProcessSteps />
+      {/* Section 4: Process, reuse existing component (tone=bg so it
+          alternates from the À la carte section above). */}
+      <ProcessSteps tone="bg" />
 
       <CTAStrip />
     </>

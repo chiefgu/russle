@@ -36,7 +36,7 @@ const ITEMS: FAQItem[] = [
 
 export function FAQSection() {
   return (
-    <Section tone="bg" spacing="xl">
+    <Section tone="surface" spacing="xl">
       <div className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-4">
           <Reveal>

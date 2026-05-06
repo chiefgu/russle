@@ -25,9 +25,18 @@ const STEPS = [
   },
 ];
 
-export function ProcessSteps() {
+type ProcessStepsProps = {
+  tone?: 'surface' | 'bg';
+};
+
+export function ProcessSteps({ tone = 'surface' }: ProcessStepsProps = {}) {
+  // Cards always render on the opposite tone so they read as distinct from
+  // the surrounding section, regardless of which tone the section uses.
+  const cardBg =
+    tone === 'surface' ? 'bg-[var(--color-surface)]' : 'bg-[var(--color-bg)]';
+
   return (
-    <Section tone="surface" spacing="xl">
+    <Section tone={tone} spacing="xl">
       <div className="mb-12 max-w-2xl md:mb-16">
         <Reveal>
           <Tag>How it works</Tag>
@@ -38,7 +47,7 @@ export function ProcessSteps() {
       <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)]">
         {STEPS.map((step, i) => (
           <Reveal key={step.n} delay={i * 0.05}>
-            <div className="grid gap-6 bg-[var(--color-surface)] p-8 md:grid-cols-12 md:p-12">
+            <div className={`grid gap-6 ${cardBg} p-8 md:grid-cols-12 md:p-12`}>
               <div className="md:col-span-2">
                 <span className="text-h3 font-medium tracking-[-0.04em] text-[var(--color-text-soft)]">
                   {step.n}

@@ -11,7 +11,7 @@ export function CaseStudyResults({ items, accentColor }: CaseStudyResultsProps) 
   if (!items || items.length === 0) return null;
 
   return (
-    <Section tone="surface" spacing="l" container="main">
+    <Section tone="surface" spacing="xl" container="main">
       <div className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-3">
           <Reveal>
