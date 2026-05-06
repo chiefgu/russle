@@ -14,36 +14,36 @@ export const metadata: Metadata = {
 };
 
 const LAUNCH_INCLUDED = [
-  'Brand identity (logo, palette, type, basic guidelines)',
+  'Brand identity (logo, colours, fonts, basic guidelines)',
   'Custom-designed website (typically 5–7 pages)',
-  'Built and shipped on Next.js',
+  'Real, custom-built code, yours to own. No template. No subscription to a website builder.',
   'Domain and hosting setup',
-  'Analytics and email handed over',
+  'Analytics, email, and basic search setup handed over',
   '4–6 week timeline',
 ];
 
 const GROW_INCLUDED = [
-  'Site updates and iterations after launch',
-  'SEO setup and ongoing optimisation',
-  'Email marketing (templates, automations, campaigns)',
-  'Local business optimisation (Google Business Profile, citations, reviews)',
-  'Hosting + domain handled',
-  'Monthly reporting and recommendations',
+  'Site updates and design tweaks after launch',
+  'Search visibility (showing up on Google when people look for what you do)',
+  'Email marketing (welcome flows, customer follow-ups, promotions)',
+  'Local search (Google Business Profile, listings, reviews)',
+  'Hosting and domain handled',
+  'Monthly reporting in plain English',
 ];
 
 const MANAGE_INCLUDED = [
   'Everything in Grow',
-  'Content creation (copy, photography direction, social)',
+  'Content (writing, photography direction, social posts)',
   'Ongoing campaign work',
-  'Higher-touch monthly strategy calls',
+  'Monthly strategy calls',
   'Quarterly review and planning',
 ];
 
 const ALA_CARTE = [
-  { title: 'Web only', body: 'You already have a brand.' },
-  { title: 'Brand only', body: "You already have a site or don't need one yet." },
+  { title: 'Website only', body: 'You already have a brand.' },
+  { title: 'Brand only', body: "You already have a website or don't need one yet." },
   { title: 'One-page site', body: 'A launch page, an event, a single product.' },
-  { title: 'Content', body: 'Copy, photography direction, social. On top of any tier.' },
+  { title: 'Content', body: 'Writing, photography direction, social. On top of any tier.' },
 ];
 
 type TierProps = {
@@ -134,7 +134,7 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-big mt-8 max-w-3xl text-[var(--color-text-mute)]">
-              Three tiers, one studio. Launch starts at £2,500. Grow and Manage are monthly retainers, scoped to where the business is and where it is going.
+              Three tiers, one studio. Launch starts at £2,500. Grow and Manage are monthly arrangements after you are live, scoped to where the business is and where it is going.
             </p>
           </Reveal>
           <Reveal delay={0.25}>
@@ -161,8 +161,8 @@ export default function ServicesPage() {
 
       <Tier
         tag="Grow"
-        title="Once you're live, the systems that grow it."
-        blurb="A monthly retainer. Site care plus the marketing systems that turn a website into a working sales channel."
+        title="Once you're live, the marketing that grows it."
+        blurb="A monthly arrangement. Site care plus the marketing that turns a website into a working sales channel."
         price="On enquiry"
         ctaLabel="Get in touch"
         ctaHref="/contact"
@@ -174,7 +174,7 @@ export default function ServicesPage() {
       <Tier
         tag="Manage"
         title="Full ongoing partnership."
-        blurb="For businesses that want a studio embedded in the work, not a series of one-offs."
+        blurb="For businesses that want a studio working alongside them month to month, not a series of one-off projects."
         price="On enquiry"
         ctaLabel="Get in touch"
         ctaHref="/contact"

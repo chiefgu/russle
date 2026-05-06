@@ -10,15 +10,11 @@ const ITEMS: FAQItem[] = [
   },
   {
     q: 'Why not just use a Squarespace template?',
-    a: "Templates are free, and every other business in your sector uses the same one. Your brand becomes interchangeable. We build something that's only yours, on a stack you actually own (no platform lock-in, no per-sale fees).",
+    a: "Templates are free, and every other business in your sector uses the same one. Your brand becomes interchangeable. We build something only you have, on a setup you actually own. No monthly subscription to a website builder, no per-sale fees.",
   },
   {
     q: 'Why not hire a freelancer for a few hundred quid?',
-    a: "A cheap freelancer can ship a working site. They can't build a brand and a site that match, and they can't run the SEO, email, and local systems behind it. You end up with three people, three invoices, and three things that don't talk to each other.",
-  },
-  {
-    q: 'Why not go to a proper agency?',
-    a: "Agencies bill £15k+ for the launch alone, quote in PowerPoints, and assign your project to a junior. We're the studio you'd hire if you knew where to look. Same standard of work, none of the overhead.",
+    a: "A cheap freelancer can build a working website. They can't design your brand to match, and they can't run the marketing behind it once you're live. You end up hiring three or four different people for three or four invoices, and nothing actually fits together.",
   },
   {
     q: 'What if I already have a brand?',
@@ -30,11 +26,11 @@ const ITEMS: FAQItem[] = [
   },
   {
     q: 'Will you write my content?',
-    a: 'Content (copy, photography direction, social) sits in the Manage tier, or on top of any launch à la carte. If you bring your own copy and photos, the base launch covers the rest.',
+    a: 'Writing, photography direction, and social content sit in the Manage tier, or on top of any launch à la carte. If you bring your own words and photos, the base launch covers the rest.',
   },
   {
     q: 'What does Grow actually cover?',
-    a: "Site updates and iterations, SEO setup and ongoing optimisation, email marketing setup and campaigns, local business optimisation (Google Business Profile, citations, reviews), and monthly reporting. It's the systems that turn a website into a working sales channel.",
+    a: "Site updates and design tweaks, search visibility (showing up on Google), email marketing (welcome flows, customer follow-ups, promotions), local search (Google Business Profile, listings, reviews), and a monthly report in plain English. It's the marketing that turns a website into a working sales channel.",
   },
   {
     q: "What if I'm not sure exactly what I need yet?",

@@ -18,10 +18,10 @@ export function WhyRussle() {
           <Reveal delay={0.05}>
             <div className="text-big max-w-3xl space-y-6 text-[var(--color-text)]">
               <p>
-                Most independent businesses end up with a brand from one designer, a website from another, and the marketing systems behind them from a third. Nothing talks to each other. The brand looks sharp on Instagram and amateur everywhere else.
+                Most independent businesses end up with a brand from one designer, a website from another, and their marketing from a third. Nothing fits together. The brand looks sharp on Instagram and amateur everywhere else.
               </p>
               <p className="text-[var(--color-text-mute)]">
-                russle does the whole thing in one studio. Brand identity, the website, the SEO, the email marketing, the local business systems. Designed and shipped together so the business reads as one business, not five.
+                russle does the whole thing in one studio. Brand, website, search, email, and local marketing. Designed and built together so your business looks like one business, not five.
               </p>
               <p className="text-[var(--color-text-mute)]">
                 One brief. One timeline. One quote. One number to call when something needs changing.

@@ -13,15 +13,15 @@ export const metadata: Metadata = {
 const PRINCIPLES = [
   {
     title: 'Brand-led growth.',
-    body: 'A brand and a site that look like the same business. SEO, email, and local that compound on top. Nothing fights itself.',
+    body: 'A brand and a website that look like the same business. Search, email, and local marketing that build on top. Nothing fights itself.',
   },
   {
     title: 'Direct contact.',
-    body: 'No PMs, no proxies. You talk to the team doing the work, every day. Every email gets answered.',
+    body: 'No middlemen. You talk to the people doing the work, every day. Every email gets answered.',
   },
   {
-    title: 'Real software.',
-    body: "Production code, not no-code stitched together. The site is fast, accessible, and yours to own. No platform lock-in.",
+    title: 'Real custom websites.',
+    body: "Not a Squarespace template with the colours changed. A fast, accessible site that's yours to own outright, with no monthly subscription to a website builder.",
   },
 ];
 
@@ -85,13 +85,13 @@ export default function AboutPage() {
             <Reveal delay={0.05}>
               <div className="text-big max-w-3xl space-y-6 text-[var(--color-text)]">
                 <p>
-                  russle is independent. The work covers brand, design, and code through to the systems that grow the business once it&apos;s live: SEO, email marketing, and local optimisation.
+                  russle is an independent UK studio. The work covers everything from designing the brand and building the website through to the marketing that grows the business once it&apos;s live: search, email, and local.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Clients are independent businesses that have outgrown the cheap end of the market and don&apos;t want an agency relationship to manage. The brand-direction document, the React, the Postgres schema, the SEO setup, the email automations, the 9pm DNS panic on launch night, all the same studio.
+                  Clients are independent businesses that have outgrown the cheap end of the market and don&apos;t want a big-agency relationship to manage. The look-and-feel direction, the homepage design, the launch, the search setup, the email campaigns, the support after you go live, all the same studio.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Projects start with the intake form at /start, and ship four to six weeks later.
+                  Projects start with the intake form at /start, and launch four to six weeks later.
                 </p>
               </div>
             </Reveal>
@@ -104,9 +104,9 @@ export default function AboutPage() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-3">
             <Reveal>
-              <Tag>Stack</Tag>
+              <Tag>Built on</Tag>
               <p className="text-body mt-4 max-w-xs text-[var(--color-text-mute)]">
-                The tools the studio reaches for first. Happy to work in your stack if needed.
+                The tools the studio reaches for first. We can work in your existing setup if you have one.
               </p>
             </Reveal>
           </div>
