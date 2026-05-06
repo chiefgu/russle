@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Section } from '@/components/layout/Section';
+import { Container } from '@/components/layout/Container';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { CTAStrip } from '@/components/sections/CTAStrip';
-import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { Reveal } from '@/components/animations/Reveal';
 import { getAllWork } from '@/lib/mdx';
 
@@ -16,23 +16,32 @@ export const metadata: Metadata = {
 const LAUNCH_INCLUDED = [
   'Brand identity (logo, colours, fonts, basic guidelines)',
   'Custom-designed website (typically 5–7 pages)',
-  'Real, custom-built code, yours to own. No template. No subscription to a website builder.',
+  'Real, custom-built code, yours to own. No template.',
   'Domain and hosting setup',
   'Analytics, email, and basic search setup handed over',
   '4–6 week timeline',
 ];
 
-const GROW_INCLUDED = [
-  'Site updates and design tweaks after launch',
-  'Search visibility (showing up on Google when people look for what you do)',
-  'Email marketing (welcome flows, customer follow-ups, promotions)',
-  'Local search (Google Business Profile, listings, reviews)',
-  'Hosting and domain handled',
-  'Monthly reporting in plain English',
+const GROW_SERVICES = [
+  {
+    title: 'Search visibility',
+    body: 'Showing up on Google when people look for what you do. Technical setup, content recommendations, and ongoing improvements.',
+  },
+  {
+    title: 'Email marketing',
+    body: 'Welcome flows, customer follow-ups, promotions. The email side of every business that actually retains customers.',
+  },
+  {
+    title: 'Local search',
+    body: 'Google Business Profile, listings across the directories that matter, and review management. The basics done properly.',
+  },
+  {
+    title: 'Site care',
+    body: 'Updates, design tweaks, hosting, and the small things that keep the site working. No surprises.',
+  },
 ];
 
-const MANAGE_INCLUDED = [
-  'Everything in Grow',
+const MANAGE_ADDITIONS = [
   'Content (writing, photography direction, social posts)',
   'Ongoing campaign work',
   'Monthly strategy calls',
@@ -46,73 +55,24 @@ const ALA_CARTE = [
   { title: 'Content', body: 'Writing, photography direction, social. On top of any tier.' },
 ];
 
-type TierProps = {
-  tag: string;
-  title: string;
-  blurb: string;
-  price: string;
-  ctaLabel: string;
-  ctaHref: string;
-  ctaVariant: 'primary' | 'secondary';
-  bullets: string[];
-  tone: 'bg' | 'surface';
-  delay?: number;
-};
+const PROCESS_STEPS = [
+  { n: '01', title: 'Discovery' },
+  { n: '02', title: 'Direction' },
+  { n: '03', title: 'Production' },
+  { n: '04', title: 'Launch' },
+];
 
-function Tier({
-  tag,
-  title,
-  blurb,
-  price,
-  ctaLabel,
-  ctaHref,
-  ctaVariant,
-  bullets,
-  tone,
-}: TierProps) {
+function Bridge({ children }: { children: React.ReactNode }) {
   return (
-    <Section tone={tone} spacing="xl">
-      <div className="grid gap-12 md:grid-cols-12">
-        <div className="md:col-span-4">
-          <Reveal>
-            <Tag>{tag}</Tag>
-            <h2 className="h2 mt-6 text-balance">{title}</h2>
-            <p className="text-big mt-6 text-[var(--color-text-mute)]">
-              {blurb}
-            </p>
-            <p className="text-big mt-6 text-[var(--color-text)]">{price}</p>
-            <div className="mt-8">
-              <ButtonLink
-                href={ctaHref}
-                variant={ctaVariant}
-                size="lg"
-                withArrow={ctaVariant === 'primary'}
-              >
-                {ctaLabel}
-              </ButtonLink>
-            </div>
-          </Reveal>
-        </div>
-        <div className="md:col-span-8">
-          <Reveal delay={0.05}>
-            <p className="label text-[var(--color-text-soft)]">
-              What&apos;s included
-            </p>
-            <ul className="mt-4 grid gap-3 text-body text-[var(--color-text)] md:grid-cols-2 md:gap-x-8">
-              {bullets.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-text-mute)]"
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
-      </div>
-    </Section>
+    <section className="bg-[var(--color-bg)] py-16 md:py-20">
+      <Container size="main">
+        <Reveal>
+          <p className="h3 max-w-3xl text-balance text-[var(--color-text-mute)]">
+            {children}
+          </p>
+        </Reveal>
+      </Container>
+    </section>
   );
 }
 
@@ -134,7 +94,7 @@ export default function ServicesPage() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-big mt-8 max-w-3xl text-[var(--color-text-mute)]">
-              Three tiers, one studio. Launch starts at £2,500. Grow and Manage are monthly arrangements after you are live, scoped to where the business is and where it is going.
+              Three tiers, one studio. Most projects start with Launch and stay with us through Grow and Manage as the business gets bigger.
             </p>
           </Reveal>
           <Reveal delay={0.25}>
@@ -147,62 +107,177 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      <Tier
-        tag="Launch"
-        title="Brand and website, built together."
-        blurb="The starting point for most projects. Brand identity and a custom website, designed and shipped as one engagement."
-        price="From £2,500"
-        ctaLabel="Start a project"
-        ctaHref="/start"
-        ctaVariant="primary"
-        bullets={LAUNCH_INCLUDED}
-        tone="surface"
-      />
+      <Bridge>
+        Most projects start here. A new brand, a new site, both designed and built together.
+      </Bridge>
 
-      <Tier
-        tag="Grow"
-        title="Once you're live, the marketing that grows it."
-        blurb="A monthly arrangement. Site care plus the marketing that turns a website into a working sales channel."
-        price="On enquiry"
-        ctaLabel="Get in touch"
-        ctaHref="/contact"
-        ctaVariant="secondary"
-        bullets={GROW_INCLUDED}
-        tone="bg"
-      />
-
-      <Tier
-        tag="Manage"
-        title="Full ongoing partnership."
-        blurb="For businesses that want a studio working alongside them month to month, not a series of one-off projects."
-        price="On enquiry"
-        ctaLabel="Get in touch"
-        ctaHref="/contact"
-        ctaVariant="secondary"
-        bullets={MANAGE_INCLUDED}
-        tone="surface"
-      />
-
-      {/* Proof bar */}
-      <Section tone="bg" spacing="xl">
-        <div className="grid gap-12 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-4">
+      {/* Launch — large editorial treatment */}
+      <Section tone="surface" spacing="xl">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5">
             <Reveal>
-              <Tag>Recent</Tag>
-              <h2 className="h2 mt-6 text-balance">Who we&apos;ve built for.</h2>
-              <p className="text-body mt-6 text-[var(--color-text-mute)]">
-                A range of businesses. The work crosses sectors.
+              <p className="text-h3 font-medium tracking-[-0.04em] text-[var(--color-text-soft)]">
+                01
               </p>
-              <div className="mt-8">
-                <ButtonLink href="/work" variant="ghost" withArrow>
-                  See the work
+              <Tag tone="accent" className="mt-6">Launch</Tag>
+              <h2 className="h1 mt-6 text-balance">
+                Brand and website, built together.
+              </h2>
+              <p className="text-big mt-8 text-[var(--color-text-mute)]">
+                The starting point for most projects. The brand identity and the website, designed and shipped as one engagement so they actually fit each other.
+              </p>
+              <div className="mt-10 flex items-end gap-4">
+                <p className="font-medium leading-none tracking-[-0.04em] text-[var(--color-text)]" style={{ fontSize: '64px' }}>
+                  £2,500
+                </p>
+                <p className="text-body pb-2 text-[var(--color-text-mute)]">
+                  starting price
+                </p>
+              </div>
+              <div className="mt-10">
+                <ButtonLink href="/start" variant="primary" size="lg" withArrow>
+                  Start a project
                 </ButtonLink>
               </div>
             </Reveal>
           </div>
-          <div className="md:col-span-8">
+
+          <div className="md:col-span-7">
             <Reveal delay={0.05}>
-              <ul className="grid gap-x-12 gap-y-4 sm:grid-cols-2 md:gap-x-16">
+              <div className="rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-10 md:p-12">
+                <p className="label text-[var(--color-text-soft)]">
+                  What you get
+                </p>
+                <ul className="mt-6 space-y-4 text-big text-[var(--color-text)]">
+                  {LAUNCH_INCLUDED.map((item) => (
+                    <li key={item} className="flex items-start gap-4">
+                      <span
+                        aria-hidden
+                        className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
+      <Bridge>
+        Once you&apos;re live, the question becomes: how do you turn this into a working sales channel?
+      </Bridge>
+
+      {/* Grow — service cards */}
+      <Section tone="surface" spacing="xl">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-4">
+            <Reveal>
+              <p className="text-h3 font-medium tracking-[-0.04em] text-[var(--color-text-soft)]">
+                02
+              </p>
+              <Tag tone="accent" className="mt-6">Grow</Tag>
+              <h2 className="h2 mt-6 text-balance">
+                The marketing that grows it.
+              </h2>
+              <p className="text-big mt-8 text-[var(--color-text-mute)]">
+                A monthly arrangement after launch. Site care plus the four marketing services that turn a website into a working sales channel.
+              </p>
+              <p className="text-big mt-6 text-[var(--color-text)]">
+                On enquiry.
+              </p>
+              <div className="mt-10">
+                <ButtonLink href="/contact" variant="secondary" size="lg">
+                  Get in touch
+                </ButtonLink>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-8">
+            <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2">
+              {GROW_SERVICES.map((s, i) => (
+                <Reveal key={s.title} delay={i * 0.05}>
+                  <div className="flex h-full flex-col bg-[var(--color-bg)] p-8 md:p-10">
+                    <h3 className="h4 text-balance">{s.title}</h3>
+                    <p className="text-body mt-4 text-[var(--color-text-mute)]">
+                      {s.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Bridge>
+        For businesses ready to lean in deeper, with a studio working alongside them month to month.
+      </Bridge>
+
+      {/* Manage — smaller, focused */}
+      <Section tone="surface" spacing="xl">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5">
+            <Reveal>
+              <p className="text-h3 font-medium tracking-[-0.04em] text-[var(--color-text-soft)]">
+                03
+              </p>
+              <Tag tone="accent" className="mt-6">Manage</Tag>
+              <h2 className="h2 mt-6 text-balance">
+                Full ongoing partnership.
+              </h2>
+              <p className="text-big mt-8 text-[var(--color-text-mute)]">
+                Everything in Grow, plus the work that needs constant attention. For businesses that want a studio working alongside them month to month, not a series of one-off projects.
+              </p>
+              <p className="text-big mt-6 text-[var(--color-text)]">
+                On enquiry.
+              </p>
+              <div className="mt-10">
+                <ButtonLink href="/contact" variant="secondary" size="lg">
+                  Get in touch
+                </ButtonLink>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="md:col-span-7">
+            <Reveal delay={0.05}>
+              <div className="rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-10 md:p-12">
+                <p className="label text-[var(--color-text-soft)]">
+                  What Manage adds
+                </p>
+                <ul className="mt-6 space-y-4 text-big text-[var(--color-text)]">
+                  {MANAGE_ADDITIONS.map((item) => (
+                    <li key={item} className="flex items-start gap-4">
+                      <span
+                        aria-hidden
+                        className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
+      {/* Proof */}
+      <Section tone="bg" spacing="xl">
+        <div className="grid gap-16 md:grid-cols-12 md:items-center">
+          <div className="md:col-span-7">
+            <Reveal>
+              <Tag>Recent</Tag>
+              <h2 className="h2 mt-6 text-balance">
+                Built for a range of independent businesses.
+              </h2>
+              <p className="text-body mt-6 max-w-md text-[var(--color-text-mute)]">
+                The work crosses sectors. What stays the same is the standard.
+              </p>
+              <ul className="mt-10 grid gap-4 sm:grid-cols-2">
                 {work.map((item) => (
                   <li key={item.slug} className="flex items-baseline gap-3">
                     <span className="h-1 w-1 shrink-0 rounded-full bg-[var(--color-text-soft)]" />
@@ -215,11 +290,20 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-              <blockquote className="mt-12 border-l-2 border-[var(--color-line-2)] pl-6">
-                <p className="text-big text-balance text-[var(--color-text)]">
+              <div className="mt-10">
+                <ButtonLink href="/work" variant="ghost" withArrow>
+                  See the work
+                </ButtonLink>
+              </div>
+            </Reveal>
+          </div>
+          <div className="md:col-span-5">
+            <Reveal delay={0.1}>
+              <blockquote className="border-l-2 border-[var(--color-accent)] pl-8">
+                <p className="h3 text-balance text-[var(--color-text)]">
                   &ldquo;russle understood that I needed less, not more. It&apos;s the first site I&apos;ve had that I&apos;m happy to send people to.&rdquo;
                 </p>
-                <footer className="mt-4">
+                <footer className="mt-8">
                   <p className="text-body text-[var(--color-text)]">Abigail</p>
                   <p className="text-small text-[var(--color-text-mute)]">
                     Owner, Makeup by Abigail
@@ -264,8 +348,25 @@ export default function ServicesPage() {
         </div>
       </Section>
 
-      {/* Process — bg tone so it alternates from à la carte surface above */}
-      <ProcessSteps tone="bg" />
+      {/* Compact process strip */}
+      <Section tone="bg" spacing="xl">
+        <div className="mb-10 max-w-2xl">
+          <Reveal>
+            <Tag>How it works</Tag>
+            <h2 className="h2 mt-6 text-balance">Four phases, every project.</h2>
+          </Reveal>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
+          {PROCESS_STEPS.map((step, i) => (
+            <Reveal key={step.n} delay={i * 0.05}>
+              <div className="border-t border-[var(--color-line-2)] pt-6">
+                <p className="label text-[var(--color-text-soft)]">{step.n}</p>
+                <p className="h4 mt-3">{step.title}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
 
       <CTAStrip />
     </>
