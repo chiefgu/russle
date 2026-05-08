@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const BARBERS = {
-  src: '/locality/didsbury-barbers.jpg',
+  src: '/locality/didsbury-barbers.avif',
   alt: 'Kraft Barbering, an independent barbershop on Wilmslow Road, Didsbury.',
 };
 
