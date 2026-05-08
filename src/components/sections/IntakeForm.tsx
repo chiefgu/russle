@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Check, ArrowRight, ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib/cn';
+import { gaEvent } from '@/lib/analytics';
 
 type Attribution = {
   utm_source: string;
@@ -260,6 +261,15 @@ export function IntakeForm() {
         const body = (await res.json().catch(() => ({}))) as { error?: string };
         throw new Error(body.error || 'Something went wrong.');
       }
+      gaEvent('generate_lead', {
+        currency: 'GBP',
+        value: 2500,
+        form_type: 'intake',
+        budget_range: formData.budget_range || 'unspecified',
+        timeline: formData.timeline || 'unspecified',
+        how_heard: formData.how_heard || 'unspecified',
+        utm_source: attribution.utm_source || 'direct',
+      });
       setSubmitted(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.');

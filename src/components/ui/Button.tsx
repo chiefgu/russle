@@ -16,6 +16,7 @@ type CommonProps = {
 type LinkButtonProps = CommonProps & {
   href: string;
   external?: boolean;
+  onClick?: () => void;
 };
 
 type ButtonProps = CommonProps & {
@@ -59,6 +60,7 @@ export function ButtonLink({
   withArrow = false,
   className,
   children,
+  onClick,
 }: LinkButtonProps) {
   const content = (
     <>
@@ -73,6 +75,7 @@ export function ButtonLink({
         href={href}
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
+        onClick={onClick}
         className={classes(variant, size, className)}
       >
         {content}
@@ -81,7 +84,7 @@ export function ButtonLink({
   }
 
   return (
-    <Link href={href} className={classes(variant, size, className)}>
+    <Link href={href} onClick={onClick} className={classes(variant, size, className)}>
       {content}
     </Link>
   );

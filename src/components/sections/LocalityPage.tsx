@@ -1,6 +1,6 @@
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
-import { ButtonLink } from '@/components/ui/Button';
+import { TrackedButtonLink } from '@/components/ui/TrackedButtonLink';
 import { FAQ } from '@/components/ui/FAQ';
 import { CaseStudyGrid } from '@/components/sections/CaseStudyGrid';
 import { CaseStudyBody } from '@/components/sections/CaseStudyBody';
@@ -119,9 +119,20 @@ export function LocalityPage({
           Tell us about your business in eight short steps. We come back inside 24 hours.
         </p>
         <div className="mt-10">
-          <ButtonLink href="/start" variant="primary" size="lg" withArrow>
+          <TrackedButtonLink
+            href="/start"
+            variant="primary"
+            size="lg"
+            withArrow
+            eventName="select_content"
+            eventParams={{
+              content_type: 'cta_start_project',
+              content_id: 'locality_page',
+              location_id: locality.slug,
+            }}
+          >
             Start a project
-          </ButtonLink>
+          </TrackedButtonLink>
         </div>
       </Section>
     </>

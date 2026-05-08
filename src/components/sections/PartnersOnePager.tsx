@@ -1,6 +1,6 @@
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
-import { ButtonLink } from '@/components/ui/Button';
+import { TrackedButtonLink } from '@/components/ui/TrackedButtonLink';
 import { Card } from '@/components/ui/Card';
 import { CaseStudyGrid } from '@/components/sections/CaseStudyGrid';
 import { getAllWork } from '@/lib/mdx';
@@ -153,12 +153,31 @@ export function PartnersOnePager() {
           back to your client inside 24 hours.
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <ButtonLink href="/start" variant="primary" size="lg" withArrow>
+          <TrackedButtonLink
+            href="/start"
+            variant="primary"
+            size="lg"
+            withArrow
+            eventName="select_content"
+            eventParams={{
+              content_type: 'cta_start_project',
+              content_id: 'partner_one_pager',
+            }}
+          >
             Start a project
-          </ButtonLink>
-          <ButtonLink href="mailto:hello@russle.co.uk" variant="secondary" size="lg">
+          </TrackedButtonLink>
+          <TrackedButtonLink
+            href="mailto:hello@russle.co.uk"
+            variant="secondary"
+            size="lg"
+            eventName="select_content"
+            eventParams={{
+              content_type: 'cta_email_studio',
+              content_id: 'partner_one_pager',
+            }}
+          >
             Email the studio
-          </ButtonLink>
+          </TrackedButtonLink>
         </div>
       </Section>
     </>
