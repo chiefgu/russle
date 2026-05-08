@@ -39,7 +39,11 @@ export function Footer() {
               <span aria-hidden className="h-3 w-3 rounded-full bg-[var(--color-accent)]" />
             </Link>
             <p className="text-big mt-6 max-w-md text-[var(--color-text-mute)]">
-              An independent UK studio. Brand, website, and the systems that grow them.
+              russle. Brand and web design studio. Alderley Edge.
+            </p>
+            <p className="text-small mt-4 max-w-md text-[var(--color-text-mute)]">
+              Working with independents across Alderley Edge, Wilmslow, Knutsford,
+              Altrincham, Macclesfield, Prestbury, Hale, Chester, and Didsbury.
             </p>
             <a
               href="mailto:hello@russle.co.uk"
