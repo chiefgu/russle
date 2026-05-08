@@ -1,7 +1,7 @@
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { Reveal } from '@/components/animations/Reveal';
-import { Placeholder } from '@/components/ui/Placeholder';
+import { WhyRussleVisual } from '@/components/sections/WhyRussleVisual';
 
 export function WhyRussle() {
   return (
@@ -30,11 +30,7 @@ export function WhyRussle() {
         </div>
         <div className="md:col-span-5">
           <Reveal delay={0.1}>
-            <Placeholder
-              label="An editorial image showing brand + website + marketing as one unified system. Could be a flat-lay of a brand book, screens, and stationery, or an abstract diagram of the three combining."
-              hint="1200 × 1500 (4:5) recommended"
-              aspect="4:3"
-            />
+            <WhyRussleVisual />
           </Reveal>
         </div>
       </div>

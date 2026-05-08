@@ -3,7 +3,6 @@ import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { CTAStrip } from '@/components/sections/CTAStrip';
 import { Reveal } from '@/components/animations/Reveal';
-import { Placeholder } from '@/components/ui/Placeholder';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -43,28 +42,17 @@ const STACK = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero with founder/studio image */}
+      {/* Hero */}
       <Section tone="bg" spacing="heroTop" container="main">
-        <div className="grid gap-12 md:grid-cols-12 md:items-end md:gap-16">
-          <div className="md:col-span-7">
-            <Reveal>
-              <Tag tone="accent">About</Tag>
-            </Reveal>
-            <Reveal delay={0.05}>
-              <h1 className="h1 mt-6 text-balance">
-                An independent UK studio for brand, website, and the systems that grow them.
-              </h1>
-            </Reveal>
-          </div>
-          <div className="md:col-span-5">
-            <Reveal delay={0.1}>
-              <Placeholder
-                label="Founder portrait or studio space. Square crop, well-lit, with personality. Avoid a stiff corporate headshot."
-                hint="1200 × 1200 (1:1)"
-                aspect="1:1"
-              />
-            </Reveal>
-          </div>
+        <div className="max-w-4xl">
+          <Reveal>
+            <Tag tone="accent">About</Tag>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h1 className="h1 mt-6 text-balance">
+              An independent UK studio for brand, website, and the systems that grow them.
+            </h1>
+          </Reveal>
         </div>
       </Section>
 
@@ -105,15 +93,6 @@ export default function AboutPage() {
                 <p className="text-[var(--color-text-mute)]">
                   Projects start with the intake form at /start, and launch four to six weeks later.
                 </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <div className="mt-12 max-w-3xl">
-                <Placeholder
-                  label="Studio in motion. Process shots, work-in-progress, sketches on a desk, screens with a brand-direction document open. Editorial in feel, not staged."
-                  hint="2400 × 1350 (16:9)"
-                  aspect="16:9"
-                />
               </div>
             </Reveal>
           </div>

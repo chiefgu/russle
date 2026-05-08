@@ -1,7 +1,7 @@
 import { cn } from '@/lib/cn';
 import { Container } from './Container';
 
-type Tone = 'bg' | 'surface' | 'dark' | 'transparent';
+type Tone = 'bg' | 'surface' | 'dark' | 'accent' | 'transparent';
 type Spacing = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'heroTop' | 'heroTopTight';
 
 type SectionProps = {
@@ -11,6 +11,7 @@ type SectionProps = {
   container?: 'main' | 'narrow' | 'none';
   id?: string;
   className?: string;
+  style?: React.CSSProperties;
   as?: 'section' | 'header' | 'footer' | 'div';
 };
 
@@ -18,6 +19,7 @@ const toneClasses: Record<Tone, string> = {
   bg: 'bg-[var(--color-bg)] text-[var(--color-text)]',
   surface: 'bg-[var(--color-surface)] text-[var(--color-text)]',
   dark: 'bg-[var(--color-dark)] text-[var(--color-on-dark)]',
+  accent: 'bg-[var(--color-accent)] text-[var(--color-on-accent)]',
   // Inherits parent background. Use when the parent wraps Section in a
   // custom-coloured container (e.g. the home page coral gradient hero band).
   transparent: 'text-[var(--color-text)]',
@@ -41,10 +43,11 @@ export function Section({
   container = 'main',
   id,
   className,
+  style,
   as: Tag = 'section',
 }: SectionProps) {
   return (
-    <Tag id={id} className={cn(toneClasses[tone], spacingClasses[spacing], className)}>
+    <Tag id={id} style={style} className={cn(toneClasses[tone], spacingClasses[spacing], className)}>
       {container === 'none' ? children : <Container size={container}>{children}</Container>}
     </Tag>
   );

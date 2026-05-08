@@ -3,15 +3,31 @@ import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { Reveal } from '@/components/animations/Reveal';
 
+// Soft dot overlay. Lives on top of --color-bg and fades to invisible
+// toward the headline via a radial mask, so it reads as ambient texture,
+// never a section.
+const DOT_PATTERN = 'radial-gradient(circle, rgba(26,20,16,0.28) 1.2px, transparent 1.8px)';
+const DOT_MASK = 'radial-gradient(ellipse at center, transparent 0%, transparent 35%, black 95%)';
+
 export function Hero() {
   return (
     <Section
-      tone="transparent"
+      tone="bg"
       spacing="heroTopTight"
       container="main"
-      className="flex min-h-screen flex-col justify-center"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden"
     >
-      <div className="mx-auto max-w-5xl text-center">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: DOT_PATTERN,
+          backgroundSize: '24px 24px',
+          maskImage: DOT_MASK,
+          WebkitMaskImage: DOT_MASK,
+        }}
+      />
+      <div className="relative z-10 mx-auto max-w-5xl text-center">
         <Reveal>
           <Tag tone="accent">Independent studio</Tag>
         </Reveal>
