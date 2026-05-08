@@ -1,8 +1,36 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Check, ArrowRight, ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib/cn';
+
+type Attribution = {
+  utm_source: string;
+  utm_medium: string;
+  utm_campaign: string;
+  referrer: string;
+  landing_page: string;
+};
+
+const EMPTY_ATTRIBUTION: Attribution = {
+  utm_source: '',
+  utm_medium: '',
+  utm_campaign: '',
+  referrer: '',
+  landing_page: '',
+};
+
+function readAttribution(): Attribution {
+  if (typeof window === 'undefined') return EMPTY_ATTRIBUTION;
+  const params = new URLSearchParams(window.location.search);
+  return {
+    utm_source: params.get('utm_source') ?? '',
+    utm_medium: params.get('utm_medium') ?? '',
+    utm_campaign: params.get('utm_campaign') ?? '',
+    referrer: document.referrer || '',
+    landing_page: window.location.pathname || '',
+  };
+}
 
 /**
  * Multi-step project intake. Ported from the Guest Digital intake form
@@ -165,7 +193,7 @@ const SECTIONS: SectionDef[] = [
   },
   {
     title: 'Your Details',
-    blurb: 'Last step. Where should I send the proposal?',
+    blurb: 'Last step. Where should we send the proposal?',
     fields: [
       { id: 'client_name', label: 'Your name', type: 'text', required: true },
       { id: 'client_email', label: 'Email address', type: 'email', required: true },
@@ -178,7 +206,21 @@ const SECTIONS: SectionDef[] = [
         type: 'select',
         options: ['Under £2,000', '£2,000 - £5,000', '£5,000 - £10,000', '£10,000 - £25,000', '£25,000+', 'Not sure, advise me'],
       },
-      { id: 'anything_else', label: 'Anything else I should know?', type: 'textarea' },
+      {
+        id: 'how_heard',
+        label: 'How did you hear about us?',
+        type: 'select',
+        options: [
+          'Google search',
+          'Recommended by someone',
+          'Saw your work on Instagram',
+          'Saw your work on LinkedIn',
+          'Came across russle.co.uk',
+          'Other',
+        ],
+      },
+      { id: 'how_heard_detail', label: 'If recommended or other, who or where? (optional)', type: 'text' },
+      { id: 'anything_else', label: 'Anything else we should know?', type: 'textarea' },
     ],
   },
 ];
@@ -188,9 +230,14 @@ type FormData = Record<string, string>;
 export function IntakeForm() {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState<FormData>({});
+  const [attribution, setAttribution] = useState<Attribution>(EMPTY_ATTRIBUTION);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    setAttribution(readAttribution());
+  }, []);
 
   const section = SECTIONS[step];
   const isLast = step === SECTIONS.length - 1;
@@ -207,7 +254,7 @@ export function IntakeForm() {
       const res = await fetch('/api/intake', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, ...attribution }),
       });
       if (!res.ok) {
         const body = (await res.json().catch(() => ({}))) as { error?: string };
@@ -229,10 +276,10 @@ export function IntakeForm() {
         </div>
         <h2 className="h2 mt-8">Got it.</h2>
         <p className="text-big mt-4 text-[var(--color-text-mute)]">
-          I&apos;ll read your brief and reply within 24 hours.
+          We&apos;ll read your brief and reply within 24 hours.
         </p>
         <p className="text-small mt-8 text-[var(--color-text-soft)]">
-          russle · hello@russle.co.uk
+          russle | hello@russle.co.uk
         </p>
       </div>
     );

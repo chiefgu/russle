@@ -273,7 +273,7 @@ ${chromeBodyOpen()}
             Got it, ${esc(p.name.split(' ')[0])}.
           </h1>
           <p class="text-mute" style="margin:14px 0 0 0;font-family:${FONT_STACK};font-size:16px;line-height:1.55;color:${BRAND.textMute};">
-            I'll reply within 24 hours.
+            We'll reply within 24 hours.
           </p>
           <p class="text-mute" style="margin:12px 0 0 0;font-family:${FONT_STACK};font-size:16px;line-height:1.55;color:${BRAND.textMute};">
             Got more to share? The
@@ -300,7 +300,7 @@ ${chromeBodyClose()}`;
   const text = [
     `Got it, ${p.name.split(' ')[0]}.`,
     ``,
-    `I'll reply within 24 hours.`,
+    `We'll reply within 24 hours.`,
     ``,
     `Got more to share? The project intake is the longer version of this form:`,
     `${SITE_URL}/start`,
@@ -385,6 +385,18 @@ export const INTAKE_FIELD_GROUPS: Array<{
       { id: 'lead_value', label: 'Average lead value' },
       { id: 'reduce_costs', label: 'Cost reduction goals' },
       { id: 'growth_targets', label: 'Growth targets' },
+    ],
+  },
+  {
+    section: 'Source',
+    fields: [
+      { id: 'how_heard', label: 'How they heard about us' },
+      { id: 'how_heard_detail', label: 'Source detail' },
+      { id: 'utm_source', label: 'UTM source' },
+      { id: 'utm_medium', label: 'UTM medium' },
+      { id: 'utm_campaign', label: 'UTM campaign' },
+      { id: 'landing_page', label: 'Landing page' },
+      { id: 'referrer', label: 'Referrer' },
     ],
   },
 ];
@@ -542,7 +554,7 @@ ${chromeBodyOpen()}
             Got it, ${esc(firstName)}.
           </h1>
           <p class="text-mute" style="margin:14px 0 0 0;font-family:${FONT_STACK};font-size:16px;line-height:1.55;color:${BRAND.textMute};">
-            Your brief is in. I'll read it properly and come back within 24 hours.
+            Your brief is in. We'll read it properly and come back within 24 hours.
           </p>
 
           ${divider()}
@@ -571,7 +583,7 @@ ${chromeBodyClose()}`;
   const text = [
     `Got it, ${firstName}.`,
     ``,
-    `Your brief is in. I'll read it properly and come back within 24 hours.`,
+    `Your brief is in. We'll read it properly and come back within 24 hours.`,
     ``,
     `What happens next:`,
     `--`,
