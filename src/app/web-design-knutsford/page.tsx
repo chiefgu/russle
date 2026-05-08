@@ -47,9 +47,6 @@ export default function Page() {
               alt={HERO_IMAGE.alt}
               className="block aspect-[3/4] w-full object-cover sm:aspect-[4/3] md:aspect-[3/2]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              King Street, Knutsford.
-            </figcaption>
           </figure>
         </Section>
       }
@@ -62,9 +59,6 @@ export default function Page() {
               alt={TATTON.alt}
               className="block aspect-[3/4] w-full object-cover sm:aspect-[4/3]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              Tatton Park, the heritage anchor for the wider Knutsford catchment.
-            </figcaption>
           </figure>
         </Section>
       }

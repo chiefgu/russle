@@ -47,9 +47,6 @@ export default function Page() {
               alt={BARBERS.alt}
               className="block aspect-[3/4] w-full object-cover sm:aspect-[4/3]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              Kraft Barbering, the kind of indie that makes the Didsbury strip what it is.
-            </figcaption>
           </figure>
         </Section>
       }
@@ -62,9 +59,6 @@ export default function Page() {
               alt={GARDENS.alt}
               className="block aspect-[4/3] w-full object-cover md:aspect-[16/10]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              An autumn evening on the Burton Road strip.
-            </figcaption>
           </figure>
         </Section>
       }

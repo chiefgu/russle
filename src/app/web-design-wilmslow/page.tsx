@@ -59,9 +59,6 @@ export default function Page() {
               alt={RESTAURANT.alt}
               className="block aspect-[3/4] w-full object-cover sm:aspect-[4/3] md:aspect-[16/10]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              A premium restaurant interior off the Grove Street strip.
-            </figcaption>
           </figure>
         </Section>
       }

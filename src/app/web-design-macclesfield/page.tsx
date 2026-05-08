@@ -47,9 +47,6 @@ export default function Page() {
               alt={MILL.alt}
               className="block aspect-[3/4] w-full object-cover sm:aspect-[4/3]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              Inside a former silk mill. The trading layer of the town still runs to that pace.
-            </figcaption>
           </figure>
         </Section>
       }
@@ -62,9 +59,6 @@ export default function Page() {
               alt={MARKET.alt}
               className="block aspect-[4/5] w-full object-cover sm:aspect-[4/3]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              Treacle Market signals the direction the town has been moving.
-            </figcaption>
           </figure>
         </Section>
       }

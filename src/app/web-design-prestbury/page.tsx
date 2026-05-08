@@ -47,9 +47,6 @@ export default function Page() {
               alt={ROAD.alt}
               className="block aspect-[4/3] w-full object-cover md:aspect-[16/10]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              The village high street. Most businesses that work here live within a few minutes of this row.
-            </figcaption>
           </figure>
         </Section>
       }
@@ -62,9 +59,6 @@ export default function Page() {
               alt={BUILDING.alt}
               className="block aspect-[3/4] w-full object-cover sm:aspect-[4/3]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              Quietly premium, not loud. That tone shapes the brief.
-            </figcaption>
           </figure>
         </Section>
       }

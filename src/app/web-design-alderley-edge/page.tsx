@@ -65,9 +65,6 @@ export default function Page() {
                 alt={BAKERY.alt}
                 className="block aspect-square w-full object-cover"
               />
-              <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-                A high-street independent on Clifton Street, off London Road.
-              </figcaption>
             </figure>
             <figure className="overflow-hidden rounded-[var(--radius-l)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -76,9 +73,6 @@ export default function Page() {
                 alt={RESTAURANT.alt}
                 className="block aspect-square w-full object-cover"
               />
-              <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-                The interior bar at a London Road restaurant.
-              </figcaption>
             </figure>
           </div>
         </Section>

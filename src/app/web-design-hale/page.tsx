@@ -47,9 +47,6 @@ export default function Page() {
               alt={SPA.alt}
               className="block aspect-[16/10] w-full object-cover md:aspect-[21/9]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              The pool at a Hale Barns spa. The bar for hospitality and lifestyle in this postcode is unusually high.
-            </figcaption>
           </figure>
         </Section>
       }
@@ -62,9 +59,6 @@ export default function Page() {
               alt={STUDIO.alt}
               className="block aspect-[3/4] w-full object-cover sm:aspect-[4/3]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              Independent studio retail at street level.
-            </figcaption>
           </figure>
         </Section>
       }

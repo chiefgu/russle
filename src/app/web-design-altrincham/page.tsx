@@ -47,9 +47,6 @@ export default function Page() {
               alt={FLORIST.alt}
               className="block aspect-[3/4] w-full object-cover sm:aspect-[4/3]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              An indie florist inside Altrincham Market.
-            </figcaption>
           </figure>
         </Section>
       }
@@ -62,9 +59,6 @@ export default function Page() {
               alt={CROWD.alt}
               className="block aspect-square w-full object-cover sm:aspect-[16/10]"
             />
-            <figcaption className="text-small mt-3 text-[var(--color-text-soft)]">
-              The Market hall on a Saturday. The buyer is already in the room; the brand gets you noticed in it.
-            </figcaption>
           </figure>
         </Section>
       }
