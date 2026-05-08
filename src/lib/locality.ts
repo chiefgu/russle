@@ -4,6 +4,11 @@ import matter from 'gray-matter';
 
 export type LocalityFAQ = { question: string; answer: string };
 
+export type LocalityImage = {
+  src: string;
+  alt: string;
+};
+
 export type LocalityMeta = {
   slug: string;
   town: string;
@@ -14,6 +19,8 @@ export type LocalityMeta = {
   heroParagraph: string;
   caseStudySlugs: string[];
   faqs: LocalityFAQ[];
+  heroImage?: LocalityImage;
+  images?: LocalityImage[];
 };
 
 export type Locality = LocalityMeta & {

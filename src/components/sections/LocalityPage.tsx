@@ -24,7 +24,15 @@ const SERVICES = [
   },
 ];
 
-export function LocalityPage({ locality }: { locality: Locality }) {
+export function LocalityPage({
+  locality,
+  afterHero,
+  afterBody,
+}: {
+  locality: Locality;
+  afterHero?: React.ReactNode;
+  afterBody?: React.ReactNode;
+}) {
   const allWork = getAllWork();
   const featuredCases = locality.caseStudySlugs
     .map((slug) => allWork.find((w) => w.slug === slug))
@@ -72,9 +80,13 @@ export function LocalityPage({ locality }: { locality: Locality }) {
         </p>
       </Section>
 
+      {afterHero}
+
       <Section tone="bg" spacing="m" container="narrow">
         <CaseStudyBody body={locality.body} />
       </Section>
+
+      {afterBody}
 
       <Section tone="bg" spacing="l" container="main">
         <h2 className="h2">What we do for {locality.town} businesses.</h2>
