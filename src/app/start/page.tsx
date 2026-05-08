@@ -6,7 +6,7 @@ import { IntakeForm } from '@/components/sections/IntakeForm';
 export const metadata: Metadata = {
   title: 'Start a project',
   description:
-    "Eight short steps, about five minutes. Tell me about your project and I'll come back within 24 hours.",
+    'Eight short steps, about five minutes. Tell us about your project and we come back within 24 hours.',
 };
 
 export default function StartPage() {

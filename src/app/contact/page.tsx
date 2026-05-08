@@ -7,9 +7,9 @@ import { CalEmbed } from '@/components/sections/CalEmbed';
 import { Reveal } from '@/components/animations/Reveal';
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Contact the studio',
   description:
-    'Got a question, or not ready to start yet? Drop a line, or book a quick chat.',
+    'Talk to russle about a new project or an existing one. Drop a line, or book a quick chat.',
 };
 
 export default function ContactPage() {

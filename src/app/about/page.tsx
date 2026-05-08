@@ -5,9 +5,9 @@ import { CTAStrip } from '@/components/sections/CTAStrip';
 import { Reveal } from '@/components/animations/Reveal';
 
 export const metadata: Metadata = {
-  title: 'About',
+  title: 'About the studio',
   description:
-    'russle is an independent UK studio. Brand, website, and the systems that grow them.',
+    'russle is a brand-led growth studio in Alderley Edge. Brand, website, and the systems that grow them, for independent businesses across Cheshire and South Manchester.',
 };
 
 const PRINCIPLES = [

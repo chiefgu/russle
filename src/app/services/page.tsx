@@ -15,9 +15,9 @@ import { BethVisual } from '@/components/sections/BethVisual';
 import { ManageVisual } from '@/components/sections/ManageVisual';
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Brand, web & growth services',
   description:
-    'Brand, website, and the systems that grow them. Three tiers: Launch, Grow, Manage. From £2,500.',
+    'russle offers Launch, Grow, and Manage tiers. Brand identity, websites, SEO, and email marketing for independent businesses. From £2,500.',
 };
 
 const LAUNCH_INCLUDED = [

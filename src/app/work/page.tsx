@@ -5,9 +5,9 @@ import { CTAStrip } from '@/components/sections/CTAStrip';
 import { getAllWork } from '@/lib/mdx';
 
 export const metadata: Metadata = {
-  title: 'Work',
+  title: 'Selected work',
   description:
-    'A selection of websites, brands, and product work from the last 18 months.',
+    'Selected case studies from russle. Brand and website projects for independent businesses across Cheshire and South Manchester.',
 };
 
 export default function WorkPage() {
