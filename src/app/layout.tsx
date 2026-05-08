@@ -3,6 +3,8 @@ import Script from 'next/script';
 import { GeistMono } from 'geist/font/mono';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { CookieBanner } from '@/components/layout/CookieBanner';
+import { PageviewTracker } from '@/components/layout/PageviewTracker';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -16,6 +18,7 @@ export const viewport: Viewport = {
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://russle.co.uk';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -81,6 +84,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
 
+        {/* Consent Mode v2 default-deny, must run before gtag.js loads. */}
+        {(GA_ID || META_PIXEL_ID) && (
+          <Script id="consent-default" strategy="beforeInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                wait_for_update: 500
+              });
+            `}
+          </Script>
+        )}
+
         {GA_ID && (
           <>
             <Script
@@ -89,14 +109,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             />
             <Script id="ga-init" strategy="afterInteractive">
               {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${GA_ID}', { anonymize_ip: true });
               `}
             </Script>
           </>
         )}
+
+        {META_PIXEL_ID && (
+          <Script id="meta-pixel" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('consent', 'revoke');
+              fbq('init', '${META_PIXEL_ID}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+        )}
+
+        {(GA_ID || META_PIXEL_ID) && <PageviewTracker />}
+        {(GA_ID || META_PIXEL_ID) && <CookieBanner />}
       </body>
     </html>
   );
