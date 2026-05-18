@@ -123,7 +123,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Can I edit the website myself?',
-    a: 'Yes. The site comes with a simple editor for the parts of the site that change most often (offers, opening hours, photos, posts). Bigger changes still come through us, which is what the Grow retainer covers.',
+    a: 'Not really, and that is by design. Marketing sites we build are looked after by us through the Grow retainer, which keeps the design tight and the content fresh without you having to learn a CMS. Online shops are different: they come with a dashboard and an iOS app for managing products, stock, and orders. If you want to edit the marketing pages yourself, tell us at the start and we will scope a CMS into the build.',
   },
   {
     q: 'What if I just want a website with no brand work?',
@@ -363,17 +363,18 @@ function RussellPlatform() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-big mt-8 max-w-xl text-[var(--color-text-mute)]">
-              Every site we build runs on the russle platform: hosting that we
-              own, a simple web dashboard for you to update the things that
-              change most, and an iOS app so you can post, reply, and manage
-              orders from your phone.
+              Every site we build runs on the russle platform. Hosting we own,
+              one bill, one studio looking after the site. For online shops,
+              the platform also includes a web dashboard and an iOS app so you
+              can manage orders, stock, and posts from your phone.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="text-big mt-6 max-w-xl text-[var(--color-text-mute)]">
               You do not pay a separate hosting bill, you do not learn
-              WordPress, and the same studio that designed the brand is the one
-              keeping the site running.
+              WordPress, and the studio that designed the brand is the one
+              keeping the site running. Day-to-day edits are part of Grow, not
+              something you have to learn yourself.
             </p>
           </Reveal>
         </div>
@@ -383,20 +384,20 @@ function RussellPlatform() {
             <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2">
               {[
                 {
-                  title: 'Web dashboard',
-                  body: 'Edit offers, hours, photos, and posts from any browser.',
-                },
-                {
-                  title: 'iOS app',
-                  body: 'Post, reply to enquiries, and check stats from your phone.',
-                },
-                {
                   title: 'Hosting included',
-                  body: 'No separate Vercel, no separate WordPress host, no surprise bill.',
+                  body: 'No separate Vercel or WordPress host, no surprise bill. One studio, one invoice.',
                 },
                 {
-                  title: 'Built for e-commerce',
-                  body: 'Multi-tenant backend, orders, payments, and stock when you need them.',
+                  title: 'Run by the studio that built it',
+                  body: 'Day-to-day edits are part of Grow. You do not have to learn WordPress.',
+                },
+                {
+                  title: 'E-commerce dashboard',
+                  body: 'Online shops get a web dashboard for managing products, orders, and stock.',
+                },
+                {
+                  title: 'iOS app for shop owners',
+                  body: 'Manage orders, post offers, and check stats from your phone. Online shops only.',
                 },
               ].map((card) => (
                 <div

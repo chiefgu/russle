@@ -108,7 +108,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Can I do this myself?',
-    a: 'Yes. The site comes with an editor for the parts that change most often, and the SEO is set up properly at launch. Some businesses run it themselves and only call us when something needs fixing. Grow is for businesses that would rather not.',
+    a: 'Some of it, yes. The Google Business Profile is yours and you can post to it. The site, less so. Our sites are designed to be looked after by us, not edited by you. That is what Grow is for, and it is why we keep the price low. If self-editing matters, tell us at the start of Launch and we will scope a CMS into the build.',
   },
   {
     q: 'Do I have to take Grow?',
