@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Monitor, Palette, FileText, PenLine, ArrowUpRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
+import { FAQ } from '@/components/ui/FAQ';
 import { CTAStrip } from '@/components/sections/CTAStrip';
 import { Reveal } from '@/components/animations/Reveal';
-import { Placeholder } from '@/components/ui/Placeholder';
 import { GrowFlow } from '@/components/sections/GrowFlow';
 import { LaunchVisual } from '@/components/sections/LaunchVisual';
 import { BethVisual } from '@/components/sections/BethVisual';
@@ -17,342 +16,481 @@ import { ManageVisual } from '@/components/sections/ManageVisual';
 export const metadata: Metadata = {
   title: 'Brand, web & growth services',
   description:
-    'russle offers Launch, Grow, and Manage tiers. Brand identity, websites, SEO, and email marketing for independent businesses. From £2,500.',
+    'russle offers Launch, Grow, and Manage tiers. Brand, website, hosting, local SEO, and email marketing for independent businesses. Launch from £3,995. Grow from £299/mo.',
 };
 
 const LAUNCH_INCLUDED = [
-  'Brand identity (logo, colours, fonts, basic guidelines)',
-  'Custom-designed website (typically 5–7 pages)',
-  'Real, custom-built code, yours to own. No template.',
-  'Domain and hosting setup',
-  'Analytics, email, and basic search setup handed over',
-  '4–6 week timeline',
+  'A new logo, colour palette, and font system',
+  'A website built from scratch, around the new brand (5 to 7 pages typical)',
+  'Custom-built code, no template, hosted on our own platform',
+  'Domain, hosting, and business email setup',
+  'Google Maps and Google search set up before launch',
+  'Email marketing ready to go (welcome flow, newsletter signup)',
+  'Live in 4 to 6 weeks',
 ];
 
-const GROW_SERVICES = [
-  {
-    title: 'Search visibility',
-    body: 'Showing up on Google when people look for what you do. Technical setup, content recommendations, and ongoing improvements.',
-  },
-  {
-    title: 'Email marketing',
-    body: 'Welcome flows, customer follow-ups, promotions. The email side of every business that actually retains customers.',
-  },
-  {
-    title: 'Local search',
-    body: 'Google Business Profile, listings across the directories that matter, and review management. The basics done properly.',
-  },
-  {
-    title: 'Site care',
-    body: 'Updates, design tweaks, hosting, and the small things that keep the site working. No surprises.',
-  },
+const GROW_INCLUDED = [
+  'Hosting on our platform, included',
+  'Up to 2 hours of small site updates each month',
+  'Your Google Business Profile run on your behalf',
+  'Local search kept healthy (rankings, listings, schema)',
+  'Email system maintained (deliverability, templates, list health)',
+  'Performance and uptime monitoring',
+  'Monthly performance email, plain English',
+  '30-minute monthly check-in call',
 ];
 
-const MANAGE_ADDITIONS = [
-  'Content (writing, photography direction, social posts)',
-  'Ongoing campaign work',
-  'Monthly strategy calls',
+const MANAGE_INCLUDED = [
+  'Everything in Grow',
+  'Original content writing for your site (case studies, guides, blog)',
+  'Ongoing campaigns, organic and paid',
+  'Monthly strategy session',
   'Quarterly review and planning',
 ];
 
-const ALA_CARTE = [
+type Cell = boolean | string;
+
+type CompareRow = {
+  label: string;
+  launch: Cell;
+  grow: Cell;
+  manage: Cell;
+};
+
+type CompareSection = {
+  title: string;
+  rows: CompareRow[];
+};
+
+const COMPARISON: CompareSection[] = [
   {
-    title: 'Website only',
-    body: 'You already have a brand.',
-    icon: Monitor,
+    title: 'Setup',
+    rows: [
+      { label: 'New brand identity', launch: true, grow: false, manage: false },
+      { label: 'New website, custom-built', launch: true, grow: false, manage: false },
+      { label: 'Hosting on our platform', launch: 'First year', grow: true, manage: true },
+      { label: 'Domain and email setup', launch: true, grow: false, manage: false },
+      { label: 'Google Maps and search setup', launch: true, grow: false, manage: false },
+      { label: 'Email marketing setup', launch: true, grow: false, manage: false },
+    ],
   },
   {
-    title: 'Brand only',
-    body: "You already have a website or don't need one yet.",
-    icon: Palette,
+    title: 'Ongoing care',
+    rows: [
+      { label: 'Site updates each month', launch: false, grow: 'Up to 2 hrs', manage: 'More' },
+      { label: 'Google Business Profile management', launch: false, grow: true, manage: true },
+      { label: 'Local search monitoring and fixes', launch: false, grow: true, manage: true },
+      { label: 'Email system maintained', launch: false, grow: true, manage: true },
+      { label: 'Performance and uptime monitoring', launch: false, grow: true, manage: true },
+      { label: 'Monthly performance email', launch: false, grow: true, manage: true },
+      { label: 'Monthly check-in', launch: false, grow: '30 min', manage: '60 min' },
+    ],
   },
   {
-    title: 'One-page site',
-    body: 'A launch page, an event, a single product.',
-    icon: FileText,
+    title: 'Marketing work',
+    rows: [
+      { label: 'Original content writing', launch: false, grow: false, manage: true },
+      { label: 'Ongoing campaigns (organic + paid)', launch: false, grow: false, manage: true },
+      { label: 'Monthly strategy session', launch: false, grow: false, manage: true },
+      { label: 'Quarterly review and planning', launch: false, grow: false, manage: true },
+    ],
   },
   {
-    title: 'Content',
-    body: 'Writing, photography direction, social. On top of any tier.',
-    icon: PenLine,
+    title: 'Terms',
+    rows: [
+      { label: 'Contract', launch: 'One-off project', grow: 'No long-term', manage: 'Custom' },
+      { label: 'Notice period', launch: false, grow: '30 days', manage: 'Per agreement' },
+    ],
   },
 ];
 
-function Bridge({
-  to,
-  children,
-}: {
-  to?: string;
-  children: React.ReactNode;
-}) {
+const FAQ_ITEMS = [
+  {
+    q: 'How long does it take to see results from local SEO?',
+    a: 'Most clients see a meaningful change in the Google Maps pack within 60 to 90 days, and lift in organic search inside 4 to 6 months. SEO is slower than paid ads but the traffic keeps coming once it lands, which is why we recommend it for almost every Cheshire and South Manchester business we work with.',
+  },
+  {
+    q: 'Do you guarantee a number-one ranking?',
+    a: 'No, and you should walk away from anyone who does. Google does not allow agencies to guarantee positions, and any agency promising a top spot is either being dishonest or about to do something that gets your site penalised. What we do guarantee is the work and the reporting, so you can see exactly what is moving and why.',
+  },
+  {
+    q: 'Why does Grow start at £299 a month?',
+    a: 'Because that is the floor we can deliver the work properly at, including hosting, the platform, the local SEO maintenance, your Google Business Profile run on your behalf, and a real monthly check-in. Most retainers settle higher than the floor once we know what your business actually needs.',
+  },
+  {
+    q: 'Do I really need ongoing care after launch?',
+    a: 'Most businesses do. A website that nobody updates ages quickly, the rankings drift, and the Google Business Profile goes quiet. Grow is the small monthly investment that keeps the brand and the site doing their job. If you want to run it yourself, that is fine, we just hand it over and answer questions when you need.',
+  },
+  {
+    q: 'Can I edit the website myself?',
+    a: 'Yes. The site comes with a simple editor for the parts of the site that change most often (offers, opening hours, photos, posts). Bigger changes still come through us, which is what the Grow retainer covers.',
+  },
+  {
+    q: 'What if I just want a website with no brand work?',
+    a: 'Get in touch. We can scope a website-only project but most businesses find the brand and site work better when they are designed together, which is why Launch is our default starting point.',
+  },
+  {
+    q: 'Do you run paid ads?',
+    a: 'Only inside Manage, where ads sit alongside ongoing campaigns and content. We do not sell ads as a standalone service. If paid is the only thing you need right now, we will recommend someone who specialises in it.',
+  },
+];
+
+function ServicesHero() {
   return (
-    <section className="border-t border-[var(--color-line)] bg-[var(--color-bg)] py-20 md:py-28">
-      <Container size="main">
+    <Section tone="bg" spacing="heroTopTight">
+      <div className="max-w-3xl">
         <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <span
-              aria-hidden
-              className="inline-block h-px w-12 bg-[var(--color-accent)]"
-            />
-            {to && (
-              <p className="label mt-8 text-[var(--color-text-soft)]">
-                Next &middot; {to}
-              </p>
-            )}
-            <p className="h3 mt-6 text-balance italic text-[var(--color-text)]">
-              {children}
-            </p>
-          </div>
+          <Tag tone="accent">Services</Tag>
         </Reveal>
-      </Container>
-    </section>
+        <Reveal delay={0.05}>
+          <h1 className="h1 mt-6 text-balance">Three tiers. Pick the level that fits.</h1>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <p className="text-big mt-6 max-w-xl text-[var(--color-text-mute)]">
+            Most clients start with Launch, the one-off brand and website build.
+            After launch, they move onto Grow, the monthly arrangement that keeps
+            everything running. Manage is for businesses who want a small team
+            running the marketing as well.
+          </p>
+        </Reveal>
+      </div>
+    </Section>
   );
 }
 
-export default function ServicesPage() {
+type TierProps = {
+  index: string;
+  name: string;
+  headline: string;
+  pitch: string;
+  price: string;
+  priceNote: string;
+  cta: { label: string; href: string };
+  included: string[];
+  visual: React.ReactNode;
+  extraVisual?: React.ReactNode;
+};
+
+function Tier({
+  index,
+  name,
+  headline,
+  pitch,
+  price,
+  priceNote,
+  cta,
+  included,
+  visual,
+  extraVisual,
+}: TierProps) {
   return (
-    <>
-      {/* Hero — tight framing, not the full editorial */}
-      <Section tone="bg" spacing="heroTopTight">
-        <div className="max-w-3xl">
+    <Section tone="bg" spacing="xl">
+      <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
+        <div className="md:col-span-5">
           <Reveal>
-            <Tag tone="accent">Services</Tag>
+            <p className="h3 text-[var(--color-text-soft)]">{index}</p>
+            <Tag tone="accent" className="mt-6">{name}</Tag>
+            <h2 className="h1 mt-6 text-balance">{headline}</h2>
+            <p className="text-big mt-8 text-[var(--color-text-mute)]">{pitch}</p>
+            <div className="mt-10 flex items-baseline gap-4">
+              <p
+                className="font-medium leading-none tracking-[-0.04em] text-[var(--color-text)]"
+                style={{ fontSize: '56px' }}
+              >
+                {price}
+              </p>
+              <p className="text-body text-[var(--color-text-mute)]">{priceNote}</p>
+            </div>
+            <div className="mt-10">
+              <ButtonLink href={cta.href} variant="primary" size="lg" withArrow>
+                {cta.label}
+              </ButtonLink>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="md:col-span-7">
+          <Reveal delay={0.05}>{visual}</Reveal>
+          {extraVisual && (
+            <Reveal delay={0.1}>
+              <div className="hidden md:-mt-16 md:block">{extraVisual}</div>
+            </Reveal>
+          )}
+        </div>
+      </div>
+
+      <Reveal delay={0.15}>
+        <div className="mx-auto mt-16 max-w-3xl rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-10 md:mt-20 md:p-12">
+          <p className="label text-[var(--color-text-soft)]">What you get</p>
+          <ul className="mt-6 flex flex-col gap-4 text-big text-[var(--color-text)]">
+            {included.map((item) => (
+              <li key={item} className="flex items-start gap-4">
+                <Check
+                  aria-hidden
+                  className="mt-1 h-5 w-5 shrink-0 text-[var(--color-accent)]"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Reveal>
+    </Section>
+  );
+}
+
+function CellRender({ value }: { value: Cell }) {
+  if (value === true) {
+    return (
+      <span className="inline-flex items-center justify-center" aria-label="Included">
+        <Check className="h-5 w-5 text-[var(--color-accent)]" aria-hidden />
+      </span>
+    );
+  }
+  if (value === false) {
+    return <span className="text-[var(--color-text-soft)]" aria-label="Not included">·</span>;
+  }
+  return <span className="text-small text-[var(--color-text)]">{value}</span>;
+}
+
+function ComparisonTable() {
+  return (
+    <Section tone="bg" spacing="xl">
+      <div className="mb-12 max-w-3xl">
+        <Reveal>
+          <Tag>Compare</Tag>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="h2 mt-6 text-balance">Side by side, line by line.</h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">
+            What sits in which tier, with nothing hidden.
+          </p>
+        </Reveal>
+      </div>
+
+      <Reveal delay={0.15}>
+        <div className="overflow-x-auto rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)]">
+          <table className="w-full min-w-[640px] text-left">
+            <thead>
+              <tr className="border-b border-[var(--color-line)]">
+                <th className="px-6 py-6 align-bottom md:px-8">
+                  <span className="label text-[var(--color-text-soft)]">
+                    What you get
+                  </span>
+                </th>
+                <th className="px-6 py-6 align-bottom md:px-8">
+                  <p className="label text-[var(--color-text-soft)]">Launch</p>
+                  <p className="h4 mt-2 text-[var(--color-text)]">From £3,995</p>
+                  <p className="text-small mt-1 text-[var(--color-text-mute)]">One-off</p>
+                </th>
+                <th className="px-6 py-6 align-bottom md:px-8">
+                  <p className="label text-[var(--color-text-soft)]">Grow</p>
+                  <p className="h4 mt-2 text-[var(--color-text)]">From £299/mo</p>
+                  <p className="text-small mt-1 text-[var(--color-text-mute)]">
+                    No long-term contract
+                  </p>
+                </th>
+                <th className="px-6 py-6 align-bottom md:px-8">
+                  <p className="label text-[var(--color-text-soft)]">Manage</p>
+                  <p className="h4 mt-2 text-[var(--color-text)]">Talk to us</p>
+                  <p className="text-small mt-1 text-[var(--color-text-mute)]">Custom</p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {COMPARISON.map((section) => (
+                <Fragment key={section.title}>
+                  <tr className="border-b border-[var(--color-line)] bg-[var(--color-surface)]/40">
+                    <td
+                      colSpan={4}
+                      className="px-6 py-3 md:px-8 label text-[var(--color-text-mute)]"
+                    >
+                      {section.title}
+                    </td>
+                  </tr>
+                  {section.rows.map((row, i) => (
+                    <tr
+                      key={row.label}
+                      className={
+                        i === section.rows.length - 1
+                          ? 'border-b border-[var(--color-line)]'
+                          : ''
+                      }
+                    >
+                      <th
+                        scope="row"
+                        className="px-6 py-4 text-body font-normal text-[var(--color-text)] md:px-8"
+                      >
+                        {row.label}
+                      </th>
+                      <td className="px-6 py-4 md:px-8">
+                        <CellRender value={row.launch} />
+                      </td>
+                      <td className="px-6 py-4 md:px-8">
+                        <CellRender value={row.grow} />
+                      </td>
+                      <td className="px-6 py-4 md:px-8">
+                        <CellRender value={row.manage} />
+                      </td>
+                    </tr>
+                  ))}
+                </Fragment>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Reveal>
+    </Section>
+  );
+}
+
+function RussellPlatform() {
+  return (
+    <Section tone="surface" spacing="xl">
+      <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+        <div className="md:col-span-6">
+          <Reveal>
+            <Tag>Our platform</Tag>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="h2 mt-6 text-balance">
-              Three tiers, one studio.
-            </h1>
+            <h2 className="h1 mt-6 text-balance">
+              Hosted on our own platform, not someone else's.
+            </h2>
           </Reveal>
           <Reveal delay={0.15}>
+            <p className="text-big mt-8 max-w-xl text-[var(--color-text-mute)]">
+              Every site we build runs on the russle platform: hosting that we
+              own, a simple web dashboard for you to update the things that
+              change most, and an iOS app so you can post, reply, and manage
+              orders from your phone.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
             <p className="text-big mt-6 max-w-xl text-[var(--color-text-mute)]">
-              Most projects start with Launch and stay with us through Grow and Manage as the business gets bigger.
+              You do not pay a separate hosting bill, you do not learn
+              WordPress, and the same studio that designed the brand is the one
+              keeping the site running.
             </p>
           </Reveal>
         </div>
-      </Section>
 
-      {/* Launch — first tier (info left, visual right; bullets centered below) */}
-      <Section tone="bg" spacing="xl">
-        <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
-          <div className="md:col-span-5">
-            <Reveal>
-              <p className="text-h3 font-medium tracking-[-0.04em] text-[var(--color-text-soft)]">
-                01
-              </p>
-              <Tag tone="accent" className="mt-6">Launch</Tag>
-              <h2 className="h1 mt-6 text-balance">
-                Brand and website, built together.
-              </h2>
-              <p className="text-big mt-8 text-[var(--color-text-mute)]">
-                The starting point for most projects. The brand identity and the website, designed and shipped as one engagement so they actually fit each other.
-              </p>
-              <div className="mt-10 flex items-end gap-4">
-                <p className="font-medium leading-none tracking-[-0.04em] text-[var(--color-text)]" style={{ fontSize: '64px' }}>
-                  £2,500
-                </p>
-                <p className="text-body pb-2 text-[var(--color-text-mute)]">
-                  starting price
-                </p>
-              </div>
-              <div className="mt-10">
-                <ButtonLink href="/start" variant="primary" size="lg" withArrow>
-                  Start a project
-                </ButtonLink>
-              </div>
-            </Reveal>
-          </div>
-
-          <div className="md:col-span-7">
-            <Reveal delay={0.05}>
-              <LaunchVisual />
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="hidden md:-mt-16 md:block">
-                <BethVisual />
-              </div>
-            </Reveal>
-          </div>
-        </div>
-
-        <Reveal delay={0.15}>
-          <div className="mx-auto mt-16 max-w-3xl rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-10 md:mt-20 md:p-12">
-            <p className="label text-[var(--color-text-soft)]">
-              What you get
-            </p>
-            <ul className="mt-6 space-y-4 text-big text-[var(--color-text)]">
-              {LAUNCH_INCLUDED.map((item) => (
-                <li key={item} className="flex items-start gap-4">
-                  <span
-                    aria-hidden
-                    className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]"
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
-      </Section>
-
-      <Bridge to="02 Grow">
-        Once you&apos;re live, the question becomes: how do you turn this into a working sales channel?
-      </Bridge>
-
-      {/* Grow — info left, GrowFlow right; services grid centered below */}
-      <Section tone="bg" spacing="xl">
-        <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
-          <div className="md:col-span-5">
-            <Reveal>
-              <p className="text-h3 font-medium tracking-[-0.04em] text-[var(--color-text-soft)]">
-                02
-              </p>
-              <Tag tone="accent" className="mt-6">Grow</Tag>
-              <h2 className="h1 mt-6 text-balance">
-                The site stops being a brochure.
-              </h2>
-              <p className="text-big mt-8 text-[var(--color-text-mute)]">
-                A monthly arrangement after launch. Three engines &mdash; search, email, local &mdash; and site care, all run by the same studio that built the brand.
-              </p>
-              <p className="text-big mt-6 text-[var(--color-text)]">
-                On enquiry.
-              </p>
-              <div className="mt-10">
-                <ButtonLink href="/contact" variant="secondary" size="lg">
-                  Get in touch
-                </ButtonLink>
-              </div>
-            </Reveal>
-          </div>
-
-          <div className="md:col-span-7">
-            <Reveal delay={0.05}>
-              <GrowFlow />
-            </Reveal>
-          </div>
-        </div>
-
-        <Reveal delay={0.15}>
-          <div className="mx-auto mt-16 max-w-4xl md:mt-20">
+        <div className="md:col-span-6">
+          <Reveal delay={0.1}>
             <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2">
-              {GROW_SERVICES.map((s) => (
-                <div key={s.title} className="flex h-full flex-col bg-[var(--color-bg)] p-8 md:p-10">
-                  <h3 className="h4 text-balance">{s.title}</h3>
+              {[
+                {
+                  title: 'Web dashboard',
+                  body: 'Edit offers, hours, photos, and posts from any browser.',
+                },
+                {
+                  title: 'iOS app',
+                  body: 'Post, reply to enquiries, and check stats from your phone.',
+                },
+                {
+                  title: 'Hosting included',
+                  body: 'No separate Vercel, no separate WordPress host, no surprise bill.',
+                },
+                {
+                  title: 'Built for e-commerce',
+                  body: 'Multi-tenant backend, orders, payments, and stock when you need them.',
+                },
+              ].map((card) => (
+                <div
+                  key={card.title}
+                  className="flex h-full flex-col bg-[var(--color-bg)] p-8 md:p-10"
+                >
+                  <h3 className="h5 text-balance">{card.title}</h3>
                   <p className="text-body mt-4 text-[var(--color-text-mute)]">
-                    {s.body}
+                    {card.body}
                   </p>
                 </div>
               ))}
             </div>
-          </div>
-        </Reveal>
-      </Section>
-
-      <Bridge to="03 Manage">
-        For businesses ready to lean in deeper, with a studio working alongside them month to month.
-      </Bridge>
-
-      {/* Manage — info left, ManageVisual right; bullets centered below */}
-      <Section tone="bg" spacing="xl">
-        <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
-          <div className="md:col-span-5">
-            <Reveal>
-              <p className="text-h3 font-medium tracking-[-0.04em] text-[var(--color-text-soft)]">
-                03
-              </p>
-              <Tag tone="accent" className="mt-6">Manage</Tag>
-              <h2 className="h2 mt-6 text-balance">
-                Full ongoing partnership.
-              </h2>
-              <p className="text-big mt-8 text-[var(--color-text-mute)]">
-                Everything in Grow, plus the work that needs constant attention. For businesses that want a studio working alongside them month to month, not a series of one-off projects.
-              </p>
-              <p className="text-big mt-6 text-[var(--color-text)]">
-                On enquiry.
-              </p>
-              <div className="mt-10">
-                <ButtonLink href="/contact" variant="secondary" size="lg">
-                  Get in touch
-                </ButtonLink>
-              </div>
-            </Reveal>
-          </div>
-
-          <div className="md:col-span-7">
-            <Reveal delay={0.05}>
-              <ManageVisual />
-            </Reveal>
-          </div>
+          </Reveal>
         </div>
+      </div>
+    </Section>
+  );
+}
 
-        <Reveal delay={0.15}>
-          <div className="mx-auto mt-16 max-w-3xl rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-10 md:mt-20 md:p-12">
-            <p className="label text-[var(--color-text-soft)]">
-              What Manage adds
-            </p>
-            <ul className="mt-6 space-y-4 text-big text-[var(--color-text)]">
-              {MANAGE_ADDITIONS.map((item) => (
-                <li key={item} className="flex items-start gap-4">
-                  <span
-                    aria-hidden
-                    className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]"
-                  />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
-      </Section>
-
-      {/* À la carte */}
-      <Section tone="bg" spacing="xl">
-        <div className="mb-12 max-w-3xl">
+function ServicesFaq() {
+  return (
+    <Section tone="bg" spacing="xl">
+      <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+        <div className="md:col-span-5">
           <Reveal>
-            <Tag>À la carte</Tag>
+            <Tag>Common questions</Tag>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="h2 mt-6 text-balance">Just the slice you need.</h2>
+            <h2 className="h2 mt-6 text-balance">
+              Honest answers about how this works.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-big mt-6 text-[var(--color-text-mute)]">
+              The questions every business owner asks before signing on. If
+              yours is not here, send it through.
+            </p>
           </Reveal>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {ALA_CARTE.map((slice, i) => {
-            const Icon = slice.icon;
-            return (
-              <Reveal key={slice.title} delay={i * 0.05}>
-                <Link
-                  href="/start"
-                  className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-surface)] p-8 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-[var(--color-accent)] hover:shadow-[0_18px_48px_-20px_rgba(26,20,16,0.18)]"
-                >
-                  {/* Accent bar that grows in on hover */}
-                  <span
-                    aria-hidden
-                    className="absolute left-0 top-0 h-px w-0 bg-[var(--color-accent)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full"
-                  />
-
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--color-line-2)] bg-[var(--color-bg)] text-[var(--color-text-mute)] transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-[var(--color-accent-tint)] group-hover:text-[var(--color-accent)]">
-                    <Icon className="h-5 w-5" />
-                  </div>
-
-                  <h3 className="h4 mt-8 text-balance">{slice.title}</h3>
-                  <p className="text-body mt-4 text-[var(--color-text-mute)]">
-                    {slice.body}
-                  </p>
-                  <p className="text-small mt-6 text-[var(--color-text-mute)]">
-                    Pricing on enquiry.
-                  </p>
-
-                  <div className="mt-auto flex items-center gap-2 pt-10 text-[var(--color-text)]">
-                    <span className="label">Start a project</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-accent)]" />
-                  </div>
-                </Link>
-              </Reveal>
-            );
-          })}
+        <div className="md:col-span-7">
+          <Reveal delay={0.1}>
+            <FAQ items={FAQ_ITEMS} />
+          </Reveal>
         </div>
-      </Section>
+      </div>
+    </Section>
+  );
+}
 
+// React.Fragment shorthand needs an explicit import in some toolchains; using
+// the named version keeps this portable.
+import { Fragment } from 'react';
+
+export default function ServicesPage() {
+  return (
+    <>
+      <ServicesHero />
+      <Tier
+        index="01"
+        name="Launch"
+        headline="A new brand and a new website, built together."
+        pitch="The starting point for most clients. The brand and the website are designed and shipped as one project so they actually fit each other. By the time you go live, the marketing basics are already in place."
+        price="From £3,995"
+        priceNote="One-off project"
+        cta={{ label: 'Start a project', href: '/start' }}
+        included={LAUNCH_INCLUDED}
+        visual={<LaunchVisual />}
+        extraVisual={<BethVisual />}
+      />
+      <Tier
+        index="02"
+        name="Grow"
+        headline="We run the technical side, you run your business."
+        pitch="A monthly arrangement after launch. Hosting, small updates, Google Business, local search, and email all looked after by the studio that built the brand. No long-term contract."
+        price="From £299"
+        priceNote="Per month"
+        cta={{ label: 'Start a project', href: '/start' }}
+        included={GROW_INCLUDED}
+        visual={<GrowFlow />}
+      />
+      <Tier
+        index="03"
+        name="Manage"
+        headline="A small team running the marketing alongside the build."
+        pitch="Everything in Grow, plus original content for your site, ongoing campaigns, and a monthly strategy session. For businesses who want a studio acting as their marketing function, not a series of one-off projects."
+        price="Talk to us"
+        priceNote="Custom retainer"
+        cta={{ label: 'Get in touch', href: '/contact' }}
+        included={MANAGE_INCLUDED}
+        visual={<ManageVisual />}
+      />
+      <ComparisonTable />
+      <RussellPlatform />
+      <ServicesFaq />
       <CTAStrip />
     </>
   );
