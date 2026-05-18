@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/Button';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
@@ -5,19 +7,22 @@ import { Reveal } from '@/components/animations/Reveal';
 
 const PRICE_CARDS = [
   {
-    label: 'New brand + website',
+    label: 'Launch',
     price: 'From £3,995',
-    detail: 'Logo, colours, fonts, and a new site. Live in 4 to 6 weeks.',
+    detail: 'A new brand, a new website, hosting, and the marketing basics. Live in 4 to 6 weeks.',
+    href: '/launch',
   },
   {
-    label: 'Ongoing care',
+    label: 'Grow',
     price: 'From £299/mo',
-    detail: 'Hosting, updates, Google Maps, and email. No long-term contract.',
+    detail: 'Hosting, updates, Google Maps, and email kept running. No long-term contract.',
+    href: '/grow',
   },
   {
-    label: 'Full marketing',
+    label: 'Manage',
     price: 'Talk to us',
-    detail: 'Brand and site plus ongoing campaigns and content.',
+    detail: 'A small team running the marketing alongside the build. Custom retainer.',
+    href: '/manage',
   },
 ];
 
@@ -52,16 +57,21 @@ export function Hero() {
         <Reveal delay={0.25}>
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {PRICE_CARDS.map((card) => (
-              <div
+              <Link
                 key={card.label}
-                className="border-l-2 border-[var(--color-accent)] pl-5"
+                href={card.href}
+                className="group block border-l-2 border-[var(--color-accent)] pl-5 transition-opacity hover:opacity-80"
               >
                 <p className="label text-[var(--color-text-soft)]">{card.label}</p>
                 <p className="h3 mt-2 text-[var(--color-text)]">{card.price}</p>
                 <p className="text-small mt-3 text-[var(--color-text-mute)]">
                   {card.detail}
                 </p>
-              </div>
+                <span className="label mt-4 inline-flex items-center gap-1 text-[var(--color-accent)]">
+                  See {card.label}
+                  <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </span>
+              </Link>
             ))}
           </div>
         </Reveal>

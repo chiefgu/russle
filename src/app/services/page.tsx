@@ -165,6 +165,7 @@ type TierProps = {
   pitch: string;
   price: string;
   priceNote: string;
+  pageHref: string;
   cta: { label: string; href: string };
   included: string[];
   visual: React.ReactNode;
@@ -178,6 +179,7 @@ function Tier({
   pitch,
   price,
   priceNote,
+  pageHref,
   cta,
   included,
   visual,
@@ -203,8 +205,11 @@ function Tier({
               </p>
               <p className="text-body text-[var(--color-text-mute)]">{priceNote}</p>
             </div>
-            <div className="mt-10">
-              <ButtonLink href={cta.href} variant="primary" size="lg" withArrow>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={pageHref} variant="primary" size="lg" withArrow>
+                How {name} works
+              </ButtonLink>
+              <ButtonLink href={cta.href} variant="secondary" size="lg">
                 {cta.label}
               </ButtonLink>
             </div>
@@ -464,6 +469,7 @@ export default function ServicesPage() {
         pitch="The starting point for most clients. The brand and the website are designed and shipped as one project so they actually fit each other. By the time you go live, the marketing basics are already in place."
         price="From £3,995"
         priceNote="One-off project"
+        pageHref="/launch"
         cta={{ label: 'Start a project', href: '/start' }}
         included={LAUNCH_INCLUDED}
         visual={<LaunchVisual />}
@@ -476,6 +482,7 @@ export default function ServicesPage() {
         pitch="A monthly arrangement after launch. Hosting, small updates, Google Business, local search, and email all looked after by the studio that built the brand. No long-term contract."
         price="From £299"
         priceNote="Per month"
+        pageHref="/grow"
         cta={{ label: 'Start a project', href: '/start' }}
         included={GROW_INCLUDED}
         visual={<GrowFlow />}
@@ -487,6 +494,7 @@ export default function ServicesPage() {
         pitch="Everything in Grow, plus original content for your site, ongoing campaigns, and a monthly strategy session. For businesses who want a studio acting as their marketing function, not a series of one-off projects."
         price="Talk to us"
         priceNote="Custom retainer"
+        pageHref="/manage"
         cta={{ label: 'Get in touch', href: '/contact' }}
         included={MANAGE_INCLUDED}
         visual={<ManageVisual />}

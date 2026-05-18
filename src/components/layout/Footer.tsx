@@ -3,24 +3,28 @@ import { Container } from './Container';
 
 const FOOTER_COLUMNS = [
   {
+    title: 'Services',
+    links: [
+      { label: 'Launch', href: '/launch' },
+      { label: 'Grow', href: '/grow' },
+      { label: 'Manage', href: '/manage' },
+      { label: 'Compare tiers', href: '/services' },
+    ],
+  },
+  {
     title: 'Studio',
     links: [
       { label: 'Work', href: '/work' },
       { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
+      { label: 'For partners', href: '/partners' },
     ],
   },
   {
     title: 'Get started',
     links: [
       { label: 'Project intake', href: '/start' },
-      { label: 'Book a call', href: '/contact#call' },
-      { label: 'Email me', href: 'mailto:hello@russle.co.uk' },
-    ],
-  },
-  {
-    title: 'Elsewhere',
-    links: [
+      { label: 'Email us', href: 'mailto:hello@russle.co.uk' },
       { label: 'Instagram', href: 'https://instagram.com/russleuk', external: true },
     ],
   },
