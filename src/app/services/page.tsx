@@ -189,16 +189,11 @@ function Tier({
         <div className="md:col-span-5">
           <Reveal>
             <p className="label text-[var(--color-text-soft)]">Tier {index}</p>
-            <h2
-              className="mt-3 font-medium leading-[0.95] tracking-[-0.05em] text-[var(--color-text)]"
-              style={{ fontSize: 'clamp(80px, 11vw, 144px)' }}
-            >
-              {name}
-            </h2>
-            <p className="h4 mt-8 max-w-md text-balance text-[var(--color-text)]">
+            <h2 className="h2 mt-3 text-[var(--color-accent)]">{name}</h2>
+            <h3 className="h1 mt-6 text-balance text-[var(--color-text)]">
               {headline}
-            </p>
-            <p className="text-big mt-6 text-[var(--color-text-mute)]">{pitch}</p>
+            </h3>
+            <p className="text-big mt-8 text-[var(--color-text-mute)]">{pitch}</p>
             <div className="mt-10 flex items-baseline gap-4">
               <p
                 className="font-medium leading-none tracking-[-0.04em] text-[var(--color-text)]"
