@@ -1,5 +1,4 @@
 import { Hero } from '@/components/sections/Hero';
-import { WhyRussle } from '@/components/sections/WhyRussle';
 import { VersusBlock } from '@/components/sections/VersusBlock';
 import { CaseStudyShowcase } from '@/components/sections/CaseStudyShowcase';
 import { OfferBlock } from '@/components/sections/OfferBlock';
@@ -15,10 +14,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <WhyRussle />
-      <VersusBlock />
       <CaseStudyShowcase items={work} />
       <OfferBlock />
+      <VersusBlock />
       <ProcessSteps />
       <Testimonial
         quote="russle understood that I needed less, not more. No price page, no booking calendar, no essay about me. Just the photography, the testimonials, and an enquiry form designed to convert. It's the first site I've had that I'm happy to send people to."
