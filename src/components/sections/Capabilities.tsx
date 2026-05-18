@@ -1,0 +1,95 @@
+import {
+  Globe,
+  Calendar,
+  ShoppingBag,
+  MapPin,
+  Mail,
+  Utensils,
+  Sparkles,
+  Hammer,
+} from 'lucide-react';
+import { Section } from '@/components/layout/Section';
+import { Tag } from '@/components/ui/Tag';
+import { Reveal } from '@/components/animations/Reveal';
+
+const CAPABILITIES = [
+  {
+    icon: Globe,
+    title: 'Brochure and service-business sites',
+    body: 'A clean site that shows what you do, who you do it for, what it costs, and how to get in touch. The default for most independents.',
+  },
+  {
+    icon: Calendar,
+    title: 'Online booking and reservations',
+    body: 'Customers book appointments, classes, or tables directly from your site. Salons, gyms, clinics, restaurants, treatments.',
+  },
+  {
+    icon: ShoppingBag,
+    title: 'E-commerce stores',
+    body: 'Online shops on our own platform. Products, stock, orders, payments. Comes with a dashboard and an iOS app for managing the shop from your phone.',
+  },
+  {
+    icon: MapPin,
+    title: 'Local SEO and Google Business',
+    body: 'Showing up on Google Maps and in the local search results when someone nearby looks for what you do. Set up at launch, maintained every month.',
+  },
+  {
+    icon: Mail,
+    title: 'Email marketing',
+    body: 'Welcome flows, newsletters, customer follow-ups, promotions. The retention work that keeps the same customer coming back.',
+  },
+  {
+    icon: Utensils,
+    title: 'Online ordering for food',
+    body: 'Takeaway and pickup orders direct from your site. No third-party app, no commission cut. Yours, on your platform.',
+  },
+  {
+    icon: Sparkles,
+    title: 'AI integrations',
+    body: 'Practical AI built into the site. Chatbots that actually answer questions, content help, smart booking, customer support, recommendations.',
+  },
+  {
+    icon: Hammer,
+    title: 'Custom builds',
+    body: 'If you need something specific that does not fit the categories above, we build it. Almost everything we used to outsource, we now do in-house.',
+  },
+];
+
+export function Capabilities() {
+  return (
+    <Section tone="bg" spacing="xl">
+      <div className="mb-10 max-w-3xl md:hidden">
+        <Reveal>
+          <Tag>What we can do for you</Tag>
+        </Reveal>
+        <Reveal delay={0.05}>
+          <h2 className="h3 mt-6 text-balance">
+            Most independent businesses want one of these.
+          </h2>
+        </Reveal>
+      </div>
+
+      <Reveal>
+        <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
+          {CAPABILITIES.map((cap) => {
+            const Icon = cap.icon;
+            return (
+              <div
+                key={cap.title}
+                className="flex h-full flex-col bg-[var(--color-bg)] p-8 md:p-10"
+              >
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line-2)] text-[var(--color-accent)]">
+                  <Icon className="h-5 w-5" aria-hidden />
+                </div>
+                <h3 className="h5 mt-6 text-balance">{cap.title}</h3>
+                <p className="text-body mt-4 text-[var(--color-text-mute)]">
+                  {cap.body}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </Reveal>
+    </Section>
+  );
+}

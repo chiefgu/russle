@@ -1,6 +1,7 @@
 import { Hero } from '@/components/sections/Hero';
 import { ReviewsBar } from '@/components/sections/ReviewsBar';
 import { ReviewsBlock } from '@/components/sections/ReviewsBlock';
+import { Capabilities } from '@/components/sections/Capabilities';
 import { VersusBlock } from '@/components/sections/VersusBlock';
 import { CaseStudyShowcase } from '@/components/sections/CaseStudyShowcase';
 import { OfferBlock } from '@/components/sections/OfferBlock';
@@ -20,6 +21,7 @@ export default async function HomePage() {
     <>
       <Hero />
       <ReviewsBar />
+      <Capabilities />
       <CaseStudyShowcase items={work} />
       <OfferBlock />
       <VersusBlock />
