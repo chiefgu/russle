@@ -2,7 +2,6 @@ import { Hero } from '@/components/sections/Hero';
 import { ReviewsBar } from '@/components/sections/ReviewsBar';
 import { ReviewsBlock } from '@/components/sections/ReviewsBlock';
 import { Capabilities } from '@/components/sections/Capabilities';
-import { VersusBlock } from '@/components/sections/VersusBlock';
 import { CaseStudyShowcase } from '@/components/sections/CaseStudyShowcase';
 import { OfferBlock } from '@/components/sections/OfferBlock';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
@@ -24,7 +23,6 @@ export default async function HomePage() {
       <Capabilities />
       <CaseStudyShowcase items={work} />
       <OfferBlock />
-      <VersusBlock />
       <ProcessSteps />
       {placesReady && <ReviewsBlock />}
       <FAQSection />
