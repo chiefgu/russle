@@ -3,9 +3,6 @@ import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { Reveal } from '@/components/animations/Reveal';
 
-const DOT_PATTERN = 'radial-gradient(circle, rgba(26,20,16,0.28) 1.2px, transparent 1.8px)';
-const DOT_MASK = 'radial-gradient(ellipse at center, transparent 0%, transparent 35%, black 95%)';
-
 const PRICE_CARDS = [
   {
     label: 'New brand + website',
@@ -30,19 +27,9 @@ export function Hero() {
       tone="bg"
       spacing="heroTopTight"
       container="main"
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden"
+      className="flex min-h-screen flex-col justify-center"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage: DOT_PATTERN,
-          backgroundSize: '24px 24px',
-          maskImage: DOT_MASK,
-          WebkitMaskImage: DOT_MASK,
-        }}
-      />
-      <div className="relative z-10 mx-auto w-full max-w-5xl">
+      <div className="mx-auto w-full max-w-5xl">
         <Reveal>
           <Tag tone="accent">Alderley Edge studio</Tag>
         </Reveal>
@@ -55,7 +42,10 @@ export function Hero() {
 
         <Reveal delay={0.15}>
           <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-            One studio for independent businesses across Cheshire and South Manchester. We design the brand, build the website, host it for you, and run the local SEO and email that bring customers back.
+            One studio for independent businesses who want their brand and
+            website to actually sell. We design the brand, build the website,
+            host it for you, and run the local SEO and email that bring
+            customers back.
           </p>
         </Reveal>
 

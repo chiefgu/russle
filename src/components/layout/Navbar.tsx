@@ -16,6 +16,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   // Close mobile menu on route change
@@ -31,16 +32,31 @@ export function Navbar() {
     };
   }, [open]);
 
+  // Transparent at top of page so the hero texture reads behind the bar,
+  // solid once the user scrolls past the first viewport.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // If the mobile menu is open, the bar must be solid to host the dropdown.
+  const showSolid = scrolled || open;
+
   return (
     <header
       data-navbar
       // Solid background that matches the page hero. Each page sets
       // --nav-bg via an injected style tag (see app/page.tsx and
       // app/work/[slug]/page.tsx). Defaults to cream for any page that
-      // doesn't override.
-      style={{ background: 'var(--nav-bg, var(--color-bg))' }}
+      // doesn't override. Transparent at the top of the page so the hero
+      // dot texture extends behind the bar.
+      style={{
+        background: showSolid ? 'var(--nav-bg, var(--color-bg))' : 'transparent',
+      }}
       className={cn(
-        'fixed inset-x-0 top-0 z-50',
+        'fixed inset-x-0 top-0 z-50 transition-colors duration-200',
       )}
     >
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-4 py-5 sm:px-6 md:px-8">
