@@ -11,7 +11,7 @@ export function WhyRussleVisual({ className }: WhyRussleVisualProps) {
   return (
     <div
       role="img"
-      aria-label="One studio, one system: the same brand running consistently across the brand book, the website, and the marketing — designed and built together."
+      aria-label="One studio: the same brand running consistently across the brand book, the website, and the marketing, designed and built together."
       className={cn(
         'relative mx-auto flex aspect-[4/3] w-full max-w-[640px] flex-col gap-3 p-3 md:p-4',
         className,

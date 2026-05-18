@@ -16,7 +16,7 @@ export function BethVisual({ className }: BethVisualProps) {
   return (
     <div
       role="img"
-      aria-label="Beth Bakes Cakes — a brand identity and a custom storefront, shipped as one engagement."
+      aria-label="Beth Bakes Cakes: a brand identity and a custom storefront, shipped as one engagement."
       className={cn(
         'mx-auto w-full max-w-[640px]',
         className,
