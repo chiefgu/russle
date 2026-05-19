@@ -5,7 +5,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/Button';
+import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
 import { cn } from '@/lib/cn';
+
+const WHATSAPP_HREF = 'https://wa.me/447377902508';
 
 const NAV_LINKS = [
   { label: 'Work', href: '/work' },
@@ -91,6 +94,16 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <a
+            href={WHATSAPP_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat to russle on WhatsApp"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-[var(--radius-xl)] bg-[#25D366] px-4 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#1ebe5d] md:h-12 md:px-5"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            <span className="hidden sm:inline">WhatsApp</span>
+          </a>
           <div className="hidden md:block">
             <ButtonLink href="/start" variant="primary" size="md">
               Start a project
@@ -121,10 +134,19 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col gap-3">
               <ButtonLink href="/start" variant="primary" size="lg">
                 Start a project
               </ButtonLink>
+              <a
+                href={WHATSAPP_HREF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-14 items-center justify-center gap-2 rounded-[var(--radius-xl)] bg-[#25D366] px-8 text-[14px] font-bold uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#1ebe5d]"
+              >
+                <WhatsAppIcon className="h-5 w-5" />
+                <span>WhatsApp us</span>
+              </a>
             </div>
           </nav>
         </div>
