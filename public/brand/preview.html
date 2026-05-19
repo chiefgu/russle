@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>russle | Brand kit preview</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F8F7F5;
+    --surface: #EFEDE6;
+    --surface-2: #E6E2D6;
+    --text: #1A1410;
+    --text-mute: rgba(26,20,16,0.6);
+    --text-soft: rgba(26,20,16,0.4);
+    --line: rgba(26,20,16,0.1);
+    --line-2: rgba(26,20,16,0.2);
+    --accent: #DF5613;
+    --dark-bg: #1A1410;
+    --dark-bg-2: #26201B;
+    --on-dark: #F8F7F5;
+    --on-dark-mute: rgba(248,247,245,0.6);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+  header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 32px;
+    margin-bottom: 64px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin: 0 0 16px;
+  }
+  h1 {
+    font-size: 56px;
+    line-height: 1.05;
+    margin: 0 0 16px;
+    letter-spacing: -0.04em;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 80px 0 24px;
+    letter-spacing: -0.02em;
+  }
+  h2:first-of-type { margin-top: 0; }
+  p { margin: 0 0 12px; color: var(--text-mute); max-width: 60ch; font-size: 14px; line-height: 1.55; }
+
+  /* Hero plate ------------------------------------------------ */
+  .hero-plate {
+    background: var(--accent);
+    border-radius: 24px;
+    padding: 120px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+  }
+  .hero-plate img { width: 280px; height: auto; }
+
+  /* Grid of variants ------------------------------------------ */
+  .ground-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+  .ground-grid > div {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    padding: 24px;
+  }
+  .ground-grid img { width: 140px; height: auto; align-self: center; margin: auto; }
+  .swatch-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  .on-light { background: var(--bg); color: var(--text); }
+  .on-surface { background: var(--surface); color: var(--text); }
+  .on-surface-2 { background: var(--surface-2); color: var(--text); }
+  .on-accent { background: var(--accent); color: var(--on-dark); }
+  .on-dark { background: var(--dark-bg); color: var(--on-dark); }
+  .on-dark-2 { background: var(--dark-bg-2); color: var(--on-dark); }
+
+  /* Scale ladder ---------------------------------------------- */
+  .scale {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 64px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 32px;
+  }
+  .scale-item { text-align: center; }
+  .scale-item img { display: block; margin: 0 auto 16px; }
+  .scale-item .scale-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+  }
+
+  /* Usage contexts -------------------------------------------- */
+  .contexts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .context-card {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 32px;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .context-card .label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: auto;
+  }
+  /* App icon mock */
+  .app-icon-mock {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(26,20,16,0.18);
+    margin-bottom: 16px;
+  }
+  .app-icon-mock img { width: 56px; height: 56px; }
+  .app-icon-label { font-size: 12px; color: var(--text); }
+  /* Reply card mock */
+  .reply-card { background: var(--dark-bg); color: var(--on-dark); border-radius: 16px; padding: 16px; }
+  .reply-card .reply-row { display: flex; align-items: flex-start; gap: 12px; }
+  .reply-card .avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .reply-card .avatar img { width: 22px; height: 22px; }
+  .reply-card .reply-meta { font-size: 11px; color: var(--on-dark-mute); }
+  .reply-card .reply-text { font-size: 13px; margin-top: 2px; }
+  /* Social mock */
+  .social-mock {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .social-mock .social-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-mock .social-avatar img { width: 28px; height: 28px; }
+  .social-mock .social-handle { font-size: 13px; font-weight: 500; }
+  .social-mock .social-name { font-size: 11px; color: var(--text-mute); }
+
+  /* Palette --------------------------------------------------- */
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+  }
+  .palette-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 16px;
+  }
+  .palette-swatch { width: 100%; aspect-ratio: 1/1; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--line); }
+  .palette-card h3 { font-size: 12px; font-weight: 600; margin: 0 0 4px; }
+  .palette-card code { font-size: 11px; color: var(--text-mute); font-family: 'Geist Mono', monospace; }
+
+  /* Dos / Donts ----------------------------------------------- */
+  .rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .rule-card {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 32px;
+  }
+  .rule-card.do { border-left: 2px solid var(--accent); }
+  .rule-card.dont { border-left: 2px solid var(--text-soft); }
+  .rule-card h3 { font-size: 14px; font-weight: 600; margin: 0 0 12px; }
+  .rule-card ul { list-style: none; padding: 0; margin: 0; }
+  .rule-card li { font-size: 13px; color: var(--text-mute); margin-bottom: 8px; padding-left: 16px; position: relative; }
+  .rule-card li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 1px; background: var(--text-soft); }
+
+  /* Footer ---------------------------------------------------- */
+  footer { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--line); }
+  footer p { font-size: 12px; color: var(--text-soft); }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <p class="eyebrow">russle · brand kit · v1 · 2026-05-19</p>
+    <h1>The lockup, across grounds.</h1>
+    <p>A reference for the wordmark, the dot, the palette, and how the system sits across surfaces. SVGs in this folder are the source of truth.</p>
+  </header>
+
+  <h2>Primary lockup</h2>
+  <div class="hero-plate">
+    <img src="/brand/wordmark-dot-on-dark.svg" alt="russle wordmark with coral dot, on accent background">
+  </div>
+
+  <h2>Eight grounds</h2>
+  <p>The lockup across the russle palette. The dot stays coral in every variant.</p>
+  <div class="ground-grid">
+    <div class="on-light"><div class="swatch-meta"><span>01</span><span>BG</span></div><img src="/brand/wordmark-dot.svg" alt=""><div class="swatch-meta"><span>#F8F7F5</span><span>OK</span></div></div>
+    <div class="on-surface"><div class="swatch-meta"><span>02</span><span>SURFACE</span></div><img src="/brand/wordmark-dot.svg" alt=""><div class="swatch-meta"><span>#EFEDE6</span><span>OK</span></div></div>
+    <div class="on-surface-2"><div class="swatch-meta"><span>03</span><span>SURFACE 2</span></div><img src="/brand/wordmark-dot.svg" alt=""><div class="swatch-meta"><span>#E6E2D6</span><span>OK</span></div></div>
+    <div class="on-accent"><div class="swatch-meta"><span>04</span><span>ACCENT</span></div><img src="/brand/wordmark-dot-on-dark.svg" alt=""><div class="swatch-meta"><span>#DF5613</span><span>OK</span></div></div>
+    <div class="on-dark"><div class="swatch-meta"><span>05</span><span>DARK</span></div><img src="/brand/wordmark-dot-on-dark.svg" alt=""><div class="swatch-meta"><span>#1A1410</span><span>OK</span></div></div>
+    <div class="on-dark-2"><div class="swatch-meta"><span>06</span><span>DARK 2</span></div><img src="/brand/wordmark-dot-on-dark.svg" alt=""><div class="swatch-meta"><span>#26201B</span><span>OK</span></div></div>
+    <div class="on-light"><div class="swatch-meta"><span>07</span><span>WORDMARK ONLY</span></div><img src="/brand/wordmark.svg" alt=""><div class="swatch-meta"><span>NO DOT</span><span>TIGHT</span></div></div>
+    <div class="on-dark"><div class="swatch-meta"><span>08</span><span>WORDMARK ONLY</span></div><img src="/brand/wordmark-on-dark.svg" alt=""><div class="swatch-meta"><span>NO DOT</span><span>TIGHT</span></div></div>
+  </div>
+
+  <h2>Scale</h2>
+  <p>Same lockup, different sizes. The dot stays proportional. Minimum legible size is 16px wordmark height.</p>
+  <div class="scale">
+    <div class="scale-item">
+      <img src="/brand/wordmark-dot.svg" alt="" style="width: 240px;">
+      <span class="scale-label">240px · billboard</span>
+    </div>
+    <div class="scale-item">
+      <img src="/brand/wordmark-dot.svg" alt="" style="width: 160px;">
+      <span class="scale-label">160px · hero</span>
+    </div>
+    <div class="scale-item">
+      <img src="/brand/wordmark-dot.svg" alt="" style="width: 96px;">
+      <span class="scale-label">96px · OG image</span>
+    </div>
+    <div class="scale-item">
+      <img src="/brand/wordmark-dot.svg" alt="" style="width: 56px;">
+      <span class="scale-label">56px · nav</span>
+    </div>
+    <div class="scale-item">
+      <img src="/brand/wordmark-dot.svg" alt="" style="width: 32px;">
+      <span class="scale-label">32px · minimum</span>
+    </div>
+  </div>
+
+  <h2>In context</h2>
+  <p>How the dot mark behaves as an app icon, a chat avatar, and a social handle preview.</p>
+  <div class="contexts">
+    <div class="context-card">
+      <p class="label">01 · App icon</p>
+      <div style="margin-top: auto;">
+        <div class="app-icon-mock"><img src="/brand/wordmark-on-dark.svg" alt=""></div>
+        <span class="app-icon-label">russle</span>
+      </div>
+    </div>
+    <div class="context-card">
+      <p class="label">02 · Reply card</p>
+      <div style="margin-top: auto;">
+        <div class="reply-card">
+          <div class="reply-row">
+            <div class="avatar"><img src="/brand/wordmark-on-dark.svg" alt=""></div>
+            <div>
+              <div class="reply-meta">russle · just now</div>
+              <div class="reply-text">Got it, Henry. Replying inside the hour.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="context-card">
+      <p class="label">03 · Social handle</p>
+      <div style="margin-top: auto;">
+        <div class="social-mock">
+          <div class="social-avatar"><img src="/brand/wordmark-on-dark.svg" alt=""></div>
+          <div>
+            <div class="social-handle">@russleuk</div>
+            <div class="social-name">russle · Alderley Edge</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Palette</h2>
+  <div class="palette">
+    <div class="palette-card">
+      <div class="palette-swatch" style="background: #F8F7F5;"></div>
+      <h3>Background</h3>
+      <code>#F8F7F5</code>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatch" style="background: #EFEDE6;"></div>
+      <h3>Surface</h3>
+      <code>#EFEDE6</code>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatch" style="background: #1A1410;"></div>
+      <h3>Text</h3>
+      <code>#1A1410</code>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatch" style="background: #DF5613;"></div>
+      <h3>Accent</h3>
+      <code>#DF5613</code>
+    </div>
+    <div class="palette-card">
+      <div class="palette-swatch" style="background: #26201B;"></div>
+      <h3>Dark 2</h3>
+      <code>#26201B</code>
+    </div>
+  </div>
+
+  <h2>Do / Do not</h2>
+  <div class="rules">
+    <div class="rule-card do">
+      <h3>Do</h3>
+      <ul>
+        <li>Use the default lockup for 95% of cases</li>
+        <li>Place on a calm background, not busy photography</li>
+        <li>Pair with Geist Mono in product UI</li>
+        <li>Keep clear space equal to the dot's diameter on all sides</li>
+        <li>Convert text to paths in Figma before exporting to print</li>
+      </ul>
+    </div>
+    <div class="rule-card dont">
+      <h3>Do not</h3>
+      <ul>
+        <li>Place the wordmark over busy photography or strong patterns</li>
+        <li>Stretch, skew, rotate, or condense the lockup</li>
+        <li>Recolour the coral dot</li>
+        <li>Change the relative size of the dot to the wordmark</li>
+        <li>Use the wordmark under 16px height</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <p>russle · brand kit preview · open the SVGs directly to inspect, or read brand-kit.md for the full spec.</p>
+  </footer>
+</div>
+</body>
+</html>

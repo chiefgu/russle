@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" role="img" aria-label="russle">
+  <text
+    x="0"
+    y="32"
+    font-family="Satoshi, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    font-size="40"
+    font-weight="500"
+    letter-spacing="-1"
+    fill="#1A1410"
+  >russle</text>
+  <circle cx="113" cy="20" r="5" fill="#DF5613"/>
+</svg>

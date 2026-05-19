@@ -390,6 +390,8 @@ export const INTAKE_FIELD_GROUPS: Array<{
   {
     section: 'Source',
     fields: [
+      { id: 'brief_type', label: 'Brief type' },
+      { id: 'project_type', label: 'Project type' },
       { id: 'how_heard', label: 'How they heard about us' },
       { id: 'how_heard_detail', label: 'Source detail' },
       { id: 'utm_source', label: 'UTM source' },
@@ -415,9 +417,12 @@ const CLIENT_DETAIL_FIELDS: Array<{ id: string; label: string; isEmail?: boolean
 ];
 
 export function renderIntakeEmail(data: Record<string, string>): RenderedEmail {
-  const subject = `New project brief from ${data.client_name}${
-    data.client_company ? ` (${data.client_company})` : ''
-  }`;
+  const isQuick = data.brief_type === 'quick';
+  const subject = isQuick
+    ? `Quick enquiry from ${data.client_name}`
+    : `New project brief from ${data.client_name}${
+        data.client_company ? ` (${data.client_company})` : ''
+      }`;
 
   // Top: client meta block, render any provided client detail fields as
   // a 2-column grid of label/value pairs inside the card.
