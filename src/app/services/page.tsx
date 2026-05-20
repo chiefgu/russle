@@ -27,6 +27,7 @@ const LAUNCH_INCLUDED = [
   'Google Maps and Google search set up before launch',
   'AI search optimisation (GEO) so you surface in ChatGPT, Perplexity, and AI Overviews',
   'Email marketing ready to go (welcome flow, newsletter signup)',
+  'Analytics and tracking installed (GA4, Meta Pixel, conversion events)',
   'Live in 4 to 6 weeks',
 ];
 
@@ -37,6 +38,7 @@ const GROW_INCLUDED = [
   'Local search kept healthy (rankings, listings, schema)',
   'AI search optimisation (GEO) maintained (ChatGPT, Perplexity, AI Overviews)',
   'Email system maintained (deliverability, templates, list health)',
+  'Analytics and tracking maintained (data integrity, broken-tracker fixes)',
   'Performance and uptime monitoring',
   'Monthly performance email, plain English',
   '30-minute monthly check-in call',
@@ -49,6 +51,7 @@ const MANAGE_INCLUDED = [
   'Ongoing campaigns, organic and paid',
   'Monthly strategy session',
   'Quarterly review and planning',
+  'Detailed analytics dashboards and insights',
 ];
 
 type Cell = boolean | string;
@@ -76,6 +79,7 @@ const COMPARISON: CompareSection[] = [
       { label: 'Google Maps and search setup', launch: true, grow: false, manage: false },
       { label: 'AI search optimisation (GEO) setup', launch: true, grow: false, manage: false },
       { label: 'Email marketing setup', launch: true, grow: false, manage: false },
+      { label: 'Analytics and tracking installed', launch: true, grow: false, manage: false },
     ],
   },
   {
@@ -86,8 +90,9 @@ const COMPARISON: CompareSection[] = [
       { label: 'Local search monitoring and fixes', launch: false, grow: true, manage: true },
       { label: 'AI search optimisation (GEO) maintenance', launch: false, grow: true, manage: true },
       { label: 'Email system maintained', launch: false, grow: true, manage: true },
+      { label: 'Analytics tracking maintained', launch: false, grow: true, manage: true },
       { label: 'Performance and uptime monitoring', launch: false, grow: true, manage: true },
-      { label: 'Monthly performance email', launch: false, grow: true, manage: true },
+      { label: 'Monthly performance email', launch: false, grow: 'Plain email', manage: 'Full dashboard' },
       { label: 'Monthly check-in', launch: false, grow: '30 min', manage: '60 min' },
     ],
   },

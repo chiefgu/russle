@@ -46,6 +46,10 @@ const INCLUDED = [
     body: 'We watch site speed, uptime, broken links, and Core Web Vitals. You hear from us before customers do.',
   },
   {
+    title: 'Analytics and tracking maintained',
+    body: 'Google Analytics, Meta Pixel, and conversion events kept clean as Google and Meta change the rules. Broken trackers fixed, data integrity checked monthly.',
+  },
+  {
     title: 'Monthly performance email',
     body: 'A plain-English summary of the month: traffic, enquiries, what moved, what we worked on, what is next. No 40-page PDF, just the numbers that matter.',
   },
@@ -189,7 +193,7 @@ function WhatsIncluded() {
           <Tag>What you get</Tag>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="h2 mt-6 text-balance">Eight things, every month.</h2>
+          <h2 className="h2 mt-6 text-balance">Ten things, every month.</h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">

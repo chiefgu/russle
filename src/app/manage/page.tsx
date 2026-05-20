@@ -42,6 +42,10 @@ const INCLUDED = [
     body: 'Every three months we sit down to look at the bigger picture. What the data is telling us, where the brand is going, what to invest in next quarter. The plan lands as a written document.',
   },
   {
+    title: 'Detailed analytics and insights',
+    body: 'Custom dashboards beyond the monthly Grow email. Funnel tracking, conversion attribution, GEO citation monitoring, and a real read on what is moving the business.',
+  },
+  {
     title: 'A studio acting as your marketing function',
     body: 'For businesses who want a small team running this work alongside the rest of the business, not a series of one-off projects or a freelancer chain. The retainer is structured around what you actually need.',
   },

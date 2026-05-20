@@ -46,6 +46,10 @@ const INCLUDED = [
     title: 'Email marketing ready to go',
     body: 'A welcome flow for new subscribers, a newsletter template that matches the brand, and the list ready to receive customers from the first day the site is live.',
   },
+  {
+    title: 'Analytics and tracking installed',
+    body: 'Google Analytics, Meta Pixel, cookie consent, and conversion events all wired in. You see where customers come from and what they do, from launch.',
+  },
 ];
 
 const NOT_INCLUDED = [
@@ -201,7 +205,7 @@ function WhatsIncluded() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="h2 mt-6 text-balance">
-            Six things, shipped together.
+            Eight things, shipped together.
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
