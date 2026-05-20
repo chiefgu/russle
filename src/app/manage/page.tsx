@@ -26,6 +26,10 @@ const INCLUDED = [
     body: 'Case studies, blog posts, guides, and the supporting copy that keeps the site current. Written in your brand voice by us, planned around what your customers actually search for.',
   },
   {
+    title: 'AI-optimised content (GEO)',
+    body: 'Content structured for citation in ChatGPT, Perplexity, and Google AI Overviews as well as traditional search. Answer-shaped sections, schema markup, brand entity work.',
+  },
+  {
     title: 'Ongoing campaigns, organic and paid',
     body: 'Quarterly campaigns run end to end. Strategy, creative, copy, landing pages, and the paid spend management on top. We work to the channels that suit the business, not a template.',
   },

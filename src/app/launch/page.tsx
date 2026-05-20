@@ -39,6 +39,10 @@ const INCLUDED = [
     body: 'Google Business Profile claimed, optimised, and posting on day one. Local schema set up so the site appears in the map pack from launch, not six months later.',
   },
   {
+    title: 'AI search optimisation (GEO)',
+    body: 'Schema, structured content, and brand signals built in so your business is set up to surface in ChatGPT, Perplexity, and Google AI Overviews from day one.',
+  },
+  {
     title: 'Email marketing ready to go',
     body: 'A welcome flow for new subscribers, a newsletter template that matches the brand, and the list ready to receive customers from the first day the site is live.',
   },

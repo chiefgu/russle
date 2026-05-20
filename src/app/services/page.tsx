@@ -25,6 +25,7 @@ const LAUNCH_INCLUDED = [
   'Custom-built code, no template, hosted on our own platform',
   'Domain, hosting, and business email setup',
   'Google Maps and Google search set up before launch',
+  'AI search optimisation (GEO) so you surface in ChatGPT, Perplexity, and AI Overviews',
   'Email marketing ready to go (welcome flow, newsletter signup)',
   'Live in 4 to 6 weeks',
 ];
@@ -34,6 +35,7 @@ const GROW_INCLUDED = [
   'Up to 2 hours of small site updates each month',
   'Your Google Business Profile run on your behalf',
   'Local search kept healthy (rankings, listings, schema)',
+  'AI search optimisation (GEO) maintained (ChatGPT, Perplexity, AI Overviews)',
   'Email system maintained (deliverability, templates, list health)',
   'Performance and uptime monitoring',
   'Monthly performance email, plain English',
@@ -43,6 +45,7 @@ const GROW_INCLUDED = [
 const MANAGE_INCLUDED = [
   'Everything in Grow',
   'Original content writing for your site (case studies, guides, blog)',
+  'Content optimised for both human and AI readers (GEO)',
   'Ongoing campaigns, organic and paid',
   'Monthly strategy session',
   'Quarterly review and planning',
@@ -71,6 +74,7 @@ const COMPARISON: CompareSection[] = [
       { label: 'Hosting on our platform', launch: 'First year', grow: true, manage: true },
       { label: 'Domain and email setup', launch: true, grow: false, manage: false },
       { label: 'Google Maps and search setup', launch: true, grow: false, manage: false },
+      { label: 'AI search optimisation (GEO) setup', launch: true, grow: false, manage: false },
       { label: 'Email marketing setup', launch: true, grow: false, manage: false },
     ],
   },
@@ -80,6 +84,7 @@ const COMPARISON: CompareSection[] = [
       { label: 'Site updates each month', launch: false, grow: 'Up to 2 hrs', manage: 'More' },
       { label: 'Google Business Profile management', launch: false, grow: true, manage: true },
       { label: 'Local search monitoring and fixes', launch: false, grow: true, manage: true },
+      { label: 'AI search optimisation (GEO) maintenance', launch: false, grow: true, manage: true },
       { label: 'Email system maintained', launch: false, grow: true, manage: true },
       { label: 'Performance and uptime monitoring', launch: false, grow: true, manage: true },
       { label: 'Monthly performance email', launch: false, grow: true, manage: true },
@@ -90,6 +95,7 @@ const COMPARISON: CompareSection[] = [
     title: 'Marketing work',
     rows: [
       { label: 'Original content writing', launch: false, grow: false, manage: true },
+      { label: 'Content tuned for AI citation (GEO)', launch: false, grow: false, manage: true },
       { label: 'Ongoing campaigns (organic + paid)', launch: false, grow: false, manage: true },
       { label: 'Monthly strategy session', launch: false, grow: false, manage: true },
       { label: 'Quarterly review and planning', launch: false, grow: false, manage: true },

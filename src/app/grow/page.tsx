@@ -34,6 +34,10 @@ const INCLUDED = [
     body: 'Rankings tracked, schema fixed when Google changes the rules, locality pages refreshed every quarter, listings across the directories that actually matter.',
   },
   {
+    title: 'AI search optimisation (GEO) maintained',
+    body: 'Keeping you visible in ChatGPT, Perplexity, and Google AI Overviews. Structured content tuned for AI citation, llms.txt kept current, brand entity signals reinforced.',
+  },
+  {
     title: 'Email system maintained',
     body: 'Welcome flow, newsletter templates, list health, deliverability. The plumbing that keeps your past customers reachable, kept in working order.',
   },

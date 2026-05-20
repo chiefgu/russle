@@ -6,6 +6,7 @@ import {
   Mail,
   Utensils,
   Sparkles,
+  BrainCircuit,
   Hammer,
 } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
@@ -49,6 +50,11 @@ const CAPABILITIES = [
     body: 'Practical AI built into the site. Chatbots that actually answer questions, content help, smart booking, customer support, recommendations.',
   },
   {
+    icon: BrainCircuit,
+    title: 'AI search optimisation (GEO)',
+    body: 'Showing up when people ask ChatGPT, Perplexity, or Google AI Overviews for what you do. Schema, structured content, and brand signals that AI search engines actually read.',
+  },
+  {
     icon: Hammer,
     title: 'Custom builds',
     body: 'If you need something specific that does not fit the categories above, we build it. Almost everything we used to outsource, we now do in-house.',
@@ -70,7 +76,7 @@ export function Capabilities() {
       </div>
 
       <Reveal>
-        <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
           {CAPABILITIES.map((cap) => {
             const Icon = cap.icon;
             return (
