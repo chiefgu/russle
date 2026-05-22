@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
+import { ButtonLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/animations/Reveal';
 
 const CAPABILITIES = [
@@ -94,6 +95,14 @@ export function Capabilities() {
               </div>
             );
           })}
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.1}>
+        <div className="mt-10">
+          <ButtonLink href="/conversion" variant="secondary" size="lg" withArrow>
+            See how we make sites convert
+          </ButtonLink>
         </div>
       </Reveal>
     </Section>
