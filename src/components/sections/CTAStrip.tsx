@@ -9,7 +9,7 @@ type CTAStripProps = {
 
 export function CTAStrip({
   heading = 'Got a project in mind?',
-  sub = 'Tell me about it. I respond to every enquiry within 24 hours.',
+  sub = 'Tell us about it. We respond to every enquiry within 24 hours.',
 }: CTAStripProps) {
   return (
     <Section tone="accent" spacing="xl">
