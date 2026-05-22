@@ -375,7 +375,7 @@ function RussellPlatform() {
           </Reveal>
           <Reveal delay={0.05}>
             <h2 className="h1 mt-6 text-balance">
-              Hosted on our own platform, not someone else's.
+              Hosted on our own platform, not someone else&apos;s.
             </h2>
           </Reveal>
           <Reveal delay={0.15}>

@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "framer-motion": "^11.11.17",
@@ -21,10 +21,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
     "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.1",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.6",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.9.3"
