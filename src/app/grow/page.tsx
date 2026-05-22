@@ -57,6 +57,10 @@ const INCLUDED = [
     title: '30-minute monthly check-in',
     body: 'A call or coffee to talk about what is happening in the business, what is coming up, and how the site needs to keep up.',
   },
+  {
+    title: 'Ongoing conversion tuning',
+    body: 'We keep tuning what already works. Each month we look at how the site is converting and make evidence-led improvements to the copy, the calls to action, and the layout, on top of the tracking installed at launch.',
+  },
 ];
 
 const NOT_INCLUDED = [
@@ -193,7 +197,7 @@ function WhatsIncluded() {
           <Tag>What you get</Tag>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="h2 mt-6 text-balance">Ten things, every month.</h2>
+          <h2 className="h2 mt-6 text-balance">Eleven things, every month.</h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">
