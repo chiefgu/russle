@@ -8,6 +8,7 @@ const FOOTER_COLUMNS = [
       { label: 'Launch', href: '/launch' },
       { label: 'Grow', href: '/grow' },
       { label: 'Manage', href: '/manage' },
+      { label: 'Conversion', href: '/conversion' },
       { label: 'Compare tiers', href: '/services' },
     ],
   },

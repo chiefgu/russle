@@ -302,6 +302,18 @@ function ServicesMega() {
           </div>
           <ArrowUpRight className="mt-1 h-4 w-4 text-[var(--color-text-soft)] transition-colors group-hover:text-[var(--color-accent)]" />
         </Link>
+        <Link
+          href="/conversion"
+          className="group mt-6 flex items-start justify-between gap-3 text-[var(--color-text)]"
+        >
+          <div>
+            <p className="h6">Make your site convert</p>
+            <p className="text-small mt-2 text-[var(--color-text-mute)]">
+              Turn more visitors into customers
+            </p>
+          </div>
+          <ArrowUpRight className="mt-1 h-4 w-4 text-[var(--color-text-soft)] transition-colors group-hover:text-[var(--color-accent)]" />
+        </Link>
       </div>
     </div>
   );
