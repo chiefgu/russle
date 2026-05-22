@@ -94,6 +94,7 @@ const COMPARISON: CompareSection[] = [
       { label: 'Performance and uptime monitoring', launch: false, grow: true, manage: true },
       { label: 'Monthly performance email', launch: false, grow: 'Plain email', manage: 'Full dashboard' },
       { label: 'Monthly check-in', launch: false, grow: '30 min', manage: '60 min' },
+      { label: 'Conversion optimisation', launch: false, grow: 'Ongoing', manage: 'Full' },
     ],
   },
   {
