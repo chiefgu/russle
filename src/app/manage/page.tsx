@@ -46,6 +46,10 @@ const INCLUDED = [
     body: 'Custom dashboards beyond the monthly Grow email. Funnel tracking, conversion attribution, GEO citation monitoring, and a real read on what is moving the business.',
   },
   {
+    title: 'Conversion optimisation, end to end',
+    body: 'The full method. We research how visitors behave, build several versions of a page on different angles, then split test to find the winner and keep it. Where traffic supports a valid test we run it in full; where it does not, we improve from the evidence instead.',
+  },
+  {
     title: 'A studio acting as your marketing function',
     body: 'For businesses who want a small team running this work alongside the rest of the business, not a series of one-off projects or a freelancer chain. The retainer is structured around what you actually need.',
   },
@@ -210,6 +214,14 @@ function WhatsIncluded() {
               </p>
             </div>
           ))}
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.2}>
+        <div className="mt-10">
+          <ButtonLink href="/conversion" variant="secondary" size="lg" withArrow>
+            How conversion optimisation works
+          </ButtonLink>
         </div>
       </Reveal>
     </Section>
