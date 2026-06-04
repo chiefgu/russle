@@ -2,14 +2,13 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/Button';
 import { Section } from '@/components/layout/Section';
-import { Tag } from '@/components/ui/Tag';
 import { Reveal } from '@/components/animations/Reveal';
 
 const PRICE_CARDS = [
   {
     label: 'Launch',
-    price: 'From £3,995',
-    detail: 'A new brand, a new website, hosting, and the marketing basics. Live in 4 to 6 weeks.',
+    price: 'From £1,995',
+    detail: 'A new brand, a new website, hosting, and the marketing basics. Live as soon as 14 days.',
     href: '/launch',
   },
   {
@@ -36,11 +35,7 @@ export function Hero() {
     >
       <div className="mx-auto w-full max-w-5xl">
         <Reveal>
-          <Tag tone="accent">Alderley Edge studio</Tag>
-        </Reveal>
-
-        <Reveal delay={0.05}>
-          <h1 className="h1 mt-6 text-balance text-[var(--color-text)]">
+          <h1 className="h1 text-balance text-[var(--color-text)]">
             A new brand and website. Then the marketing that brings you customers.
           </h1>
         </Reveal>

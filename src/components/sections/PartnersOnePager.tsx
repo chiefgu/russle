@@ -9,8 +9,8 @@ import { getAllWork } from '@/lib/mdx';
 const TIERS = [
   {
     name: 'Launch',
-    price: 'From £3,995',
-    timeline: 'One-off, 4 to 6 weeks',
+    price: 'From £1,995',
+    timeline: 'One-off, as soon as 14 days',
     blurb:
       'A new brand and a new website, built together. The local SEO and email systems are set up before launch. Designed and built by us, end to end.',
     included: [

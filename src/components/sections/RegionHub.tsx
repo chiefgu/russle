@@ -34,7 +34,7 @@ export function RegionHub({ locality }: { locality: Locality }) {
       addressCountry: 'GB',
     },
     areaServed: towns.map((t) => ({ '@type': 'City', name: t.town })),
-    priceRange: 'From £2,500',
+    priceRange: 'From £1,995',
   };
 
   return (

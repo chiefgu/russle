@@ -16,7 +16,7 @@ import { ManageVisual } from '@/components/sections/ManageVisual';
 export const metadata: Metadata = {
   title: 'Brand, web & growth services',
   description:
-    'russle offers Launch, Grow, and Manage tiers. Brand, website, hosting, local SEO, and email marketing for independent businesses. Launch from £3,995. Grow from £299/mo.',
+    'russle offers Launch, Grow, and Manage tiers. Brand, website, hosting, local SEO, and email marketing for independent businesses. Launch from £1,995. Grow from £299/mo.',
 };
 
 const LAUNCH_INCLUDED = [
@@ -28,7 +28,7 @@ const LAUNCH_INCLUDED = [
   'AI search optimisation (GEO) so you surface in ChatGPT, Perplexity, and AI Overviews',
   'Email marketing ready to go (welcome flow, newsletter signup)',
   'Analytics and tracking installed (GA4, Meta Pixel, conversion events)',
-  'Live in 4 to 6 weeks',
+  'Live as soon as 14 days',
 ];
 
 const GROW_INCLUDED = [
@@ -301,7 +301,7 @@ function ComparisonTable() {
                 </th>
                 <th className="px-6 py-6 align-bottom md:px-8">
                   <p className="label text-[var(--color-text-soft)]">Launch</p>
-                  <p className="h4 mt-2 text-[var(--color-text)]">From £3,995</p>
+                  <p className="h4 mt-2 text-[var(--color-text)]">From £1,995</p>
                   <p className="text-small mt-1 text-[var(--color-text-mute)]">One-off</p>
                 </th>
                 <th className="px-6 py-6 align-bottom md:px-8">
@@ -479,7 +479,7 @@ export default function ServicesPage() {
         name="Launch"
         headline="A new brand and a new website, built together."
         pitch="The starting point for most clients. The brand and the website are designed and shipped as one project so they actually fit each other. By the time you go live, the marketing basics are already in place."
-        price="From £3,995"
+        price="From £1,995"
         priceNote="One-off project"
         pageHref="/launch"
         cta={{ label: 'Start a project', href: '/start' }}

@@ -37,3 +37,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+
+# russle outreach per-lead proposal pages (staged for deploy, not committed)
+public/for/

@@ -57,7 +57,7 @@ export function LocalityPage({
       '@type': 'City',
       name: locality.town,
     },
-    priceRange: 'From £2,500',
+    priceRange: 'From £1,995',
   };
 
   const faqItems = locality.faqs.map((f) => ({ q: f.question, a: f.answer }));

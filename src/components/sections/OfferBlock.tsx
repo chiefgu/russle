@@ -19,7 +19,7 @@ const CARDS: OfferCard[] = [
   {
     title: 'Launch',
     pitch: 'A new brand and a new website, built and shipped together.',
-    price: 'From £3,995',
+    price: 'From £1,995',
     priceNote: 'One-off',
     bullets: [
       'A new logo, colours, and fonts',
@@ -28,7 +28,7 @@ const CARDS: OfferCard[] = [
       'Set up on Google Maps and Google search',
       'AI search optimisation (GEO) set up',
       'Email marketing ready to go',
-      'Live in 4 to 6 weeks',
+      'Live as soon as 14 days',
     ],
     ctaLabel: 'How Launch works',
     ctaHref: '/launch',

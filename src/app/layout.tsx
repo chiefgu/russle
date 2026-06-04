@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: 'russle | %s',
   },
   description:
-    'russle is a brand-led growth studio in Alderley Edge. Brand identity, websites, SEO, and email marketing for independent businesses across Cheshire and South Manchester. From £2,500.',
+    'russle is a brand-led growth studio in Alderley Edge. Brand identity, websites, SEO, and email marketing for independent businesses across Cheshire and South Manchester. From £1,995.',
   keywords: [
     'brand design',
     'web design',

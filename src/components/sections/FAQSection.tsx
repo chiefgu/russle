@@ -6,7 +6,7 @@ import { Reveal } from '@/components/animations/Reveal';
 const ITEMS: FAQItem[] = [
   {
     q: 'How long does a launch take?',
-    a: 'Four to six weeks from kickoff to live, depending on scope. Most projects land around five.',
+    a: 'As soon as 14 days when everything is ready, four to six weeks for most, depending on scope.',
   },
   {
     q: 'Why not just use a Squarespace template?',
