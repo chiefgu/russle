@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { GeistMono } from 'geist/font/mono';
+import { Analytics } from '@vercel/analytics/next';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/layout/CookieBanner';
@@ -136,6 +137,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {(GA_ID || META_PIXEL_ID) && <PageviewTracker />}
         {(GA_ID || META_PIXEL_ID) && <CookieBanner />}
+        <Analytics />
       </body>
     </html>
   );
