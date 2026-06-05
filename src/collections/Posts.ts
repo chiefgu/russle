@@ -7,6 +7,10 @@ export const Posts: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', '_status', 'publishedAt'],
+    preview: (doc) =>
+      doc?.slug
+        ? `${process.env.NEXT_PUBLIC_SERVER_URL}/preview?slug=${doc.slug}&secret=${process.env.PREVIEW_SECRET}`
+        : null,
   },
   access: { read: () => true },
   versions: { drafts: { autosave: false } },
