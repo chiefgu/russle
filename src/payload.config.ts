@@ -27,7 +27,9 @@ export default buildConfig({
   sharp,
   plugins: [
     vercelBlobStorage({
-      enabled: true,
+      // Activate Blob storage wherever the token is set (e.g. production); fall
+      // back to local disk in dev when it is absent so the admin still boots.
+      enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
       collections: { media: true },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
     }),
