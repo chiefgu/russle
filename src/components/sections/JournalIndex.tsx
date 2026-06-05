@@ -2,21 +2,20 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
-import type { JournalMeta } from '@/lib/journal';
+import type { Post, Category } from '@/payload-types';
 
-const TYPE_LABEL: Record<string, string> = {
-  guide: 'Guide',
-  comparison: 'Comparison',
-  'local-appreciation': 'Local',
-  positioning: 'Studio',
-};
-
-function formatDate(iso: string): string {
+function formatDate(iso?: string | null): string {
+  if (!iso) return '';
   const d = new Date(iso);
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-export function JournalIndex({ items }: { items: JournalMeta[] }) {
+function categoryLabel(category: Post['category']): string | null {
+  if (!category || typeof category === 'number') return null;
+  return (category as Category).title ?? null;
+}
+
+export function JournalIndex({ items }: { items: Post[] }) {
   return (
     <>
       <Section tone="bg" spacing="heroTop" container="narrow">
@@ -36,38 +35,43 @@ export function JournalIndex({ items }: { items: JournalMeta[] }) {
           </p>
         ) : (
           <ul className="flex flex-col divide-y divide-[var(--color-line)]">
-            {items.map((item) => (
-              <li key={item.slug}>
-                <Link
-                  href={`/journal/${item.slug}`}
-                  className="group flex items-start justify-between gap-6 py-8 transition-colors"
-                >
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-3">
-                      <span className="label text-[var(--color-text-soft)]">
-                        {formatDate(item.date)}
-                      </span>
-                      <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--color-text-soft)]" />
-                      <span className="label text-[var(--color-text-soft)]">
-                        {TYPE_LABEL[item.type] || item.type}
-                      </span>
-                    </div>
-                    <h2 className="h4 mt-3 max-w-2xl text-balance group-hover:text-[var(--color-accent)] transition-colors">
-                      {item.title}
-                    </h2>
-                    <p className="text-body mt-3 max-w-2xl text-[var(--color-text-mute)]">
-                      {item.summary}
-                    </p>
-                  </div>
-                  <span
-                    aria-hidden
-                    className="mt-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-line-2)] transition-all group-hover:bg-[var(--color-text)] group-hover:text-[var(--color-bg)] group-hover:border-transparent"
+            {items.map((item) => {
+              const label = categoryLabel(item.category);
+              return (
+                <li key={item.id}>
+                  <Link
+                    href={`/journal/${item.slug}`}
+                    className="group flex items-start justify-between gap-6 py-8 transition-colors"
                   >
-                    <ArrowUpRight className="h-4 w-4" />
-                  </span>
-                </Link>
-              </li>
-            ))}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-3">
+                        <span className="label text-[var(--color-text-soft)]">
+                          {formatDate(item.publishedAt)}
+                        </span>
+                        {label && (
+                          <>
+                            <span aria-hidden className="h-1 w-1 rounded-full bg-[var(--color-text-soft)]" />
+                            <span className="label text-[var(--color-text-soft)]">{label}</span>
+                          </>
+                        )}
+                      </div>
+                      <h2 className="h4 mt-3 max-w-2xl text-balance group-hover:text-[var(--color-accent)] transition-colors">
+                        {item.title}
+                      </h2>
+                      <p className="text-body mt-3 max-w-2xl text-[var(--color-text-mute)]">
+                        {item.excerpt}
+                      </p>
+                    </div>
+                    <span
+                      aria-hidden
+                      className="mt-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[var(--color-line-2)] transition-all group-hover:bg-[var(--color-text)] group-hover:text-[var(--color-bg)] group-hover:border-transparent"
+                    >
+                      <ArrowUpRight className="h-4 w-4" />
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         )}
       </Section>
