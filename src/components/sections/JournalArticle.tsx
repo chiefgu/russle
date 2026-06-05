@@ -1,43 +1,41 @@
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
-import { CaseStudyBody } from '@/components/sections/CaseStudyBody';
-import type { JournalEntry } from '@/lib/journal';
+import { PostBody } from '@/components/sections/PostBody';
+import type { Post, Category } from '@/payload-types';
+import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical';
 
-const TYPE_LABEL: Record<string, string> = {
-  guide: 'Guide',
-  comparison: 'Comparison',
-  'local-appreciation': 'Local',
-  positioning: 'Studio',
-};
-
-function formatDate(iso: string): string {
+function formatDate(iso?: string | null): string {
+  if (!iso) return '';
   const d = new Date(iso);
-  return d.toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-export function JournalArticle({ entry }: { entry: JournalEntry }) {
+function categoryLabel(category: Post['category']): string {
+  if (!category || typeof category === 'number') return 'Journal';
+  return (category as Category).title ?? 'Journal';
+}
+
+export function JournalArticle({ post }: { post: Post }) {
   return (
     <>
       <Section tone="bg" spacing="heroTop" container="narrow">
         <div className="flex items-center gap-3">
-          <Tag>{TYPE_LABEL[entry.type] || entry.type}</Tag>
+          <Tag>{categoryLabel(post.category)}</Tag>
           <span className="label text-[var(--color-text-soft)]">
-            {formatDate(entry.date)}
+            {formatDate(post.publishedAt)}
           </span>
         </div>
-        <h1 className="h1 mt-6 text-balance">{entry.title}</h1>
+        <h1 className="h1 mt-6 text-balance">{post.title}</h1>
         <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-          {entry.summary}
+          {post.excerpt}
         </p>
       </Section>
 
       <Section tone="bg" spacing="m" container="narrow">
-        <CaseStudyBody body={entry.body} />
+        {post.content && (
+          <PostBody content={post.content as SerializedEditorState} />
+        )}
       </Section>
 
       <Section tone="bg" spacing="l" container="narrow">

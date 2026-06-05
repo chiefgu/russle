@@ -1,11 +1,11 @@
 import type { MetadataRoute } from 'next';
 import { getAllWork } from '@/lib/mdx';
 import { getAllLocalities } from '@/lib/locality';
-import { getAllJournal } from '@/lib/journal';
+import { getPublishedPosts } from '@/lib/posts';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://russle.co.uk';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -34,9 +34,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: loc.isHub ? 0.85 : 0.75,
   }));
 
-  const journalRoutes: MetadataRoute.Sitemap = getAllJournal().map((p) => ({
+  const posts = await getPublishedPosts();
+  const journalRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${SITE_URL}/journal/${p.slug}`,
-    lastModified: new Date(p.date),
+    lastModified: p.publishedAt ? new Date(p.publishedAt) : lastModified,
     priority: 0.7,
   }));
 

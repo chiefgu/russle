@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import path from 'node:path';
+import { withPayload } from '@payloadcms/next/withPayload';
 
 const nextConfig: NextConfig = {
   // Pin the workspace root so Next.js doesn't walk up and pick a stray
@@ -8,8 +9,11 @@ const nextConfig: NextConfig = {
     root: path.resolve(__dirname),
   },
   images: {
-    remotePatterns: [],
+    remotePatterns: [
+      // Vercel Blob public URLs
+      { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },
+    ],
   },
 };
 
-export default nextConfig;
+export default withPayload(nextConfig);

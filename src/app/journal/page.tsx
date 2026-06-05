@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { JournalIndex } from '@/components/sections/JournalIndex';
-import { getAllJournal } from '@/lib/journal';
+import { getPublishedPosts } from '@/lib/posts';
 
 export const metadata: Metadata = {
   title: 'Journal',
@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/journal' },
 };
 
-export default function Page() {
-  return <JournalIndex items={getAllJournal()} />;
+export default async function Page() {
+  const items = await getPublishedPosts();
+  return <JournalIndex items={items} />;
 }
