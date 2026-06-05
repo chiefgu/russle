@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload';
 import { formatSlugHook } from '@/lib/formatSlug';
+import { revalidatePost, revalidatePostDelete } from './hooks/revalidatePost';
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -9,6 +10,10 @@ export const Posts: CollectionConfig = {
   },
   access: { read: () => true },
   versions: { drafts: { autosave: false } },
+  hooks: {
+    afterChange: [revalidatePost],
+    afterDelete: [revalidatePostDelete],
+  },
   fields: [
     { name: 'title', type: 'text', required: true },
     {
