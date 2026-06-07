@@ -19,7 +19,7 @@ function categoryLabel(category: Post['category']): string {
 export function JournalArticle({ post }: { post: Post }) {
   return (
     <>
-      <Section tone="bg" spacing="heroTop" container="narrow">
+      <Section tone="bg" spacing="heroTopTight" container="narrow">
         <div className="flex items-center gap-3">
           <Tag>{categoryLabel(post.category)}</Tag>
           <span className="label text-[var(--color-text-soft)]">
@@ -32,7 +32,7 @@ export function JournalArticle({ post }: { post: Post }) {
         </p>
       </Section>
 
-      <Section tone="bg" spacing="m" container="narrow">
+      <Section tone="bg" spacing="s" container="narrow">
         {post.content && (
           <PostBody content={post.content as SerializedEditorState} />
         )}

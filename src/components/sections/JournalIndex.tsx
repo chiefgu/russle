@@ -18,7 +18,7 @@ function categoryLabel(category: Post['category']): string | null {
 export function JournalIndex({ items }: { items: Post[] }) {
   return (
     <>
-      <Section tone="bg" spacing="heroTop" container="narrow">
+      <Section tone="bg" spacing="heroTopTight" container="narrow">
         <Tag>Blog</Tag>
         <h1 className="h1 mt-6 text-balance">Notes from the studio.</h1>
         <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
@@ -28,7 +28,7 @@ export function JournalIndex({ items }: { items: Post[] }) {
         </p>
       </Section>
 
-      <Section tone="bg" spacing="m" container="narrow">
+      <Section tone="bg" spacing="s" container="narrow">
         {items.length === 0 ? (
           <p className="text-big text-[var(--color-text-mute)]">
             New entries coming soon.
