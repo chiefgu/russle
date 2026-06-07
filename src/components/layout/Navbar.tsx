@@ -51,7 +51,7 @@ const CASE_STUDIES = [
   { slug: 'loop', title: 'Loop', sector: 'Community platform' },
   { slug: 'bethbakescakes', title: 'Beth Bakes Cakes', sector: 'Brand + custom storefront' },
   { slug: 'racing-life', title: 'Racing Life', sector: 'Sports media platform' },
-  { slug: 'makeup-by-abigail', title: 'Makeup by Abigail', sector: 'Brand + website' },
+  { slug: 'berry-boys', title: 'Berry Boys', sector: 'Brand + multi-store site' },
 ];
 
 export function Navbar() {
