@@ -30,11 +30,13 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return { title: 'Not found' };
   const meta = post.meta as { title?: string; description?: string } | undefined;
-  const title = meta?.title ?? post.title;
+  // Lead with the post title (keyword-first) and suffix the brand. Use `absolute`
+  // so the root layout's "russle | %s" template doesn't prepend a second "russle".
+  const title = meta?.title ?? `${post.title} | russle`;
   const description = meta?.description ?? post.excerpt;
   const image = ogImageUrl(post);
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
