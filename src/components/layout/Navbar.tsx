@@ -22,6 +22,7 @@ const NAV_LINKS: NavLink[] = [
   { label: 'Work', href: '/work', mega: 'work' },
   { label: 'Services', href: '/services', mega: 'services' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -232,6 +233,7 @@ export function Navbar() {
               ))}
             </div>
             <Link href="/about" className="h2 py-2 text-[var(--color-text)]">About</Link>
+            <Link href="/blog" className="h2 py-2 text-[var(--color-text)]">Blog</Link>
             <Link href="/contact" className="h2 py-2 text-[var(--color-text)]">Contact</Link>
             <div className="mt-6 flex flex-col gap-3">
               <ButtonLink href="/start" variant="primary" size="lg">

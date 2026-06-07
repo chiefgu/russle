@@ -36,7 +36,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `/journal/${slug}` },
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: `russle | ${post.title}`,
       description,
@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     image: ogImageUrl(post),
     author: { '@type': 'Organization', name: 'russle' },
     publisher: { '@type': 'Organization', name: 'russle' },
-    mainEntityOfPage: `${SITE_URL}/journal/${slug}`,
+    mainEntityOfPage: `${SITE_URL}/blog/${slug}`,
   };
 
   return (

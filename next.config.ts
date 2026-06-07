@@ -14,6 +14,13 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },
     ],
   },
+  async redirects() {
+    return [
+      // Blog moved from /journal to /blog. 301 the old paths.
+      { source: '/journal', destination: '/blog', permanent: true },
+      { source: '/journal/:slug', destination: '/blog/:slug', permanent: true },
+    ];
+  },
 };
 
 export default withPayload(nextConfig);

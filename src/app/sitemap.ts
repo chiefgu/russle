@@ -19,7 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/about`, lastModified, priority: 0.8 },
     { url: `${SITE_URL}/contact`, lastModified, priority: 0.8 },
     { url: `${SITE_URL}/start`, lastModified, priority: 0.9 },
-    { url: `${SITE_URL}/journal`, lastModified, priority: 0.8 },
+    { url: `${SITE_URL}/blog`, lastModified, priority: 0.8 },
   ];
 
   const workRoutes: MetadataRoute.Sitemap = getAllWork().map((post) => ({
@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const posts = await getPublishedPosts();
   const journalRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
-    url: `${SITE_URL}/journal/${p.slug}`,
+    url: `${SITE_URL}/blog/${p.slug}`,
     lastModified: p.publishedAt ? new Date(p.publishedAt) : lastModified,
     priority: 0.7,
   }));

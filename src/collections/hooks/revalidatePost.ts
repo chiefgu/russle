@@ -19,16 +19,16 @@ function safeRevalidate(path: string): void {
 }
 
 export const revalidatePost: CollectionAfterChangeHook = ({ doc, previousDoc }) => {
-  safeRevalidate('/journal');
-  if (doc?.slug) safeRevalidate(`/journal/${doc.slug}`);
+  safeRevalidate('/blog');
+  if (doc?.slug) safeRevalidate(`/blog/${doc.slug}`);
   if (previousDoc?.slug && previousDoc.slug !== doc?.slug) {
-    safeRevalidate(`/journal/${previousDoc.slug}`);
+    safeRevalidate(`/blog/${previousDoc.slug}`);
   }
   return doc;
 };
 
 export const revalidatePostDelete: CollectionAfterDeleteHook = ({ doc }) => {
-  safeRevalidate('/journal');
-  if (doc?.slug) safeRevalidate(`/journal/${doc.slug}`);
+  safeRevalidate('/blog');
+  if (doc?.slug) safeRevalidate(`/blog/${doc.slug}`);
   return doc;
 };

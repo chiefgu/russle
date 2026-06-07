@@ -19,7 +19,7 @@ export function JournalIndex({ items }: { items: Post[] }) {
   return (
     <>
       <Section tone="bg" spacing="heroTop" container="narrow">
-        <Tag>Journal</Tag>
+        <Tag>Blog</Tag>
         <h1 className="h1 mt-6 text-balance">Notes from the studio.</h1>
         <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
           Guides, comparisons, and local notes from russle. Useful if you are
@@ -40,7 +40,7 @@ export function JournalIndex({ items }: { items: Post[] }) {
               return (
                 <li key={item.id}>
                   <Link
-                    href={`/journal/${item.slug}`}
+                    href={`/blog/${item.slug}`}
                     className="group flex items-start justify-between gap-6 py-8 transition-colors"
                   >
                     <div className="min-w-0 flex-1">

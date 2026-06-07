@@ -12,8 +12,8 @@ function formatDate(iso?: string | null): string {
 }
 
 function categoryLabel(category: Post['category']): string {
-  if (!category || typeof category === 'number') return 'Journal';
-  return (category as Category).title ?? 'Journal';
+  if (!category || typeof category === 'number') return 'Blog';
+  return (category as Category).title ?? 'Blog';
 }
 
 export function JournalArticle({ post }: { post: Post }) {

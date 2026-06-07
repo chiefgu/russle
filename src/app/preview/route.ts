@@ -15,5 +15,5 @@ export async function GET(req: Request): Promise<Response> {
 
   const dm = await draftMode();
   dm.enable();
-  redirect(`/journal/${slug}`);
+  redirect(`/blog/${slug}`);
 }
