@@ -60,7 +60,7 @@ export function JournalArticle({ post, faq = [] }: { post: Post; faq?: Faq[] }) 
                   <span className="h6 text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent)]">
                     {item.question}
                   </span>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--color-line-2)] text-[var(--color-text-soft)] transition-transform duration-200 group-open:rotate-180">
+                  <span className="faq-chevron flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--color-line-2)] text-[var(--color-text-soft)]">
                     <ChevronDown className="h-4 w-4" />
                   </span>
                 </summary>

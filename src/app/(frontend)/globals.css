@@ -275,3 +275,11 @@
     }
   }
 }
+
+/* FAQ accordion chevron: rotate when its <details> is open */
+.faq-chevron {
+  transition: rotate 0.2s ease;
+}
+details[open] > summary .faq-chevron {
+  rotate: 180deg;
+}
