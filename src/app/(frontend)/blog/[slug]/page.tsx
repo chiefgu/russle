@@ -70,7 +70,6 @@ export default async function Page({ params }: { params: Promise<Params> }) {
       '@type': 'Person',
       name: AUTHOR.name,
       url: AUTHOR.url,
-      sameAs: [AUTHOR.linkedin],
     },
     publisher: { '@type': 'Organization', name: 'russle', url: SITE_URL },
     mainEntityOfPage: `${SITE_URL}/blog/${slug}`,

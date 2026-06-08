@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
@@ -52,14 +53,23 @@ export function JournalArticle({ post, faq = [] }: { post: Post; faq?: Faq[] }) 
       {faq.length > 0 && (
         <Section tone="bg" spacing="s" container="narrow">
           <h2 className="h3">Frequently asked questions</h2>
-          <dl className="mt-8 flex max-w-2xl flex-col divide-y divide-[var(--color-line)]">
+          <div className="mt-8 max-w-2xl border-t border-[var(--color-line)]">
             {faq.map((item, i) => (
-              <div key={i} className="py-6 first:pt-0">
-                <dt className="h5 text-[var(--color-text)]">{item.question}</dt>
-                <dd className="text-big mt-3 text-[var(--color-text-mute)]">{item.answer}</dd>
-              </div>
+              <details key={i} className="group border-b border-[var(--color-line)]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 [&::-webkit-details-marker]:hidden">
+                  <span className="h6 text-[var(--color-text)] transition-colors group-hover:text-[var(--color-accent)]">
+                    {item.question}
+                  </span>
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--color-line-2)] text-[var(--color-text-soft)] transition-transform duration-200 group-open:rotate-180">
+                    <ChevronDown className="h-4 w-4" />
+                  </span>
+                </summary>
+                <p className="text-body max-w-prose pb-6 pr-12 text-[var(--color-text-mute)]">
+                  {item.answer}
+                </p>
+              </details>
             ))}
-          </dl>
+          </div>
         </Section>
       )}
 
@@ -70,13 +80,8 @@ export function JournalArticle({ post, faq = [] }: { post: Post; faq?: Faq[] }) 
             {AUTHOR.name}, {AUTHOR.role.toLowerCase()}
           </p>
           <p className="text-body text-[var(--color-text-mute)]">{AUTHOR.bio}</p>
-          <Link
-            href={AUTHOR.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link mt-1 w-fit text-[var(--color-text-mute)]"
-          >
-            Connect on LinkedIn
+          <Link href={AUTHOR.url} className="link mt-1 w-fit text-[var(--color-text-mute)]">
+            More about russle
           </Link>
         </div>
       </Section>
