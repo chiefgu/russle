@@ -24,6 +24,19 @@ const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
       </p>
     </blockquote>
   ),
+  list: ({ node, nodesToJSX }) => {
+    const children = nodesToJSX({ nodes: node.children });
+    const cls =
+      'text-big text-[var(--color-text-mute)] pl-6 space-y-2 marker:text-[var(--color-text-soft)]';
+    return node.listType === 'number' ? (
+      <ol className={`${cls} list-decimal`}>{children}</ol>
+    ) : (
+      <ul className={`${cls} list-disc`}>{children}</ul>
+    );
+  },
+  listitem: ({ node, nodesToJSX }) => (
+    <li className="pl-1">{nodesToJSX({ nodes: node.children })}</li>
+  ),
 });
 
 export function PostBody({ content }: { content: SerializedEditorState }) {
