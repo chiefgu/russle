@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Container } from './Container';
+import { Wordmark } from '@/components/ui/Wordmark';
 
 const FOOTER_COLUMNS = [
   {
@@ -39,9 +40,8 @@ export function Footer() {
       <Container size="main">
         <div className="grid gap-12 py-20 md:grid-cols-12 md:py-24">
           <div className="md:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-2">
-              <span className="h2 lowercase">russle</span>
-              <span aria-hidden className="h-3 w-3 rounded-full bg-[var(--color-accent)]" />
+            <Link href="/" className="group inline-flex items-center">
+              <Wordmark className="h2" />
             </Link>
             <p className="text-big mt-6 max-w-md text-[var(--color-text-mute)]">
               russle. Brand and web design studio. Alderley Edge.
@@ -107,7 +107,7 @@ export function Footer() {
         aria-hidden
         className="pointer-events-none absolute -bottom-8 left-0 right-0 select-none text-center text-[20vw] font-medium leading-none tracking-[-0.07em] text-[var(--color-surface-2)] md:-bottom-16"
       >
-        russle
+        <Wordmark />
       </div>
     </footer>
   );

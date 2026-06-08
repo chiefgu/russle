@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/Button';
 import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon';
+import { Wordmark } from '@/components/ui/Wordmark';
 import { cn } from '@/lib/cn';
 
 const WHATSAPP_HREF = 'https://wa.me/447377902508';
@@ -120,14 +121,8 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-4 py-5 sm:px-6 md:px-8">
-        <Link href="/" aria-label="russle home" className="group flex items-center gap-2">
-          <span className="h4 lowercase tracking-tight text-[var(--nav-text,var(--color-text))]">
-            russle
-          </span>
-          <span
-            aria-hidden
-            className="h-2 w-2 rounded-full bg-[var(--color-accent)] transition-transform duration-300 group-hover:scale-150"
-          />
+        <Link href="/" aria-label="russle home" className="group flex items-center">
+          <Wordmark className="h4 tracking-tight text-[var(--nav-text,var(--color-text))]" />
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex" onMouseLeave={scheduleClose}>
