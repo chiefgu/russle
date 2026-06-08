@@ -38,5 +38,18 @@ export const Posts: CollectionConfig = {
     { name: 'content', type: 'richText' },
     { name: 'category', type: 'relationship', relationTo: 'categories' },
     { name: 'tags', type: 'text', hasMany: true },
+    {
+      name: 'faq',
+      type: 'array',
+      label: 'FAQ',
+      admin: {
+        description:
+          'Optional questions and answers. Renders a visible FAQ section and FAQPage schema, which helps AI search (ChatGPT, Google AI Overviews) cite the post.',
+      },
+      fields: [
+        { name: 'question', type: 'text', required: true },
+        { name: 'answer', type: 'textarea', required: true },
+      ],
+    },
   ],
 };

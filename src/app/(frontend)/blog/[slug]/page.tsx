@@ -3,7 +3,10 @@ import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { JournalArticle } from '@/components/sections/JournalArticle';
 import { getPostBySlug, getPublishedSlugs } from '@/lib/posts';
+import { AUTHOR } from '@/lib/author';
 import type { Media } from '@/payload-types';
+
+type Faq = { question: string; answer: string };
 
 type Params = { slug: string };
 
@@ -53,6 +56,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   const post = await getPostBySlug(slug, isDraft);
   if (!post) notFound();
 
+  const faq = ((post.faq ?? []) as Faq[]).filter((f) => f?.question && f?.answer);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -61,10 +66,27 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     datePublished: post.publishedAt ?? undefined,
     dateModified: post.updatedAt,
     image: ogImageUrl(post),
-    author: { '@type': 'Organization', name: 'russle' },
-    publisher: { '@type': 'Organization', name: 'russle' },
+    author: {
+      '@type': 'Person',
+      name: AUTHOR.name,
+      url: AUTHOR.url,
+      sameAs: [AUTHOR.linkedin],
+    },
+    publisher: { '@type': 'Organization', name: 'russle', url: SITE_URL },
     mainEntityOfPage: `${SITE_URL}/blog/${slug}`,
   };
+
+  const faqLd = faq.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      }
+    : null;
 
   return (
     <>
@@ -72,7 +94,13 @@ export default async function Page({ params }: { params: Promise<Params> }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <JournalArticle post={post} />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
+      <JournalArticle post={post} faq={faq} />
     </>
   );
 }

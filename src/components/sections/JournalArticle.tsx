@@ -1,9 +1,13 @@
+import Link from 'next/link';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { PostBody } from '@/components/sections/PostBody';
+import { AUTHOR } from '@/lib/author';
 import type { Post, Category } from '@/payload-types';
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical';
+
+type Faq = { question: string; answer: string };
 
 function formatDate(iso?: string | null): string {
   if (!iso) return '';
@@ -16,7 +20,7 @@ function categoryLabel(category: Post['category']): string {
   return (category as Category).title ?? 'Blog';
 }
 
-export function JournalArticle({ post }: { post: Post }) {
+export function JournalArticle({ post, faq = [] }: { post: Post; faq?: Faq[] }) {
   return (
     <>
       <Section tone="bg" spacing="heroTopTight" container="narrow">
@@ -30,12 +34,51 @@ export function JournalArticle({ post }: { post: Post }) {
         <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
           {post.excerpt}
         </p>
+        <p className="text-small mt-6 text-[var(--color-text-soft)]">
+          By{' '}
+          <Link href={AUTHOR.url} className="link text-[var(--color-text-mute)]">
+            {AUTHOR.name}
+          </Link>
+          , {AUTHOR.role.toLowerCase()}
+        </p>
       </Section>
 
       <Section tone="bg" spacing="s" container="narrow">
         {post.content && (
           <PostBody content={post.content as SerializedEditorState} />
         )}
+      </Section>
+
+      {faq.length > 0 && (
+        <Section tone="bg" spacing="s" container="narrow">
+          <h2 className="h3">Frequently asked questions</h2>
+          <dl className="mt-8 flex max-w-2xl flex-col divide-y divide-[var(--color-line)]">
+            {faq.map((item, i) => (
+              <div key={i} className="py-6 first:pt-0">
+                <dt className="h5 text-[var(--color-text)]">{item.question}</dt>
+                <dd className="text-big mt-3 text-[var(--color-text-mute)]">{item.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+      )}
+
+      <Section tone="bg" spacing="s" container="narrow">
+        <div className="flex max-w-2xl flex-col gap-2 border-t border-[var(--color-line)] pt-8">
+          <p className="label text-[var(--color-text-soft)]">Written by</p>
+          <p className="h6 text-[var(--color-text)]">
+            {AUTHOR.name}, {AUTHOR.role.toLowerCase()}
+          </p>
+          <p className="text-body text-[var(--color-text-mute)]">{AUTHOR.bio}</p>
+          <Link
+            href={AUTHOR.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link mt-1 w-fit text-[var(--color-text-mute)]"
+          >
+            Connect on LinkedIn
+          </Link>
+        </div>
       </Section>
 
       <Section tone="bg" spacing="l" container="narrow">

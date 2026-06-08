@@ -231,6 +231,16 @@ export interface Post {
   } | null;
   category?: (number | null) | Category;
   tags?: string[] | null;
+  /**
+   * Optional questions and answers. Renders a visible FAQ section and FAQPage schema, which helps AI search (ChatGPT, Google AI Overviews) cite the post.
+   */
+  faq?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -423,6 +433,13 @@ export interface PostsSelect<T extends boolean = true> {
   content?: T;
   category?: T;
   tags?: T;
+  faq?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   meta?:
     | T
     | {
