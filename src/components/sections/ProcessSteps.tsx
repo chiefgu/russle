@@ -6,7 +6,7 @@ const STEPS = [
   {
     n: '01',
     title: 'Discovery',
-    body: 'Start with the intake form. I review the brief, then we book a 60-minute call to walk through it together. I come away with the shape of the work.',
+    body: 'Start with the intake form. We review the brief, then we book a 60-minute call to walk through it together. We come away with the shape of the work.',
   },
   {
     n: '02',

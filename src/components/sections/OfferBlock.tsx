@@ -37,7 +37,7 @@ const CARDS: OfferCard[] = [
   },
   {
     title: 'Grow',
-    pitch: 'We run the technical side so the brand and the site keep working for you.',
+    pitch: 'We run the growth side so the brand and the site keep compounding.',
     price: 'From £299/mo',
     priceNote: 'No long-term contract',
     bullets: [
@@ -55,7 +55,7 @@ const CARDS: OfferCard[] = [
   },
   {
     title: 'Manage',
-    pitch: 'Everything in Grow, plus a small team running the marketing.',
+    pitch: 'Everything in Grow, plus a team running the marketing.',
     price: 'Talk to us',
     priceNote: 'Custom retainer',
     bullets: [

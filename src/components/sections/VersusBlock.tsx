@@ -5,11 +5,11 @@ import { Reveal } from '@/components/animations/Reveal';
 const COMPARISONS = [
   {
     title: 'Versus a template',
-    body: "Squarespace and Wix templates are free, and every other business in your sector uses the same one. Your brand becomes interchangeable. We build something only you have, on a setup you actually own.",
+    body: "Squarespace and Wix templates are free, and every competitor can buy the same one. Your brand becomes interchangeable. We build something only you have, on a setup you actually own.",
   },
   {
     title: 'Versus piecing it together',
-    body: "Most small businesses hire a brand designer, then a web developer, then a marketing person, three contracts and three timelines. The brand looks one way, the website looks another, and the marketing has nothing to work with. We do all of it in one studio so it actually fits together.",
+    body: "Most businesses hire a brand designer, then a web developer, then a marketing person, three contracts and three timelines. The brand looks one way, the website looks another, and the marketing has nothing to work with. We do all of it under one roof so it actually fits together.",
   },
 ];
 
@@ -18,7 +18,7 @@ export function VersusBlock() {
     <Section tone="bg" spacing="xl">
       <div className="mb-12 max-w-3xl">
         <Reveal>
-          <Tag>Why one studio</Tag>
+          <Tag>Why one team</Tag>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="h2 mt-6 text-balance">

@@ -38,13 +38,13 @@ const TIERS = [
     name: 'Grow',
     href: '/grow',
     price: 'From £299/mo',
-    blurb: 'We run the technical side every month.',
+    blurb: 'We run the growth every month.',
   },
   {
     name: 'Manage',
     href: '/manage',
     price: 'Talk to us',
-    blurb: 'A small team running the marketing.',
+    blurb: 'A team running brand, marketing, and growth.',
   },
 ];
 
@@ -223,7 +223,7 @@ export function Navbar() {
                   href={tier.href}
                   className="label py-1 text-[var(--color-text-mute)] hover:text-[var(--color-text)]"
                 >
-                  {tier.name} · {tier.price}
+                  {tier.name}
                 </Link>
               ))}
             </div>
@@ -267,7 +267,6 @@ function ServicesMega() {
                 <h3 className="h5 text-[var(--color-text)]">{tier.name}</h3>
                 <ArrowUpRight className="h-4 w-4 text-[var(--color-text-soft)] transition-colors group-hover:text-[var(--color-accent)]" />
               </div>
-              <p className="text-small mt-2 text-[var(--color-accent)]">{tier.price}</p>
               <p className="text-body mt-4 text-[var(--color-text-mute)]">{tier.blurb}</p>
             </Link>
           ))}
