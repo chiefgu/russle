@@ -12,7 +12,7 @@ export function CTAStrip({
   sub = 'Tell us about it. We respond to every enquiry within 24 hours.',
 }: CTAStripProps) {
   return (
-    <Section tone="accent" spacing="xl">
+    <Section tone="dark" spacing="xl">
       <div className="grid items-end gap-12 md:grid-cols-12">
         <Reveal className="md:col-span-7">
           <h2 className="h1 max-w-3xl text-balance">{heading}</h2>

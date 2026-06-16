@@ -21,10 +21,6 @@ const ITEMS: FAQItem[] = [
     a: "Fine. Book just the website portion à la carte. See services for the breakdown.",
   },
   {
-    q: 'What if I don\'t like what you make?',
-    a: "After the discovery call, the first thing you get is a brand-direction document and a homepage concept. If either misses, we revise on the studio's time. The launch fee covers two rounds of revision per stage; the goal is alignment, not invoice padding.",
-  },
-  {
     q: 'Will you write my content?',
     a: 'Writing, photography direction, and social content sit in the Manage tier, or on top of any launch à la carte. If you bring your own words and photos, the base launch covers the rest.',
   },

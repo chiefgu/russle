@@ -16,7 +16,7 @@ const STEPS = [
   {
     n: '03',
     title: 'Production',
-    body: 'Iterative builds with weekly reviews. You see the work in the browser, not just Figma.',
+    body: 'You see the work as real, clickable pages in the browser, not flat mockups, and shape it with us as each page lands.',
   },
   {
     n: '04',

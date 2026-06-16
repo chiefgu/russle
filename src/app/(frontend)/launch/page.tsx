@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Check, X } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
@@ -52,48 +52,24 @@ const INCLUDED = [
   },
 ];
 
-const NOT_INCLUDED = [
-  {
-    title: 'A new brand',
-    body: 'If you already have a brand, we build around it and that is the base price. Need one created or refreshed? That is the main add-on, designed alongside the site and quoted per project. We will tell you honestly if yours needs it.',
-  },
-  {
-    title: 'A self-edit CMS, by default',
-    body: 'Marketing sites we build are looked after by us through the Grow retainer, not edited by you. If self-editing matters, tell us at kickoff and we will scope a CMS into the build.',
-  },
-  {
-    title: 'E-commerce, by default',
-    body: 'Online shops are an add-on. They sit on the same platform but include a web dashboard and an iOS app for managing products, stock, and orders. Quoted separately.',
-  },
-  {
-    title: 'New photography',
-    body: 'You supply photos or we refer you to a photographer. We direct, crop, and grade what is supplied.',
-  },
-];
-
 const PROCESS = [
   {
-    week: 'Week 1',
     title: 'Kickoff and discovery',
     body: 'A two-hour call to understand the business, the customer, and the brand. If a new brand is in scope, we come back with two or three directions to choose between.',
   },
   {
-    week: 'Week 2',
     title: 'Direction and wireframe',
     body: 'The website wireframe lands. If brand is part of the project, the chosen direction is finalised here too: logo, colours, fonts, basic guidelines.',
   },
   {
-    week: 'Weeks 3 and 4',
     title: 'Website design and copy',
     body: 'Page by page design, copy written or refined with you, photography slotted in. You review each page as it lands.',
   },
   {
-    week: 'Week 5',
     title: 'Build and test',
     body: 'We build the site, set up hosting and email, configure the Google Business profile, and set up email marketing. You test on real devices.',
   },
   {
-    week: 'Week 6',
     title: 'Launch and handover',
     body: 'Site goes live. Grow starts on launch day for most clients. A two-hour handover so you know what is where.',
   },
@@ -242,62 +218,23 @@ function WhatsIncluded() {
   );
 }
 
-function WhatsNotIncluded() {
-  return (
-    <Section tone="surface" spacing="xl">
-      <div className="mb-12 max-w-3xl">
-        <Reveal>
-          <Tag>Add-ons</Tag>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="h2 mt-6 text-balance">
-            What is not in the base price.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">
-            Honest about the add-ons. We scope these into the quote at the
-            start so the final invoice never holds a surprise.
-          </p>
-        </Reveal>
-      </div>
-
-      <Reveal delay={0.15}>
-        <div className="grid gap-6 md:grid-cols-2">
-          {NOT_INCLUDED.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-8 md:p-10"
-            >
-              <div className="flex items-start gap-3">
-                <X
-                  aria-hidden
-                  className="mt-1 h-5 w-5 shrink-0 text-[var(--color-text-soft)]"
-                />
-                <h3 className="h5 text-balance">{item.title}</h3>
-              </div>
-              <p className="text-body mt-4 text-[var(--color-text-mute)]">
-                {item.body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Reveal>
-    </Section>
-  );
-}
-
 function Process() {
   return (
     <Section tone="bg" spacing="xl">
       <div className="mb-12 max-w-3xl">
         <Reveal>
-          <Tag>The 6-week run</Tag>
+          <Tag>How a launch runs</Tag>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="h2 mt-6 text-balance">
-            What actually happens, week by week.
+            What actually happens, stage by stage.
           </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">
+            As fast as 14 days when your brand and content are ready, four to
+            six weeks more often. The five stages are the same either way.
+          </p>
         </Reveal>
       </div>
 
@@ -305,14 +242,13 @@ function Process() {
         <ol className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] md:grid-cols-5">
           {PROCESS.map((step, i) => (
             <li
-              key={step.week}
+              key={step.title}
               className="flex h-full flex-col bg-[var(--color-bg)] p-8 md:p-10"
             >
               <p className="label text-[var(--color-text-soft)]">
-                Step {i + 1}
+                Stage {i + 1}
               </p>
-              <p className="h6 mt-4 text-[var(--color-accent)]">{step.week}</p>
-              <h3 className="h5 mt-2 text-balance">{step.title}</h3>
+              <h3 className="h5 mt-4 text-balance">{step.title}</h3>
               <p className="text-small mt-4 text-[var(--color-text-mute)]">
                 {step.body}
               </p>
@@ -360,7 +296,6 @@ export default function LaunchPage() {
     <>
       <LaunchHero />
       <WhatsIncluded />
-      <WhatsNotIncluded />
       <Process />
       <LaunchFaq />
       <CTAStrip />
