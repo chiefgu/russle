@@ -13,7 +13,7 @@ import { BethVisual } from '@/components/sections/BethVisual';
 export const metadata: Metadata = {
   title: 'Launch, a new website built to bring customers in',
   description:
-    'russle Launch is the one-off project that gives an independent business a new website, the copywriting, hosting, and the local marketing basics. From £1,995, with brand identity available. Live as soon as 14 days.',
+    'russle Launch is the one-off project that gives a business a new brand, a new website, the copywriting, hosting, and the growth basics. From £1,995. Live as soon as 14 days.',
   alternates: { canonical: '/launch' },
 };
 

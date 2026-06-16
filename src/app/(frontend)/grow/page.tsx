@@ -108,11 +108,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Why is hosting included?',
-    a: 'Because the studio that built the site is the studio running it. We do not want you on a hosting plan we cannot see, with a support team that does not know your project. Including hosting in Grow means one bill, one studio, one phone number when something needs fixing.',
+    a: 'Because the team that built the site is the team running it. We do not want you on a hosting plan we cannot see, with a support team that does not know your project. Including hosting in Grow means one bill, one team, one phone number when something needs fixing.',
   },
   {
     q: 'Why does it start at £299 a month?',
-    a: 'That is the floor we can deliver the work properly at, including the platform, the local SEO maintenance, the GBP management, and a real monthly check-in. Most retainers settle higher than the floor once we know what your business actually needs.',
+    a: 'That covers the platform, the search and local maintenance, the Google Business Profile management, and a real monthly check-in. Most retainers settle higher once we know what your business actually needs.',
   },
   {
     q: 'What if I want more than 2 hours of updates one month?',

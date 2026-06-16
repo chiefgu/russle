@@ -16,7 +16,7 @@ import { ManageVisual } from '@/components/sections/ManageVisual';
 export const metadata: Metadata = {
   title: 'Brand, web & growth services',
   description:
-    'russle offers Launch, Grow, and Manage tiers. Brand, website, hosting, local SEO, and email marketing for independent businesses. Launch from £1,995. Grow from £299/mo.',
+    'russle offers Launch, Grow, and Manage tiers. Brand, website, e-commerce, hosting, SEO, and email marketing for ambitious businesses. Launch from £1,995. Grow from £299/mo.',
 };
 
 const LAUNCH_INCLUDED = [
@@ -119,7 +119,7 @@ const COMPARISON: CompareSection[] = [
 const FAQ_ITEMS = [
   {
     q: 'How long does it take to see results from local SEO?',
-    a: 'Most clients see a meaningful change in the Google Maps pack within 60 to 90 days, and lift in organic search inside 4 to 6 months. SEO is slower than paid ads but the traffic keeps coming once it lands, which is why we recommend it for almost every Cheshire and South Manchester business we work with.',
+    a: 'Most clients see a meaningful change in the Google Maps pack within 60 to 90 days, and lift in organic search inside 4 to 6 months. SEO is slower than paid ads but the traffic keeps coming once it lands, which is why we recommend it for almost every business we work with.',
   },
   {
     q: 'Do you guarantee a number-one ranking?',
@@ -127,7 +127,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Why does Grow start at £299 a month?',
-    a: 'Because that is the floor we can deliver the work properly at, including hosting, the platform, the local SEO maintenance, your Google Business Profile run on your behalf, and a real monthly check-in. Most retainers settle higher than the floor once we know what your business actually needs.',
+    a: 'Because that covers hosting, the platform, the search and local maintenance, your Google Business Profile run on your behalf, and a real monthly check-in. Most retainers settle higher once we know what your business actually needs.',
   },
   {
     q: 'Do I really need ongoing care after launch?',
@@ -161,7 +161,7 @@ function ServicesHero() {
           <p className="text-big mt-6 max-w-xl text-[var(--color-text-mute)]">
             Most clients start with Launch, the one-off brand and website build.
             After launch, they move onto Grow, the monthly arrangement that keeps
-            everything running. Manage is for businesses who want a small team
+            everything running. Manage is for businesses who want a team
             running the marketing as well.
           </p>
         </Reveal>
@@ -502,8 +502,8 @@ export default function ServicesPage() {
       <Tier
         index="03"
         name="Manage"
-        headline="A small team running the marketing alongside the build."
-        pitch="Everything in Grow, plus original content for your site, ongoing campaigns, and a monthly strategy session. For businesses who want a studio acting as their marketing function, not a series of one-off projects."
+        headline="A team running the marketing alongside the build."
+        pitch="Everything in Grow, plus original content for your site, ongoing campaigns, and a monthly strategy session. For businesses who want a team acting as their marketing function, not a series of one-off projects."
         price="Talk to us"
         priceNote="Custom retainer"
         pageHref="/manage"

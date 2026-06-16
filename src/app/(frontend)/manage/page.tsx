@@ -12,7 +12,7 @@ import { ManageVisual } from '@/components/sections/ManageVisual';
 export const metadata: Metadata = {
   title: 'Manage, the full marketing retainer',
   description:
-    'russle Manage is the full retainer: everything in Grow plus original content, ongoing campaigns, and monthly strategy. For businesses who want a small team running the marketing.',
+    'russle Manage is the full retainer: everything in Grow plus original content, ongoing campaigns, and monthly strategy. For businesses who want a team running the marketing.',
   alternates: { canonical: '/manage' },
 };
 
@@ -50,8 +50,8 @@ const INCLUDED = [
     body: 'The full method. We research how visitors behave, build several versions of a page on different angles, then split test to find the winner and keep it. Where traffic supports a valid test we run it in full; where it does not, we improve from the evidence instead.',
   },
   {
-    title: 'A studio acting as your marketing function',
-    body: 'For businesses who want a small team running this work alongside the rest of the business, not a series of one-off projects or a freelancer chain. The retainer is structured around what you actually need.',
+    title: 'A team acting as your marketing function',
+    body: 'For businesses who want a team running this work alongside the rest of the business, not a series of one-off projects or a freelancer chain. The retainer is structured around what you actually need.',
   },
 ];
 
@@ -62,7 +62,7 @@ const WHO_ITS_FOR = [
   },
   {
     title: 'You are not going to hire in-house yet',
-    body: 'You need the work done but you do not have the volume or the budget for a full-time marketing hire. A retainer with a studio is the cheaper, more flexible answer.',
+    body: 'You need the work done but you do not have the volume or the budget for a full-time marketing hire. A retainer with an agency is the more flexible answer.',
   },
   {
     title: 'You want one team, not five vendors',
@@ -123,7 +123,7 @@ function ManageHero() {
           </Reveal>
           <Reveal delay={0.05}>
             <h1 className="h1 mt-6 text-balance">
-              A small team running the marketing alongside you.
+              A team running the marketing alongside you.
             </h1>
           </Reveal>
           <Reveal delay={0.15}>
