@@ -7,20 +7,17 @@ import { Reveal } from '@/components/animations/Reveal';
 const PRICE_CARDS = [
   {
     label: 'Launch',
-    price: 'From £1,995',
-    detail: 'A new brand, a new website, hosting, and the marketing basics. Live as soon as 14 days.',
+    detail: 'A new brand and website, designed and built together.',
     href: '/launch',
   },
   {
     label: 'Grow',
-    price: 'From £299/mo',
-    detail: 'Hosting, updates, Google Maps, and email kept running. No long-term contract.',
+    detail: 'We run the growth every month: search, content, email, and AI.',
     href: '/grow',
   },
   {
     label: 'Manage',
-    price: 'Talk to us',
-    detail: 'A small team running the marketing alongside the build. Custom retainer.',
+    detail: 'A team running brand, marketing, and growth alongside you.',
     href: '/manage',
   },
 ];
@@ -36,16 +33,15 @@ export function Hero() {
       <div className="mx-auto w-full max-w-5xl">
         <Reveal>
           <h1 className="h1 text-balance text-[var(--color-text)]">
-            A new brand and website. Then the marketing that brings you customers.
+            A brand, a website, and the growth that scales it.
           </h1>
         </Reveal>
 
         <Reveal delay={0.15}>
           <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-            One studio for independent businesses who want their brand and
-            website to actually sell. We design the brand, build the website,
-            host it for you, and run the local SEO and email that bring
-            customers back.
+            One team for the brand, the product, and the growth behind it. We
+            design how you look, build what you sell on, and run the marketing
+            and AI that turn it into revenue.
           </p>
         </Reveal>
 
@@ -58,7 +54,6 @@ export function Hero() {
                 className="group block border-l-2 border-[var(--color-accent)] pl-5 transition-opacity hover:opacity-80"
               >
                 <p className="label text-[var(--color-text-soft)]">{card.label}</p>
-                <p className="h3 mt-2 text-[var(--color-text)]">{card.price}</p>
                 <p className="text-small mt-3 text-[var(--color-text-mute)]">
                   {card.detail}
                 </p>

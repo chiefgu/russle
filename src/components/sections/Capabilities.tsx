@@ -16,19 +16,34 @@ import { Reveal } from '@/components/animations/Reveal';
 
 const CAPABILITIES = [
   {
-    icon: Globe,
-    title: 'Brochure and service-business sites',
-    body: 'A clean site that shows what you do, who you do it for, what it costs, and how to get in touch. The default for most independents.',
-  },
-  {
-    icon: Calendar,
-    title: 'Online booking and reservations',
-    body: 'Customers book appointments, classes, or tables directly from your site. Salons, gyms, clinics, restaurants, treatments.',
+    icon: Hammer,
+    title: 'Custom builds',
+    body: 'If you need something specific that none of these cover, we build it. Almost everything we used to outsource, we now do in-house.',
   },
   {
     icon: ShoppingBag,
     title: 'E-commerce stores',
     body: 'Online shops on our own platform. Products, stock, orders, payments. Comes with a dashboard and an iOS app for managing the shop from your phone.',
+  },
+  {
+    icon: Sparkles,
+    title: 'AI integrations',
+    body: 'Practical AI built into the site. Chatbots that actually answer questions, content help, smart booking, customer support, recommendations.',
+  },
+  {
+    icon: BrainCircuit,
+    title: 'AI search optimisation (GEO)',
+    body: 'Showing up when people ask ChatGPT, Perplexity, or Google AI Overviews for what you do. Schema, structured content, and brand signals that AI search engines actually read.',
+  },
+  {
+    icon: Globe,
+    title: 'Brochure and service-business sites',
+    body: 'A clean site that shows what you do, who you do it for, what it costs, and how to get in touch.',
+  },
+  {
+    icon: Calendar,
+    title: 'Online booking and reservations',
+    body: 'Customers book appointments, classes, or tables directly from your site. Clinics, studios, venues, restaurants, professional services.',
   },
   {
     icon: MapPin,
@@ -45,21 +60,6 @@ const CAPABILITIES = [
     title: 'Online ordering for food',
     body: 'Takeaway and pickup orders direct from your site. No third-party app, no commission cut. Yours, on your platform.',
   },
-  {
-    icon: Sparkles,
-    title: 'AI integrations',
-    body: 'Practical AI built into the site. Chatbots that actually answer questions, content help, smart booking, customer support, recommendations.',
-  },
-  {
-    icon: BrainCircuit,
-    title: 'AI search optimisation (GEO)',
-    body: 'Showing up when people ask ChatGPT, Perplexity, or Google AI Overviews for what you do. Schema, structured content, and brand signals that AI search engines actually read.',
-  },
-  {
-    icon: Hammer,
-    title: 'Custom builds',
-    body: 'If you need something specific that does not fit the categories above, we build it. Almost everything we used to outsource, we now do in-house.',
-  },
 ];
 
 export function Capabilities() {
@@ -71,7 +71,7 @@ export function Capabilities() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="h3 mt-6 text-balance">
-            Most independent businesses want one of these.
+            What we build.
           </h2>
         </Reveal>
       </div>
