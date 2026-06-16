@@ -20,11 +20,10 @@ export function JournalIndex({ items }: { items: Post[] }) {
     <>
       <Section tone="bg" spacing="heroTopTight" container="narrow">
         <Tag>Blog</Tag>
-        <h1 className="h1 mt-6 text-balance">Notes from the studio.</h1>
+        <h1 className="h1 mt-6 text-balance">Notes from the team.</h1>
         <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-          Guides, comparisons, and local notes from russle. Useful if you are
-          weighing up a brand or website project, or building an indie business in
-          Cheshire and South Manchester.
+          Guides, comparisons, and notes from russle. Useful if you are weighing
+          up a brand, website, or growth project for an ambitious business.
         </p>
       </Section>
 

@@ -40,7 +40,7 @@ const TIERS = [
     price: 'Talk to us',
     timeline: 'Custom retainer',
     blurb:
-      'Everything in Grow plus original content writing, ongoing campaigns, and monthly strategy. For clients who want a small team running the marketing alongside the build.',
+      'Everything in Grow plus original content writing, ongoing campaigns, and monthly strategy. For clients who want a team running the marketing alongside the build.',
     included: [
       'Everything in Grow',
       'Original content writing for the site',
@@ -54,7 +54,7 @@ const TIERS = [
 const PARTNER_FAQ = [
   {
     q: 'What kind of client should I send?',
-    a: 'Independent businesses whose brand or website is letting them down. Most of our work is in hospitality, retail, beauty, fitness, and local services, but we are not pinned to a sector. If your client is a founder-run business who would value a brand and a site that look like the same business, send them.',
+    a: 'Businesses whose brand or website is holding them back. Most of our work spans hospitality, retail, beauty, fitness, and professional services, but we are not pinned to a sector. If your client takes their brand seriously and would value a brand and a site that look like the same business, send them.',
   },
   {
     q: 'Do you pay a referral fee?',
@@ -100,12 +100,12 @@ export function PartnersOnePager() {
       <Section tone="bg" spacing="heroTop" container="narrow">
         <Tag>For partners</Tag>
         <h1 className="h1 mt-6 text-balance">
-          A studio you can refer with confidence.
+          A team you can refer with confidence.
         </h1>
         <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-          russle is a brand and web design studio in Alderley Edge. We design
-          brands, build websites, host them, and run the local SEO and email
-          marketing that bring customers back.
+          russle is a brand &amp; growth agency. We design brands, build
+          websites, host them, and run the marketing and AI that bring
+          customers back.
         </p>
         <p className="text-body mt-6 max-w-2xl text-[var(--color-text-mute)]">
           This page is the short version of the studio for photographers,

@@ -6,5 +6,5 @@ export const AUTHOR = {
   name: 'Henry Guest',
   role: 'Founder, russle',
   url: 'https://russle.co.uk/about',
-  bio: 'Henry Guest is the founder of russle, a brand and web studio working with independent businesses across Cheshire and South Manchester.',
+  bio: 'Henry Guest is the founder of russle, a brand & growth agency working with ambitious businesses across the UK.',
 };

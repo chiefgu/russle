@@ -4,7 +4,7 @@ import { PartnersOnePager } from '@/components/sections/PartnersOnePager';
 export const metadata: Metadata = {
   title: 'For partners',
   description:
-    'russle is a brand-led growth studio in Alderley Edge. A short overview for photographers, copywriters, interior designers, and accountants serving independent businesses across Cheshire and South Manchester.',
+    'russle is a brand & growth agency. A short overview for photographers, copywriters, interior designers, and accountants whose clients need a brand and a website that match.',
   alternates: { canonical: '/partners' },
   robots: { index: false, follow: true },
 };

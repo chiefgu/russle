@@ -5,7 +5,7 @@ import { getPublishedPosts } from '@/lib/posts';
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Guides, comparisons, and local notes from russle, a brand and web design studio in Alderley Edge.',
+    'Guides, comparisons, and notes from russle, a brand & growth agency.',
   alternates: { canonical: '/blog' },
 };
 

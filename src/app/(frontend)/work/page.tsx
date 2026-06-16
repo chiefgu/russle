@@ -7,7 +7,7 @@ import { getAllWork } from '@/lib/mdx';
 export const metadata: Metadata = {
   title: 'Selected work',
   description:
-    'Selected case studies from russle. Brand and website projects for independent businesses across Cheshire and South Manchester.',
+    'Selected case studies from russle. Brand, website, and growth projects for ambitious businesses across the UK.',
 };
 
 export default function WorkPage() {
