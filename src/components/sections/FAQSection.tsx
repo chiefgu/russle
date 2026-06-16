@@ -10,11 +10,11 @@ const ITEMS: FAQItem[] = [
   },
   {
     q: 'Why not just use a Squarespace template?',
-    a: "Templates are free, and every other business in your sector uses the same one. Your brand becomes interchangeable. We build something only you have, on a setup you actually own. No monthly subscription to a website builder, no per-sale fees.",
+    a: "Templates are free, and every competitor can buy the same one. Your brand becomes interchangeable. We build something only you have, on a setup you actually own. No monthly subscription to a website builder, no per-sale fees.",
   },
   {
-    q: 'Why not hire a freelancer for a few hundred quid?',
-    a: "A cheap freelancer can build a working website. They can't design your brand to match, and they can't run the marketing behind it once you're live. You end up hiring three or four different people for three or four invoices, and nothing actually fits together.",
+    q: 'Why not just use a full-service agency?',
+    a: "You can, and for some businesses that is the right call. The difference is what you get: with russle you work with the senior people doing the work, not an account manager relaying messages to juniors. Brand, build, and growth sit in one team, so nothing gets lost in the handoffs that make agencies slow.",
   },
   {
     q: 'What if I already have a brand?',
@@ -34,7 +34,7 @@ const ITEMS: FAQItem[] = [
   },
   {
     q: 'Where are you based, and who am I working with?',
-    a: "russle is an independent UK studio. You work directly with the team that designs and builds your project, not a project manager and a junior.",
+    a: "russle is an independent UK agency. You work directly with the team that designs and builds your project, not an account manager and a junior.",
   },
   {
     q: 'Can we talk before I fill in the form?',
@@ -53,7 +53,7 @@ export function FAQSection() {
             <p className="text-body mt-6 max-w-sm text-[var(--color-text-mute)]">
               Can&apos;t see what you&apos;re looking for?{' '}
               <a href="mailto:hello@russle.co.uk" className="link">
-                Email the studio
+                Email us
               </a>
               .
             </p>
