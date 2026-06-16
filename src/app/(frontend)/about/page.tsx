@@ -7,7 +7,7 @@ import { Reveal } from '@/components/animations/Reveal';
 export const metadata: Metadata = {
   title: 'About the studio',
   description:
-    'russle is a brand-led growth studio in Alderley Edge. Brand, website, and the systems that grow them, for independent businesses across Cheshire and South Manchester.',
+    'russle is a brand & growth agency. Brand, websites, e-commerce, and the growth systems behind them, for ambitious businesses across the UK.',
 };
 
 const PRINCIPLES = [
@@ -50,7 +50,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.05}>
             <h1 className="h1 mt-6 text-balance">
-              An independent UK studio for brand, website, and the systems that grow them.
+              An independent UK agency for brand, product, and the growth behind them.
             </h1>
           </Reveal>
         </div>
@@ -85,10 +85,10 @@ export default function AboutPage() {
             <Reveal delay={0.05}>
               <div className="text-big max-w-3xl space-y-6 text-[var(--color-text)]">
                 <p>
-                  russle is an independent UK studio. The work covers everything from designing the brand and building the website through to the marketing that grows the business once it&apos;s live: search, email, and local.
+                  russle is an independent UK agency. The work covers everything from designing the brand and building the website or store through to the growth that scales the business once it&apos;s live.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Clients are independent businesses that have outgrown the cheap end of the market and don&apos;t want a big-agency relationship to manage. The look-and-feel direction, the homepage design, the launch, the search setup, the email campaigns, the support after you go live, all the same studio.
+                  Clients are businesses that take their brand seriously and want one team to design it, build it, and grow it. The brand direction, the homepage design, the build, the launch, the growth work after you go live, all the same team.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
                   Projects start with the intake form at /start, and launch four to six weeks later.
@@ -106,7 +106,7 @@ export default function AboutPage() {
             <Reveal>
               <Tag>Built on</Tag>
               <p className="text-body mt-4 max-w-xs text-[var(--color-text-mute)]">
-                The tools the studio reaches for first. We can work in your existing setup if you have one.
+                The tools the team reaches for first. We can work in your existing setup if you have one.
               </p>
             </Reveal>
           </div>

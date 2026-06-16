@@ -44,11 +44,10 @@ export function Footer() {
               <Wordmark className="h2" />
             </Link>
             <p className="text-big mt-6 max-w-md text-[var(--color-text-mute)]">
-              russle. Brand and web design studio. Alderley Edge.
+              russle. Brand &amp; growth agency. United Kingdom.
             </p>
             <p className="text-small mt-4 max-w-md text-[var(--color-text-mute)]">
-              Working with independents across Alderley Edge, Wilmslow, Knutsford,
-              Altrincham, Macclesfield, Prestbury, Hale, Chester, and Didsbury.
+              Working with ambitious businesses across the UK.
             </p>
             <a
               href="mailto:hello@russle.co.uk"
