@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
 import { getAllWork } from '@/lib/mdx';
-import { getAllLocalities } from '@/lib/locality';
 import { getPublishedPosts } from '@/lib/posts';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://russle.co.uk';
@@ -28,12 +27,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  const localityRoutes: MetadataRoute.Sitemap = getAllLocalities().map((loc) => ({
-    url: `${SITE_URL}${loc.routePath}`,
-    lastModified,
-    priority: loc.isHub ? 0.85 : 0.75,
-  }));
-
   const posts = await getPublishedPosts();
   const journalRoutes: MetadataRoute.Sitemap = posts.map((p) => ({
     url: `${SITE_URL}/blog/${p.slug}`,
@@ -41,5 +34,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...workRoutes, ...localityRoutes, ...journalRoutes];
+  return [...staticRoutes, ...workRoutes, ...journalRoutes];
 }
