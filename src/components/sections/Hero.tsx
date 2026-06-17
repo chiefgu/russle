@@ -1,23 +1,26 @@
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles, TrendingUp, Users } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/Button';
 import { Section } from '@/components/layout/Section';
 import { Reveal } from '@/components/animations/Reveal';
 
 const PRICE_CARDS = [
   {
+    icon: Sparkles,
     label: 'Launch',
-    detail: 'A new brand and website, designed and built together.',
+    detail: 'A new brand and website, built and shipped together.',
     href: '/launch',
   },
   {
+    icon: TrendingUp,
     label: 'Grow',
-    detail: 'We run the growth every month: search, content, email, and AI.',
+    detail: 'The growth engine: search, content, email, and AI, run every month.',
     href: '/grow',
   },
   {
+    icon: Users,
     label: 'Manage',
-    detail: 'A team running brand, marketing, and growth alongside you.',
+    detail: 'A full team running brand, marketing, and growth alongside you.',
     href: '/manage',
   },
 ];
@@ -46,23 +49,29 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.25}>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
-            {PRICE_CARDS.map((card) => (
-              <Link
-                key={card.label}
-                href={card.href}
-                className="group block border-l-2 border-[var(--color-accent)] pl-5 transition-opacity hover:opacity-80"
-              >
-                <p className="label text-[var(--color-text-soft)]">{card.label}</p>
-                <p className="text-small mt-3 text-[var(--color-text-mute)]">
-                  {card.detail}
-                </p>
-                <span className="label mt-4 inline-flex items-center gap-1 text-[var(--color-accent)]">
-                  See {card.label}
-                  <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </span>
-              </Link>
-            ))}
+          <div className="mt-12 grid gap-5 sm:grid-cols-3">
+            {PRICE_CARDS.map((card) => {
+              const Icon = card.icon;
+              return (
+                <Link
+                  key={card.label}
+                  href={card.href}
+                  className="group flex h-full flex-col rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-surface)] p-6 transition-all duration-200 hover:-translate-y-1 hover:border-[var(--color-accent)] hover:shadow-[0_18px_40px_-24px_rgba(26,20,16,0.25)] md:p-7"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-line-2)] text-[var(--color-accent)] transition-colors group-hover:border-[var(--color-accent)]">
+                    <Icon className="h-5 w-5" aria-hidden />
+                  </div>
+                  <p className="h5 mt-5 text-[var(--color-text)]">{card.label}</p>
+                  <p className="text-small mt-2 text-[var(--color-text-mute)]">
+                    {card.detail}
+                  </p>
+                  <span className="label mt-auto inline-flex items-center gap-1 pt-6 text-[var(--color-accent)]">
+                    See {card.label}
+                    <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </Reveal>
 
