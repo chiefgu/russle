@@ -31,19 +31,16 @@ const TIERS = [
   {
     name: 'Launch',
     href: '/launch',
-    price: 'From £1,995',
     blurb: 'A new brand and website, built together.',
   },
   {
     name: 'Grow',
     href: '/grow',
-    price: 'From £299/mo',
     blurb: 'We run the growth every month.',
   },
   {
     name: 'Manage',
     href: '/manage',
-    price: 'Talk to us',
     blurb: 'A team running brand, marketing, and growth.',
   },
 ];
