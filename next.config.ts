@@ -19,6 +19,18 @@ const nextConfig: NextConfig = {
       // Blog moved from /journal to /blog. 301 the old paths.
       { source: '/journal', destination: '/blog', permanent: true },
       { source: '/journal/:slug', destination: '/blog/:slug', permanent: true },
+      // Local SEO pages retired in the national repositioning. 301 their
+      // ranking authority to /services rather than 404 into dead links.
+      { source: '/web-design-alderley-edge', destination: '/services', permanent: true },
+      { source: '/web-design-altrincham', destination: '/services', permanent: true },
+      { source: '/web-design-chester', destination: '/services', permanent: true },
+      { source: '/web-design-didsbury', destination: '/services', permanent: true },
+      { source: '/web-design-hale', destination: '/services', permanent: true },
+      { source: '/web-design-knutsford', destination: '/services', permanent: true },
+      { source: '/web-design-macclesfield', destination: '/services', permanent: true },
+      { source: '/web-design-prestbury', destination: '/services', permanent: true },
+      { source: '/web-design-wilmslow', destination: '/services', permanent: true },
+      { source: '/south-manchester-cheshire-brand-web-design', destination: '/services', permanent: true },
     ];
   },
 };
