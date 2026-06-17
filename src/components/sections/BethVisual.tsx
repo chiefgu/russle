@@ -7,7 +7,7 @@ type BethVisualProps = {
 };
 
 /**
- * Beth Bakes Cakes — brand identity card + website mockup pair.
+ * Beth Bakes Cakes - brand identity card + website mockup pair.
  * Tokens from src/content/work/bethbakescakes.mdx:
  * chocolate #6B4226, blush #FBDCE2, caramel #C8845C, cream #FFFAF4.
  * Fonts: Fraunces (display) + DM Sans (body), Nixie One (logo accent).
@@ -56,7 +56,7 @@ export function BethVisual({ className }: BethVisualProps) {
           </div>
         </div>
 
-        {/* Connector — visible md+ */}
+        {/* Connector - visible md+ */}
         <div className="relative hidden h-px md:block">
           <div className="absolute inset-0 bg-[var(--color-line-2)]" />
           <ArrowRight className="absolute left-1/2 top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-bg)] text-[#6B4226]" />
@@ -74,7 +74,7 @@ export function BethVisual({ className }: BethVisualProps) {
             </div>
           </div>
 
-          {/* hero — blush overlay panel */}
+          {/* hero - blush overlay panel */}
           <div className="relative">
             <div aria-hidden className="absolute inset-0 bg-[#FBDCE2]/70" />
             <div className="relative space-y-3 px-3 py-4 md:px-4 md:py-5">
@@ -114,7 +114,7 @@ export function BethVisual({ className }: BethVisualProps) {
         </div>
       </div>
 
-      {/* Caption — natural flow */}
+      {/* Caption - natural flow */}
       <div className="mt-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--color-text-soft)]">
         brand + storefront · launched 2026
       </div>

@@ -1,5 +1,5 @@
 /**
- * Loop wordmark — italic "l" + upright "oop" in Instrument Serif.
+ * Loop wordmark - italic "l" + upright "oop" in Instrument Serif.
  * Source: clients/loop/brand/logo/logo-loop-bloom-hybrid-transparent.svg
  *
  * The font is imported inside <defs> so it only loads on pages that

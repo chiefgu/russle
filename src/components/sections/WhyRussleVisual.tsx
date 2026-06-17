@@ -30,13 +30,13 @@ export function WhyRussleVisual({ className }: WhyRussleVisualProps) {
 
       {/* Three surfaces */}
       <div className="relative grid flex-1 grid-cols-3 gap-2 md:gap-3">
-        {/* Connecting accent line across the top — loop's terracotta */}
+        {/* Connecting accent line across the top - loop's terracotta */}
         <div
           aria-hidden
           className="absolute left-[16%] right-[16%] top-[14%] hidden h-px bg-[#C2544D]/40 md:block"
         />
 
-        {/* Surface 1 — BRAND. Real loop palette + wordmark. */}
+        {/* Surface 1 - BRAND. Real loop palette + wordmark. */}
         <Surface label="Brand">
           <div className="flex flex-1 flex-col items-center justify-center gap-2 px-2 py-3">
             <LoopWordmark className="h-7 w-auto md:h-9" color="#1A1412" />
@@ -52,7 +52,7 @@ export function WhyRussleVisual({ className }: WhyRussleVisualProps) {
           </div>
         </Surface>
 
-        {/* Surface 2 — WEBSITE. Loop hero with waitlist eyebrow. */}
+        {/* Surface 2 - WEBSITE. Loop hero with waitlist eyebrow. */}
         <Surface label="Website" framed paper>
           <div className="flex items-center gap-1 border-b border-[#E7DBCE] bg-[#EFE4D8] px-2 py-1">
             <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[#E7DBCE]" />
@@ -99,7 +99,7 @@ export function WhyRussleVisual({ className }: WhyRussleVisualProps) {
           </div>
         </Surface>
 
-        {/* Surface 3 — MARKETING. Loop welcome email rendered as a real inbox row. */}
+        {/* Surface 3 - MARKETING. Loop welcome email rendered as a real inbox row. */}
         <Surface label="Marketing" framed paper>
           <div className="flex items-center gap-1 border-b border-[#E7DBCE] bg-[#EFE4D8] px-2 py-1">
             <Mail className="h-2.5 w-2.5 text-[#6C5F59]" />

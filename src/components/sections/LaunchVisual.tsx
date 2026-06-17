@@ -13,7 +13,7 @@ export function LaunchVisual({ className }: LaunchVisualProps) {
       role="img"
       aria-label="The Launch tier ships a brand identity and a custom website together as a single, coherent system."
       className={cn(
-        // No aspect-lock — cards size to content so the whole visual hugs tight,
+        // No aspect-lock - cards size to content so the whole visual hugs tight,
         // letting two visuals stack with no wasted vertical space between them.
         'mx-auto w-full max-w-[640px]',
         className,
@@ -49,7 +49,7 @@ export function LaunchVisual({ className }: LaunchVisualProps) {
           </div>
         </div>
 
-        {/* Connector — visible md+ */}
+        {/* Connector - visible md+ */}
         <div className="relative hidden h-px md:block">
           <div className="absolute inset-0 bg-[var(--color-line-2)]" />
           <ArrowRight className="absolute left-1/2 top-1/2 h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-bg)] text-[#C2544D]" />

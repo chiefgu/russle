@@ -105,7 +105,7 @@ export function GrowFlow({ className }: GrowFlowProps) {
         meta="measured monthly"
       />
 
-      {/* Connectors — drawn dynamically from real card rects so the paths
+      {/* Connectors - drawn dynamically from real card rects so the paths
           always meet the card edges, regardless of viewport or content height. */}
       <Connector containerRef={containerRef} fromRef={triggerRef} toRef={searchRef} dashed />
       <Connector containerRef={containerRef} fromRef={triggerRef} toRef={emailRef} dashed />

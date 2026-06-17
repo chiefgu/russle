@@ -192,7 +192,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mega menu panel — desktop only */}
+      {/* Mega menu panel - desktop only */}
       {openMega && (
         <div
           className="hidden border-t border-[var(--color-line)] bg-[var(--color-bg)] shadow-[0_24px_48px_-24px_rgba(26,20,16,0.18)] md:block"
