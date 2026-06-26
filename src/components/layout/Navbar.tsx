@@ -47,6 +47,7 @@ const TIERS = [
 
 const CASE_STUDIES = [
   { slug: 'loop', title: 'Loop', sector: 'Community platform' },
+  { slug: 'mums-granola', title: "Mum's Granola", sector: 'Brand + headless commerce' },
   { slug: 'bethbakescakes', title: 'Beth Bakes Cakes', sector: 'Brand + custom storefront' },
   { slug: 'racing-life', title: 'Racing Life', sector: 'Sports media platform' },
   { slug: 'berry-boys', title: 'Berry Boys', sector: 'Brand + multi-store site' },
