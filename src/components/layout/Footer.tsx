@@ -6,11 +6,10 @@ const FOOTER_COLUMNS = [
   {
     title: 'Services',
     links: [
-      { label: 'Launch', href: '/launch' },
-      { label: 'Grow', href: '/grow' },
-      { label: 'Manage', href: '/manage' },
+      { label: 'Web Design', href: '/web-design' },
+      { label: 'Ecommerce', href: '/ecommerce' },
+      { label: 'SEO', href: '/seo' },
       { label: 'Conversion', href: '/conversion' },
-      { label: 'Compare tiers', href: '/services' },
     ],
   },
   {
@@ -19,7 +18,6 @@ const FOOTER_COLUMNS = [
       { label: 'Work', href: '/work' },
       { label: 'About', href: '/about' },
       { label: 'Contact', href: '/contact' },
-      { label: 'For partners', href: '/partners' },
     ],
   },
   {
@@ -44,7 +42,7 @@ export function Footer() {
               <Wordmark className="h2" />
             </Link>
             <p className="text-big mt-6 max-w-md text-[var(--color-text-mute)]">
-              russle. Brand &amp; growth agency. United Kingdom.
+              russle. Web design, ecommerce &amp; SEO studio. United Kingdom.
             </p>
             <p className="text-small mt-4 max-w-md text-[var(--color-text-mute)]">
               Working with ambitious businesses across the UK.
