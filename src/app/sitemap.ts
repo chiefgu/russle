@@ -9,12 +9,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: `${SITE_URL}/`, lastModified, priority: 1 },
+    { url: `${SITE_URL}/web-design`, lastModified, priority: 0.9 },
+    { url: `${SITE_URL}/ecommerce`, lastModified, priority: 0.9 },
+    { url: `${SITE_URL}/seo`, lastModified, priority: 0.9 },
     { url: `${SITE_URL}/work`, lastModified, priority: 0.9 },
-    { url: `${SITE_URL}/services`, lastModified, priority: 0.85 },
-    { url: `${SITE_URL}/launch`, lastModified, priority: 0.85 },
-    { url: `${SITE_URL}/grow`, lastModified, priority: 0.85 },
-    { url: `${SITE_URL}/manage`, lastModified, priority: 0.85 },
-    { url: `${SITE_URL}/conversion`, lastModified, priority: 0.85 },
+    { url: `${SITE_URL}/conversion`, lastModified, priority: 0.8 },
     { url: `${SITE_URL}/about`, lastModified, priority: 0.8 },
     { url: `${SITE_URL}/contact`, lastModified, priority: 0.8 },
     { url: `${SITE_URL}/start`, lastModified, priority: 0.9 },
