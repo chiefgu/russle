@@ -17,13 +17,31 @@ const RETIRED = [
   '/south-manchester-cheshire-brand-web-design',
 ];
 
+function assertRedirect(source: string, destination: string) {
+  const re = new RegExp(
+    `source:\\s*'${source.replace(/[/-]/g, '\\$&')}'[\\s\\S]{0,120}?destination:\\s*'${destination.replace(/[/-]/g, '\\$&')}'[\\s\\S]{0,60}?permanent:\\s*true`,
+  );
+  return re.test(CONFIG);
+}
+
 describe('retired locality redirects', () => {
   for (const source of RETIRED) {
-    it(`301s ${source} to /services`, () => {
-      const re = new RegExp(
-        `source:\\s*'${source.replace(/[/-]/g, '\\$&')}'[\\s\\S]{0,120}?destination:\\s*'/services'[\\s\\S]{0,60}?permanent:\\s*true`,
-      );
-      expect(re.test(CONFIG)).toBe(true);
+    it(`301s ${source} to /web-design`, () => {
+      expect(assertRedirect(source, '/web-design')).toBe(true);
+    });
+  }
+});
+
+describe('retired tier + services redirects', () => {
+  const TIER: [string, string][] = [
+    ['/services', '/'],
+    ['/launch', '/web-design'],
+    ['/grow', '/seo'],
+    ['/manage', '/seo'],
+  ];
+  for (const [source, dest] of TIER) {
+    it(`301s ${source} to ${dest}`, () => {
+      expect(assertRedirect(source, dest)).toBe(true);
     });
   }
 });
