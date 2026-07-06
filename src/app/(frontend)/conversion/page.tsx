@@ -10,7 +10,7 @@ import { ConversionExplainer } from '@/components/sections/ConversionExplainer';
 export const metadata: Metadata = {
   title: 'Conversion optimisation',
   description:
-    'russle makes the website you already have earn more. We research how visitors behave, build several versions of a page, and keep the one that turns more of them into customers. Light in Grow, full in Manage.',
+    'russle makes the website you already have earn more. We research how visitors behave, build several versions of a page, and keep the one that turns more of them into customers, as part of the ongoing SEO retainer.',
   alternates: { canonical: '/conversion' },
 };
 
@@ -35,16 +35,16 @@ const METHOD = [
 
 const WHERE_IT_LIVES = [
   {
-    tier: 'In Grow',
+    tier: 'Every month',
     summary: 'Light and ongoing',
-    body: 'Every Grow client gets continual, evidence-led improvements to the live site: clearer copy, sharper calls to action, fewer points of friction. No traffic minimum, it runs every month.',
-    cta: { label: 'How Grow works', href: '/grow' },
+    body: 'Every SEO retainer client gets continual, evidence-led improvements to the live site: clearer copy, sharper calls to action, fewer points of friction. No traffic minimum, it runs every month.',
+    cta: { label: 'How the retainer works', href: '/seo' },
   },
   {
-    tier: 'In Manage',
+    tier: 'When traffic allows',
     summary: 'Full and measured',
-    body: 'Manage runs the complete method, research through to a tested winner, where there is enough traffic for a valid test. For clients running paid campaigns, the campaign traffic supplies the volume.',
-    cta: { label: 'How Manage works', href: '/manage' },
+    body: 'Where there is enough traffic for a valid test, we run the complete method: research through to a tested winner. For clients running paid campaigns, the campaign traffic supplies the volume.',
+    cta: { label: 'How the retainer works', href: '/seo' },
   },
 ];
 
@@ -73,8 +73,8 @@ function ConversionHero() {
             <ButtonLink href="#explainer" variant="primary" size="lg" withArrow>
               See how it works
             </ButtonLink>
-            <ButtonLink href="/services" variant="secondary" size="lg">
-              Compare the tiers
+            <ButtonLink href="/start" variant="secondary" size="lg">
+              Start a project
             </ButtonLink>
           </div>
         </Reveal>
@@ -141,13 +141,13 @@ function WhereItLives() {
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="h2 mt-6 text-balance">
-            Built into the tiers, not sold as an extra.
+            Built into the retainer, not sold as an extra.
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">
-            Conversion work is part of the ongoing relationship. The depth scales
-            with the tier and with the traffic the site can support.
+            Conversion work is part of the ongoing SEO retainer. The depth scales
+            with the traffic the site can support.
           </p>
         </Reveal>
       </div>
