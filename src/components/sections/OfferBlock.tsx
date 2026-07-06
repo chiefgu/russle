@@ -3,71 +3,19 @@ import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/animations/Reveal';
 
-type OfferCard = {
-  title: string;
-  pitch: string;
-  price: string;
-  priceNote: string;
-  bullets: string[];
-  ctaLabel: string;
-  ctaHref: string;
-  ctaVariant: 'primary' | 'secondary';
-  emphasis?: boolean;
-};
-
-const CARDS: OfferCard[] = [
+const STEPS = [
   {
-    title: 'Launch',
-    pitch: 'A new brand and a new website, built and shipped together.',
-    price: 'From £1,995',
-    priceNote: 'One-off',
-    bullets: [
-      'A new logo, colours, and fonts',
-      'A website built around the brand',
-      'Hosting on our platform, first year included',
-      'Set up on Google Maps and Google search',
-      'AI search optimisation (GEO) set up',
-      'Email marketing ready to go',
-      'Live as soon as 14 days',
+    title: 'We build it',
+    body: 'A custom website or online store, designed and built from scratch on our own platform. A one-off project, shipped and yours.',
+    links: [
+      { label: 'See web design', href: '/web-design' },
+      { label: 'See ecommerce', href: '/ecommerce' },
     ],
-    ctaLabel: 'How Launch works',
-    ctaHref: '/launch',
-    ctaVariant: 'primary',
-    emphasis: true,
   },
   {
-    title: 'Grow',
-    pitch: 'We run the growth side so the brand and the site keep compounding.',
-    price: 'From £299/mo',
-    priceNote: 'No long-term contract',
-    bullets: [
-      'Hosting and small updates each month',
-      'Your Google Business Profile run for you',
-      'Local search kept healthy',
-      'AI search optimisation (GEO) maintained',
-      'Email system maintained',
-      'Monthly performance email',
-      '30-minute monthly check-in',
-    ],
-    ctaLabel: 'How Grow works',
-    ctaHref: '/grow',
-    ctaVariant: 'secondary',
-  },
-  {
-    title: 'Manage',
-    pitch: 'Everything in Grow, plus a team running the marketing.',
-    price: 'Talk to us',
-    priceNote: 'Custom retainer',
-    bullets: [
-      'Everything in Grow',
-      'Writing for your site (case studies, guides)',
-      'Ongoing campaigns, organic and paid',
-      'Monthly strategy session',
-      'Quarterly review and planning',
-    ],
-    ctaLabel: 'How Manage works',
-    ctaHref: '/manage',
-    ctaVariant: 'secondary',
+    title: 'We keep you found',
+    body: 'Once you are live, we run the SEO that grows your traffic and keeps everything healthy. An ongoing arrangement, no long-term contract.',
+    links: [{ label: 'See SEO', href: '/seo' }],
   },
 ];
 
@@ -75,72 +23,29 @@ export function OfferBlock() {
   return (
     <Section tone="bg" spacing="xl">
       <div className="mb-12 max-w-3xl">
-        <Reveal>
-          <Tag>How to work with us</Tag>
-        </Reveal>
+        <Reveal><Tag>How to work with us</Tag></Reveal>
         <Reveal delay={0.05}>
-          <h2 className="h2 mt-6 text-balance">Pick the level that fits.</h2>
+          <h2 className="h2 mt-6 text-balance">Build once, then get found.</h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">
-            Most clients start with Launch, then move onto Grow once the brand and
-            site are live. Manage is for businesses who want us running the
-            marketing as well.
+            We build your site or store, then keep customers coming with ongoing SEO. Start a project and we will scope the right shape with you.
           </p>
         </Reveal>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-3">
-        {CARDS.map((card, i) => (
-          <Reveal key={card.title} delay={i * 0.05}>
-            <div
-              className={`flex h-full flex-col rounded-[var(--radius-l)] border p-8 md:p-10 ${
-                card.emphasis
-                  ? 'border-[var(--color-text)] bg-[var(--color-surface)]'
-                  : 'border-[var(--color-line)] bg-[var(--color-bg)]'
-              }`}
-            >
-              <h3 className="h3 text-balance">{card.title}</h3>
-              <p className="text-body mt-4 text-[var(--color-text-mute)]">
-                {card.pitch}
-              </p>
-
-              <div className="mt-6 border-t border-[var(--color-line)] pt-6">
-                <p
-                  className={`h4 ${
-                    card.emphasis
-                      ? 'text-[var(--color-text)]'
-                      : 'text-[var(--color-text)]'
-                  }`}
-                >
-                  {card.price}
-                </p>
-                <p className="label mt-2 text-[var(--color-text-soft)]">
-                  {card.priceNote}
-                </p>
-              </div>
-
-              <ul className="mt-6 flex flex-col gap-3 text-body text-[var(--color-text-mute)]">
-                {card.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-3">
-                    <span
-                      aria-hidden
-                      className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--color-accent)]"
-                    />
-                    <span>{b}</span>
-                  </li>
+      <div className="grid gap-6 md:grid-cols-2">
+        {STEPS.map((step, i) => (
+          <Reveal key={step.title} delay={i * 0.05}>
+            <div className="flex h-full flex-col rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-8 md:p-10">
+              <h3 className="h3 text-balance">{step.title}</h3>
+              <p className="text-body mt-4 text-[var(--color-text-mute)]">{step.body}</p>
+              <div className="mt-auto flex flex-wrap gap-3 pt-8">
+                {step.links.map((link, j) => (
+                  <ButtonLink key={link.href} href={link.href} variant={j === 0 ? 'primary' : 'secondary'} size="md" withArrow={j === 0}>
+                    {link.label}
+                  </ButtonLink>
                 ))}
-              </ul>
-
-              <div className="mt-auto pt-8">
-                <ButtonLink
-                  href={card.ctaHref}
-                  variant={card.ctaVariant}
-                  size="md"
-                  withArrow={card.ctaVariant === 'primary'}
-                >
-                  {card.ctaLabel}
-                </ButtonLink>
               </div>
             </div>
           </Reveal>
@@ -148,9 +53,7 @@ export function OfferBlock() {
       </div>
 
       <div className="mt-10">
-        <ButtonLink href="/services" variant="ghost" size="md" withArrow>
-          See a full comparison
-        </ButtonLink>
+        <ButtonLink href="/start" variant="ghost" size="md" withArrow>Start a project</ButtonLink>
       </div>
     </Section>
   );
