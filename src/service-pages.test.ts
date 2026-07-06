@@ -21,3 +21,13 @@ describe('service pages', () => {
     });
   }
 });
+
+describe('ecommerce vignette + Shopify positioning', () => {
+  const file = path.join(base, 'ecommerce', 'page.tsx');
+  it('ecommerce/page.tsx renders EcommerceVignette', () => {
+    expect(readFileSync(file, 'utf8')).toMatch(/EcommerceVignette/);
+  });
+  it('ecommerce/page.tsx positions Shopify in the intro', () => {
+    expect(readFileSync(file, 'utf8')).toMatch(/custom Shopify storefront/);
+  });
+});
