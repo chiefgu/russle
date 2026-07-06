@@ -38,3 +38,10 @@ describe('seo vignette', () => {
     expect(readFileSync(file, 'utf8')).toMatch(/SeoVignette/);
   });
 });
+
+describe('web-design vignette', () => {
+  const file = path.join(base, 'web-design', 'page.tsx');
+  it('web-design/page.tsx renders WebDesignVignette', () => {
+    expect(readFileSync(file, 'utf8')).toMatch(/WebDesignVignette/);
+  });
+});
