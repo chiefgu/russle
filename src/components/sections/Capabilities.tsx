@@ -2,12 +2,12 @@ import {
   Globe,
   Calendar,
   ShoppingBag,
-  MapPin,
   Mail,
   Utensils,
   Sparkles,
   BrainCircuit,
   Hammer,
+  Search,
 } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
@@ -46,9 +46,9 @@ const CAPABILITIES = [
     body: 'Customers book appointments, classes, or tables directly from your site. Clinics, studios, venues, restaurants, professional services.',
   },
   {
-    icon: MapPin,
-    title: 'Local SEO and Google Business',
-    body: 'Showing up on Google Maps and in the local search results when someone nearby looks for what you do. Set up at launch, maintained every month.',
+    icon: Search,
+    title: 'SEO and AI search',
+    body: 'Ranking in Google and showing up in ChatGPT and AI Overviews. Technical SEO, content, and schema that search engines and AI actually read.',
   },
   {
     icon: Mail,
