@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 const PRINCIPLES = [
   {
-    title: 'Brand-led growth.',
-    body: 'A brand and a website that look like the same business. Search, email, and local marketing that build on top. Nothing fights itself.',
+    title: 'Built to be found.',
+    body: 'A fast site and the search work that grows on top of it. Design, build, and SEO pulling in the same direction. Nothing fights itself.',
   },
   {
     title: 'Direct contact.',
@@ -88,7 +88,7 @@ export default function AboutPage() {
                   russle is an independent UK studio. The work covers everything from designing and building the website or store through to the SEO that scales the business once it&apos;s live.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
-                  Clients are businesses that take their brand seriously and want one team to design it, build it, and grow it. The brand direction, the homepage design, the build, the launch, the growth work after you go live, all the same team.
+                  Clients are businesses that take their website seriously and want one team to design it, build it, and grow it. The design, the build, the launch, the SEO after you go live, all the same team.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
                   Projects start with the intake form at /start, and launch four to six weeks later.

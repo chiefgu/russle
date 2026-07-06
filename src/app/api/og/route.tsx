@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const title = searchParams.get('title') || 'russle';
   const subtitle =
     searchParams.get('subtitle') ||
-    'Web design, development, and branding';
+    'Web design, ecommerce & SEO studio';
 
   return new ImageResponse(
     (

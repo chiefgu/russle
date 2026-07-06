@@ -179,7 +179,7 @@ const SECTIONS: SectionDef[] = [
   },
   {
     title: 'Value & ROI',
-    blurb: 'Helps me match the budget to the outcome.',
+    blurb: 'Helps us match the budget to the outcome.',
     fields: [
       {
         id: 'revenue_contribution',

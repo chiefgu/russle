@@ -105,7 +105,7 @@ export function PartnersOnePager() {
         <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
           russle is a web design, ecommerce and SEO studio. We design and
           build websites and stores, host them, and run the SEO and AI search
-          work that bring customers back.
+          work that brings customers back.
         </p>
         <p className="text-body mt-6 max-w-2xl text-[var(--color-text-mute)]">
           This page is the short version of the studio for photographers,
