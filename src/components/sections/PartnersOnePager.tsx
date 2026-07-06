@@ -9,7 +9,7 @@ import { getAllWork } from '@/lib/mdx';
 const TIERS = [
   {
     name: 'Launch',
-    price: 'From £1,995',
+    price: 'Fixed project fee, ask for a quote',
     timeline: 'One-off, as soon as 14 days',
     blurb:
       'A new brand and a new website, built together. The local SEO and email systems are set up before launch. Designed and built by us, end to end.',
@@ -23,7 +23,7 @@ const TIERS = [
   },
   {
     name: 'Grow',
-    price: 'From £299/mo',
+    price: 'Monthly retainer, ask for a quote',
     timeline: 'No long-term contract',
     blurb:
       'Monthly arrangement after launch. We run the hosting, the small updates, the Google Business profile, and the local SEO. The studio keeps the brand and the site doing their job.',
@@ -103,9 +103,9 @@ export function PartnersOnePager() {
           A team you can refer with confidence.
         </h1>
         <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-          russle is a brand &amp; growth agency. We design brands, build
-          websites, host them, and run the marketing and AI that bring
-          customers back.
+          russle is a web design, ecommerce and SEO studio. We design and
+          build websites and stores, host them, and run the SEO and AI search
+          work that bring customers back.
         </p>
         <p className="text-body mt-6 max-w-2xl text-[var(--color-text-mute)]">
           This page is the short version of the studio for photographers,

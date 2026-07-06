@@ -133,7 +133,7 @@ await upsertPost({
       'Custom small business site, properly structured for search and enquiries: low thousands.',
       'Brand and website together, built as one system: from around two thousand pounds upward, depending on scope.',
     ]),
-    p(t('At russle, a Launch project starts at 1,995 pounds and includes the brand groundwork, not just the pages.')),
+    p(t('At russle, every project includes the brand groundwork as standard, not just the pages. Send us a line and we will scope it and come back with a straight quote.')),
     h('h2', 'What pushes the price up'),
     ul([
       'Custom brand work rather than an off-the-shelf look.',

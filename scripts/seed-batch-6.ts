@@ -77,14 +77,14 @@ await post({
     h('h2', 'Build reviews steadily'),
     p(t('Ask happy customers for a Google review at the right moment, make it one tap, and reply to every one. Reviews win both trust and local ranking.')),
     h('h2', 'Keep in touch'),
-    p(t('The cheapest growth is repeat custom. A simple email list, used occasionally and well, keeps you front of mind without paying for ads.')),
+    p(t('The cheapest growth is repeat custom. A simple email list, used occasionally and well, keeps you front of mind without paying for advertising.')),
     h('h2', 'Where we land'),
     p(t('This is exactly the work we do for small businesses across the UK: brand, web, and the local growth around them. If you want a hand with any of it, send us a line.')),
   ),
   faq: [
     { question: 'How should a small local business market itself?', answer: 'Start with a clear brand and a website that converts, then win local search through your Google Business Profile, build reviews steadily, and keep in touch with customers by email. Those basics beat most competitors.' },
     { question: 'What is the most important marketing for a local business?', answer: 'A complete Google Business Profile and steady reviews. For local businesses, local search is where most customers look, and it is realistic to win.' },
-    { question: 'Do I need to pay for ads to grow locally?', answer: 'Not necessarily. Strong local search, reviews, a converting website, and repeat custom by email often grow a local business without ongoing ad spend.' },
+    { question: 'Do I need to pay for advertising to grow locally?', answer: 'Not necessarily. Strong local search, reviews, a converting website, and repeat custom by email often grow a local business without ongoing ad spend.' },
   ],
 });
 

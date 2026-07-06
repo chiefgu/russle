@@ -7,7 +7,7 @@ import { Reveal } from '@/components/animations/Reveal';
 export const metadata: Metadata = {
   title: 'About the studio',
   description:
-    'russle is a brand & growth agency. Brand, websites, e-commerce, and the growth systems behind them, for ambitious businesses across the UK.',
+    'russle is a web design, ecommerce and SEO studio. Websites, online stores, and the SEO systems behind them, for ambitious businesses across the UK.',
 };
 
 const PRINCIPLES = [

@@ -68,7 +68,7 @@ await post({
   metaDescription: 'How much branding costs for a small business in 2026, what changes the price, and what you get for the money. An honest guide from russle, a UK web design and SEO studio.',
   date: '2026-06-17', category: guides.id, tags: ['branding cost', 'brand identity', 'pricing'],
   content: doc(
-    p(t('Branding for a small business ranges from a cheap logo of a few pounds to a full brand identity of several thousand. What you pay for is not the logo, it is the strategy and system behind it. At russle, brand and website come together from 1,995 pounds.')),
+    p(t('Branding for a small business ranges from a cheap logo of a few pounds to a full brand identity of several thousand. What you pay for is not the logo, it is the strategy and system behind it. At russle, brand and website come together as one project. Send us a line and we will scope it and come back with a straight quote.')),
     h('h2', 'What you are paying for'),
     p(t('A logo is the cheap part. The cost of branding is the thinking: who you are for, why you are the obvious choice, and a system of colour, type, voice, and imagery that holds together everywhere. That groundwork is what makes a brand work, and what takes the time.')),
     h('h2', 'Typical ranges'),
@@ -185,7 +185,7 @@ await post({
   content: doc(
     p(t('The best way to get more Google reviews is to ask happy customers at the right moment, make it a one-tap link, and reply to every review you get. Reviews build trust and are one of the strongest local search signals, so they are worth the effort.')),
     h('h2', 'Why reviews matter so much'),
-    ul(lead('Trust.', ' Most people read reviews before choosing a local business. Strong, recent reviews win the click.'), lead('Local ranking.', ' The number, quality, and freshness of your reviews influence where you appear in local search and the map results.'), lead('Free and compounding.', ' Unlike ads, reviews keep working, and they build over time.')),
+    ul(lead('Trust.', ' Most people read reviews before choosing a local business. Strong, recent reviews win the click.'), lead('Local ranking.', ' The number, quality, and freshness of your reviews influence where you appear in local search and the map results.'), lead('Free and compounding.', ' Unlike paid advertising, reviews keep working, and they build over time.')),
     h('h2', 'How to get more, the right way'),
     ul(lead('Ask at the right moment.', ' Just after a good experience, when the customer is happiest.'), lead('Make it one tap.', ' Share your Google review link directly, so there is no hunting for where to leave it.'), lead('Ask in person and follow up.', ' A quick personal ask, backed by a text or email with the link, works best.'), lead('Reply to every review.', ' Thank the good ones and respond calmly to the rest. It shows you care and signals an active business.')),
     h('h2', 'What not to do'),

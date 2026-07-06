@@ -1,7 +1,7 @@
 /**
  * Batch 7 (Jul 9-15). Seven posts staged as DRAFTS with randomised 9-11am UK
- * publish times, each with content + 3 FAQs. National brand & growth agency
- * positioning (no local framing). Continues the calendar after batch 6.
+ * publish times, each with content + 3 FAQs. National web design, ecommerce
+ * & SEO studio positioning (no local framing). Continues the calendar after batch 6.
  * Run: npx payload run scripts/seed-batch-7.ts  (with DATABASE_URL + PAYLOAD_SECRET)
  */
 import { getPayload } from 'payload';
@@ -38,34 +38,34 @@ async function post(input: { slug: string; title: string; excerpt: string; date:
 const guides = await cat('guides', 'Guides', 'Practical guides on brand, websites, and growth for ambitious businesses.');
 
 await post({
-  slug: 'what-is-a-brand-and-growth-agency', title: 'What does a brand and growth agency actually do?',
-  excerpt: 'A brand and growth agency designs the brand, builds the website or store, and runs the marketing that scales it, all under one roof. Here is what that means in real terms.',
-  metaDescription: 'What a brand and growth agency does: brand, website, e-commerce, SEO, email, and AI under one team. From russle, a brand and growth agency.',
-  date: '2026-07-09', category: guides.id, tags: ['agency', 'brand', 'growth'],
+  slug: 'what-is-a-brand-and-growth-agency', title: 'What does a web design, ecommerce and SEO studio actually do?',
+  excerpt: 'A web design, ecommerce and SEO studio builds the website or store, then runs the SEO work that keeps it earning, all under one roof. Here is what that means in real terms.',
+  metaDescription: 'What a web design, ecommerce and SEO studio does: website, e-commerce, SEO, email, and AI under one team. From russle, a web design, ecommerce and SEO studio.',
+  date: '2026-07-09', category: guides.id, tags: ['studio', 'web design', 'seo'],
   content: doc(
-    p(t('A brand and growth agency does the whole job in one place: it designs the brand, builds the website or store, then runs the marketing and AI that turn it into revenue. The point is that one team owns the outcome, so the brand, the site, and the growth all pull in the same direction instead of being stitched together from three suppliers.')),
-    h('h2', 'Brand'),
-    p(t('The name, the look, the voice, and the rules that keep them consistent. A brand is what makes a business recognisable and trusted before anyone reads a word.')),
+    p(t('A web design, ecommerce and SEO studio does the whole job in one place: it builds the website or store, then runs the SEO and AI search work that turn it into revenue. The point is that one team owns the outcome, so the site and the SEO behind it pull in the same direction instead of being stitched together from separate suppliers.')),
+    h('h2', 'Design'),
+    p(t('The look, the voice, and the details that make a site distinctive: colours, type, imagery, and the small decisions that make a visitor trust you in the first few seconds. This sits inside the build, not bolted on afterwards.')),
     h('h2', 'Product'),
     p(t('The website or store itself: the thing customers actually use to buy, book, or enquire. Built to convert, fast, and owned by you, not rented from a template.')),
-    h('h2', 'Growth'),
-    p(t('The work that scales it once it is live: search, content, email, and increasingly AI search. This is where a growth agency differs from a design studio, it stays on after launch and is measured on results.')),
+    h('h2', 'SEO'),
+    p(t('The work that keeps it earning once it is live: search, content, email, and increasingly AI search. This is where a studio running SEO retainers differs from a one-off build shop, it stays on after launch and is measured on results.')),
     h('h2', 'Why one team'),
-    p(t('When brand, build, and growth sit with one team, nothing gets lost in the handoffs that make the typical designer-then-developer-then-marketer chain slow and expensive. One brief, one timeline, one number to call.')),
+    p(t('When design, build, and SEO sit with one team, nothing gets lost in the handoffs that make the typical designer-then-developer-then-marketer chain slow and expensive. One brief, one timeline, one number to call.')),
     h('h2', 'Where we land'),
-    p(t('That is exactly how russle works: brand, website, and the growth behind them, run by one team for ambitious businesses across the UK. If that is the kind of partner you are looking for, send us a line.')),
+    p(t('That is exactly how russle works: website, store, and the SEO behind them, run by one team for ambitious businesses across the UK. If that is the kind of partner you are looking for, send us a line.')),
   ),
   faq: [
-    { question: 'What is the difference between an agency and a studio?', answer: 'A studio usually focuses on design and craft; an agency takes on the wider job, including the marketing and growth that run after launch. russle does both, brand and the growth behind it, under one team.' },
-    { question: 'What does a brand and growth agency cost?', answer: 'It depends on scope. A one-off brand and website build starts from a fixed project fee, and ongoing growth is a monthly retainer. The point is one predictable relationship rather than several separate invoices.' },
-    { question: 'Do I need an agency or can I do it myself?', answer: 'If your brand and site are holding you back and you do not have the time or team to fix and grow them, an agency is usually the faster, more joined-up route. If you have the skills in-house, you may not need one.' },
+    { question: 'What is the difference between an agency and a studio?', answer: 'A studio usually focuses on design and craft; some also run the SEO retainer that keeps a site working after launch. russle does both, the build and the SEO behind it, under one team.' },
+    { question: 'What does a web design, ecommerce and SEO studio cost?', answer: 'It depends on scope. A one-off website or store build starts from a fixed project fee, and ongoing SEO runs as a monthly retainer. Send us a line and we will scope it properly.' },
+    { question: 'Do I need a studio or can I do it myself?', answer: 'If your website is holding you back and you do not have the time or team to fix and grow it, a studio is usually the faster, more joined-up route. If you have the skills in-house, you may not need one.' },
   ],
 });
 
 await post({
   slug: 'one-team-vs-three-suppliers', title: 'Brand, website, marketing: why one team beats three suppliers',
   excerpt: 'Hiring a brand designer, a web developer, and a marketer separately is how most businesses end up looking like three different companies. Here is why one team works better.',
-  metaDescription: 'Why one team for brand, website, and marketing beats three separate suppliers: consistency, speed, and accountability. From russle, a brand and growth agency.',
+  metaDescription: 'Why one team for brand, website, and marketing beats three separate suppliers: consistency, speed, and accountability. From russle, a web design, ecommerce and SEO studio.',
   date: '2026-07-10', category: guides.id, tags: ['agency', 'brand', 'process'],
   content: doc(
     p(t('Most businesses build their brand from one supplier, their website from another, and their marketing from a third. The result is predictable: nothing fits together, the brand looks sharp in one place and amateur everywhere else, and no one owns the outcome. One team that does all three avoids the gaps. Here is why it works better.')),
@@ -90,7 +90,7 @@ await post({
 await post({
   slug: 'what-is-a-growth-retainer', title: 'What is a growth retainer, and what should it include?',
   excerpt: 'A growth retainer is a monthly arrangement that keeps your brand, website, and marketing working after launch. Here is what a good one includes and how to judge it.',
-  metaDescription: 'What a growth retainer is and what it should include: hosting, SEO, content, email, AI search, and reporting. From russle, a brand and growth agency.',
+  metaDescription: 'What a growth retainer is and what it should include: hosting, SEO, content, email, AI search, and reporting. From russle, a web design, ecommerce and SEO studio.',
   date: '2026-07-11', category: guides.id, tags: ['growth', 'retainer', 'marketing'],
   content: doc(
     p(t('A growth retainer is a monthly arrangement where an agency keeps your website and marketing working and improving after launch, rather than handing it over and walking away. A good one covers the technical upkeep and the growth work, reports in plain English, and has no long lock-in. Here is what to look for.')),
@@ -103,10 +103,10 @@ await post({
     h('h2', 'The terms'),
     p(t('A good retainer is month to month or short notice, not a year you cannot leave. Confidence comes from the results, not the contract.')),
     h('h2', 'Where we land'),
-    p(t('russle Grow is exactly this: the technical side and the growth side kept running every month, with a plain-English report and no long-term contract. Manage adds a full team running campaigns and strategy on top. Send us a line for a straight steer on which fits.')),
+    p(t('russle runs an SEO retainer that is exactly this: the technical side and the growth side kept running every month, with a plain-English report and no long-term contract. Some businesses want more, a full team running campaigns and strategy on top. Send us a line for a straight steer on what fits.')),
   ),
   faq: [
-    { question: 'How much does a growth retainer cost?', answer: 'It varies with scope. A maintenance-and-growth retainer typically starts in the low hundreds per month and rises with the amount of campaign and content work involved. russle Grow starts from a fixed monthly fee with no long-term contract.' },
+    { question: 'How much does a growth retainer cost?', answer: 'It varies with scope, based on the amount of campaign and content work involved. Send us a line and we will give you a fixed monthly fee with no long-term contract.' },
     { question: 'Do I need a retainer after my website launches?', answer: 'Most businesses benefit from one. A site that nobody updates ages quickly, rankings drift, and the marketing goes quiet. A retainer keeps the brand and site doing their job, but it should always be optional.' },
     { question: 'What should a growth retainer include?', answer: 'Hosting and upkeep, search and local visibility, content and email, AI search optimisation, and a clear monthly report. If you cannot see what is being done and why, it is not a good retainer.' },
   ],
@@ -115,7 +115,7 @@ await post({
 await post({
   slug: 'ai-in-brand-and-web-2026', title: 'How AI is changing brand and web in 2026',
   excerpt: 'AI has changed how people find businesses and what a website has to do. Here is what actually matters for brand and web in 2026, without the hype.',
-  metaDescription: 'How AI is changing brand and web in 2026: AI search, GEO, practical AI features, and what still matters. From russle, a brand and growth agency.',
+  metaDescription: 'How AI is changing brand and web in 2026: AI search, GEO, practical AI features, and what still matters. From russle, a web design, ecommerce and SEO studio.',
   date: '2026-07-12', category: guides.id, tags: ['AI', 'GEO', 'web design'],
   content: doc(
     p(t('AI has changed two things that matter for any business with a website: how people find you, and what your site can do. The hype is loud, but the practical shifts are clear. Here is what actually matters in 2026, and what has not changed.')),
@@ -140,7 +140,7 @@ await post({
 await post({
   slug: 'conversion-led-web-design', title: 'Conversion-led web design: turning visitors into customers',
   excerpt: 'A beautiful website that nobody acts on is an expensive brochure. Conversion-led design is about turning visitors into enquiries and sales. Here is how it works.',
-  metaDescription: 'Conversion-led web design: clarity, proof, speed, and clear calls to action that turn visitors into customers. From russle, a brand and growth agency.',
+  metaDescription: 'Conversion-led web design: clarity, proof, speed, and clear calls to action that turn visitors into customers. From russle, a web design, ecommerce and SEO studio.',
   date: '2026-07-13', category: guides.id, tags: ['conversion', 'web design', 'growth'],
   content: doc(
     p(t('Conversion-led web design means building a site to turn visitors into customers, not just to look good. A site can be beautiful and still fail if it does not make the next step obvious. Here is what actually moves the numbers.')),
@@ -167,7 +167,7 @@ await post({
 await post({
   slug: 'how-to-choose-a-brand-agency', title: 'How to choose a brand and web agency',
   excerpt: 'Choosing the agency that builds your brand and website is a big decision. Here are the questions to ask and the warning signs to watch for before you commit.',
-  metaDescription: 'How to choose a brand and web agency: portfolio, ownership, results, and the questions to ask first. From russle, a brand and growth agency.',
+  metaDescription: 'How to choose a brand and web agency: portfolio, ownership, results, and the questions to ask first. From russle, a web design, ecommerce and SEO studio.',
   date: '2026-07-14', category: guides.id, tags: ['agency', 'hiring', 'brand'],
   content: doc(
     p(t('Choosing the agency that builds your brand and website shapes how your business looks and performs for years. The good news is that a few sharp questions separate the safe choices from the risky ones. Here is what to ask and what to watch for.')),
@@ -194,7 +194,7 @@ await post({
 await post({
   slug: 'signs-you-have-outgrown-your-website', title: 'Signs your business has outgrown its website',
   excerpt: 'A website that was fine at the start can quietly hold a growing business back. Here are the signs it is time to rebuild, and what to do about them.',
-  metaDescription: 'Signs your business has outgrown its website: it looks dated, converts poorly, or cannot scale. From russle, a brand and growth agency.',
+  metaDescription: 'Signs your business has outgrown its website: it looks dated, converts poorly, or cannot scale. From russle, a web design, ecommerce and SEO studio.',
   date: '2026-07-15', category: guides.id, tags: ['web design', 'rebrand', 'growth'],
   content: doc(
     p(t('A website that did the job when you started can quietly become the thing holding you back. The signs are easy to miss because the site still loads and still works, it just no longer matches where the business is going. Here is what to look for.')),

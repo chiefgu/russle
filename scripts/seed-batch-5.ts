@@ -215,9 +215,9 @@ await post({
   metaDescription: 'Is SEO worth it for a small business in 2026? An honest look at the costs, the payoff, and when to bother. From russle, a UK web design and SEO studio.',
   date: '2026-06-30', category: guides.id, tags: ['seo', 'small business', 'marketing'],
   content: doc(
-    p(t('For most small businesses, yes, SEO is worth it, because it brings in customers who are already looking for what you sell, and it compounds over time unlike ads. It is worth it less if you need results this week or your customers never search for you. Here is the honest picture.')),
+    p(t('For most small businesses, yes, SEO is worth it, because it brings in customers who are already looking for what you sell, and it compounds over time unlike paid advertising. It is worth it less if you need results this week or your customers never search for you. Here is the honest picture.')),
     h('h2', 'Why SEO is usually worth it'),
-    ul(lead('Intent.', ' People searching for your service are ready to buy. That is the warmest traffic there is.'), lead('It compounds.', ' Unlike ads, which stop the moment you stop paying, SEO keeps working and builds over time.'), lead('Local is winnable.', ' For a local business, ranking for "service near me" is realistic and high value.'), lead('Trust.', ' Ranking well makes you look established.')),
+    ul(lead('Intent.', ' People searching for your service are ready to buy. That is the warmest traffic there is.'), lead('It compounds.', ' Unlike paid advertising, which stops the moment you stop paying, SEO keeps working and builds over time.'), lead('Local is winnable.', ' For a local business, ranking for "service near me" is realistic and high value.'), lead('Trust.', ' Ranking well makes you look established.')),
     h('h2', 'When it is worth less'),
     ul('You need customers this week. SEO is a medium-term game, not an instant one.', 'Your customers genuinely do not search for what you do.', 'Your site is broken or invisible, in which case fix the basics first.'),
     h('h2', 'What SEO actually involves'),
@@ -228,7 +228,7 @@ await post({
   faq: [
     { question: 'Is SEO worth it for a small business?', answer: 'For most, yes. It brings in customers already searching for what you sell and compounds over time. It is worth less if you need instant results or your customers do not search for you.' },
     { question: 'How long does SEO take to work?', answer: 'Usually a few months to see meaningful movement, longer for competitive terms. It is a medium-term investment that builds, not an instant switch.' },
-    { question: 'Is SEO better than paid ads?', answer: 'They do different jobs. Ads give instant traffic that stops when you stop paying; SEO takes longer but compounds and keeps working. Many businesses use both.' },
+    { question: 'Is SEO better than paid advertising?', answer: 'They do different jobs. Paid advertising gives instant traffic that stops when you stop paying; SEO takes longer but compounds and keeps working. Many businesses use both.' },
   ],
 });
 

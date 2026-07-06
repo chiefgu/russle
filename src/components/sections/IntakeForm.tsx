@@ -187,7 +187,7 @@ const SECTIONS: SectionDef[] = [
         type: 'textarea',
         placeholder: 'e.g. direct sales, bookings, lead generation, advertising…',
       },
-      { id: 'lead_value', label: 'What is the average value of a lead, enquiry, or sale for your business?', type: 'text', placeholder: 'e.g. £500 per lead, £50 per sale…' },
+      { id: 'lead_value', label: 'What is the average value of a lead, enquiry, or sale for your business?', type: 'text', placeholder: 'e.g. 500 per lead, 50 per sale…' },
       { id: 'reduce_costs', label: 'Do you want the site to reduce operational costs?', type: 'textarea', placeholder: 'e.g. automation, fewer support calls, online bookings…' },
       { id: 'growth_targets', label: 'Do you have growth targets the site should help achieve?', type: 'textarea', placeholder: 'e.g. 100 leads/month, 50% more online bookings…' },
     ],
@@ -205,7 +205,7 @@ const SECTIONS: SectionDef[] = [
         id: 'budget_range',
         label: 'Approximate budget range',
         type: 'select',
-        options: ['Under £2,000', '£2,000 - £5,000', '£5,000 - £10,000', '£10,000 - £25,000', '£25,000+', 'Not sure, advise me'],
+        options: ['Under 2,000', '2,000 - 5,000', '5,000 - 10,000', '10,000 - 25,000', '25,000+', 'Not sure, advise me'],
       },
       {
         id: 'how_heard',

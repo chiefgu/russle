@@ -51,6 +51,9 @@ const BANNED: { label: string; re: RegExp }[] = [
   { label: 'self geo: Alderley Edge', re: /Alderley Edge/ },
   { label: 'self geo: Cheshire', re: /Cheshire/ },
   { label: 'self geo: South Manchester', re: /South Manchester/ },
+  { label: 'price on site', re: /£/ },
+  { label: 'brand & growth agency self-descriptor', re: /brand\s*&\s*growth\s*agency|brand and growth agency/i },
+  { label: 'ads as a marketed service', re: /\bads\b/i },
 ];
 
 describe('national repositioning guard', () => {
