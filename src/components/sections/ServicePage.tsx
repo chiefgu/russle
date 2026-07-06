@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
@@ -20,27 +21,40 @@ export type ServicePageData = {
   schema: Record<string, unknown>;
 };
 
-export function ServicePage({ data }: { data: ServicePageData }) {
+export function ServicePage({ data, visual }: { data: ServicePageData; visual?: ReactNode }) {
+  const heroCopy = (
+    <>
+      <Reveal><Tag tone="accent">{data.tag}</Tag></Reveal>
+      <Reveal delay={0.05}>
+        <h1 className="h1 mt-6 text-balance">{data.h1}</h1>
+      </Reveal>
+      <Reveal delay={0.15}>
+        <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">{data.intro}</p>
+      </Reveal>
+      <Reveal delay={0.2}>
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink href="/start" variant="primary" size="lg" withArrow>Start a project</ButtonLink>
+          <ButtonLink href="/work" variant="secondary" size="lg">See the work</ButtonLink>
+        </div>
+      </Reveal>
+    </>
+  );
+
   return (
     <>
       <JsonLd data={data.schema} />
 
       <Section tone="bg" spacing="heroTopTight">
-        <div className="max-w-3xl">
-          <Reveal><Tag tone="accent">{data.tag}</Tag></Reveal>
-          <Reveal delay={0.05}>
-            <h1 className="h1 mt-6 text-balance">{data.h1}</h1>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">{data.intro}</p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/start" variant="primary" size="lg" withArrow>Start a project</ButtonLink>
-              <ButtonLink href="/work" variant="secondary" size="lg">See the work</ButtonLink>
+        {visual ? (
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            <div className="max-w-3xl lg:col-span-7">{heroCopy}</div>
+            <div className="mt-4 lg:col-span-5 lg:mt-0">
+              <Reveal delay={0.25}>{visual}</Reveal>
             </div>
-          </Reveal>
-        </div>
+          </div>
+        ) : (
+          <div className="max-w-3xl">{heroCopy}</div>
+        )}
       </Section>
 
       <Section tone="bg" spacing="xl">
