@@ -34,14 +34,14 @@ async function post(input: { slug: string; title: string; excerpt: string; date:
   else { await payload.create({ collection: 'posts', data }); console.log('Created:', input.slug); }
 }
 
-const guides = await cat('guides', 'Guides', 'Practical guides on brand, websites, and growth for independent businesses.');
+const guides = await cat('guides', 'Guides', 'Practical guides on brand, websites, and growth for ambitious businesses.');
 const comparisons = await cat('comparisons', 'Comparisons', 'Honest comparisons to help you choose how to build.');
-const local = await cat('local-notes', 'Local notes', 'Notes for businesses building in Cheshire and South Manchester.');
+const local = await cat('local-notes', 'Local notes', 'Notes for businesses building an online presence across the UK.');
 
 await post({
   slug: 'squarespace-vs-wix', title: 'Squarespace vs Wix: which is better for a small business?',
   excerpt: 'Squarespace and Wix are the two most popular website builders. Here is the honest comparison to help a small business pick between them.',
-  metaDescription: 'Squarespace vs Wix for a small business: design, ease, SEO, and cost compared honestly. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'Squarespace vs Wix for a small business: design, ease, SEO, and cost compared honestly. From russle, a UK web design and SEO studio.',
   date: '2026-07-01', category: comparisons.id, tags: ['squarespace', 'wix', 'comparison'],
   content: doc(
     p(t('Squarespace is the better choice for a clean, design-led site, while Wix is easier and more flexible to build yourself. For most small businesses that want to look professional, Squarespace wins; for absolute ease and drag-and-drop control, Wix does. Here is the honest comparison.')),
@@ -62,36 +62,36 @@ await post({
 });
 
 await post({
-  slug: 'cheshire-marketing-playbook', title: 'A marketing playbook for independent Cheshire businesses',
-  excerpt: 'A practical, no-nonsense marketing playbook for independent businesses across Cheshire and South Manchester, from brand to local search to repeat custom.',
-  metaDescription: 'A practical marketing playbook for independent Cheshire and South Manchester businesses: brand, website, local SEO, reviews, and email. From russle.',
-  date: '2026-07-02', category: local.id, tags: ['cheshire', 'marketing', 'local business'],
+  slug: 'cheshire-marketing-playbook', title: 'A marketing playbook for ambitious small businesses',
+  excerpt: 'A practical, no-nonsense marketing playbook for small businesses growing online, from brand to local search to repeat custom.',
+  metaDescription: 'A practical marketing playbook for small businesses growing online: brand, website, local SEO, reviews, and email. From russle.',
+  date: '2026-07-02', category: local.id, tags: ['marketing', 'local business'],
   content: doc(
-    p(t('For an independent Cheshire business, the marketing that works is simpler than most advice suggests: a clear brand, a website that converts, a strong local search presence, steady reviews, and a way to keep in touch with customers. Nail those five and you are ahead of most competitors. Here is the playbook.')),
+    p(t('For a small business, the marketing that works is simpler than most advice suggests: a clear brand, a website that converts, a strong local search presence, steady reviews, and a way to keep in touch with customers. Nail those five and you are ahead of most competitors. Here is the playbook.')),
     h('h2', 'Get the brand clear'),
     p(t('Before any tactics, be clear on who you are for and why you are the obvious choice. A muddled brand makes every other bit of marketing work harder for less.')),
     h('h2', 'Build a website that converts'),
-    p(t('Your site should make it obvious what you do and easy to get in touch. For independent businesses across Alderley Edge, Wilmslow, Hale, and Knutsford, a brand-led site that stands out from the chains is a real advantage.')),
+    p(t('Your site should make it obvious what you do and easy to get in touch. For small businesses competing with the big chains, a brand-led site that stands out is a real advantage.')),
     h('h2', 'Win local search'),
     p(t('Claim and complete your Google Business Profile, name the towns you serve on your site, and keep your details consistent everywhere. This is the highest-return work for a local business.')),
     h('h2', 'Build reviews steadily'),
     p(t('Ask happy customers for a Google review at the right moment, make it one tap, and reply to every one. Reviews win both trust and local ranking.')),
     h('h2', 'Keep in touch'),
-    p(t('The cheapest growth is repeat custom. A simple email list, used occasionally and well, keeps you front of mind without paying for ads.')),
+    p(t('The cheapest growth is repeat custom. A simple email list, used occasionally and well, keeps you front of mind without paying for advertising.')),
     h('h2', 'Where we land'),
-    p(t('This is exactly the work we do for independent businesses across Cheshire and South Manchester: brand, web, and the local growth around them. If you want a hand with any of it, send us a line.')),
+    p(t('This is exactly the work we do for small businesses across the UK: brand, web, and the local growth around them. If you want a hand with any of it, send us a line.')),
   ),
   faq: [
-    { question: 'How should a small Cheshire business market itself?', answer: 'Start with a clear brand and a website that converts, then win local search through your Google Business Profile, build reviews steadily, and keep in touch with customers by email. Those basics beat most competitors.' },
+    { question: 'How should a small local business market itself?', answer: 'Start with a clear brand and a website that converts, then win local search through your Google Business Profile, build reviews steadily, and keep in touch with customers by email. Those basics beat most competitors.' },
     { question: 'What is the most important marketing for a local business?', answer: 'A complete Google Business Profile and steady reviews. For local businesses, local search is where most customers look, and it is realistic to win.' },
-    { question: 'Do I need to pay for ads to grow locally?', answer: 'Not necessarily. Strong local search, reviews, a converting website, and repeat custom by email often grow a local business without ongoing ad spend.' },
+    { question: 'Do I need to pay for advertising to grow locally?', answer: 'Not necessarily. Strong local search, reviews, a converting website, and repeat custom by email often grow a local business without ongoing ad spend.' },
   ],
 });
 
 await post({
   slug: 'website-copy-that-converts', title: 'How to write website copy that converts',
   excerpt: 'Most website copy talks about the business. Copy that converts talks to the customer. Here is how to write words that turn visitors into enquiries.',
-  metaDescription: 'How to write website copy that converts: clarity, customer focus, and clear calls to action. A practical guide from russle, a Cheshire brand and web studio.',
+  metaDescription: 'How to write website copy that converts: clarity, customer focus, and clear calls to action. A practical guide from russle, a UK web design and SEO studio.',
   date: '2026-07-03', category: guides.id, tags: ['website copy', 'copywriting', 'conversion'],
   content: doc(
     p(t('Website copy converts when it is clear, speaks to the customer’s problem, and tells them exactly what to do next. Most copy fails because it talks about the business instead of the reader. Here is how to write words that bring in enquiries.')),
@@ -118,7 +118,7 @@ await post({
 await post({
   slug: 'wordpress-vs-webflow', title: 'WordPress vs Webflow: which should you choose?',
   excerpt: 'WordPress and Webflow both build serious sites, in very different ways. Here is the honest comparison for a small business choosing between them.',
-  metaDescription: 'WordPress vs Webflow for a small business: flexibility, design, maintenance, and SEO compared. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'WordPress vs Webflow for a small business: flexibility, design, maintenance, and SEO compared. From russle, a UK web design and SEO studio.',
   date: '2026-07-04', category: comparisons.id, tags: ['wordpress', 'webflow', 'comparison'],
   content: doc(
     p(t('WordPress is the more flexible, widely supported option but needs maintenance, while Webflow gives cleaner design control with less upkeep but more platform lock-in. For most small businesses, Webflow is simpler to live with, WordPress is more powerful if you have support. Here is the honest comparison.')),
@@ -141,7 +141,7 @@ await post({
 await post({
   slug: 'google-map-pack', title: 'How to rank in Google’s local Map Pack',
   excerpt: 'The local Map Pack is the three businesses Google shows at the top of local searches. Here is how a small business earns one of those spots.',
-  metaDescription: 'How to rank in Google’s local Map Pack: Google Business Profile, reviews, and local signals explained for a small business. From russle, a Cheshire studio.',
+  metaDescription: 'How to rank in Google’s local Map Pack: Google Business Profile, reviews, and local signals explained for a small business. From russle, a UK web design and SEO studio.',
   date: '2026-07-05', category: local.id, tags: ['map pack', 'local seo', 'google business profile'],
   content: doc(
     p(t('To rank in Google’s local Map Pack, you need a complete and accurate Google Business Profile, steady genuine reviews, consistent business details across the web, and a website that backs up where you are and what you do. It is one of the most winnable, valuable things a local business can do.')),
@@ -164,7 +164,7 @@ await post({
 await post({
   slug: 'in-house-vs-growth-retainer', title: 'In-house marketing vs a growth retainer',
   excerpt: 'Should you hire in-house for marketing or use an outside growth retainer? Here is the honest comparison for a small business.',
-  metaDescription: 'In-house marketing vs a growth retainer for a small business: cost, skills, and results compared. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'In-house marketing vs a growth retainer for a small business: cost, skills, and results compared. From russle, a UK web design and SEO studio.',
   date: '2026-07-06', category: comparisons.id, tags: ['marketing', 'growth retainer', 'comparison'],
   content: doc(
     p(t('Hiring in-house gives you dedicated focus but is expensive and hard to cover every skill, while a growth retainer gives you a range of skills for less than one salary but with less day-to-day presence. For most small businesses, a retainer is the more practical start. Here is the honest comparison.')),
@@ -175,7 +175,7 @@ await post({
     h('h2', 'How to choose'),
     ul(lead('Lots of ongoing work and the budget for a salary:', ' an in-house hire, ideally backed by outside specialists.'), lead('Want broad skills and senior help without the cost of a hire:', ' a growth retainer.')),
     h('h2', 'Where we land'),
-    p(t('Our Grow retainer is built exactly for this: brand, web, SEO, email, and local growth for a monthly fee, without hiring a whole team. If that fits where you are, send us a line.')),
+    p(t('Our SEO retainer is built exactly for this: brand, web, SEO, email, and local growth for a monthly fee, without hiring a whole team. If that fits where you are, send us a line.')),
   ),
   faq: [
     { question: 'Should I hire in-house or use a marketing retainer?', answer: 'In-house gives dedicated focus but is expensive and hard to cover every skill. A retainer gives broad senior skills for less than a salary, with less daily presence. For most small businesses, a retainer is the practical start.' },
@@ -187,7 +187,7 @@ await post({
 await post({
   slug: 'website-launch-checklist', title: 'Website launch checklist: get these right before you go live',
   excerpt: 'Launching a website is where avoidable mistakes happen. Here is the checklist to run before you go live, so nothing important gets missed.',
-  metaDescription: 'A website launch checklist for small businesses: SEO, speed, analytics, forms, and more to check before you go live. From russle, a Cheshire web studio.',
+  metaDescription: 'A website launch checklist for small businesses: SEO, speed, analytics, forms, and more to check before you go live. From russle, a UK web design and SEO studio.',
   date: '2026-07-07', category: guides.id, tags: ['website launch', 'checklist', 'web design'],
   content: doc(
     p(t('Before you launch a website, check that it works on mobile, loads fast, has its SEO basics in place, that forms and links work, analytics is set up, and that you can be found and contacted. Run this checklist and you avoid the mistakes that cost enquiries on day one.')),
@@ -208,9 +208,9 @@ await post({
 });
 
 await post({
-  slug: 'email-marketing-for-small-businesses', title: 'Email marketing for independent businesses: where to start',
-  excerpt: 'Email is the cheapest, most reliable way to bring customers back. Here is how an independent business starts email marketing without overcomplicating it.',
-  metaDescription: 'Email marketing for independent businesses: how to start, what to send, and why it beats social media for repeat custom. From russle, a Cheshire studio.',
+  slug: 'email-marketing-for-small-businesses', title: 'Email marketing for small businesses: where to start',
+  excerpt: 'Email is the cheapest, most reliable way to bring customers back. Here is how a small business starts email marketing without overcomplicating it.',
+  metaDescription: 'Email marketing for small businesses: how to start, what to send, and why it beats social media for repeat custom. From russle, a UK web design and SEO studio.',
   date: '2026-07-08', category: guides.id, tags: ['email marketing', 'small business', 'marketing'],
   content: doc(
     p(t('To start email marketing, collect customer emails with permission, pick a simple tool, and send occasional useful emails that keep you front of mind. It is the cheapest way to bring customers back, and unlike social media, you own the list. Here is how to start without overcomplicating it.')),
@@ -221,7 +221,7 @@ await post({
     h('h2', 'What to avoid'),
     ul('Buying lists or adding people without consent.', 'Emailing too often or only ever selling.', 'Overcomplicating it before you have started.'),
     h('h2', 'Where we land'),
-    p(t('Email is part of our Grow retainer, because it is one of the most reliable ways to turn one-off customers into regulars. If you want help getting started, send us a line.')),
+    p(t('Email is part of our SEO retainer, because it is one of the most reliable ways to turn one-off customers into regulars. If you want help getting started, send us a line.')),
   ),
   faq: [
     { question: 'How do I start email marketing for a small business?', answer: 'Collect customer emails with permission through a simple sign-up, pick a basic email tool, and send occasional useful emails that keep you front of mind. Start simple and build from there.' },

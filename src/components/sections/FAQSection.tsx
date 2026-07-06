@@ -5,40 +5,40 @@ import { Reveal } from '@/components/animations/Reveal';
 
 const ITEMS: FAQItem[] = [
   {
-    q: 'How long does a launch take?',
+    q: 'How long does a build take?',
     a: 'As soon as 14 days when everything is ready, four to six weeks for most, depending on scope.',
   },
   {
     q: 'Why not just use a Squarespace template?',
-    a: "Templates are free, and every competitor can buy the same one. Your brand becomes interchangeable. We build something only you have, on a setup you actually own. No monthly subscription to a website builder, no per-sale fees.",
+    a: 'Templates are free, and every competitor can buy the same one. We build something only you have, on a setup you actually own. No monthly subscription to a website builder, no per-sale fees.',
   },
   {
     q: 'Why not just use a full-service agency?',
-    a: "You can, and for some businesses that is the right call. The difference is what you get: with russle you work with the senior people doing the work, not an account manager relaying messages to juniors. Brand, build, and growth sit in one team, so nothing gets lost in the handoffs that make agencies slow.",
+    a: 'You can, and for some businesses that is the right call. With russle you work with the senior people doing the work, not an account manager relaying messages to juniors. Design, build, and SEO sit in one team, so nothing gets lost in the handoffs that make agencies slow.',
   },
   {
-    q: 'What if I already have a brand?',
-    a: "Fine. Book just the website portion à la carte. See services for the breakdown.",
+    q: 'Do I need a brand first?',
+    a: 'No. If you have a logo and colours we build around them. If you do not, we keep it clean and simple, and we can create an identity as part of the project if you want one.',
   },
   {
     q: 'Will you write my content?',
-    a: 'Writing, photography direction, and social content sit in the Manage tier, or on top of any launch à la carte. If you bring your own words and photos, the base launch covers the rest.',
+    a: 'Yes, writing and content sit inside the SEO work, or on top of any build. If you bring your own words and photos, the build covers the rest.',
   },
   {
-    q: 'What does Grow actually cover?',
-    a: "Site updates and design tweaks, search visibility (showing up on Google), email marketing (welcome flows, customer follow-ups, promotions), local search (Google Business Profile, listings, reviews), and a monthly report in plain English. It's the marketing that turns a website into a working sales channel.",
+    q: 'What does the SEO retainer cover?',
+    a: 'Technical SEO, content, rankings and reporting, AI search visibility, and keeping the site healthy month to month. It is the work that turns a website into a channel that brings customers in.',
   },
   {
     q: "What if I'm not sure exactly what I need yet?",
-    a: "That's what start is for. The eight questions take five minutes and surface the scope by asking the right things, even if you don't know where you'll land.",
+    a: 'That is what start is for. A few short questions surface the scope by asking the right things, even if you do not know where you will land.',
   },
   {
     q: 'Where are you based, and who am I working with?',
-    a: "russle is an independent UK agency. You work directly with the team that designs and builds your project, not an account manager and a junior.",
+    a: 'russle is an independent UK studio. You work directly with the people who design and build your project, not an account manager and a junior.',
   },
   {
     q: 'Can we talk before I fill in the form?',
-    a: "Yes. There's a quiet booking link on the contact page. Most clients find the intake form a faster way in, but talking first is fine if you'd prefer.",
+    a: 'Yes. There is a quiet booking link on the contact page. Most clients find the intake form a faster way in, but talking first is fine if you would prefer.',
   },
 ];
 

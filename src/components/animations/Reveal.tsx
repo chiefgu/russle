@@ -29,7 +29,7 @@ export function Reveal({ children, delay = 0, className, as = 'div' }: RevealPro
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true, amount: 0.01 }}
       transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
       variants={variants}
     >
@@ -52,7 +52,7 @@ export function Stagger({ children, className, staggerDelay = 0.08 }: StaggerPro
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true, amount: 0.01 }}
       variants={{
         hidden: { opacity: reducedMotion ? 1 : 0 },
         visible: {

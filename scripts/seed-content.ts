@@ -108,8 +108,8 @@ async function upsertPost(input: {
   }
 }
 
-const guides = await upsertCategory('guides', 'Guides', 'Practical guides on brand, websites, and growth for independent businesses.');
-const local = await upsertCategory('local-notes', 'Local notes', 'Notes for businesses building in Cheshire and South Manchester.');
+const guides = await upsertCategory('guides', 'Guides', 'Practical guides on brand, websites, and growth for ambitious businesses.');
+const local = await upsertCategory('local-notes', 'Local notes', 'Notes for businesses building an online presence across the UK.');
 
 // ---- Post 1 ----
 await upsertPost({
@@ -118,7 +118,7 @@ await upsertPost({
   excerpt:
     'A clear, honest breakdown of what a small business website costs in 2026, what moves the price, and where the money actually goes.',
   metaDescription:
-    'What a small business website costs in 2026, what changes the price, and where the budget goes. An honest guide from russle, a Cheshire studio.',
+    'What a small business website costs in 2026, what changes the price, and where the budget goes. An honest guide from russle, a UK web design and SEO studio.',
   publishedAt: '2026-06-02T09:00:00.000Z',
   category: guides.id,
   tags: ['website cost', 'small business', 'pricing'],
@@ -127,13 +127,13 @@ await upsertPost({
     h('h2', 'What you are actually paying for'),
     p(t('A website price is rarely about the number of pages. Most of the cost sits in the thinking before the build: the positioning, the structure, the words, and the design decisions that make a visitor trust you in the first few seconds. The build itself is the easy part once that groundwork is done.')),
     h('h2', 'Typical ranges'),
-    p(t('As a rough guide for an independent business in 2026:')),
+    p(t('As a rough guide for a small business in 2026:')),
     ul([
       'Template site, light setup: a few hundred pounds, fast, but it looks like everyone else.',
       'Custom small business site, properly structured for search and enquiries: low thousands.',
       'Brand and website together, built as one system: from around two thousand pounds upward, depending on scope.',
     ]),
-    p(t('At russle, a Launch project starts at 1,995 pounds and includes the brand groundwork, not just the pages.')),
+    p(t('At russle, every project includes the brand groundwork as standard, not just the pages. Send us a line and we will scope it and come back with a straight quote.')),
     h('h2', 'What pushes the price up'),
     ul([
       'Custom brand work rather than an off-the-shelf look.',
@@ -150,11 +150,11 @@ await upsertPost({
 // ---- Post 2 ----
 await upsertPost({
   slug: 'brand-or-logo-what-you-need',
-  title: 'Brand or logo: what independent businesses actually need',
+  title: 'Brand or logo: what small businesses actually need',
   excerpt:
-    'A logo is one small part of a brand. Here is what the difference means in practice, and what to invest in first.',
+    'A logo is one small part of a brand. Here is what the difference means in real terms, and what to invest in first.',
   metaDescription:
-    'The difference between a brand and a logo, and what an independent business should invest in first. A plain-English guide from russle.',
+    'The difference between a brand and a logo, and what a small business should invest in first. A plain-English guide from russle.',
   publishedAt: '2026-06-03T09:00:00.000Z',
   category: guides.id,
   tags: ['branding', 'logo', 'brand identity'],
@@ -180,20 +180,20 @@ await upsertPost({
 // ---- Post 3 ----
 await upsertPost({
   slug: 'local-seo-cheshire-south-manchester',
-  title: 'Local SEO in Cheshire and South Manchester: where to start',
+  title: 'Local SEO for small businesses: where to start',
   excerpt:
-    'If you run a business in Cheshire or South Manchester, here is a practical starting point for getting found in local search.',
+    'If you run a business that depends on local customers, here is a practical starting point for getting found in local search.',
   metaDescription:
-    'A practical local SEO starting guide for businesses in Cheshire and South Manchester, from russle. Google Business Profile, on-page signals, and reviews.',
+    'A practical local SEO starting guide for small businesses, from russle. Google Business Profile, on-page signals, and reviews.',
   publishedAt: '2026-06-04T09:00:00.000Z',
   category: local.id,
-  tags: ['local seo', 'cheshire', 'south manchester'],
+  tags: ['local seo'],
   content: doc(
-    p(t('Most independent businesses do not need to rank across the whole country. They need to be found by people nearby who are ready to buy. That is local SEO, and a few fundamentals get you most of the way there.')),
+    p(t('Most small businesses do not need to rank across the whole country. They need to be found by people nearby who are ready to buy. That is local SEO, and a few fundamentals get you most of the way there.')),
     h('h2', 'Start with your Google Business Profile'),
     p(t('For local search, your Google Business Profile does more heavy lifting than your website. Claim it, fill in every field, pick the right categories, add real photos, and keep your opening hours accurate. This is the single highest-return hour you can spend.')),
     h('h2', 'Make your location obvious on the site'),
-    p(t('Search engines and visitors both want to know where you are and who you serve. Name the towns you work in, in your own words, on pages that matter. A studio serving Alderley Edge, Wilmslow, Hale, and Knutsford should say so clearly rather than hiding it in a footer.')),
+    p(t('Search engines and visitors both want to know where you are and who you serve. Name the towns you work in, in your own words, on pages that matter. A business serving several nearby towns should say so clearly rather than hiding it in a footer.')),
     ul([
       'A clear, human description of the area you cover.',
       'Town or service pages where they genuinely add value, not thin doorway pages.',
@@ -203,7 +203,7 @@ await upsertPost({
     p(t('Reviews are one of the strongest local signals and the easiest to influence. Ask happy customers at the right moment, make it a one-tap link, and reply to every review you get. It tells Google you are active and tells the next customer you care.')),
     h('h2', 'Publish content that answers real questions'),
     p(t('The questions your customers ask are the searches you want to win. A short, useful article that answers one of them, written plainly, will quietly bring in the right people for years. This page is an example of exactly that.')),
-    p(t('We help businesses across Cheshire and South Manchester get found and turn that visibility into enquiries. If local search is where you are stuck, that is the kind of work we do every week.')),
+    p(t('We help businesses across the UK get found locally and turn that visibility into enquiries. If local search is where you are stuck, that is the kind of work we do every week.')),
   ),
 });
 

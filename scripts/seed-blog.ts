@@ -2,13 +2,13 @@
  * One-off local verification seed: creates a category + a published post via the
  * Payload Local API so we can smoke-test /journal end-to-end without the admin UI.
  * Run with: npx payload run scripts/seed-blog.ts
- * Safe to re-run — it upserts by slug. Uses top-level await so `payload run`
+ * Safe to re-run: it upserts by slug. Uses top-level await so `payload run`
  * awaits the work before exiting.
  */
 import { getPayload } from 'payload';
 import config from '@payload-config';
 
-// Dev seeder only — Payload's generated Lexical type uses strict string-literal
+// Dev seeder only. Payload's generated Lexical type uses strict string-literal
 // unions; typing this blob as `any` keeps the production build's type-check green
 // without hand-writing the full SerializedEditorState union.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,7 +30,7 @@ const lexical: any = {
         children: [
           {
             type: 'text',
-            text: 'Why local SEO matters for Cheshire studios',
+            text: 'Why local SEO matters for a national studio',
             version: 1,
             detail: 0,
             format: 0,

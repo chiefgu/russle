@@ -38,17 +38,17 @@ const PROJECT_TYPES = [
   'New brand and website',
   'New website only',
   'Website refresh',
-  'Ongoing marketing (Grow)',
+  'Ongoing marketing and SEO',
   'Online shop',
   'Not sure, want to chat',
 ];
 
 const BUDGET_RANGES = [
-  'Under £2,000',
-  '£2,000 to £5,000',
-  '£5,000 to £10,000',
-  '£10,000 to £25,000',
-  '£25,000+',
+  'Under 2,000',
+  '2,000 to 5,000',
+  '5,000 to 10,000',
+  '10,000 to 25,000',
+  '25,000+',
   'Not sure, advise me',
 ];
 

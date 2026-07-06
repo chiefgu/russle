@@ -14,7 +14,7 @@ const FAQS: Record<string, Entry> = {
   'small-business-website-cost-2026': {
     status: 'published',
     items: [
-      { question: 'How much does a small business website cost in the UK?', answer: 'It ranges from a few hundred pounds for a template to several thousand for a custom, brand-led build. At russle, a Launch project starts at 1,995 pounds and includes the brand groundwork, not just the pages.' },
+      { question: 'How much does a small business website cost in the UK?', answer: 'It ranges from a few hundred pounds for a template to several thousand for a custom, brand-led build. At russle, every project includes the brand groundwork as standard, not just the pages. Send us a line and we will scope it and come back with a straight quote.' },
       { question: 'Why do website prices vary so much?', answer: 'Most of the cost is the thinking before the build: positioning, structure, copy, and design. Custom brand work, e-commerce, and ongoing SEO push the price up; a simple template keeps it down.' },
       { question: 'Is a cheap website worth it?', answer: 'For testing an idea, yes. But a cheap site that no one finds or trusts costs you enquiries every month, which often makes it the most expensive option in the long run.' },
     ],

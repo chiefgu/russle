@@ -6,6 +6,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { PageviewTracker } from '@/components/layout/PageviewTracker';
+import { JsonLd } from '@/components/seo/JsonLd';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -24,22 +25,22 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'russle | Brand & growth agency',
+    default: 'russle | Web design, ecommerce & SEO',
     template: 'russle | %s',
   },
   description:
-    'russle is a brand & growth agency. Brand identity, websites, e-commerce, and the marketing and AI that grow them, for ambitious businesses across the UK.',
+    'russle is a web design, ecommerce and SEO studio. We build fast, custom websites and online stores for ambitious businesses across the UK, then run the SEO that gets them found.',
   keywords: [
-    'brand design',
     'web design',
+    'website design',
     'web development',
-    'logo design',
-    'e-commerce',
-    'local SEO',
-    'email marketing',
-    'AI',
-    'brand agency',
-    'growth agency',
+    'ecommerce',
+    'online store',
+    'SEO',
+    'search engine optimisation',
+    'technical SEO',
+    'AI search',
+    'GEO',
     'UK',
   ],
   authors: [{ name: 'russle' }],
@@ -49,16 +50,15 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     url: SITE_URL,
     siteName: 'russle',
-    title: 'russle | Brand & growth agency',
+    title: 'russle | Web design, ecommerce & SEO',
     description:
-      'russle is a brand & growth agency. Brand identity, websites, e-commerce, and the marketing and AI that grow them, for ambitious businesses across the UK.',
+      'A web design, ecommerce and SEO studio for ambitious businesses across the UK. Fast custom sites and stores, then the SEO that gets them found.',
     images: [{ url: '/og.png', width: 1200, height: 630, alt: 'russle' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'russle | Brand & growth agency',
-    description:
-      'russle is a brand & growth agency.',
+    title: 'russle | Web design, ecommerce & SEO',
+    description: 'A web design, ecommerce and SEO studio for ambitious businesses across the UK.',
     images: ['/og.png'],
   },
   robots: { index: true, follow: true },
@@ -76,6 +76,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={GeistMono.variable}>
       <body>
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'russle',
+            url: SITE_URL,
+            description:
+              'A web design, ecommerce and SEO studio for ambitious businesses across the UK.',
+            email: 'hello@russle.co.uk',
+            areaServed: 'GB',
+            logo: `${SITE_URL}/og.png`,
+            sameAs: ['https://instagram.com/russleuk'],
+          }}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-[var(--color-text)] focus:px-4 focus:py-2 focus:text-[var(--color-bg)]"

@@ -57,7 +57,7 @@ async function upsertPost(input: {
   else { await payload.create({ collection: 'posts', data }); console.log(status === 'draft' ? 'Drafted:' : 'Published:', input.slug); }
 }
 
-const guides = await upsertCategory('guides', 'Guides', 'Practical guides on brand, websites, and growth for independent businesses.');
+const guides = await upsertCategory('guides', 'Guides', 'Practical guides on brand, websites, and growth for ambitious businesses.');
 const comparisons = await upsertCategory('comparisons', 'Comparisons', 'Honest comparisons to help you choose how to build.');
 
 // ---- Post 1: enquiries ----
@@ -65,7 +65,7 @@ await upsertPost({
   slug: 'website-not-getting-enquiries',
   title: "Why your website isn't getting enquiries (and how to fix it)",
   excerpt: 'A good-looking website that brings in nothing is more common than you would think. Here are the usual reasons, and how to turn visits into enquiries.',
-  metaDescription: 'Your website looks fine but no one enquires? The common reasons a small business site fails to convert, and how to fix them. From russle, a Cheshire studio.',
+  metaDescription: 'Your website looks fine but no one enquires? The common reasons a small business site fails to convert, and how to fix them. From russle, a UK web design and SEO studio.',
   publishedAt: '2026-06-08T10:00:00.000Z',
   category: guides.id,
   tags: ['conversion', 'website', 'enquiries'],
@@ -95,7 +95,7 @@ await upsertPost({
   slug: 'wix-vs-wordpress-vs-custom',
   title: 'Wix vs WordPress vs a custom website: which should you choose?',
   excerpt: 'Three common ways to build a small business website, and the honest trade-offs of each, so you can pick the one that fits where your business is heading.',
-  metaDescription: 'Wix vs WordPress vs a custom website: an honest comparison of cost, control, speed, and SEO for small businesses. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'Wix vs WordPress vs a custom website: an honest comparison of cost, control, speed, and SEO for small businesses. From russle, a UK web design and SEO studio.',
   publishedAt: '2026-06-11T10:00:00.000Z',
   status: 'draft',
   category: comparisons.id,
@@ -153,7 +153,7 @@ await upsertPost({
     p(t('Most websites are assembled. You pick a template, drop in your logo and some copy, and arrange the pages. A brand-led website is built the other way around. It starts from who you are, what you stand for, and who you are for, and every design and copy decision flows from that. The result looks and reads like one coherent thing rather than a tidy template with your name on it.')),
     h('h2', 'What "brand-led" actually means'),
     p(t('A brand is more than a logo. It is the whole impression: the colours, the type, the tone of voice, the photography, the way the site carries someone from a first glance to a decision. A brand-led website treats all of that as the starting point, not decoration added at the end.')),
-    p(t('In practice that means:')),
+    p(t('In real terms that means:')),
     ul(
       'The design comes from your brand, so you look like no one else.',
       'The words sound like you, consistently, from the homepage to the contact form.',

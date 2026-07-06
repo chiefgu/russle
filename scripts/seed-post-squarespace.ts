@@ -90,7 +90,7 @@ const data = {
   tags: ['squarespace', 'custom website', 'web design'],
   meta: {
     title: 'Squarespace vs a custom website: which is right for your business? | russle',
-    description: 'Squarespace vs a custom website for a small business: an honest comparison of cost, speed, SEO, and control, from russle, a Cheshire brand and web studio.',
+    description: 'Squarespace vs a custom website for a small business: an honest comparison of cost, speed, SEO, and control, from russle, a UK web design and SEO studio.',
   },
   _status: 'published' as const,
 };

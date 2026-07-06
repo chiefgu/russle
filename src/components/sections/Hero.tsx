@@ -1,27 +1,27 @@
 import Link from 'next/link';
-import { ArrowUpRight, Sparkles, TrendingUp, Users } from 'lucide-react';
+import { ArrowUpRight, Layout, ShoppingBag, Search } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/Button';
 import { Section } from '@/components/layout/Section';
 import { Reveal } from '@/components/animations/Reveal';
 
-const PRICE_CARDS = [
+const SERVICE_CARDS = [
   {
-    icon: Sparkles,
-    label: 'Launch',
-    detail: 'A new brand and website, built and shipped together.',
-    href: '/launch',
+    icon: Layout,
+    label: 'Web Design',
+    detail: 'Fast, custom websites built from scratch to convert.',
+    href: '/web-design',
   },
   {
-    icon: TrendingUp,
-    label: 'Grow',
-    detail: 'The growth engine: search, content, email, and AI, run every month.',
-    href: '/grow',
+    icon: ShoppingBag,
+    label: 'Ecommerce',
+    detail: 'Online stores on a platform you own, no marketplace cut.',
+    href: '/ecommerce',
   },
   {
-    icon: Users,
-    label: 'Manage',
-    detail: 'A full team running brand, marketing, and growth alongside you.',
-    href: '/manage',
+    icon: Search,
+    label: 'SEO',
+    detail: 'The organic and AI search work that gets you found.',
+    href: '/seo',
   },
 ];
 
@@ -36,21 +36,21 @@ export function Hero() {
       <div className="mx-auto w-full max-w-5xl">
         <Reveal>
           <h1 className="h1 text-balance text-[var(--color-text)]">
-            A brand, a website, and the growth that scales it.
+            Websites, online stores, and the SEO that gets them found.
           </h1>
         </Reveal>
 
         <Reveal delay={0.15}>
           <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-            One team for the brand, the product, and the growth behind it. We
-            design how you look, build what you sell on, and run the marketing
-            and AI that turn it into revenue.
+            russle is a web design, ecommerce and SEO studio. We build fast,
+            custom sites and stores for ambitious businesses, then run the SEO
+            that keeps customers coming.
           </p>
         </Reveal>
 
         <Reveal delay={0.25}>
           <div className="mt-12 grid gap-5 sm:grid-cols-3">
-            {PRICE_CARDS.map((card) => {
+            {SERVICE_CARDS.map((card) => {
               const Icon = card.icon;
               return (
                 <Link

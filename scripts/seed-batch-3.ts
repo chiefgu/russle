@@ -57,7 +57,7 @@ await upsertPost({
   slug: 'shopify-vs-custom-storefront',
   title: 'Shopify vs a custom storefront: which is right for your shop?',
   excerpt: 'Shopify is the fastest way to start selling online. A custom storefront gives you control and a brand that stands out. Here is how to choose.',
-  metaDescription: 'Shopify vs a custom storefront for a small shop: an honest comparison of cost, control, brand, and growth. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'Shopify vs a custom storefront for a small shop: an honest comparison of cost, control, brand, and growth. From russle, a UK web design and SEO studio.',
   publishedAt: '2026-06-09T10:00:00.000Z',
   category: comparisons.id, tags: ['shopify', 'ecommerce', 'custom storefront'],
   content: doc(
@@ -87,7 +87,7 @@ await upsertPost({
   slug: 'squarespace-alternatives',
   title: 'Squarespace alternatives for a growing business',
   excerpt: 'Outgrown Squarespace, or want more control from the start? Here are the realistic alternatives, from other builders to a custom build, and who each suits.',
-  metaDescription: 'The best Squarespace alternatives for a growing small business: Wix, WordPress, Webflow, Shopify, and custom builds compared. From russle, a Cheshire studio.',
+  metaDescription: 'The best Squarespace alternatives for a growing small business: Wix, WordPress, Webflow, Shopify, and custom builds compared. From russle, a UK web design and SEO studio.',
   publishedAt: '2026-06-10T10:00:00.000Z',
   category: comparisons.id, tags: ['squarespace alternatives', 'website builder', 'comparison'],
   content: doc(
@@ -118,7 +118,7 @@ await upsertPost({
   slug: 'webflow-vs-wordpress',
   title: 'Webflow vs WordPress for a small business',
   excerpt: 'Webflow and WordPress both build serious websites in very different ways. Here is the honest comparison for a small business deciding between them.',
-  metaDescription: 'Webflow vs WordPress for a small business: design freedom, maintenance, SEO, and cost compared honestly. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'Webflow vs WordPress for a small business: design freedom, maintenance, SEO, and cost compared honestly. From russle, a UK web design and SEO studio.',
   publishedAt: '2026-06-12T10:00:00.000Z',
   category: comparisons.id, tags: ['webflow', 'wordpress', 'comparison'],
   content: doc(
@@ -146,7 +146,7 @@ await upsertPost({
   slug: 'template-vs-custom-website',
   title: 'Template vs custom website: the real difference',
   excerpt: 'A template gets you online fast and cheap. A custom site is built around your business. Here is what the difference actually means for results.',
-  metaDescription: 'Template vs custom website: the real difference in brand, performance, SEO, and results for a small business. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'Template vs custom website: the real difference in brand, performance, SEO, and results for a small business. From russle, a UK web design and SEO studio.',
   publishedAt: '2026-06-13T10:00:00.000Z',
   category: comparisons.id, tags: ['template website', 'custom website', 'comparison'],
   content: doc(
@@ -176,7 +176,7 @@ await upsertPost({
   slug: 'wix-alternatives',
   title: 'Wix alternatives worth considering in 2026',
   excerpt: 'If Wix feels limiting or you want something more distinctive, here are the realistic alternatives for a small business, and who each one suits.',
-  metaDescription: 'The best Wix alternatives for a small business in 2026: Squarespace, WordPress, Webflow, Shopify, and custom builds compared. From russle, a Cheshire studio.',
+  metaDescription: 'The best Wix alternatives for a small business in 2026: Squarespace, WordPress, Webflow, Shopify, and custom builds compared. From russle, a UK web design and SEO studio.',
   publishedAt: '2026-06-15T10:00:00.000Z',
   category: comparisons.id, tags: ['wix alternatives', 'website builder', 'comparison'],
   content: doc(

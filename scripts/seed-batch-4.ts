@@ -35,14 +35,14 @@ async function post(input: { slug: string; title: string; excerpt: string; date:
   else { await payload.create({ collection: 'posts', data }); console.log('Created:', input.slug); }
 }
 
-const guides = await cat('guides', 'Guides', 'Practical guides on brand, websites, and growth for independent businesses.');
+const guides = await cat('guides', 'Guides', 'Practical guides on brand, websites, and growth for ambitious businesses.');
 const comparisons = await cat('comparisons', 'Comparisons', 'Honest comparisons to help you choose how to build.');
-const local = await cat('local-notes', 'Local notes', 'Notes for businesses building in Cheshire and South Manchester.');
+const local = await cat('local-notes', 'Local notes', 'Notes for businesses building an online presence across the UK.');
 
 await post({
   slug: 'get-found-in-ai-search', title: 'How to get found in AI search (ChatGPT and Google AI Overviews)',
   excerpt: 'Search is shifting from blue links to AI answers. Here is how a small business gets mentioned by ChatGPT, Google AI Overviews, and the rest.',
-  metaDescription: 'How to get your small business found in AI search: ChatGPT, Google AI Overviews, and Perplexity. Practical steps from russle, a Cheshire brand and web studio.',
+  metaDescription: 'How to get your small business found in AI search: ChatGPT, Google AI Overviews, and Perplexity. Practical steps from russle, a UK web design and SEO studio.',
   date: '2026-06-16', category: guides.id, tags: ['ai search', 'seo', 'geo'],
   content: doc(
     p(t('To get found in AI search you need content that is clear, trustworthy, and easy for a machine to quote: plain answers to real questions, a named human author, structured data, and a consistent presence across the web. The same things that build trust with people build trust with AI.')),
@@ -65,10 +65,10 @@ await post({
 await post({
   slug: 'branding-cost-small-business', title: 'How much does branding cost for a small business?',
   excerpt: 'Branding costs anywhere from nothing to many thousands. Here is what changes the price, what you actually get, and where the value sits.',
-  metaDescription: 'How much branding costs for a small business in 2026, what changes the price, and what you get for the money. An honest guide from russle, a Cheshire studio.',
+  metaDescription: 'How much branding costs for a small business in 2026, what changes the price, and what you get for the money. An honest guide from russle, a UK web design and SEO studio.',
   date: '2026-06-17', category: guides.id, tags: ['branding cost', 'brand identity', 'pricing'],
   content: doc(
-    p(t('Branding for a small business ranges from a cheap logo of a few pounds to a full brand identity of several thousand. What you pay for is not the logo, it is the strategy and system behind it. At russle, brand and website come together from 1,995 pounds.')),
+    p(t('Branding for a small business ranges from a cheap logo of a few pounds to a full brand identity of several thousand. What you pay for is not the logo, it is the strategy and system behind it. At russle, brand and website come together as one project. Send us a line and we will scope it and come back with a straight quote.')),
     h('h2', 'What you are paying for'),
     p(t('A logo is the cheap part. The cost of branding is the thinking: who you are for, why you are the obvious choice, and a system of colour, type, voice, and imagery that holds together everywhere. That groundwork is what makes a brand work, and what takes the time.')),
     h('h2', 'Typical ranges'),
@@ -109,7 +109,7 @@ await post({
 await post({
   slug: 'framer-vs-webflow-vs-custom', title: 'Framer vs Webflow vs a custom website',
   excerpt: 'Framer and Webflow are the two leading design-led website tools. Here is how they compare with each other and with a custom build.',
-  metaDescription: 'Framer vs Webflow vs a custom website: design control, speed, SEO, and cost compared for a small business. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'Framer vs Webflow vs a custom website: design control, speed, SEO, and cost compared for a small business. From russle, a UK web design and SEO studio.',
   date: '2026-06-19', category: comparisons.id, tags: ['framer', 'webflow', 'custom website'],
   content: doc(
     p(t('Framer is the fastest way to design and ship a good-looking site, Webflow gives more structure and control for content-heavy sites, and a custom build gives you everything with no platform ceiling. The right one depends on complexity and how far you are growing.')),
@@ -134,7 +134,7 @@ await post({
 await post({
   slug: 'why-website-speed-matters', title: 'Why website speed matters (and how to tell if yours is too slow)',
   excerpt: 'A slow website loses customers and rankings before anyone reads a word. Here is why speed matters and how to check yours in minutes.',
-  metaDescription: 'Why website speed matters for SEO and conversions, and how to check if your site is too slow. A plain-English guide from russle, a Cheshire web studio.',
+  metaDescription: 'Why website speed matters for SEO and conversions, and how to check if your site is too slow. A plain-English guide from russle, a UK web design and SEO studio.',
   date: '2026-06-20', category: guides.id, tags: ['website speed', 'core web vitals', 'performance'],
   content: doc(
     p(t('Website speed matters because slow sites lose visitors and rank lower. People leave pages that take more than a few seconds to load, and Google uses speed as a ranking factor. You can check yours for free in a couple of minutes.')),
@@ -185,7 +185,7 @@ await post({
   content: doc(
     p(t('The best way to get more Google reviews is to ask happy customers at the right moment, make it a one-tap link, and reply to every review you get. Reviews build trust and are one of the strongest local search signals, so they are worth the effort.')),
     h('h2', 'Why reviews matter so much'),
-    ul(lead('Trust.', ' Most people read reviews before choosing a local business. Strong, recent reviews win the click.'), lead('Local ranking.', ' The number, quality, and freshness of your reviews influence where you appear in local search and the map results.'), lead('Free and compounding.', ' Unlike ads, reviews keep working, and they build over time.')),
+    ul(lead('Trust.', ' Most people read reviews before choosing a local business. Strong, recent reviews win the click.'), lead('Local ranking.', ' The number, quality, and freshness of your reviews influence where you appear in local search and the map results.'), lead('Free and compounding.', ' Unlike paid advertising, reviews keep working, and they build over time.')),
     h('h2', 'How to get more, the right way'),
     ul(lead('Ask at the right moment.', ' Just after a good experience, when the customer is happiest.'), lead('Make it one tap.', ' Share your Google review link directly, so there is no hunting for where to leave it.'), lead('Ask in person and follow up.', ' A quick personal ask, backed by a text or email with the link, works best.'), lead('Reply to every review.', ' Thank the good ones and respond calmly to the rest. It shows you care and signals an active business.')),
     h('h2', 'What not to do'),

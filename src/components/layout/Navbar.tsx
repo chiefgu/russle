@@ -11,46 +11,24 @@ import { cn } from '@/lib/cn';
 
 const WHATSAPP_HREF = 'https://wa.me/447377902508';
 
-type MegaKind = 'services' | 'work';
+type MegaKind = 'work';
 
-type NavLink = {
-  label: string;
-  href: string;
-  mega?: MegaKind;
-};
+type NavLink = { label: string; href: string; mega?: MegaKind };
 
 const NAV_LINKS: NavLink[] = [
+  { label: 'Web Design', href: '/web-design' },
+  { label: 'Ecommerce', href: '/ecommerce' },
+  { label: 'SEO', href: '/seo' },
   { label: 'Work', href: '/work', mega: 'work' },
-  { label: 'Services', href: '/services', mega: 'services' },
   { label: 'About', href: '/about' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
-];
-
-const TIERS = [
-  {
-    name: 'Launch',
-    href: '/launch',
-    blurb: 'A new brand and website, built together.',
-  },
-  {
-    name: 'Grow',
-    href: '/grow',
-    blurb: 'We run the growth every month.',
-  },
-  {
-    name: 'Manage',
-    href: '/manage',
-    blurb: 'A team running brand, marketing, and growth.',
-  },
 ];
 
 const CASE_STUDIES = [
-  { slug: 'loop', title: 'Loop', sector: 'Community platform' },
-  { slug: 'mums-granola', title: "Mum's Granola", sector: 'Brand + headless commerce' },
-  { slug: 'bethbakescakes', title: 'Beth Bakes Cakes', sector: 'Brand + custom storefront' },
-  { slug: 'racing-life', title: 'Racing Life', sector: 'Sports media platform' },
-  { slug: 'berry-boys', title: 'Berry Boys', sector: 'Brand + multi-store site' },
+  { slug: 'loop', title: 'Loop', sector: 'Web design + referral engine' },
+  { slug: 'mums-granola', title: "Mum's Granola", sector: 'Ecommerce · headless commerce' },
+  { slug: 'bethbakescakes', title: 'Beth Bakes Cakes', sector: 'Ecommerce · custom storefront' },
+  { slug: 'racing-life', title: 'Racing Life', sector: 'Web design · media platform' },
+  { slug: 'berry-boys', title: 'Berry Boys', sector: 'Ecommerce · multi-store site' },
 ];
 
 export function Navbar() {
@@ -203,7 +181,7 @@ export function Navbar() {
           onMouseLeave={scheduleClose}
         >
           <div className="mx-auto max-w-[1800px] px-4 py-10 sm:px-6 md:px-8">
-            {openMega === 'services' ? <ServicesMega /> : <WorkMega />}
+            <WorkMega />
           </div>
         </div>
       )}
@@ -212,26 +190,14 @@ export function Navbar() {
       {open && (
         <div className="border-t border-[var(--color-line)] bg-[var(--color-bg)] md:hidden">
           <nav className="flex flex-col gap-2 px-4 py-8 sm:px-6">
+            <Link href="/web-design" className="h2 py-2 text-[var(--color-text)]">Web Design</Link>
+            <Link href="/ecommerce" className="h2 py-2 text-[var(--color-text)]">Ecommerce</Link>
+            <Link href="/seo" className="h2 py-2 text-[var(--color-text)]">SEO</Link>
             <Link href="/work" className="h2 py-2 text-[var(--color-text)]">Work</Link>
-            <Link href="/services" className="h2 py-2 text-[var(--color-text)]">Services</Link>
-            <div className="ml-4 mb-2 flex flex-col gap-2 border-l border-[var(--color-line)] pl-4">
-              {TIERS.map((tier) => (
-                <Link
-                  key={tier.href}
-                  href={tier.href}
-                  className="label py-1 text-[var(--color-text-mute)] hover:text-[var(--color-text)]"
-                >
-                  {tier.name}
-                </Link>
-              ))}
-            </div>
             <Link href="/about" className="h2 py-2 text-[var(--color-text)]">About</Link>
-            <Link href="/blog" className="h2 py-2 text-[var(--color-text)]">Blog</Link>
             <Link href="/contact" className="h2 py-2 text-[var(--color-text)]">Contact</Link>
             <div className="mt-6 flex flex-col gap-3">
-              <ButtonLink href="/start" variant="primary" size="lg">
-                Start a project
-              </ButtonLink>
+              <ButtonLink href="/start" variant="primary" size="lg">Start a project</ButtonLink>
               <a
                 href={WHATSAPP_HREF}
                 target="_blank"
@@ -246,70 +212,6 @@ export function Navbar() {
         </div>
       )}
     </header>
-  );
-}
-
-function ServicesMega() {
-  return (
-    <div className="grid gap-12 md:grid-cols-12">
-      <div className="md:col-span-8">
-        <p className="label text-[var(--color-text-soft)]">Three tiers</p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {TIERS.map((tier) => (
-            <Link
-              key={tier.href}
-              href={tier.href}
-              className="group block rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-6 transition-all hover:border-[var(--color-accent)] hover:bg-[var(--color-surface)]"
-            >
-              <div className="flex items-start justify-between">
-                <h3 className="h5 text-[var(--color-text)]">{tier.name}</h3>
-                <ArrowUpRight className="h-4 w-4 text-[var(--color-text-soft)] transition-colors group-hover:text-[var(--color-accent)]" />
-              </div>
-              <p className="text-body mt-4 text-[var(--color-text-mute)]">{tier.blurb}</p>
-            </Link>
-          ))}
-        </div>
-      </div>
-      <div className="md:col-span-4 md:border-l md:border-[var(--color-line)] md:pl-8">
-        <p className="label text-[var(--color-text-soft)]">Compare</p>
-        <Link
-          href="/services"
-          className="group mt-6 flex items-start justify-between gap-3 text-[var(--color-text)]"
-        >
-          <div>
-            <p className="h6">See all three side by side</p>
-            <p className="text-small mt-2 text-[var(--color-text-mute)]">
-              Full comparison table at /services
-            </p>
-          </div>
-          <ArrowUpRight className="mt-1 h-4 w-4 text-[var(--color-text-soft)] transition-colors group-hover:text-[var(--color-accent)]" />
-        </Link>
-        <Link
-          href="/start"
-          className="group mt-6 flex items-start justify-between gap-3 text-[var(--color-text)]"
-        >
-          <div>
-            <p className="h6">Get a quote</p>
-            <p className="text-small mt-2 text-[var(--color-text-mute)]">
-              Quick or detailed brief, your call
-            </p>
-          </div>
-          <ArrowUpRight className="mt-1 h-4 w-4 text-[var(--color-text-soft)] transition-colors group-hover:text-[var(--color-accent)]" />
-        </Link>
-        <Link
-          href="/conversion"
-          className="group mt-6 flex items-start justify-between gap-3 text-[var(--color-text)]"
-        >
-          <div>
-            <p className="h6">Make your site convert</p>
-            <p className="text-small mt-2 text-[var(--color-text-mute)]">
-              Turn more visitors into customers
-            </p>
-          </div>
-          <ArrowUpRight className="mt-1 h-4 w-4 text-[var(--color-text-soft)] transition-colors group-hover:text-[var(--color-accent)]" />
-        </Link>
-      </div>
-    </div>
   );
 }
 
