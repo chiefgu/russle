@@ -31,3 +31,10 @@ describe('ecommerce vignette + Shopify positioning', () => {
     expect(readFileSync(file, 'utf8')).toMatch(/custom Shopify storefront/);
   });
 });
+
+describe('seo vignette', () => {
+  const file = path.join(base, 'seo', 'page.tsx');
+  it('seo/page.tsx renders SeoVignette', () => {
+    expect(readFileSync(file, 'utf8')).toMatch(/SeoVignette/);
+  });
+});

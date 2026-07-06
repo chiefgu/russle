@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ServicePage, type ServicePageData } from '@/components/sections/ServicePage';
+import { SeoVignette } from '@/components/sections/SeoVignette';
 
 const data: ServicePageData = {
   slug: 'seo',
@@ -43,5 +44,5 @@ const data: ServicePageData = {
 export const metadata: Metadata = { title: data.metaTitle, description: data.metaDescription };
 
 export default function SeoPage() {
-  return <ServicePage data={data} />;
+  return <ServicePage data={data} visual={<SeoVignette />} />;
 }
