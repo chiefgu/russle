@@ -34,13 +34,13 @@ async function post(input: { slug: string; title: string; excerpt: string; date:
   else { await payload.create({ collection: 'posts', data }); console.log('Created:', input.slug); }
 }
 
-const guides = await cat('guides', 'Guides', 'Practical guides on brand, websites, and growth for independent businesses.');
+const guides = await cat('guides', 'Guides', 'Practical guides on brand, websites, and growth for ambitious businesses.');
 const comparisons = await cat('comparisons', 'Comparisons', 'Honest comparisons to help you choose how to build.');
 
 await post({
   slug: 'freelancer-vs-agency-vs-studio', title: 'Freelancer vs agency vs studio: who should build your website?',
   excerpt: 'Freelancer, agency, or studio? Each builds websites differently, at different prices and risks. Here is who suits which kind of business.',
-  metaDescription: 'Freelancer vs agency vs studio for your website: cost, quality, risk, and who suits each. An honest guide from russle, a Cheshire brand and web studio.',
+  metaDescription: 'Freelancer vs agency vs studio for your website: cost, quality, risk, and who suits each. An honest guide from russle, a UK web design and SEO studio.',
   date: '2026-06-23', category: comparisons.id, tags: ['freelancer', 'agency', 'web design'],
   content: doc(
     p(t('The honest version: a freelancer is cheapest and most personal but a single point of failure, an agency is the most resourced but the most expensive and least personal, and a studio sits in between with senior people and a close relationship. The right choice depends on your budget and how much support you want.')),
@@ -53,7 +53,7 @@ await post({
     h('h2', 'How to choose'),
     ul(lead('Tight budget, simple site:', ' a trusted freelancer.'), lead('Large, complex, well-funded project:', ' an agency.'), lead('Senior, brand-led work and a close relationship:', ' a studio.')),
     h('h2', 'Where we land'),
-    p(t('russle is a studio, which is the sweet spot for most independent businesses: senior work, a direct relationship, brand and web together, without agency overheads. If that sounds right, send us a line.')),
+    p(t('russle is a studio, which is the sweet spot for most ambitious businesses: senior work, a direct relationship, brand and web together, without agency overheads. If that sounds right, send us a line.')),
   ),
   faq: [
     { question: 'Is it better to hire a freelancer or an agency for a website?', answer: 'A freelancer is cheaper and more personal but a single point of failure; an agency is more resourced but pricier and less personal. A studio sits in between. It depends on your budget and the project size.' },
@@ -65,7 +65,7 @@ await post({
 await post({
   slug: 'how-to-choose-a-web-designer', title: 'How to choose a web designer: questions to ask first',
   excerpt: 'Choosing a web designer is mostly about asking the right questions first. Here are the ones that save you from a disappointing, expensive mistake.',
-  metaDescription: 'How to choose a web designer: the key questions to ask about process, ownership, SEO, and results before you hire. From russle, a Cheshire web studio.',
+  metaDescription: 'How to choose a web designer: the key questions to ask about process, ownership, SEO, and results before you hire. From russle, a UK web design and SEO studio.',
   date: '2026-06-24', category: guides.id, tags: ['web designer', 'hiring', 'web design'],
   content: doc(
     p(t('To choose a web designer well, ask about their process, who owns the finished site, how they handle SEO and speed, what happens after launch, and to see results from similar businesses. The answers tell you far more than a portfolio of pretty pictures.')),
@@ -88,7 +88,7 @@ await post({
 await post({
   slug: 'godaddy-vs-hiring-a-designer', title: 'GoDaddy builder vs hiring a designer',
   excerpt: 'GoDaddy’s builder is quick and cheap. A designer costs more and delivers more. Here is honestly which one your business needs.',
-  metaDescription: 'GoDaddy website builder vs hiring a designer: cost, quality, SEO, and results compared for a small business. From russle, a Cheshire web studio.',
+  metaDescription: 'GoDaddy website builder vs hiring a designer: cost, quality, SEO, and results compared for a small business. From russle, a UK web design and SEO studio.',
   date: '2026-06-25', category: comparisons.id, tags: ['godaddy', 'web designer', 'comparison'],
   content: doc(
     p(t('GoDaddy’s website builder is the quickest, cheapest way to get a basic site online yourself. A designer costs more but delivers a distinctive, better-performing site built around your business. For anything more than a simple placeholder, a designer is usually the better investment.')),
@@ -113,10 +113,10 @@ await post({
 await post({
   slug: 'what-makes-a-good-website', title: 'What makes a good small business website in 2026',
   excerpt: 'A good small business website is clear, fast, trustworthy, and built to turn visitors into enquiries. Here is the checklist that actually matters.',
-  metaDescription: 'What makes a good small business website in 2026: clarity, speed, trust, SEO, and conversion. A practical checklist from russle, a Cheshire web studio.',
+  metaDescription: 'What makes a good small business website in 2026: clarity, speed, trust, SEO, and conversion. A practical checklist from russle, a UK web design and SEO studio.',
   date: '2026-06-26', category: guides.id, tags: ['website', 'web design', 'small business'],
   content: doc(
-    p(t('A good small business website is clear about what you do, fast to load, easy to trust, simple to act on, and findable in search. Get those five right and the design largely takes care of itself. Here is what each one means in practice.')),
+    p(t('A good small business website is clear about what you do, fast to load, easy to trust, simple to act on, and findable in search. Get those five right and the design largely takes care of itself. Here is what each one means in real terms.')),
     h('h2', 'Clear in five seconds'),
     p(t('A visitor should know what you do, who it is for, and what to do next within seconds of landing. Lead with a plain statement, not a clever line.')),
     h('h2', 'Fast'),
@@ -140,7 +140,7 @@ await post({
 await post({
   slug: 'cheap-website-vs-investment-website', title: 'Cheap website vs investment website: the honest difference',
   excerpt: 'A cheap website and an investment website both cost money. Only one tends to pay it back. Here is the honest difference.',
-  metaDescription: 'Cheap website vs an investment website: what each really costs, and which brings in work for a small business. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'Cheap website vs an investment website: what each really costs, and which brings in work for a small business. From russle, a UK web design and SEO studio.',
   date: '2026-06-27', category: comparisons.id, tags: ['website cost', 'investment', 'comparison'],
   content: doc(
     p(t('A cheap website saves you money up front but often costs you enquiries every month. An investment website costs more to build but is made to bring in work and pay itself back. The right choice depends on whether the site is a box to tick or a tool to grow.')),
@@ -164,7 +164,7 @@ await post({
 await post({
   slug: 'best-website-for-cafes-food-businesses', title: 'Best website platform for cafés and food businesses',
   excerpt: 'Cafés and food businesses have specific website needs: locations, menus, ordering, and a brand that looks as good as the food. Here is what works best.',
-  metaDescription: 'The best website platform for cafés and independent food businesses: locations, menus, ordering, and brand. A practical guide from russle, a Cheshire studio.',
+  metaDescription: 'The best website platform for cafés and small food businesses: locations, menus, ordering, and brand. A practical guide from russle, a UK web design and SEO studio.',
   date: '2026-06-28', category: comparisons.id, tags: ['cafe website', 'food business', 'best of'],
   content: doc(
     p(t('For most cafés and food businesses, a brand-led custom site or Squarespace handles the essentials best: clear locations and hours, an easy-to-update menu, and a look that matches the food. If you sell and ship products, add Shopify or a custom storefront. The right choice depends on whether you mainly serve in person or also sell online.')),
@@ -187,7 +187,7 @@ await post({
 await post({
   slug: 'rebrand-vs-refresh', title: 'Do you need a rebrand or a refresh?',
   excerpt: 'Not every tired brand needs a full rebrand. Here is how to tell whether you need a deep rebrand or just a refresh, and what each involves.',
-  metaDescription: 'Rebrand vs refresh: how to tell which your business needs, what each involves, and what it costs. An honest guide from russle, a Cheshire brand studio.',
+  metaDescription: 'Rebrand vs refresh: how to tell which your business needs, what each involves, and what it costs. An honest guide from russle, a UK web design and SEO studio.',
   date: '2026-06-29', category: guides.id, tags: ['rebrand', 'brand refresh', 'branding'],
   content: doc(
     p(t('You need a refresh if the brand still fits but looks dated, and a rebrand if the business has outgrown or changed what the brand stands for. A refresh updates the look; a rebrand rethinks the foundations. Most businesses need a refresh more often than a full rebrand.')),
@@ -212,7 +212,7 @@ await post({
 await post({
   slug: 'is-seo-worth-it-small-business', title: 'Is SEO worth it for a small business? An honest answer',
   excerpt: 'SEO takes time and money, so is it actually worth it for a small business? An honest answer, including when it is not.',
-  metaDescription: 'Is SEO worth it for a small business in 2026? An honest look at the costs, the payoff, and when to bother. From russle, a Cheshire brand and web studio.',
+  metaDescription: 'Is SEO worth it for a small business in 2026? An honest look at the costs, the payoff, and when to bother. From russle, a UK web design and SEO studio.',
   date: '2026-06-30', category: guides.id, tags: ['seo', 'small business', 'marketing'],
   content: doc(
     p(t('For most small businesses, yes, SEO is worth it, because it brings in customers who are already looking for what you sell, and it compounds over time unlike ads. It is worth it less if you need results this week or your customers never search for you. Here is the honest picture.')),

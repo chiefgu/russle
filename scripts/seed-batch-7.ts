@@ -39,7 +39,7 @@ const guides = await cat('guides', 'Guides', 'Practical guides on brand, website
 
 await post({
   slug: 'what-is-a-brand-and-growth-agency', title: 'What does a brand and growth agency actually do?',
-  excerpt: 'A brand and growth agency designs the brand, builds the website or store, and runs the marketing that scales it, all under one roof. Here is what that means in practice.',
+  excerpt: 'A brand and growth agency designs the brand, builds the website or store, and runs the marketing that scales it, all under one roof. Here is what that means in real terms.',
   metaDescription: 'What a brand and growth agency does: brand, website, e-commerce, SEO, email, and AI under one team. From russle, a brand and growth agency.',
   date: '2026-07-09', category: guides.id, tags: ['agency', 'brand', 'growth'],
   content: doc(
