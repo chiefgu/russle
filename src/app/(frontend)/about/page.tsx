@@ -50,7 +50,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.05}>
             <h1 className="h1 mt-6 text-balance">
-              An independent UK agency for brand, product, and the growth behind them.
+              An independent UK studio for web design, ecommerce, and the SEO that keeps them found.
             </h1>
           </Reveal>
         </div>
@@ -85,7 +85,7 @@ export default function AboutPage() {
             <Reveal delay={0.05}>
               <div className="text-big max-w-3xl space-y-6 text-[var(--color-text)]">
                 <p>
-                  russle is an independent UK agency. The work covers everything from designing the brand and building the website or store through to the growth that scales the business once it&apos;s live.
+                  russle is an independent UK studio. The work covers everything from designing and building the website or store through to the SEO that scales the business once it&apos;s live.
                 </p>
                 <p className="text-[var(--color-text-mute)]">
                   Clients are businesses that take their brand seriously and want one team to design it, build it, and grow it. The brand direction, the homepage design, the build, the launch, the growth work after you go live, all the same team.

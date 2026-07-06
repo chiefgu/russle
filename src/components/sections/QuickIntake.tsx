@@ -38,7 +38,7 @@ const PROJECT_TYPES = [
   'New brand and website',
   'New website only',
   'Website refresh',
-  'Ongoing marketing (Grow)',
+  'Ongoing marketing and SEO',
   'Online shop',
   'Not sure, want to chat',
 ];

@@ -175,7 +175,7 @@ await post({
     h('h2', 'How to choose'),
     ul(lead('Lots of ongoing work and the budget for a salary:', ' an in-house hire, ideally backed by outside specialists.'), lead('Want broad skills and senior help without the cost of a hire:', ' a growth retainer.')),
     h('h2', 'Where we land'),
-    p(t('Our Grow retainer is built exactly for this: brand, web, SEO, email, and local growth for a monthly fee, without hiring a whole team. If that fits where you are, send us a line.')),
+    p(t('Our SEO retainer is built exactly for this: brand, web, SEO, email, and local growth for a monthly fee, without hiring a whole team. If that fits where you are, send us a line.')),
   ),
   faq: [
     { question: 'Should I hire in-house or use a marketing retainer?', answer: 'In-house gives dedicated focus but is expensive and hard to cover every skill. A retainer gives broad senior skills for less than a salary, with less daily presence. For most small businesses, a retainer is the practical start.' },
@@ -221,7 +221,7 @@ await post({
     h('h2', 'What to avoid'),
     ul('Buying lists or adding people without consent.', 'Emailing too often or only ever selling.', 'Overcomplicating it before you have started.'),
     h('h2', 'Where we land'),
-    p(t('Email is part of our Grow retainer, because it is one of the most reliable ways to turn one-off customers into regulars. If you want help getting started, send us a line.')),
+    p(t('Email is part of our SEO retainer, because it is one of the most reliable ways to turn one-off customers into regulars. If you want help getting started, send us a line.')),
   ),
   faq: [
     { question: 'How do I start email marketing for a small business?', answer: 'Collect customer emails with permission through a simple sign-up, pick a basic email tool, and send occasional useful emails that keep you front of mind. Start simple and build from there.' },
