@@ -68,7 +68,13 @@ async function upsertCategory(slug: string, title: string, description: string) 
     where: { slug: { equals: slug } },
     limit: 1,
   });
-  if (found.docs[0]) return found.docs[0];
+  const existing = found.docs[0];
+  if (existing) {
+    if (description && existing.description !== description) {
+      await payload.update({ collection: 'categories', id: existing.id, data: { description } });
+    }
+    return existing;
+  }
   return payload.create({ collection: 'categories', data: { title, slug, description } });
 }
 
@@ -97,11 +103,14 @@ async function upsertPost(input: {
   const found = await payload.find({
     collection: 'posts',
     where: { slug: { equals: input.slug } },
+    draft: true,
+    overrideAccess: true,
     limit: 1,
   });
   if (found.docs[0]) {
-    await payload.update({ collection: 'posts', id: found.docs[0].id, data });
-    console.log('Updated:', input.slug);
+    const { _status, ...contentData } = data; // eslint-disable-line @typescript-eslint/no-unused-vars
+    await payload.update({ collection: 'posts', id: found.docs[0].id, data: contentData });
+    console.log('Updated (content only):', input.slug);
   } else {
     await payload.create({ collection: 'posts', data });
     console.log('Created:', input.slug);
