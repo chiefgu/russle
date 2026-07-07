@@ -19,6 +19,9 @@ export default buildConfig({
   routes: { admin: '/admin', api: '/cms-api' },
   editor: lexicalEditor(),
   collections: [Users, Media, Categories, Posts],
+  graphQL: {
+    disablePlaygroundInProduction: true,
+  },
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: { outputFile: path.resolve(dirname, 'payload-types.ts') },
   db: postgresAdapter({

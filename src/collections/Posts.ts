@@ -12,7 +12,10 @@ export const Posts: CollectionConfig = {
         ? `${process.env.NEXT_PUBLIC_SERVER_URL}/preview?slug=${doc.slug}&secret=${process.env.PREVIEW_SECRET}`
         : null,
   },
-  access: { read: () => true },
+  access: {
+    // Anonymous requests see published posts only; logged-in admin sees all.
+    read: ({ req }) => (req.user ? true : { _status: { equals: 'published' } }),
+  },
   versions: { drafts: { autosave: false } },
   hooks: {
     afterChange: [revalidatePost],
