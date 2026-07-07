@@ -1,7 +1,7 @@
 /**
- * National repositioning cleanup: retire the explicitly local-geo blog
- * posts so they leave the live site and the publish cron won't republish them.
- * Sets _status=draft + a far-future publishedAt (content preserved, reversible).
+ * National repositioning cleanup: retire the explicitly local-geo blog posts.
+ * PERMANENTLY DELETES the posts listed in SLUGS (whether draft or published).
+ * Not reversible; take a DB backup/branch before running against prod.
  * Run: npx payload run scripts/retire-local-posts.ts
  */
 import { getPayload } from 'payload';

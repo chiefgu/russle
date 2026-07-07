@@ -81,12 +81,13 @@ for (const [slug, entry] of Object.entries(FAQS)) {
   });
   const doc = found.docs[0];
   if (!doc) { console.log('MISSING:', slug); continue; }
+  // Content-only update: never flip a live post's publish state from here.
   await payload.update({
     collection: 'posts',
     id: doc.id,
-    data: { faq: entry.items, _status: entry.status },
+    data: { faq: entry.items },
   });
-  console.log('FAQ added:', slug, `(${entry.status})`);
+  console.log('FAQ added:', slug);
 }
 
 console.log('FAQ seed complete.');

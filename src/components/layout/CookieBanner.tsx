@@ -41,6 +41,7 @@ export function CookieBanner() {
     } catch {
       /* ignore storage errors */
     }
+    window.dispatchEvent(new Event('russle-consent-change'));
     setChoice(value);
     applyConsent(value);
   }

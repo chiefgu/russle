@@ -79,6 +79,8 @@ const slug = 'seed-local-seo';
 const existingPost = await payload.find({
   collection: 'posts',
   where: { slug: { equals: slug } },
+  draft: true,
+  overrideAccess: true,
   limit: 1,
 });
 
@@ -94,8 +96,9 @@ const data = {
 };
 
 if (existingPost.docs[0]) {
-  await payload.update({ collection: 'posts', id: existingPost.docs[0].id, data });
-  console.log('Updated seeded post:', slug);
+  const { _status, ...contentData } = data; // eslint-disable-line @typescript-eslint/no-unused-vars
+  await payload.update({ collection: 'posts', id: existingPost.docs[0].id, data: contentData });
+  console.log('Updated seeded post (content only):', slug);
 } else {
   await payload.create({ collection: 'posts', data });
   console.log('Created seeded post:', slug);

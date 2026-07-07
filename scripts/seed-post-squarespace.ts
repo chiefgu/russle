@@ -95,10 +95,11 @@ const data = {
   _status: 'published' as const,
 };
 
-const existing = await payload.find({ collection: 'posts', where: { slug: { equals: slug } }, limit: 1 });
+const existing = await payload.find({ collection: 'posts', where: { slug: { equals: slug } }, draft: true, overrideAccess: true, limit: 1 });
 if (existing.docs[0]) {
-  await payload.update({ collection: 'posts', id: existing.docs[0].id, data });
-  console.log('Updated:', slug);
+  const { _status, ...contentData } = data; // eslint-disable-line @typescript-eslint/no-unused-vars
+  await payload.update({ collection: 'posts', id: existing.docs[0].id, data: contentData });
+  console.log('Updated (content only):', slug);
 } else {
   await payload.create({ collection: 'posts', data });
   console.log('Created:', slug);
