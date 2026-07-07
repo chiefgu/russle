@@ -140,9 +140,9 @@ await upsertPost({
     ul([
       'Template site, light setup: a few hundred pounds, fast, but it looks like everyone else.',
       'Custom small business site, properly structured for search and enquiries: low thousands.',
-      'Brand and website together, built as one system: from around two thousand pounds upward, depending on scope.',
+      'Custom site with the search work built in from day one: several thousand, depending on scope.',
     ]),
-    p(t('At russle, every project includes the brand groundwork as standard, not just the pages. Send us a line and we will scope it and come back with a straight quote.')),
+    p(t('At russle, every build includes the structure and search groundwork as standard, not just the pages. Send us a line and we will scope it and come back with a straight quote.')),
     h('h2', 'What pushes the price up'),
     ul([
       'Custom brand work rather than an off-the-shelf look.',

@@ -79,7 +79,7 @@ await post({
   metaDescription: 'How much branding costs for a small business in 2026, what changes the price, and what you get for the money. An honest guide from russle, a UK web design and SEO studio.',
   date: '2026-06-17', category: guides.id, tags: ['branding cost', 'brand identity', 'pricing'],
   content: doc(
-    p(t('Branding for a small business ranges from a cheap logo of a few pounds to a full brand identity of several thousand. What you pay for is not the logo, it is the strategy and system behind it. At russle, brand and website come together as one project. Send us a line and we will scope it and come back with a straight quote.')),
+    p(t('Branding for a small business ranges from a cheap logo of a few pounds to a full brand identity of several thousand. What you pay for is not the logo, it is the strategy and system behind it. At russle, we can fold identity work into your website project when you need it. Send us a line and we will scope it and come back with a straight quote.')),
     h('h2', 'What you are paying for'),
     p(t('A logo is the cheap part. The cost of branding is the thinking: who you are for, why you are the obvious choice, and a system of colour, type, voice, and imagery that holds together everywhere. That groundwork is what makes a brand work, and what takes the time.')),
     h('h2', 'Typical ranges'),
