@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Input, Textarea } from '@/components/ui/Input';
 import { Button, ButtonLink } from '@/components/ui/Button';
+import { trackConversion } from '@/lib/conversions';
 
 type State = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -30,6 +31,7 @@ export function ContactForm() {
         throw new Error(body.error || 'Something went wrong.');
       }
 
+      trackConversion({ type: 'contact_form' });
       setState('success');
       form.reset();
     } catch (err) {
