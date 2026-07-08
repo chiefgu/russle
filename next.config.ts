@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
     root: path.resolve(__dirname),
   },
   images: {
+    // AVIF first (smaller than WebP), WebP fallback for older clients.
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       // Vercel Blob public URLs
       { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },

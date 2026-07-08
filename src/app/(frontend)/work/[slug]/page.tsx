@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
+import { getPublicImageSize } from '@/lib/imageSize';
 import { ArrowUpRight } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Container } from '@/components/layout/Container';
@@ -218,10 +220,11 @@ export default async function WorkDetailPage({
           {post.cover && (
             <Reveal delay={0.3}>
               <div className="mt-16 flex justify-center md:mt-24">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={post.cover}
                   alt={`${post.title} hero`}
+                  {...getPublicImageSize(post.cover)}
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="block h-auto max-h-[80vh] w-auto max-w-full rounded-[var(--radius-l)] shadow-2xl"
                 />
               </div>

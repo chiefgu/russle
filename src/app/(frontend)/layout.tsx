@@ -75,6 +75,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={GeistMono.variable}>
+      <head>
+        {/* Preload the primary text face (self-hosted, loaded via @font-face in
+            globals.css, so Next cannot preload it automatically like GeistMono). */}
+        <link
+          rel="preload"
+          href="/fonts/Satoshi-Variable.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
         <JsonLd
           data={{
