@@ -26,6 +26,29 @@ export async function getPublishedSlugs(): Promise<string[]> {
   return posts.map((p) => p.slug).filter((s): s is string => Boolean(s));
 }
 
+/** Normalise a post's category to its id, whether populated or a bare id. */
+function categoryId(category: Post['category']): number | null {
+  if (category == null) return null;
+  return typeof category === 'number' ? category : category.id;
+}
+
+/**
+ * Up to `limit` other published posts to link at the end of `post`: same
+ * category first (most relevant), topped up with the most recent others.
+ * Gives each post internal links to its siblings so crawlers have a path
+ * through the blog rather than hitting dead ends.
+ */
+export async function getRelatedPosts(post: Post, limit = 3): Promise<Post[]> {
+  const all = await getPublishedPosts();
+  const others = all.filter((p) => p.id !== post.id);
+  const cat = categoryId(post.category);
+
+  const sameCategory = cat == null ? [] : others.filter((p) => categoryId(p.category) === cat);
+  const rest = others.filter((p) => !sameCategory.includes(p));
+
+  return [...sameCategory, ...rest].slice(0, limit);
+}
+
 /**
  * One post by slug. When `draft` is true, returns the latest draft version
  * (used by the preview route); otherwise only resolves a published post.
