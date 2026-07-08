@@ -11,12 +11,13 @@ export const maxDuration = 60;
  * it up varies day to day rather than firing at a fixed minute.
  *
  * Catch-up by design: it publishes every due draft on each run, so a missed run
- * is recovered on the next one. Guarded by CRON_SECRET (Vercel sends it as a
- * Bearer token automatically when the env var is set).
+ * is recovered on the next one. Guarded by CRON_SECRET, which Vercel sends as a
+ * Bearer token automatically. The route fails closed: if CRON_SECRET is unset it
+ * refuses every request rather than publishing to anonymous callers.
  */
 export async function GET(req: Request): Promise<Response> {
   const secret = process.env.CRON_SECRET;
-  if (secret && req.headers.get('authorization') !== `Bearer ${secret}`) {
+  if (!secret || req.headers.get('authorization') !== `Bearer ${secret}`) {
     return new Response('Unauthorized', { status: 401 });
   }
 
