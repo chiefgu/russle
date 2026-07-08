@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { JournalArticle } from '@/components/sections/JournalArticle';
-import { getPostBySlug, getPublishedSlugs } from '@/lib/posts';
+import { getPostBySlug, getPublishedSlugs, getRelatedPosts } from '@/lib/posts';
 import { AUTHOR } from '@/lib/author';
 import type { Media } from '@/payload-types';
 
@@ -57,6 +57,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
   if (!post) notFound();
 
   const faq = ((post.faq ?? []) as Faq[]).filter((f) => f?.question && f?.answer);
+  const related = await getRelatedPosts(post);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -99,7 +100,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       )}
-      <JournalArticle post={post} faq={faq} />
+      <JournalArticle post={post} faq={faq} related={related} />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { PostBody } from '@/components/sections/PostBody';
+import { RelatedPosts } from '@/components/sections/RelatedPosts';
 import { AUTHOR } from '@/lib/author';
 import type { Post, Category } from '@/payload-types';
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical';
@@ -21,7 +22,15 @@ function categoryLabel(category: Post['category']): string {
   return (category as Category).title ?? 'Blog';
 }
 
-export function JournalArticle({ post, faq = [] }: { post: Post; faq?: Faq[] }) {
+export function JournalArticle({
+  post,
+  faq = [],
+  related = [],
+}: {
+  post: Post;
+  faq?: Faq[];
+  related?: Post[];
+}) {
   return (
     <>
       <Section tone="bg" spacing="heroTopTight" container="narrow">
@@ -85,6 +94,8 @@ export function JournalArticle({ post, faq = [] }: { post: Post; faq?: Faq[] }) 
           </Link>
         </div>
       </Section>
+
+      <RelatedPosts posts={related} />
 
       <Section tone="bg" spacing="l" container="narrow">
         <h2 className="h2">Have a project in mind?</h2>
