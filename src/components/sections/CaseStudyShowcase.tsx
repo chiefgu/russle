@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Container } from '@/components/layout/Container';
 import { Tag } from '@/components/ui/Tag';
 import { Reveal } from '@/components/animations/Reveal';
 import type { WorkMeta } from '@/lib/mdx';
+import { getPublicImageSize } from '@/lib/imageSize';
 
 type CaseStudyShowcaseProps = {
   items: WorkMeta[];
@@ -135,11 +137,12 @@ function CaseStudyBand({ item, flip }: { item: WorkMeta; flip: boolean }) {
             <Reveal delay={0.1}>
               <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-[var(--radius-l)] p-6 md:p-10">
                 {item.cover ? (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
+                  <Image
                     src={item.cover}
                     alt={`${item.title} cover`}
-                    className="max-h-full max-w-full rounded-[var(--radius-m)] object-contain shadow-2xl"
+                    {...getPublicImageSize(item.cover)}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="h-auto max-h-full w-auto max-w-full rounded-[var(--radius-m)] object-contain shadow-2xl"
                   />
                 ) : (
                   <span

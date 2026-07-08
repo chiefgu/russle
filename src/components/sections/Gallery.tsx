@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import { Reveal } from '@/components/animations/Reveal';
 import { cn } from '@/lib/cn';
+import { getPublicImageSize } from '@/lib/imageSize';
 import type { GalleryItem, GalleryLayout } from '@/lib/mdx';
 
 type GalleryProps = {
@@ -82,11 +84,11 @@ function Figure({ item, className }: { item: GalleryItem; className?: string }) 
         )}
         style={showBg ? { background: item.bg } : undefined}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={item.src}
           alt={item.alt}
-          loading="lazy"
+          {...getPublicImageSize(item.src)}
+          sizes="(max-width: 768px) 100vw, 80vw"
           className={cn(
             'block w-full',
             aspect ? 'h-full object-cover' : 'h-auto',

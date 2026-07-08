@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { Reveal, Stagger, StaggerItem } from '@/components/animations/Reveal';
 import type { WorkMeta } from '@/lib/mdx';
+import { getPublicImageSize } from '@/lib/imageSize';
 
 type CaseStudyGridProps = {
   items: WorkMeta[];
@@ -50,11 +52,12 @@ export function CaseStudyGrid({ items, variant = 'home', showHeader = true }: Ca
                 style={{ background: item.backdropColor }}
               >
                 {item.cover ? (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
+                  <Image
                     src={item.cover}
                     alt={`${item.title} cover`}
-                    className="max-h-full max-w-full rounded-[var(--radius-m)] object-contain shadow-2xl"
+                    {...getPublicImageSize(item.cover)}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="h-auto max-h-full w-auto max-w-full rounded-[var(--radius-m)] object-contain shadow-2xl"
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center">
