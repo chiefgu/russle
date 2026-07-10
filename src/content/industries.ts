@@ -172,6 +172,10 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         title: 'Local search',
         body: 'Structured to rank for treatments in your town, not just for your name.',
       },
+      {
+        title: 'Gift vouchers',
+        body: 'Vouchers sold from the site and paid upfront, ready for birthdays and Christmas.',
+      },
     ],
     proof: {
       slug: 'makeup-by-abigail',
@@ -259,6 +263,10 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         title: 'Trust where it counts',
         body: 'Gas Safe, NICEIC, TrustMark: whichever accreditations you hold, shown at the decision moment.',
       },
+      {
+        title: 'Urgent work routing',
+        body: 'Click-to-call on mobile, and emergency enquiries flagged so you see them first.',
+      },
     ],
     faq: [
       {
@@ -331,6 +339,10 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
       {
         title: 'Found for the right searches',
         body: 'Structured so brunch near me finds you, not just people who already know your name.',
+      },
+      {
+        title: 'Vouchers and experiences',
+        body: 'Gift vouchers and tasting menus sold directly, paid before the visit.',
       },
     ],
     faq: [
@@ -410,6 +422,10 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         title: 'Clear fees',
         body: 'Treatment and fee pages that pre-qualify patients before they call.',
       },
+      {
+        title: 'Membership plans',
+        body: 'Plan pages that explain the options and sign patients up without a phone call.',
+      },
     ],
     faq: [
       {
@@ -488,6 +504,10 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         title: 'Insight that ranks',
         body: 'A publishing setup for the guides and answers your clients actually search for.',
       },
+      {
+        title: 'Plain-English services',
+        body: 'What you do, who it is for and what happens next, written without jargon.',
+      },
     ],
     faq: [
       {
@@ -565,6 +585,10 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         title: 'Proof of record',
         body: 'Testimonials, accreditations and outcomes presented within the rules.',
       },
+      {
+        title: 'Out-of-hours capture',
+        body: 'Enquiries arrive at midnight. Callback requests queue for the morning with the details attached.',
+      },
     ],
     faq: [
       {
@@ -637,6 +661,10 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
       {
         title: 'Shopify or our platform',
         body: 'A custom storefront on the Shopify store you run, or our own platform with no monthly builder fee.',
+      },
+      {
+        title: 'List building',
+        body: 'Email and SMS capture wired into drops, because the list sells the next release.',
       },
     ],
     faq: [

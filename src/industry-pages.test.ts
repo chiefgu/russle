@@ -57,6 +57,14 @@ describe('industry pages', () => {
     }
   });
 
+  it('content fills its grids exactly: build is a multiple of 6 (2-col and 3-col), pains and stats multiples of 3', () => {
+    for (const data of Object.values(INDUSTRIES)) {
+      expect(data.build.length % 6, `${data.slug} build grid`).toBe(0);
+      expect(data.pains.length % 3, `${data.slug} pains grid`).toBe(0);
+      if (data.stats) expect(data.stats.length % 3, `${data.slug} stats row`).toBe(0);
+    }
+  });
+
   it('structures vary: no two pages share hero variant and block order', () => {
     const shapes = Object.values(INDUSTRIES).map((d) => `${d.hero}:${d.blocks.join(',')}`);
     expect(new Set(shapes).size).toBe(shapes.length);

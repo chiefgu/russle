@@ -105,11 +105,6 @@ export function IndustryPage({ data, vignette }: { data: IndustryPageData; vigne
                 <p className="text-body mt-4 text-[var(--color-text-mute)]">{item.body}</p>
               </div>
             ))}
-            {/* pad the last row so the line-coloured grid backing never shows through */}
-            {data.build.length % 3 !== 0 &&
-              Array.from({ length: 3 - (data.build.length % 3) }).map((_, i) => (
-                <div key={`pad-${i}`} aria-hidden className="hidden bg-[var(--color-bg)] sm:block" />
-              ))}
           </div>
         </Reveal>
       </Section>
