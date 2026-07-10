@@ -110,7 +110,7 @@ Add an `Industries` column to `FOOTER_COLUMNS` in `src/components/layout/Footer.
 ## Testing & quality gates
 
 - New `src/industry-pages.test.ts` mirroring `service-pages.test.ts`: for each of the 8 slugs — page file exists; exports `metadata`; renders `IndustryPage`; references its vignette component; footer contains all 8 hrefs; sitemap contains all 8 routes.
-- No-price rule: pages must not state russle pricing. The industry test asserts no `£` in the data copy fields (h1/intro/pains/build/stats/faq) in `industries.ts`. Vignette components are exempt: the trades vignette's "£2,400" chip is illustrative UI fiction inside the diorama, not a price for russle services.
+- No-price rule: pages must not state russle pricing. The industry test asserts no `£` in the data copy fields (h1/intro/pains/build/stats/faq) in `industries.ts`. AMENDED at implementation: the existing `repositioning-guard.test.ts` bans `£` in ALL retained source, vignettes included, so illustrative currency figures are abstracted (skeleton bars / non-currency chips) instead.
 - `npm run check:voice` passes (no em dashes, no "practice", no overclaims, no emoji) across all new copy.
 - `npm run test` and `npm run build` green.
 

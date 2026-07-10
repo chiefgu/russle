@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Container } from './Container';
 import { Wordmark } from '@/components/ui/Wordmark';
+import { INDUSTRY_LINKS } from '@/content/industries';
 
 const FOOTER_COLUMNS = [
   {
@@ -11,6 +12,10 @@ const FOOTER_COLUMNS = [
       { label: 'SEO', href: '/seo' },
       { label: 'Conversion', href: '/conversion' },
     ],
+  },
+  {
+    title: 'Industries',
+    links: INDUSTRY_LINKS,
   },
   {
     title: 'Studio',
@@ -38,7 +43,7 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-[var(--color-bg)] text-[var(--color-text)]">
       <Container size="main">
         <div className="grid gap-12 py-20 md:grid-cols-12 md:py-24">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Link href="/" className="group inline-flex items-center">
               <Wordmark className="h2" />
             </Link>
