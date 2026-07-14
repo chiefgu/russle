@@ -16,12 +16,19 @@ export function FashionVignette({ className }: { className?: string }) {
         <div className="mx-auto w-[62%] rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-5 shadow-[0_24px_48px_-24px_rgba(26,20,16,0.25)]">
           <div className="relative overflow-hidden rounded-[var(--radius-m)] bg-[var(--color-surface-2)]">
             <div className="aspect-[3/4]" />
-            {/* abstract garment: draped shape */}
+            {/* abstract garment on a hanger */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative h-32 w-24">
-                <div className="absolute inset-x-3 top-0 h-5 rounded-t-[12px] bg-[var(--color-bg)]" />
-                <div className="absolute inset-x-0 top-4 bottom-0 rounded-[14px] bg-[var(--color-bg)] shadow-sm" />
-                <div className="absolute inset-x-5 top-9 bottom-4 rounded-[10px] bg-[var(--color-accent-tint)]" />
+              <div className="relative h-36 w-28">
+                {/* hanger hook + bar */}
+                <span className="absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-[var(--color-text-soft)] border-b-transparent border-l-transparent" />
+                <span className="absolute left-1 right-1 top-4 h-[3px] rounded-full bg-[var(--color-text-soft)]" />
+                {/* tee: sleeves + body + neckline */}
+                <span className="absolute left-0 top-7 h-9 w-7 -rotate-12 rounded-[6px] bg-[var(--color-bg)] shadow-sm" />
+                <span className="absolute right-0 top-7 h-9 w-7 rotate-12 rounded-[6px] bg-[var(--color-bg)] shadow-sm" />
+                <span className="absolute inset-x-4 top-6 bottom-0 rounded-b-[14px] rounded-t-[4px] bg-[var(--color-bg)] shadow-md" />
+                <span className="absolute left-1/2 top-6 h-3 w-8 -translate-x-1/2 rounded-b-full bg-[var(--color-surface-2)]" />
+                {/* chest print panel */}
+                <span className="absolute inset-x-7 top-14 h-10 rounded-[8px] bg-[rgba(223,86,19,0.18)]" />
               </div>
             </div>
             <span className="absolute left-3 top-3 rounded-[var(--radius-pill)] bg-[var(--color-dark)] px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.08em] text-[var(--color-on-dark)]">

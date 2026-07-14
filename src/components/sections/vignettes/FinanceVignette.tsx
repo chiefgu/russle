@@ -53,7 +53,7 @@ export function FinanceVignette({ className }: { className?: string }) {
         </div>
 
         {/* Consultation chip */}
-        <div className={cn(CHIP, 'float-slow -left-1 top-10 -rotate-2')}>
+        <div className={cn(CHIP, 'float-slow -left-1 top-2 -rotate-2')}>
           <CalendarCheck className="h-4 w-4 text-[var(--color-accent)]" />
           <span className={CHIP_LABEL}>Consultation · Thu 10am</span>
         </div>

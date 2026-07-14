@@ -97,7 +97,7 @@ export function Footer() {
 
         <div className="flex flex-col gap-4 border-t border-[var(--color-line)] py-8 md:flex-row md:items-center md:justify-between">
           <p className="text-small text-[var(--color-text-mute)]">
-            © {year} russle. Built in this repo.
+            © {year} russle. All rights reserved.
           </p>
           <p className="text-small text-[var(--color-text-mute)]">
             Based in the United Kingdom.
@@ -108,7 +108,7 @@ export function Footer() {
       {/* Decorative wordmark */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-8 left-0 right-0 select-none text-center text-[20vw] font-medium leading-none tracking-[-0.07em] text-[var(--color-surface-2)] md:-bottom-16"
+        className="pointer-events-none absolute -bottom-8 left-0 right-0 select-none text-center text-[20vw] font-medium leading-none tracking-[-0.07em] text-[var(--color-surface-2)] [&_span]:!text-inherit md:-bottom-16"
       >
         <Wordmark />
       </div>

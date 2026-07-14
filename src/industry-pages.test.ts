@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { INDUSTRIES } from './content/industries';
+import { ICONS } from './components/sections/IndustryPage';
 
 const SLUGS = [
   'food-and-drink',
@@ -41,6 +42,9 @@ describe('industry pages', () => {
         data.intro,
         data.metaTitle,
         data.metaDescription,
+        data.buildHeading,
+        data.statement ?? '',
+        ...(data.flow ? [data.flow.heading, data.flow.from.title, data.flow.via.title, data.flow.to.title, ...data.flow.via.chips] : []),
         ...data.pains.flatMap((p) => [p.title, p.body]),
         ...data.build.flatMap((b) => [b.title, b.body]),
         ...(data.stats ?? []).flatMap((s) => [s.value, s.label]),
@@ -62,6 +66,33 @@ describe('industry pages', () => {
       expect(data.build.length % 6, `${data.slug} build grid`).toBe(0);
       expect(data.pains.length % 3, `${data.slug} pains grid`).toBe(0);
       if (data.stats) expect(data.stats.length % 3, `${data.slug} stats row`).toBe(0);
+    }
+  });
+
+  it('every icon named in data exists in the registry', () => {
+    for (const data of Object.values(INDUSTRIES)) {
+      const named = [
+        ...data.pains.map((p) => p.icon),
+        ...data.build.map((b) => b.icon),
+        data.flow?.from.icon,
+        data.flow?.to.icon,
+      ].filter((n): n is string => Boolean(n));
+      for (const name of named) {
+        expect(ICONS[name], `${data.slug}: icon "${name}" missing from ICONS registry`).toBeDefined();
+      }
+    }
+  });
+
+  it('blocks that need data have it: flow/statement/stats/proof/showcase', () => {
+    for (const data of Object.values(INDUSTRIES)) {
+      if (data.blocks.includes('flow')) expect(data.flow, `${data.slug} flow`).toBeDefined();
+      if (data.blocks.includes('statement')) expect(data.statement, `${data.slug} statement`).toBeDefined();
+      if (data.blocks.includes('stats')) expect(data.stats, `${data.slug} stats`).toBeDefined();
+      if (data.blocks.includes('proof')) expect(data.proof, `${data.slug} proof`).toBeDefined();
+      if (data.blocks.includes('vignetteShowcase')) expect(data.showcase, `${data.slug} showcase`).toBeDefined();
+      if (data.flow) expect(data.flow.via.chips.length, `${data.slug} flow chips`).toBe(3);
+      expect(data.buildHeading, `${data.slug} buildHeading`).toBeTruthy();
+      expect(data.blocks.includes('pains') || data.blocks.includes('stats'), `${data.slug} needs a dark band`).toBe(true);
     }
   });
 

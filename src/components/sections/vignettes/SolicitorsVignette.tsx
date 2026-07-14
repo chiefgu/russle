@@ -56,7 +56,7 @@ export function SolicitorsVignette({ className }: { className?: string }) {
         </div>
 
         {/* Callback chip */}
-        <div className={cn(CHIP, 'float-slow -left-1 top-[52%] -rotate-2')}>
+        <div className={cn(CHIP, 'float-slow left-[4%] top-[57%] -rotate-2')}>
           <PhoneCall className="h-4 w-4 text-[var(--color-accent)]" />
           <span className={CHIP_LABEL}>Callback today · 4:00pm</span>
         </div>
