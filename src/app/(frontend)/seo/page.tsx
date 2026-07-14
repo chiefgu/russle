@@ -11,25 +11,13 @@ const data: ServicePageData = {
   metaTitle: 'SEO',
   metaDescription:
     'russle runs ongoing organic and technical SEO for ambitious businesses across the UK, including content, rankings, reporting, and AI search visibility (GEO).',
-  includedHeading: 'The whole job, not just keywords.',
-  statement: 'Being brilliant is not enough if nobody finds you.',
-  flow: {
-    heading: 'From question to customer.',
-    from: { icon: 'Search', title: '"Your service, your town"', meta: 'The search' },
-    via: {
-      title: 'Pages built to answer it',
-      meta: 'Your site',
-      chips: ['Technical basics right', 'Content that answers', 'Read by AI search'],
-    },
-    to: { icon: 'TrendingUp', title: 'Found and chosen', meta: 'The result' },
-  },
   included: [
-    { icon: 'Wrench', title: 'Technical SEO', body: 'The under-the-hood work: speed, structure, crawlability, and schema.' },
-    { icon: 'FileText', title: 'Content and on-page', body: 'Pages and articles written to rank for what your customers search.' },
-    { icon: 'Bot', title: 'AI search (GEO)', body: 'Showing up when people ask ChatGPT, Perplexity, or Google AI Overviews for what you do.' },
-    { icon: 'BarChart3', title: 'Rankings and reporting', body: 'Tracked every month, in plain English, so you see what is moving and why.' },
-    { icon: 'ShieldCheck', title: 'Kept healthy', body: 'Broken links, dropped rankings, and tracking issues caught and fixed.' },
-    { icon: 'MapPin', title: 'Local when it helps', body: 'Google Business Profile and local search set up when your customers search nearby.' },
+    { title: 'Technical SEO', body: 'The under-the-hood work: speed, structure, crawlability, and schema.' },
+    { title: 'Content and on-page', body: 'Pages and articles written to rank for what your customers search.' },
+    { title: 'AI search (GEO)', body: 'Showing up when people ask ChatGPT, Perplexity, or Google AI Overviews for what you do.' },
+    { title: 'Rankings and reporting', body: 'Tracked every month, in plain English, so you see what is moving and why.' },
+    { title: 'Kept healthy', body: 'Broken links, dropped rankings, and tracking issues caught and fixed.' },
+    { title: 'Local when it helps', body: 'Google Business Profile and local search set up when your customers search nearby.' },
   ],
   how: [
     'We audit where you stand and where the opportunities are.',

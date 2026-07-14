@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { INDUSTRIES } from './content/industries';
-import { ICONS } from './components/sections/IndustryPage';
+import { ICONS } from './components/sections/icons';
 
 const SLUGS = [
   'food-and-drink',

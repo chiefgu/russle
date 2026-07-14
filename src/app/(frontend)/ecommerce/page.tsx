@@ -11,25 +11,13 @@ const data: ServicePageData = {
   metaTitle: 'Ecommerce',
   metaDescription:
     'russle builds custom online stores for ambitious businesses across the UK, on our own platform or as a custom Shopify storefront. Products, stock, orders, payments, and a dashboard.',
-  includedHeading: 'A store you own outright.',
-  statement: 'Your store, your customers, your margin.',
-  flow: {
-    heading: 'From product range to repeat orders.',
-    from: { icon: 'ShoppingBag', title: 'Your product range', meta: 'The start' },
-    via: {
-      title: 'A storefront that runs itself',
-      meta: 'Your store',
-      chips: ['Stock synced', 'Payments direct', 'Run from your phone'],
-    },
-    to: { icon: 'TrendingUp', title: 'Orders without commission', meta: 'The result' },
-  },
   included: [
-    { icon: 'Store', title: 'Full storefront', body: 'Products, collections, cart, and checkout, built around your range.' },
-    { icon: 'CreditCard', title: 'Payments and orders', body: 'Take payment and manage orders without a marketplace taking a cut.' },
-    { icon: 'Smartphone', title: 'Dashboard and iOS app', body: 'Manage products, stock, and orders from your desk or your phone.' },
-    { icon: 'PackageCheck', title: 'Stock that stays right', body: 'Inventory that updates as you sell, online and in person.' },
-    { icon: 'Search', title: 'Built for search', body: 'Product and category pages structured to rank and to show in AI answers.' },
-    { icon: 'ShoppingBag', title: 'Our platform or Shopify', body: 'No monthly builder fee on ours, or a custom storefront on the Shopify store you already run.' },
+    { title: 'Full storefront', body: 'Products, collections, cart, and checkout, built around your range.' },
+    { title: 'Payments and orders', body: 'Take payment and manage orders without a marketplace taking a cut.' },
+    { title: 'Dashboard and iOS app', body: 'Manage products, stock, and orders from your desk or your phone.' },
+    { title: 'Stock that stays right', body: 'Inventory that updates as you sell, online and in person.' },
+    { title: 'Built for search', body: 'Product and category pages structured to rank and to show in AI answers.' },
+    { title: 'Our platform or Shopify', body: 'No monthly builder fee on ours, or a custom storefront on the Shopify store you already run.' },
   ],
   how: [
     'Start with a short brief covering your range and how you sell.',
