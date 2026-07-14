@@ -20,7 +20,7 @@ const SERVICE_CARDS = [
   {
     icon: Search,
     label: 'SEO',
-    detail: 'The organic and AI search work that gets you found.',
+    detail: 'Coming up on Google, and in AI answers, when customers search.',
     href: '/seo',
   },
 ];
@@ -42,9 +42,10 @@ export function Hero() {
 
         <Reveal delay={0.15}>
           <p className="text-big mt-8 max-w-2xl text-[var(--color-text-mute)]">
-            russle is a web design, ecommerce and SEO studio. We build fast,
-            custom sites and stores for ambitious businesses, then run the SEO
-            that keeps customers coming.
+            russle is a web design, ecommerce and SEO studio. In plain English:
+            we build fast, custom sites and stores for ambitious businesses,
+            then do the work that gets them coming up on Google when your
+            customers search.
           </p>
         </Reveal>
 

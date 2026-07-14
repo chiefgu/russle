@@ -51,7 +51,7 @@ export function Footer() {
               russle. Web design, ecommerce &amp; SEO studio. United Kingdom.
             </p>
             <p className="text-small mt-4 max-w-md text-[var(--color-text-mute)]">
-              Working with ambitious businesses across the UK.
+              Websites that get found on Google, for ambitious businesses across the UK.
             </p>
             <a
               href="mailto:hello@russle.co.uk"
