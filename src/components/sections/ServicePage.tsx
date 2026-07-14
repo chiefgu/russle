@@ -5,6 +5,7 @@ import { ButtonLink } from '@/components/ui/Button';
 import { FAQ } from '@/components/ui/FAQ';
 import { Reveal } from '@/components/animations/Reveal';
 import { CTAStrip } from '@/components/sections/CTAStrip';
+import { ProofCard } from '@/components/sections/ProofCard';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 export type ServicePageData = {
@@ -96,17 +97,14 @@ export function ServicePage({ data, visual }: { data: ServicePageData; visual?: 
       </Section>
 
       {data.caseStudy && (
-        <Section tone="bg" spacing="xl">
+        <Section tone="bg" spacing="l">
           <Reveal>
-            <div className="rounded-[var(--radius-l)] border border-[var(--color-line)] bg-[var(--color-bg)] p-10 md:p-12">
-              <p className="label text-[var(--color-text-soft)]">Proof</p>
-              <p className="text-big mt-4 max-w-2xl text-[var(--color-text)]">{data.caseStudy.line}</p>
-              <div className="mt-8">
-                <ButtonLink href={`/work/${data.caseStudy.slug}`} variant="secondary" size="md" withArrow>
-                  Read the {data.caseStudy.title} case study
-                </ButtonLink>
-              </div>
-            </div>
+            <ProofCard
+              slug={data.caseStudy.slug}
+              title={data.caseStudy.title}
+              line={data.caseStudy.line}
+              fill="surface"
+            />
           </Reveal>
         </Section>
       )}

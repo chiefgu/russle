@@ -8,15 +8,13 @@ import {
   ShoppingBag, Split, Star, Store, Tags, Ticket, Timer, TrendingDown,
   TrendingUp, Truck, UserPlus, Users, UtensilsCrossed, Wallet,
 } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
 import { Section } from '@/components/layout/Section';
-import { getAllWork } from '@/lib/mdx';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { FAQ } from '@/components/ui/FAQ';
 import { Reveal } from '@/components/animations/Reveal';
 import { CTAStrip } from '@/components/sections/CTAStrip';
+import { ProofCard } from '@/components/sections/ProofCard';
 import { ReviewsBlock } from '@/components/sections/ReviewsBlock';
 import { IndustryFlow } from '@/components/sections/IndustryFlow';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -289,43 +287,16 @@ export function IndustryPage({ data, vignette }: { data: IndustryPageData; vigne
 
     proof: (tone) => {
       if (!data.proof) return null;
-      const cardFill = tone === 'surface' ? 'bg-[var(--color-bg)]' : 'bg-[var(--color-surface)]';
-      const work = getAllWork().find((w) => w.slug === data.proof!.slug);
-      const cover = work?.cover;
       return (
         <Section key="proof" tone={tone} spacing="l">
           <Reveal>
-            <div className={cn('overflow-hidden rounded-[var(--radius-l)] border border-[var(--color-line)]', cardFill)}>
-              <div className={cn('grid', cover && 'md:grid-cols-12')}>
-                <div className={cn('p-10 md:p-12', cover && 'md:col-span-7')}>
-                  <p className="label text-[var(--color-text-soft)]">Proof</p>
-                  <p className="text-big mt-4 max-w-2xl text-[var(--color-text)]">{data.proof.line}</p>
-                  {data.proof.extra && (
-                    <p className="text-body mt-4 max-w-2xl text-[var(--color-text-mute)]">{data.proof.extra}</p>
-                  )}
-                  <div className="mt-8">
-                    <ButtonLink href={`/work/${data.proof.slug}`} variant="secondary" size="md" withArrow>
-                      Read the {data.proof.title} case study
-                    </ButtonLink>
-                  </div>
-                </div>
-                {cover && (
-                  <Link
-                    href={`/work/${data.proof.slug}`}
-                    aria-label={`${data.proof.title} case study`}
-                    className="group relative block min-h-[240px] md:col-span-5"
-                  >
-                    <Image
-                      src={cover}
-                      alt={`${data.proof.title} case study`}
-                      fill
-                      sizes="(min-width: 768px) 40vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  </Link>
-                )}
-              </div>
-            </div>
+            <ProofCard
+              slug={data.proof.slug}
+              title={data.proof.title}
+              line={data.proof.line}
+              extra={data.proof.extra}
+              fill={tone === 'surface' ? 'bg' : 'surface'}
+            />
           </Reveal>
         </Section>
       );
