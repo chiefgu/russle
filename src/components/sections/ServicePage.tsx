@@ -6,6 +6,9 @@ import { FAQ } from '@/components/ui/FAQ';
 import { Reveal } from '@/components/animations/Reveal';
 import { CTAStrip } from '@/components/sections/CTAStrip';
 import { ProofCard } from '@/components/sections/ProofCard';
+import { BentoGrid } from '@/components/sections/BentoGrid';
+import { IndustryFlow, type FlowData } from '@/components/sections/IndustryFlow';
+import { ICONS } from '@/components/sections/icons';
 import { JsonLd } from '@/components/seo/JsonLd';
 
 export type ServicePageData = {
@@ -15,13 +18,20 @@ export type ServicePageData = {
   intro: string;
   metaTitle: string;
   metaDescription: string;
-  included: { title: string; body: string }[];
+  includedHeading: string;
+  included: { icon: string; title: string; body: string }[];
+  flow: FlowData & { heading: string };
   how: string[];
+  statement: string;
   caseStudy?: { slug: string; title: string; line: string };
   faq: { q: string; a: string }[];
   schema: Record<string, unknown>;
 };
 
+// Service pages share the industry pages' visual system: hero + vignette,
+// bento deliverables, mechanism flow, dark numbered process band, proof with
+// cover image, accent statement, FAQ, CTA. Tones alternate deliberately:
+// bg / surface / bg / dark / bg / accent / surface / dark.
 export function ServicePage({ data, visual }: { data: ServicePageData; visual?: ReactNode }) {
   const heroCopy = (
     <>
@@ -58,42 +68,55 @@ export function ServicePage({ data, visual }: { data: ServicePageData; visual?: 
         )}
       </Section>
 
-      <Section tone="bg" spacing="xl">
-        <div className="mb-10 max-w-3xl">
-          <Reveal><Tag>What you get</Tag></Reveal>
+      {/* Deliverables bento */}
+      <Section tone="surface" spacing="xl">
+        <div className="mb-12 max-w-3xl">
+          <Reveal>
+            <Tag>What you get</Tag>
+            <h2 className="h2 mt-6 text-balance">{data.includedHeading}</h2>
+          </Reveal>
         </div>
         <Reveal>
-          <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
-            {data.included.map((item) => (
-              <div key={item.title} className="flex h-full flex-col bg-[var(--color-bg)] p-8 md:p-10">
-                <h3 className="h5 text-balance">{item.title}</h3>
-                <p className="text-body mt-4 text-[var(--color-text-mute)]">{item.body}</p>
-              </div>
-            ))}
-          </div>
+          <BentoGrid items={data.included} sectionTone="surface" />
         </Reveal>
       </Section>
 
-      <Section tone="surface" spacing="xl">
-        <div className="mb-10 max-w-2xl">
-          <Reveal><Tag>How it works</Tag></Reveal>
+      {/* Mechanism flow */}
+      <Section tone="bg" spacing="xl">
+        <div className="mb-12 max-w-2xl">
+          <Reveal>
+            <Tag>The mechanism</Tag>
+            <h2 className="h2 mt-6 text-balance">{data.flow.heading}</h2>
+          </Reveal>
         </div>
-        <ol className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)]">
+        <Reveal delay={0.05}>
+          <IndustryFlow flow={data.flow} icons={ICONS} />
+        </Reveal>
+      </Section>
+
+      {/* Process: dark band, ghost numerals */}
+      <Section tone="dark" spacing="xl">
+        <div className="mb-14 max-w-2xl">
+          <Reveal><Tag tone="on-dark">How it works</Tag></Reveal>
+        </div>
+        <div className="grid gap-14 md:grid-cols-2 md:gap-x-10 md:gap-y-16 lg:grid-cols-4">
           {data.how.map((step, i) => (
             <Reveal key={step} delay={i * 0.05}>
-              <li className="grid gap-6 bg-[var(--color-surface)] p-8 md:grid-cols-12 md:p-12">
-                <div className="md:col-span-2">
-                  <span className="text-h3 font-medium tracking-[-0.04em] text-[var(--color-text-soft)]">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <div className="md:col-span-10">
-                  <p className="text-big text-[var(--color-text)]">{step}</p>
-                </div>
-              </li>
+              <div className="relative">
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -top-10 right-0 select-none text-[120px] font-medium leading-none tracking-[-0.06em] text-[rgba(248,247,245,0.07)]"
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-accent)] text-[14px] font-bold text-[var(--color-on-accent)]">
+                  {i + 1}
+                </span>
+                <p className="text-big relative mt-6 text-[var(--color-on-dark)]">{step}</p>
+              </div>
             </Reveal>
           ))}
-        </ol>
+        </div>
       </Section>
 
       {data.caseStudy && (
@@ -108,6 +131,13 @@ export function ServicePage({ data, visual }: { data: ServicePageData; visual?: 
           </Reveal>
         </Section>
       )}
+
+      {/* Statement interlude */}
+      <Section tone="accent" spacing="l">
+        <Reveal>
+          <p className="h1 max-w-4xl text-balance">{data.statement}</p>
+        </Reveal>
+      </Section>
 
       <Section tone="surface" spacing="xl">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">

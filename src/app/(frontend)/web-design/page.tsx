@@ -11,13 +11,25 @@ const data: ServicePageData = {
   metaTitle: 'Web design',
   metaDescription:
     'russle designs and builds fast, custom websites for ambitious businesses across the UK. Built from scratch, built to convert, and ready for search from day one.',
+  includedHeading: 'Custom from the first pixel.',
+  statement: 'Template sites look like templates. Yours should look like you.',
+  flow: {
+    heading: 'From brief to a site that sells.',
+    from: { icon: 'FileText', title: 'Your brief', meta: 'The start' },
+    via: {
+      title: 'Designed in the browser, not mockups',
+      meta: 'Your build',
+      chips: ['Real pages, not flats', 'Your actual content', 'Review as it lands'],
+    },
+    to: { icon: 'TrendingUp', title: 'A site that converts', meta: 'The result' },
+  },
   included: [
-    { title: 'Custom design, no templates', body: 'Designed around your business, not a theme every competitor can buy.' },
-    { title: 'Built from scratch', body: 'Hand-built code on our own platform. Fast, secure, and yours.' },
-    { title: 'Built to convert', body: 'Structured so visitors take the next step, not just look around.' },
-    { title: 'Ready for search', body: 'Clean, fast, and structured so Google and AI search can read it from day one.' },
-    { title: 'Hosting handled', body: 'Hosting on our platform, one bill, looked after by us.' },
-    { title: 'Optional extras', body: 'Booking, an AI assistant, or a logo and identity if your project needs one.' },
+    { icon: 'PenTool', title: 'Custom design, no templates', body: 'Designed around your business, not a theme every competitor can buy.' },
+    { icon: 'Layers', title: 'Built from scratch', body: 'Hand-built code on our own platform. Fast, secure, and yours.' },
+    { icon: 'TrendingUp', title: 'Built to convert', body: 'Structured so visitors take the next step, not just look around.' },
+    { icon: 'Search', title: 'Ready for search', body: 'Clean, fast, and structured so Google and AI search can read it from day one.' },
+    { icon: 'Server', title: 'Hosting handled', body: 'Hosting on our platform, one bill, looked after by us.' },
+    { icon: 'Sparkles', title: 'Optional extras', body: 'Booking, an AI assistant, or a logo and identity if your project needs one.' },
   ],
   how: [
     'Start with a short brief so we understand the business and the goal.',

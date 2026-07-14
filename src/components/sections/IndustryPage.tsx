@@ -1,14 +1,7 @@
 import type { ReactNode } from 'react';
-import type { LucideIcon } from 'lucide-react';
-import {
-  Award, Bell, Calculator, CalendarCheck, CalendarDays, CalendarX, Camera,
-  ClipboardList, Clock, CreditCard, Eye, FileQuestion, FileText, Gift, Layers,
-  ListChecks, Lock, Mail, MapPin, MessageSquare, PackageCheck, Percent, Phone,
-  PhoneCall, QrCode, Repeat, RotateCcw, Ruler, Scale, Search, ShieldCheck,
-  ShoppingBag, Split, Star, Store, Tags, Ticket, Timer, TrendingDown,
-  TrendingUp, Truck, UserPlus, Users, UtensilsCrossed, Wallet,
-} from 'lucide-react';
 import { Section } from '@/components/layout/Section';
+import { ICONS } from '@/components/sections/icons';
+import { BentoGrid } from '@/components/sections/BentoGrid';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { FAQ } from '@/components/ui/FAQ';
@@ -21,15 +14,6 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { cn } from '@/lib/cn';
 import type { IndustryBlock, IndustryPageData } from '@/content/industries';
 
-// Icon registry: industries.ts stays pure data and names icons as strings.
-export const ICONS: Record<string, LucideIcon> = {
-  Award, Bell, Calculator, CalendarCheck, CalendarDays, CalendarX, Camera,
-  ClipboardList, Clock, CreditCard, Eye, FileQuestion, FileText, Gift, Layers,
-  ListChecks, Lock, Mail, MapPin, MessageSquare, PackageCheck, Percent, Phone,
-  PhoneCall, QrCode, Repeat, RotateCcw, Ruler, Scale, Search, ShieldCheck,
-  ShoppingBag, Split, Star, Store, Tags, Ticket, Timer, TrendingDown,
-  TrendingUp, Truck, UserPlus, Users, UtensilsCrossed, Wallet,
-};
 
 type Tone = 'bg' | 'surface' | 'dark' | 'accent';
 
@@ -160,90 +144,19 @@ export function IndustryPage({ data, vignette }: { data: IndustryPageData; vigne
     // Bento: alternating wide/narrow cells that tile the grid exactly,
     // a featured accent-tinted cell and one inverted dark cell. Light cells
     // take the opposite tone to the section so they always read as cards.
-    build: (tone) => {
-      const cellLight = tone === 'surface' ? 'bg-[var(--color-bg)]' : 'bg-[var(--color-surface)]';
-      return (
-        <Section key="build" tone={tone} spacing="xl">
-          <div className="mb-12 max-w-3xl">
-            <Reveal>
-              <Tag>What we build</Tag>
-              <h2 className="h2 mt-6 text-balance">{data.buildHeading}</h2>
-            </Reveal>
-          </div>
+    build: (tone) => (
+      <Section key="build" tone={tone} spacing="xl">
+        <div className="mb-12 max-w-3xl">
           <Reveal>
-            <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
-              {data.build.map((item, i) => {
-                const Icon = ICONS[item.icon];
-                const wide = i === 0 || i === 3 || i === 4; // rows: [2,1] [1,2] [2,1]
-                const featured = i === 0;
-                const dark = i === 3;
-                return (
-                  <div
-                    key={item.title}
-                    className={cn(
-                      'relative flex h-full flex-col overflow-hidden p-8 md:p-10',
-                      wide && 'lg:col-span-2',
-                      dark ? 'bg-[var(--color-dark)]' : cellLight,
-                    )}
-                  >
-                    {featured && (
-                      <span aria-hidden className="absolute inset-0 bg-[var(--color-accent-tint)]" />
-                    )}
-                    {wide && (
-                      <Icon
-                        aria-hidden
-                        className={cn(
-                          'pointer-events-none absolute -bottom-6 -right-6 h-36 w-36',
-                          dark ? 'text-[var(--color-on-dark)] opacity-[0.08]' : 'text-[var(--color-accent)] opacity-[0.08]',
-                        )}
-                      />
-                    )}
-                    <span
-                      className={cn(
-                        'relative flex items-center justify-center rounded-[14px]',
-                        featured
-                          ? 'h-14 w-14 bg-[var(--color-accent)]'
-                          : dark
-                            ? 'h-12 w-12 bg-[rgba(248,247,245,0.12)]'
-                            : 'h-12 w-12 bg-[var(--color-accent-tint)]',
-                      )}
-                    >
-                      <Icon
-                        className={cn(
-                          featured
-                            ? 'h-7 w-7 text-[var(--color-on-accent)]'
-                            : dark
-                              ? 'h-6 w-6 text-[var(--color-on-dark)]'
-                              : 'h-6 w-6 text-[var(--color-accent)]',
-                        )}
-                      />
-                    </span>
-                    <h3
-                      className={cn(
-                        'relative mt-6 text-balance',
-                        featured ? 'h4' : 'h5',
-                        dark && 'text-[var(--color-on-dark)]',
-                      )}
-                    >
-                      {item.title}
-                    </h3>
-                    <p
-                      className={cn(
-                        'text-body relative mt-4',
-                        wide && 'max-w-md',
-                        dark ? 'text-[var(--color-on-dark-mute)]' : 'text-[var(--color-text-mute)]',
-                      )}
-                    >
-                      {item.body}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+            <Tag>What we build</Tag>
+            <h2 className="h2 mt-6 text-balance">{data.buildHeading}</h2>
           </Reveal>
-        </Section>
-      );
-    },
+        </div>
+        <Reveal>
+          <BentoGrid items={data.build} sectionTone={tone === 'surface' ? 'surface' : 'bg'} />
+        </Reveal>
+      </Section>
+    ),
 
     stats: () => (
       <Section key="stats" tone="dark" spacing="l">

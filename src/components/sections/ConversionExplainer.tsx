@@ -8,29 +8,34 @@ type Variant = {
   sub: string;
   cta: string;
   winner?: boolean;
+  /** Relative conversion bar width (illustrative, no numbers claimed) */
+  share: string;
 };
 
-// Illustrative only. A sample local cake studio, used to show the method.
+// Illustrative only. A sample furniture brand, used to show the method.
 // These are not real results and must never be presented as metrics.
 const VARIANTS: Variant[] = [
   {
     angle: 'Problem',
-    headline: 'Cake shopping should not be stressful.',
-    sub: 'Tell us the date and the occasion. We handle the rest.',
-    cta: 'Start your order',
+    headline: 'Buying a sofa online should not be a gamble.',
+    sub: 'Free fabric samples to your door before you commit.',
+    cta: 'Order free samples',
+    share: 'w-[42%]',
   },
   {
     angle: 'Proof',
-    headline: "Knutsford's most-booked celebration cakes.",
-    sub: 'Hundreds of five-star reviews from local families.',
-    cta: 'See the work',
+    headline: 'The sofa thousands of UK homes sit on.',
+    sub: 'Five-star reviews from living rooms across the country.',
+    cta: 'Shop the range',
     winner: true,
+    share: 'w-[85%]',
   },
   {
     angle: 'Outcome',
-    headline: 'The centrepiece everyone remembers.',
-    sub: 'Made for your moment, delivered to your door.',
-    cta: 'Book a tasting',
+    headline: 'The room everyone gathers in.',
+    sub: 'Delivered in days, made to last decades.',
+    cta: 'Find your sofa',
+    share: 'w-[58%]',
   },
 ];
 
@@ -89,6 +94,17 @@ export function ConversionExplainer() {
                   <span className="mt-4 inline-block rounded-[var(--radius-s)] bg-[var(--color-accent)] px-4 py-2 text-small font-semibold text-[var(--color-on-accent)]">
                     {v.cta}
                   </span>
+                </div>
+              </div>
+
+              <div className="mt-6">
+                <p className="label text-[var(--color-text-soft)]">Conversions</p>
+                <div className="mt-2 h-2 rounded-full bg-[var(--color-surface-2)]">
+                  <div
+                    className={`h-2 rounded-full ${v.share} ${
+                      v.winner ? 'bg-[var(--color-accent)]' : 'bg-[var(--color-line-2)]'
+                    }`}
+                  />
                 </div>
               </div>
             </div>

@@ -25,20 +25,6 @@ const PRINCIPLES = [
   },
 ];
 
-const STACK = [
-  'Next.js',
-  'TypeScript',
-  'Tailwind CSS',
-  'Framer Motion',
-  'NestJS',
-  'Prisma',
-  'PostgreSQL',
-  'Stripe',
-  'Resend',
-  'Figma',
-  'Vercel',
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -94,34 +80,6 @@ export default function AboutPage() {
                   Projects start with the intake form at /start, and launch four to six weeks later.
                 </p>
               </div>
-            </Reveal>
-          </div>
-        </div>
-      </Section>
-
-      {/* Stack */}
-      <Section tone="surface" spacing="l">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-3">
-            <Reveal>
-              <Tag>Built on</Tag>
-              <p className="text-body mt-4 max-w-xs text-[var(--color-text-mute)]">
-                The tools the team reaches for first. We can work in your existing setup if you have one.
-              </p>
-            </Reveal>
-          </div>
-          <div className="md:col-span-9">
-            <Reveal delay={0.05}>
-              <ul className="flex flex-wrap gap-3">
-                {STACK.map((t) => (
-                  <li
-                    key={t}
-                    className="rounded-[var(--radius-pill)] border border-[var(--color-line-2)] px-5 py-2 text-body"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
             </Reveal>
           </div>
         </div>
