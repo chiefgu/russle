@@ -20,7 +20,8 @@ export function BentoGrid({ items, sectionTone }: { items: BentoItem[]; sectionT
           <div
             key={item.title}
             className={cn(
-              'relative flex h-full flex-col overflow-hidden p-8 md:p-10',
+              // Phones get a compact icon-beside-text row; sm+ returns to cards.
+              'relative flex h-full gap-4 overflow-hidden p-6 sm:flex-col sm:gap-0 sm:p-8 md:p-10',
               wide && 'lg:col-span-2',
               dark ? 'bg-[var(--color-dark)]' : cellLight,
             )}
@@ -30,16 +31,16 @@ export function BentoGrid({ items, sectionTone }: { items: BentoItem[]; sectionT
               <Icon
                 aria-hidden
                 className={cn(
-                  'pointer-events-none absolute -bottom-6 -right-6 h-36 w-36',
+                  'pointer-events-none absolute -bottom-6 -right-6 hidden h-36 w-36 lg:block',
                   dark ? 'text-[var(--color-on-dark)] opacity-[0.08]' : 'text-[var(--color-accent)] opacity-[0.08]',
                 )}
               />
             )}
             <span
               className={cn(
-                'relative flex items-center justify-center rounded-[14px]',
+                'relative flex shrink-0 items-center justify-center rounded-[14px]',
                 featured
-                  ? 'h-14 w-14 bg-[var(--color-accent)]'
+                  ? 'h-12 w-12 bg-[var(--color-accent)] sm:h-14 sm:w-14'
                   : dark
                     ? 'h-12 w-12 bg-[rgba(248,247,245,0.12)]'
                     : 'h-12 w-12 bg-[var(--color-accent-tint)]',
@@ -48,25 +49,27 @@ export function BentoGrid({ items, sectionTone }: { items: BentoItem[]; sectionT
               <Icon
                 className={cn(
                   featured
-                    ? 'h-7 w-7 text-[var(--color-on-accent)]'
+                    ? 'h-6 w-6 text-[var(--color-on-accent)] sm:h-7 sm:w-7'
                     : dark
                       ? 'h-6 w-6 text-[var(--color-on-dark)]'
                       : 'h-6 w-6 text-[var(--color-accent)]',
                 )}
               />
             </span>
-            <h3 className={cn('relative mt-6 text-balance', featured ? 'h4' : 'h5', dark && 'text-[var(--color-on-dark)]')}>
-              {item.title}
-            </h3>
-            <p
-              className={cn(
-                'text-body relative mt-4',
-                wide && 'max-w-md',
-                dark ? 'text-[var(--color-on-dark-mute)]' : 'text-[var(--color-text-mute)]',
-              )}
-            >
-              {item.body}
-            </p>
+            <div className="min-w-0">
+              <h3 className={cn('relative text-balance sm:mt-6', featured ? 'h4' : 'h5', dark && 'text-[var(--color-on-dark)]')}>
+                {item.title}
+              </h3>
+              <p
+                className={cn(
+                  'text-body relative mt-2 sm:mt-4',
+                  wide && 'max-w-md',
+                  dark ? 'text-[var(--color-on-dark-mute)]' : 'text-[var(--color-text-mute)]',
+                )}
+              >
+                {item.body}
+              </p>
+            </div>
           </div>
         );
       })}

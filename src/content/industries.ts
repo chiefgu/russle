@@ -69,9 +69,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     metaDescription:
       'russle designs and builds websites for UK bakeries, cake makers, producers and farm shops. Online ordering, custom enquiries, subscriptions and wholesale.',
     hero: 'A',
-    blocks: ['proof', 'flow', 'pains', 'build', 'statement', 'faq', 'cta'],
+    blocks: ['proof', 'flow', 'pains', 'build', 'faq', 'cta'],
     buildHeading: 'Everything a food business sells, built in.',
-    statement: 'The bakery closes at five. The order book stays open.',
     flow: {
       heading: 'From search to sold, while you bake.',
       from: { icon: 'Search', title: '"Birthday cake near me"', meta: 'Tuesday, 8pm' },
@@ -267,9 +266,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     metaDescription:
       'russle designs and builds websites for UK trades: builders, electricians, landscapers and installers. Job galleries, quote requests and reviews that win work.',
     hero: 'A',
-    blocks: ['stats', 'flow', 'build', 'statement', 'faq', 'cta'],
+    blocks: ['stats', 'flow', 'build', 'faq', 'cta'],
     buildHeading: 'The job pipeline, on your own domain.',
-    statement: 'Word of mouth got you here. The website takes it from here.',
     flow: {
       heading: 'From search to booked job.',
       from: { icon: 'Search', title: '"Loft conversion quotes"', meta: 'The search' },
@@ -370,9 +368,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     metaDescription:
       'russle designs and builds websites for UK cafes, restaurants and bars. Direct table bookings, menus that stay current, commission-free ordering.',
     hero: 'A',
-    blocks: ['flow', 'pains', 'build', 'statement', 'faq', 'cta'],
+    blocks: ['flow', 'pains', 'build', 'faq', 'cta'],
     buildHeading: 'Bookings, menus and orders, direct.',
-    statement: 'Every table booked direct is margin kept.',
     flow: {
       heading: 'From search to seated.',
       from: { icon: 'Search', title: '"Brunch near me"', meta: 'Thursday, 9pm' },
@@ -468,7 +465,7 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     metaDescription:
       'russle designs and builds websites for UK dentists and private clinics. New patient journeys, treatment pages that rank, online booking and reviews.',
     hero: 'B',
-    blocks: ['pains', 'flow', 'build', 'stats', 'faq', 'cta'],
+    blocks: ['pains', 'flow', 'build', 'faq', 'cta'],
     buildHeading: 'Everything a growing clinic needs.',
     flow: {
       heading: 'From search to first appointment.',
@@ -570,9 +567,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     metaDescription:
       'russle designs and builds websites for UK advisers, brokers and accountants. Credible design, consultation booking, calculators and qualified enquiries.',
     hero: 'A',
-    blocks: ['pains', 'build', 'statement', 'stats', 'faq', 'cta'],
+    blocks: ['pains', 'build', 'faq', 'cta'],
     buildHeading: 'Credibility first, then conversion.',
-    statement: 'Trust is won before the first meeting.',
     stats: [
       { value: 'One team', label: 'Design, build and SEO under one roof.' },
       { value: 'Sign-off', label: 'Your compliance review is built into our copy process.' },
@@ -663,9 +659,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     metaDescription:
       'russle designs and builds websites for UK solicitors and law firms. Case-type enquiry flows, service pages that rank, and client journeys that feel safe.',
     hero: 'A',
-    blocks: ['pains', 'flow', 'build', 'statement', 'faq', 'cta'],
+    blocks: ['pains', 'flow', 'build', 'faq', 'cta'],
     buildHeading: 'The firm, properly presented.',
-    statement: 'Clients shortlist in an evening. Make the list.',
     flow: {
       heading: 'From search to the right desk.',
       from: { icon: 'Search', title: '"Employment solicitor near me"', meta: 'The search' },
@@ -761,9 +756,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     metaDescription:
       'russle designs and builds ecommerce for UK fashion and apparel brands. Editorial storefronts, drops and waitlists, back-in-stock alerts, Shopify or our platform.',
     hero: 'B',
-    blocks: ['build', 'flow', 'pains', 'statement', 'faq', 'cta'],
+    blocks: ['build', 'flow', 'pains', 'faq', 'cta'],
     buildHeading: 'Drop mechanics, editorial finish.',
-    statement: 'The drop sells out. The brand stays yours.',
     flow: {
       heading: 'From drop to sold out.',
       from: { icon: 'Bell', title: 'The drop goes live', meta: 'Friday, 6pm' },
