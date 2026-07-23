@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { CTAStrip } from '@/components/sections/CTAStrip';
@@ -46,16 +47,15 @@ export default function AboutPage() {
       <Section tone="bg" spacing="l">
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5 lg:col-span-4">
-            {/* Swap this placeholder for <Image src="/about/henry.jpg" ... /> when the photo lands. */}
             <Reveal>
-              <div className="relative flex aspect-[4/5] items-end justify-center overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-surface-2)]">
-                <span
-                  aria-hidden
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none text-[160px] font-medium leading-none tracking-[-0.06em] text-[var(--color-line-2)]"
-                >
-                  H
-                </span>
-                <span className="label relative mb-6 text-[var(--color-text-soft)]">Photo on its way</span>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-surface-2)]">
+                <Image
+                  src="/about/henry.jpg"
+                  alt="Henry Guest, founder of russle"
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 768px) 42vw, 100vw"
+                  className="object-cover object-top"
+                />
               </div>
             </Reveal>
           </div>
