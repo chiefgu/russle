@@ -89,7 +89,7 @@ await upsertPost({
   faq: [
     { question: 'Is Shopify good for a small business?', answer: 'Yes, for a standard shop it is one of the fastest, most reliable ways to start selling. The limits show up when you want a distinctive brand or an unusual buying flow.' },
     { question: 'When is a custom storefront worth it over Shopify?', answer: 'When your brand needs to stand out, you have an unusual ordering process, or you want to avoid stacking monthly app fees as you grow.' },
-    { question: 'Does Shopify charge transaction fees?', answer: 'Shopify charges transaction fees unless you use Shopify Payments, on top of the monthly plan. A custom build has no per-sale platform fee, though you handle hosting and payments yourself.' },
+    { question: 'Does Shopify charge transaction fees?', answer: 'Shopify charges transaction fees unless you use Shopify Payments, on top of the monthly plan. A custom build is priced differently, so compare the full running costs of both before deciding.' },
   ],
 });
 

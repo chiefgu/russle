@@ -32,7 +32,7 @@ export type IndustryPageData = {
   blocks: IndustryBlock[];
   buildHeading: string;
   pains: { icon: string; title: string; body: string }[];
-  build: { icon: string; title: string; body: string }[];
+  build: { icon: string; title: string; body: string; detail: string }[];
   stats?: { value: string; label: string }[];
   flow?: { heading: string; from: FlowNode; via: FlowNode & { chips: string[] }; to: FlowNode };
   statement?: string;
@@ -89,8 +89,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
       },
       {
         icon: 'Wallet',
-        title: 'Middlemen take a cut',
-        body: 'Marketplaces and delivery apps sit between you and your customers, and charge you for the introduction.',
+        title: 'Middlemen own the relationship',
+        body: 'Marketplaces and delivery apps sit between you and your customers, and keep the customer data for themselves.',
       },
       {
         icon: 'Repeat',
@@ -103,24 +103,36 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         icon: 'ShoppingBag',
         title: 'Online ordering',
         body: 'Products, variants and collection slots, with payment taken upfront.',
+        detail:
+          'Customers choose products and variants, pick a collection slot or delivery option, and pay before you lift a whisk. Orders land in one place with the details right, and nothing gets lost in a chat thread.',
       },
       {
         icon: 'ClipboardList',
         title: 'Custom order enquiries',
         body: 'Structured forms for bespoke work, so every request arrives with the date, size and detail you need.',
+        detail:
+          'The form asks what you need to quote: occasion, servings, date, flavours, budget and photos. You reply with a price, the customer approves and pays a deposit, and the job is booked.',
       },
       {
         icon: 'Repeat',
         title: 'Subscriptions and repeat orders',
         body: 'Let regulars set and forget, and give yourself predictable weekly volume.',
+        detail:
+          'Weekly boxes, monthly bakes or standing wholesale lines. Customers manage their own subscription, payments collect automatically, and you see the volume before you plan production.',
       },
-      { icon: 'Truck', title: 'Wholesale and trade', body: 'Trade price lists and accounts alongside your retail shop.' },
+      { icon: 'Truck', title: 'Wholesale and trade', body: 'Trade price lists and accounts alongside your retail shop.',
+        detail:
+          'Approved trade customers log in to their own price list and order in bulk. Retail shoppers never see trade prices, and a repeat wholesale order takes a minute to place.' },
       {
         icon: 'CalendarDays',
         title: 'Stock and collection dates',
         body: 'Sell what you have, cap what you can make, and close the dates you are away.',
+        detail:
+          'Set how many you can make and the site stops selling at the cap. Close dates for holidays and markets, and open pre-orders for the big weeks like Christmas and Mothering Sunday.',
       },
-      { icon: 'Search', title: 'Found on Google', body: 'Product and location pages structured to rank for what you sell.' },
+      { icon: 'Search', title: 'Found on Google', body: 'Product and location pages structured to rank for what you sell.',
+        detail:
+          'Each product and category page is structured so search engines understand what you sell and where you are. That is what surfaces you for searches like wedding cakes near me.' },
     ],
     proof: {
       slug: 'bethbakescakes',
@@ -139,7 +151,7 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
       },
       {
         q: 'Is this Shopify?',
-        a: 'It can be. Most food and drink clients run on our own platform, which has no monthly builder fee. If you already run Shopify we build a custom storefront on top of it.',
+        a: 'It can be. Most food and drink clients run on our own platform, built and looked after by us. If you already run Shopify we build a custom storefront on top of it.',
       },
       {
         q: 'Can I update products and prices myself?',
@@ -202,27 +214,39 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         icon: 'CalendarCheck',
         title: 'Online booking',
         body: 'Clients pick a service, a person and a slot, and pay a deposit to hold it.',
+        detail:
+          'Clients pick a service, a person and a time from live availability, then pay a deposit to lock it in. Confirmations and reminders go out automatically, and the diary updates without you touching it.',
       },
       {
         icon: 'Eye',
         title: 'A portfolio that converts',
         body: 'Your work presented properly, with each service linked straight to booking.',
+        detail:
+          'Galleries organised by service, with each set of work linked to the booking flow for that service. Someone admiring balayage books balayage in two taps.',
       },
-      { icon: 'Tags', title: 'Price lists that stay current', body: 'Update services and prices yourself in minutes.' },
+      { icon: 'Tags', title: 'Price lists that stay current', body: 'Update services and prices yourself in minutes.',
+        detail:
+          'Services, durations and prices live in a dashboard you control. Change a price once and it updates everywhere, including the booking flow.' },
       {
         icon: 'Star',
         title: 'Reviews built in',
         body: 'Google reviews pulled onto the site, and a flow that asks happy clients to leave one.',
+        detail:
+          'Your Google reviews display on the site automatically, and after each appointment clients get a simple link to leave one. The count climbs without you asking twice.',
       },
       {
         icon: 'MapPin',
         title: 'Local search',
         body: 'Structured to rank for treatments in your town, not just for your name.',
+        detail:
+          'Treatment pages structured for searches like balayage in your town, plus a Google Business Profile setup so you appear on the map when locals search.',
       },
       {
         icon: 'Gift',
         title: 'Gift vouchers',
         body: 'Vouchers sold from the site and paid upfront, ready for birthdays and Christmas.',
+        detail:
+          'Sold online, paid upfront, delivered by email with a code you redeem in the chair. December takes care of itself.',
       },
     ],
     proof: {
@@ -281,7 +305,7 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     stats: [
       { value: 'One team', label: 'Design, build and SEO under one roof.' },
       { value: 'No templates', label: 'Every site is designed from scratch around your work.' },
-      { value: 'Yours', label: 'You own the site, the domain and the content outright.' },
+      { value: 'Direct', label: 'Enquiries and orders come straight to you, with the details attached.' },
     ],
     pains: [
       {
@@ -305,31 +329,43 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         icon: 'Camera',
         title: 'A gallery that sells',
         body: 'Job photos organised by type of work, because that is what buyers check first.',
+        detail:
+          'Job photos organised by type of work, each with a line on what was done. Buyers scroll a gallery before they read a word, so this is the first thing we get right.',
       },
       {
         icon: 'FileText',
         title: 'Quote request forms',
         body: 'Structured enquiries with photos attached, so you price from real information.',
+        detail:
+          'Customers describe the job, attach photos and add access details. You price from real information, and the time-wasters filter themselves out.',
       },
       {
         icon: 'Star',
         title: 'Reviews front and centre',
         body: 'Google reviews on the site, and a link that makes leaving one easy.',
+        detail:
+          'Google reviews pulled onto the site automatically, plus a link you can text a happy customer from the van. The reputation you earned, working in one place.',
       },
       {
         icon: 'MapPin',
         title: 'Area pages that rank',
         body: 'Pages for the towns you cover, written properly rather than copy-pasted.',
+        detail:
+          'A written page for each town you cover, with real local detail rather than the same paragraph with the town name swapped. That is the difference between ranking and not.',
       },
       {
         icon: 'ShieldCheck',
         title: 'Trust where it counts',
         body: 'Gas Safe, NICEIC, TrustMark: whichever accreditations you hold, shown at the decision moment.',
+        detail:
+          'Accreditations, insurance and memberships shown next to the quote button, where the decision actually happens.',
       },
       {
         icon: 'PhoneCall',
         title: 'Urgent work routing',
         body: 'Click-to-call on mobile, and emergency enquiries flagged so you see them first.',
+        detail:
+          'Emergency enquiries get flagged and jump the queue, and on mobile your number is one tap away. When a pipe bursts, nobody fills in a long form.',
       },
     ],
     faq: [
@@ -363,10 +399,10 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     tag: 'Hospitality',
     h1: 'More covers, fewer no-shows.',
     intro:
-      'Cafes, restaurants and bars. We build sites that take bookings directly, show the menu without a PDF download, and stop third-party apps taxing your tables.',
+      'Cafes, restaurants and bars. We build sites that take bookings directly, show the menu without a PDF download, and take orders direct instead of through a third-party app.',
     metaTitle: 'Web Design for Cafes, Restaurants & Bars',
     metaDescription:
-      'russle designs and builds websites for UK cafes, restaurants and bars. Direct table bookings, menus that stay current, commission-free ordering.',
+      'russle designs and builds websites for UK cafes, restaurants and bars. Direct table bookings, menus that stay current, ordering from your own site.',
     hero: 'A',
     blocks: ['flow', 'pains', 'build', 'faq', 'cta'],
     buildHeading: 'Bookings, menus and orders, direct.',
@@ -388,8 +424,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
       },
       {
         icon: 'Percent',
-        title: 'Delivery apps eat the margin',
-        body: 'Commission on every order, and they keep the customer data for themselves.',
+        title: 'Booking platforms own your diners',
+        body: 'Take bookings through a third-party platform and the diner belongs to it, along with their details and the repeat visit.',
       },
       {
         icon: 'CalendarX',
@@ -402,31 +438,43 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         icon: 'CalendarCheck',
         title: 'Table bookings',
         body: 'Bookings on your own site, with confirmations and reminders that cut no-shows.',
+        detail:
+          'Guests book from the site in seconds, get an instant confirmation and a reminder before they arrive. Walk-ins still matter, but the book fills itself.',
       },
       {
         icon: 'UtensilsCrossed',
         title: 'Menus that stay current',
         body: 'Update dishes and prices yourself. No PDFs, no reprints, readable on a phone.',
+        detail:
+          'Menus are pages, not PDFs. Update a dish or a price from your phone and it is live before the next table sits down.',
       },
       {
-        icon: 'QrCode',
-        title: 'Commission-free ordering',
-        body: 'Takeaway and order-at-table direct from your site, with nothing skimmed per order.',
+        icon: 'Star',
+        title: 'Reviews that fill tables',
+        body: 'Your Google reviews on the site, and an easy way to ask happy diners to leave one.',
+        detail:
+          'Google reviews pulled onto the site where they reassure new diners, plus a simple link you can share after a visit so the good nights turn into more bookings.',
       },
       {
         icon: 'Ticket',
         title: 'Events and private hire',
         body: 'Enquiry flows for the bookings that carry the real margin.',
+        detail:
+          'A proper enquiry flow for parties, functions and full hires: date, numbers, budget and requirements captured upfront, so you quote the real job.',
       },
       {
         icon: 'Search',
         title: 'Found for the right searches',
         body: 'Structured so brunch near me finds you, not just people who already know your name.',
+        detail:
+          'Structured so you surface for dishes, occasions and area searches, not just your name. Sunday roast near me is a search worth winning.',
       },
       {
         icon: 'Gift',
         title: 'Vouchers and experiences',
         body: 'Gift vouchers and tasting menus sold directly, paid before the visit.',
+        detail:
+          'Gift vouchers, tasting menus and experiences sold online and paid upfront. Money in the till before a plate is served.',
       },
     ],
     faq: [
@@ -435,8 +483,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         a: 'Yes. We work with the reservation system you run, or build booking into the site itself.',
       },
       {
-        q: 'Can we take takeaway orders without a delivery app?',
-        a: 'Yes. Direct ordering from your own site with no per-order commission.',
+        q: 'Can guests view the menu from a QR code on the table?',
+        a: 'Yes. A QR code opens the live menu page on their phone, so it is always current and there is nothing to reprint.',
       },
       {
         q: 'Who updates the menu?',
@@ -450,7 +498,7 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     schema: serviceSchema(
       'Web design for hospitality businesses',
       'Cafes, restaurants, bars, pubs',
-      'Website design and build for UK hospitality: direct table bookings, live menus, commission-free takeaway ordering.',
+      'Website design and build for UK hospitality: direct table bookings, live menus, events and private hire.',
     ),
   },
 
@@ -480,7 +528,7 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
     stats: [
       { value: 'One team', label: 'Design, build and SEO under one roof.' },
       { value: 'Sign-off', label: 'Every clinical claim is approved by you before it ships.' },
-      { value: 'Yours', label: 'You own the site, the domain and the content outright.' },
+      { value: 'Direct', label: 'Enquiries and orders come straight to you, with the details attached.' },
     ],
     pains: [
       {
@@ -504,31 +552,43 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         icon: 'UserPlus',
         title: 'New patient journeys',
         body: 'From first search to booked appointment with as little friction as we can engineer.',
+        detail:
+          'Every page points a new patient at one clear next step, whether that is booking online or requesting a callback. Less friction, more first appointments.',
       },
       {
         icon: 'FileText',
         title: 'Treatment pages that rank',
         body: 'A page per treatment, written to answer real questions and structured for search.',
+        detail:
+          'One page per treatment, answering what patients actually ask: what it involves, how long it takes and what the alternatives are. Structured so search engines serve it up.',
       },
       {
         icon: 'CalendarCheck',
         title: 'Online booking and enquiries',
         body: 'Book or enquire out of hours, integrated with your patient system where it allows.',
+        detail:
+          'Patients book or enquire at ten at night, which is when they actually research. We integrate with your patient system where it allows, and build clean flows where it does not.',
       },
       {
         icon: 'Star',
         title: 'Reviews and team',
         body: 'Google reviews on the site and team pages that put faces to the clinic.',
+        detail:
+          'Google reviews on the site and profile pages that put names and faces to the clinic. People choose people.',
       },
       {
         icon: 'Tags',
         title: 'Clear fees',
         body: 'Treatment and fee pages that pre-qualify patients before they call.',
+        detail:
+          'Fee pages patients can find and understand, so the ones who call are ready to book rather than ready to shop around.',
       },
       {
         icon: 'CreditCard',
         title: 'Membership plans',
         body: 'Plan pages that explain the options and sign patients up without a phone call.',
+        detail:
+          'Your plans explained side by side, with sign-up handled online. Predictable recurring income without the front desk chasing forms.',
       },
     ],
     faq: [
@@ -596,31 +656,43 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         icon: 'CalendarCheck',
         title: 'Consultation booking',
         body: 'A calendar on the site, so a good first impression becomes a meeting immediately.',
+        detail:
+          'A live calendar on the site, so a warm visitor becomes a booked meeting without an email chain. Reminders cut the no-shows.',
       },
       {
         icon: 'Calculator',
         title: 'Calculators',
         body: 'Mortgage, repayment and savings calculators that keep visitors engaged and informed.',
+        detail:
+          'Repayment, borrowing and savings calculators built to your products. Visitors get a useful answer, you get an engaged enquiry.',
       },
       {
         icon: 'ClipboardList',
         title: 'Qualified enquiries',
         body: 'Structured forms that capture situation and needs before the first call.',
+        detail:
+          'Forms that capture situation, timescale and needs before the first call, so you open the conversation already informed.',
       },
       {
         icon: 'ShieldCheck',
         title: 'Credentials that reassure',
         body: 'Regulatory status, qualifications and memberships presented where they count.',
+        detail:
+          'Regulatory status, qualifications and professional memberships presented at the decision points, not hidden on an about page.',
       },
       {
         icon: 'TrendingUp',
         title: 'Insight that ranks',
         body: 'A publishing setup for the guides and answers your clients actually search for.',
+        detail:
+          'A publishing setup for guides and answers, structured so they surface in search results and AI answers. Expertise, made visible.',
       },
       {
         icon: 'FileText',
         title: 'Plain-English services',
         body: 'What you do, who it is for and what happens next, written without jargon.',
+        detail:
+          'Each service explained in the words a client would use: what you do, who it is for, what the first step is, and what happens next.',
       },
     ],
     faq: [
@@ -637,8 +709,8 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         a: 'Yes. We embed your calendar or build booking natively, so interest converts while it is warm.',
       },
       {
-        q: 'Who owns the site?',
-        a: 'You do. Site, domain and content are yours outright, hosted wherever suits you.',
+        q: 'Who looks after the site?',
+        a: 'We do. The site runs on our platform, built and kept healthy by us, with your domain and your content staying yours.',
       },
     ],
     schema: serviceSchema(
@@ -693,31 +765,43 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         icon: 'Split',
         title: 'Case-type enquiry flows',
         body: 'Clients pick the matter, answer the essentials, and land with the right person.',
+        detail:
+          'The client picks the matter type and answers the essentials. The enquiry arrives with the basics attached, routed to the right desk, ready to triage.',
       },
       {
         icon: 'Scale',
         title: 'A page per area of law',
         body: 'Written to answer the questions clients search, structured to rank for them.',
+        detail:
+          'Employment, family, property, whatever the firm does: each area gets a page that answers first questions and is structured to rank for them.',
       },
       {
         icon: 'Users',
         title: 'People pages that persuade',
         body: 'Profiles that read like the person, not a CV template.',
+        detail:
+          'Profiles written like the person, not a CV: what they act on, how they work, and why clients come back to them.',
       },
       {
         icon: 'Eye',
         title: 'Transparency built in',
         body: 'The price and service information the SRA requires, designed rather than bolted on.',
+        detail:
+          'The price and service information the SRA requires, designed into the pages people actually read rather than buried in a PDF.',
       },
       {
         icon: 'Award',
         title: 'Proof of record',
         body: 'Testimonials, accreditations and outcomes presented within the rules.',
+        detail:
+          'Testimonials, accreditations and outcomes presented within the rules, where a comparing client will actually see them.',
       },
       {
         icon: 'Clock',
         title: 'Out-of-hours capture',
         body: 'Enquiries arrive at midnight. Callback requests queue for the morning with the details attached.',
+        detail:
+          'Enquiries land at midnight and queue with the details attached, so the morning starts with callbacks rather than voicemail.',
       },
     ],
     faq: [
@@ -790,37 +874,49 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
         icon: 'Camera',
         title: 'Editorial product pages',
         body: 'Lookbook-grade presentation with the detail shots that sell the make.',
+        detail:
+          'Full-bleed imagery, detail shots and fabric close-ups presented like a lookbook, with the buying mechanics tucked in cleanly underneath.',
       },
       {
         icon: 'Timer',
         title: 'Drops and waitlists',
         body: 'Timed releases, early access and waitlists that build pressure properly.',
+        detail:
+          'Timed releases with waitlists, early-access links for the list and a countdown that builds the moment. The infrastructure of a proper drop.',
       },
       {
         icon: 'Bell',
         title: 'Back-in-stock alerts',
         body: 'Sold out becomes a mailing list instead of a missed sale.',
+        detail:
+          'A sold-out size becomes a notify-me button. When you restock, the email goes out and the sale completes itself.',
       },
       {
         icon: 'Ruler',
         title: 'Size guidance that fits',
         body: 'Per-garment guidance that cuts returns and support messages.',
+        detail:
+          'Per-garment measurements and fit notes, not a generic chart. Fewer returns, and fewer messages asking will this fit.',
       },
       {
         icon: 'Store',
         title: 'Shopify or our platform',
-        body: 'A custom storefront on the Shopify store you run, or our own platform with no monthly builder fee.',
+        body: 'A custom storefront on the Shopify store you run, or a store built on our own platform.',
+        detail:
+          'If you run Shopify we design and build a custom storefront on top of it. Otherwise our platform handles products, stock, orders and payments, built and looked after by us.',
       },
       {
         icon: 'Mail',
         title: 'List building',
         body: 'Email and SMS capture wired into drops, because the list sells the next release.',
+        detail:
+          'Email and SMS capture wired into every drop, waitlist and back-in-stock alert. The list is the asset that sells the next release.',
       },
     ],
     faq: [
       {
         q: 'Shopify or something else?',
-        a: 'Either. If you run Shopify we design and build a custom storefront on top of it. Otherwise our own platform handles products, stock, orders and payments with no monthly builder fee.',
+        a: 'Either. If you run Shopify we design and build a custom storefront on top of it. Otherwise our own platform handles products, stock, orders and payments.',
       },
       {
         q: 'Can you handle drops?',

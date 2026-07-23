@@ -27,7 +27,7 @@ export function HospitalityVignette({ className }: { className?: string }) {
   return (
     <div
       role="img"
-      aria-label="A restaurant taking a direct table booking for four at 7:30pm, with a live menu and order-at-table QR code."
+      aria-label="A restaurant taking a direct table booking for four at 7:30pm, with a live menu and a QR code that opens the menu."
       className={cn('relative mx-auto w-full max-w-[460px] px-6 py-8', className)}
     >
       <div aria-hidden>
@@ -72,10 +72,10 @@ export function HospitalityVignette({ className }: { className?: string }) {
           </div>
         </div>
 
-        {/* Order at table chip */}
+        {/* Scan-for-menu chip */}
         <div className={cn(CHIP, 'float-slow -left-1 bottom-4 -rotate-2')}>
           <QRMark />
-          <span className={CHIP_LABEL}>Order at table</span>
+          <span className={CHIP_LABEL}>Scan for menu</span>
         </div>
 
         {/* Reminder pill */}

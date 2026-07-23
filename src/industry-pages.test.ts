@@ -46,7 +46,7 @@ describe('industry pages', () => {
         data.statement ?? '',
         ...(data.flow ? [data.flow.heading, data.flow.from.title, data.flow.via.title, data.flow.to.title, ...data.flow.via.chips] : []),
         ...data.pains.flatMap((p) => [p.title, p.body]),
-        ...data.build.flatMap((b) => [b.title, b.body]),
+        ...data.build.flatMap((b) => [b.title, b.body, b.detail]),
         ...(data.stats ?? []).flatMap((s) => [s.value, s.label]),
         ...data.faq.flatMap((f) => [f.q, f.a]),
       ].join('\n');

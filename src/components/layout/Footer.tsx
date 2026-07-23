@@ -30,6 +30,7 @@ const FOOTER_COLUMNS = [
     title: 'Get started',
     links: [
       { label: 'Project intake', href: '/start' },
+      { label: 'Free site review', href: '/free-site-review' },
       { label: 'Email us', href: 'mailto:hello@russle.co.uk' },
       { label: 'Instagram', href: 'https://instagram.com/russleuk', external: true },
     ],
@@ -48,7 +49,7 @@ export function Footer() {
               <Wordmark className="h2" />
             </Link>
             <p className="text-big mt-6 max-w-md text-[var(--color-text-mute)]">
-              russle. Web design, ecommerce &amp; SEO studio. United Kingdom.
+              russle. Web design, ecommerce &amp; SEO studio. Cheshire, UK.
             </p>
             <p className="text-small mt-4 max-w-md text-[var(--color-text-mute)]">
               Websites that get found on Google, for ambitious businesses across the UK.
@@ -100,7 +101,7 @@ export function Footer() {
             © {year} russle. All rights reserved.
           </p>
           <p className="text-small text-[var(--color-text-mute)]">
-            Based in the United Kingdom.
+            Based in Cheshire, working across the UK.
           </p>
         </div>
       </Container>

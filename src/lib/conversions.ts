@@ -23,6 +23,14 @@ export type Conversion =
       type: 'contact_form';
       subject?: string;
       eventId?: string;
+    }
+  | {
+      type: 'site_review_request';
+      eventId?: string;
+    }
+  | {
+      type: 'blog_subscribe';
+      eventId?: string;
     };
 
 export function trackConversion(c: Conversion): void {

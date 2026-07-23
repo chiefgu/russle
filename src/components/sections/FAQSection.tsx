@@ -10,7 +10,7 @@ const ITEMS: FAQItem[] = [
   },
   {
     q: 'Why not just use a Squarespace template?',
-    a: 'Templates are free, and every competitor can buy the same one. We build something only you have, on a setup you actually own. No monthly subscription to a website builder, no per-sale fees.',
+    a: 'Templates are free, and every competitor can buy the same one. We build something only you have, custom to the business, with no website builder in the middle.',
   },
   {
     q: 'Why not just use a full-service agency?',

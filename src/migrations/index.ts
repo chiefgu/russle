@@ -1,5 +1,6 @@
 import * as migration_20260605_113948_initial from './20260605_113948_initial';
 import * as migration_20260707_095700_posts_faq from './20260707_095700_posts_faq';
+import * as migration_20260714_155359_add_subscribers from './20260714_155359_add_subscribers';
 
 export const migrations = [
   {
@@ -10,6 +11,11 @@ export const migrations = [
   {
     up: migration_20260707_095700_posts_faq.up,
     down: migration_20260707_095700_posts_faq.down,
-    name: '20260707_095700_posts_faq'
+    name: '20260707_095700_posts_faq',
+  },
+  {
+    up: migration_20260714_155359_add_subscribers.up,
+    down: migration_20260714_155359_add_subscribers.down,
+    name: '20260714_155359_add_subscribers'
   },
 ];

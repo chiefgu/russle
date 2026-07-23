@@ -5,19 +5,19 @@ import { EcommerceVignette } from '@/components/sections/EcommerceVignette';
 const data: ServicePageData = {
   slug: 'ecommerce',
   tag: 'Ecommerce',
-  h1: 'Online stores that sell, on a platform you own.',
+  h1: 'Online stores that sell, built around your business.',
   intro:
-    'We build online shops on our own platform or as a custom Shopify storefront: products, stock, orders, and payments, with a dashboard and an iOS app so you run the shop from anywhere. No marketplace commission, no per-sale fee to a third party.',
+    'We build online shops on our own platform or as a custom Shopify storefront: products, stock, orders, and payments, with a dashboard and an iOS app so you run the shop from anywhere. Your store and your customers, not a marketplace’s.',
   metaTitle: 'Ecommerce',
   metaDescription:
     'russle builds custom online stores for ambitious businesses across the UK, on our own platform or as a custom Shopify storefront. Products, stock, orders, payments, and a dashboard.',
   included: [
     { title: 'Full storefront', body: 'Products, collections, cart, and checkout, built around your range.' },
-    { title: 'Payments and orders', body: 'Take payment and manage orders without a marketplace taking a cut.' },
+    { title: 'Payments and orders', body: 'Take payment and manage orders on your own site, not through a marketplace.' },
     { title: 'Dashboard and iOS app', body: 'Manage products, stock, and orders from your desk or your phone.' },
     { title: 'Stock that stays right', body: 'Inventory that updates as you sell, online and in person.' },
     { title: 'Built for search', body: 'Product and category pages structured to rank and to show in AI answers.' },
-    { title: 'Our platform or Shopify', body: 'No monthly builder fee on ours, or a custom storefront on the Shopify store you already run.' },
+    { title: 'Our platform or Shopify', body: 'Built on our platform, or as a custom storefront on the Shopify store you already run.' },
   ],
   how: [
     'Start with a short brief covering your range and how you sell.',
@@ -31,9 +31,9 @@ const data: ServicePageData = {
     line: 'A multi-store site that took a Manchester acai bar off Instagram and onto its own checkout, edited by the three founders themselves.',
   },
   faq: [
-    { q: 'Is this Shopify?', a: 'It can be. Most stores run on our platform, which means no monthly builder fee and no per-sale cut. If you run Shopify or want to, we design and build a custom storefront on top of it, so you keep the Shopify checkout and admin you know.' },
+    { q: 'Is this Shopify?', a: 'It can be. Most stores run on our own platform, built and looked after by us. If you run Shopify or want to, we design and build a custom storefront on top of it, so you keep the Shopify checkout and admin you know.' },
     { q: 'Can I manage it myself?', a: 'Yes. Stores come with a web dashboard and an iOS app for products, stock, and orders.' },
-    { q: 'Do you do food ordering?', a: 'Yes, takeaway and pickup ordering direct from your site, with no third-party app or commission.' },
+    { q: 'Can customers subscribe or reorder easily?', a: 'Yes. We build subscriptions, saved details, and one-tap reorder so regulars keep coming back without starting from scratch each time.' },
   ],
   schema: {
     '@context': 'https://schema.org',

@@ -42,6 +42,43 @@ export default function AboutPage() {
         </div>
       </Section>
 
+      {/* Founder */}
+      <Section tone="bg" spacing="l">
+        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+          <div className="md:col-span-5 lg:col-span-4">
+            {/* Swap this placeholder for <Image src="/about/henry.jpg" ... /> when the photo lands. */}
+            <Reveal>
+              <div className="relative flex aspect-[4/5] items-end justify-center overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-surface-2)]">
+                <span
+                  aria-hidden
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none text-[160px] font-medium leading-none tracking-[-0.06em] text-[var(--color-line-2)]"
+                >
+                  H
+                </span>
+                <span className="label relative mb-6 text-[var(--color-text-soft)]">Photo on its way</span>
+              </div>
+            </Reveal>
+          </div>
+          <div className="md:col-span-7 lg:col-span-8">
+            <Reveal>
+              <Tag>Who you work with</Tag>
+              <h2 className="h2 mt-6 text-balance">One person, start to finish.</h2>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <p className="text-big mt-6 max-w-2xl text-[var(--color-text-mute)]">
+                russle is Henry Guest. He designs each site, builds it, writes the
+                copy, and runs the SEO once it is live. He built the platform the
+                shops run on too, so changes never wait on a third party.
+              </p>
+              <p className="text-body mt-4 max-w-2xl text-[var(--color-text-mute)]">
+                You deal with him directly. The person who replies to your first
+                email is the one who builds your site.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </Section>
+
       {/* Principles */}
       <Section tone="surface" spacing="xl">
         <Reveal>

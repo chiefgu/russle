@@ -13,7 +13,7 @@ const data: ServicePageData = {
     'russle designs and builds fast, custom websites for ambitious businesses across the UK. Built from scratch, built to convert, and ready for search from day one.',
   included: [
     { title: 'Custom design, no templates', body: 'Designed around your business, not a theme every competitor can buy.' },
-    { title: 'Built from scratch', body: 'Hand-built code on our own platform. Fast, secure, and yours.' },
+    { title: 'Built from scratch', body: 'Hand-built code on our own platform, fast and secure, with no template underneath.' },
     { title: 'Built to convert', body: 'Structured so visitors take the next step, not just look around.' },
     { title: 'Ready for search', body: 'Clean, fast, and structured so Google and AI search can read it from day one.' },
     { title: 'Hosting handled', body: 'Hosting on our platform, one bill, looked after by us.' },

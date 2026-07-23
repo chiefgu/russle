@@ -3,11 +3,11 @@ import {
   Calendar,
   ShoppingBag,
   Mail,
-  Utensils,
   Sparkles,
   BrainCircuit,
   Hammer,
   Search,
+  LifeBuoy,
 } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
@@ -56,9 +56,9 @@ const CAPABILITIES = [
     body: 'Welcome flows, newsletters, customer follow-ups, promotions. The retention work that keeps the same customer coming back.',
   },
   {
-    icon: Utensils,
-    title: 'Online ordering for food',
-    body: 'Takeaway and pickup orders direct from your site. No third-party app, no commission cut. Yours, on your platform.',
+    icon: LifeBuoy,
+    title: 'Hosting and care',
+    body: 'We host the site on our platform, keep it fast and secure, and fix the small things before they become problems. One bill, looked after by us.',
   },
 ];
 

@@ -69,6 +69,14 @@ export type WorkMeta = {
   coverPosition?: 'top' | 'center' | 'bottom';
   // Optional cover crop strategy
   coverFit?: 'cover' | 'contain';
+  // Brand logo/wordmark for the clients strip, rendered as a monochrome mask.
+  logo?: string;
+  // Optional per-logo size multiplier for the strip (1 = default cap height).
+  // Dense emblem marks read heavier than thin wordmarks, so scale them down.
+  logoScale?: number;
+  // Brand colour the logo turns to on hover in the strip. Pick the signature
+  // colour that reads on the light page (not a pale backdrop).
+  logoColor?: string;
   gallery?: GalleryItem[];
   tags?: string[];
   palette?: PaletteSwatch[];

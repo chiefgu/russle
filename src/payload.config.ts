@@ -11,6 +11,7 @@ import { Users } from '@/collections/Users';
 import { Media } from '@/collections/Media';
 import { Categories } from '@/collections/Categories';
 import { Posts } from '@/collections/Posts';
+import { Subscribers } from '@/collections/Subscribers';
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -18,7 +19,7 @@ export default buildConfig({
   admin: { user: Users.slug },
   routes: { admin: '/admin', api: '/cms-api' },
   editor: lexicalEditor(),
-  collections: [Users, Media, Categories, Posts],
+  collections: [Users, Media, Categories, Posts, Subscribers],
   graphQL: {
     disablePlaygroundInProduction: true,
   },

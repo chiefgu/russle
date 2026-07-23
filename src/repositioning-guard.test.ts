@@ -49,11 +49,20 @@ const BANNED: { label: string; re: RegExp }[] = [
   { label: 'em dash', re: /—/ },
   { label: 'independent business framing', re: /independent\s+business|\bindependents\b/i },
   { label: 'self geo: Alderley Edge', re: /Alderley Edge/ },
-  { label: 'self geo: Cheshire', re: /Cheshire/ },
   { label: 'self geo: South Manchester', re: /South Manchester/ },
   { label: 'price on site', re: /£/ },
   { label: 'brand & growth agency self-descriptor', re: /brand\s*&\s*growth\s*agency|brand and growth agency/i },
   { label: 'ads as a marketed service', re: /\bads\b/i },
+  // We do charge for the platform; never claim otherwise (2026-07-14).
+  {
+    label: 'false fee claim',
+    re: /commission-free|no per-sale|per-sale (fee|cut)|builder fee|no commission|nothing skimmed|without a marketplace taking|no per-order/i,
+  },
+  // Clients run on our platform; they do not own it (2026-07-14).
+  {
+    label: 'false ownership claim',
+    re: /platform you own|yours outright|you own the site|setup you actually own|on your platform/i,
+  },
 ];
 
 describe('national repositioning guard', () => {

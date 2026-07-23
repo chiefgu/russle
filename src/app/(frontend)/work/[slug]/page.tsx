@@ -14,6 +14,14 @@ import { DesignNotes } from '@/components/sections/DesignNotes';
 import { Gallery } from '@/components/sections/Gallery';
 import { CaseStudyBody } from '@/components/sections/CaseStudyBody';
 import { CaseStudyResults } from '@/components/sections/CaseStudyResults';
+
+// Cross-link each case study to the industry page it proves.
+const SECTOR_INDUSTRY: Record<string, { href: string; label: string }> = {
+  bethbakescakes: { href: '/food-and-drink', label: 'websites for food and drink businesses' },
+  'berry-boys': { href: '/food-and-drink', label: 'websites for food and drink businesses' },
+  'mums-granola': { href: '/food-and-drink', label: 'websites for food and drink businesses' },
+  'makeup-by-abigail': { href: '/hair-and-beauty', label: 'websites for hair and beauty businesses' },
+};
 import { Testimonial } from '@/components/sections/Testimonial';
 import { getAllWork, getWorkBySlug, getWorkSlugs } from '@/lib/mdx';
 
@@ -282,6 +290,21 @@ export default async function WorkDetailPage({
           items={post.outcome_kpis}
           accentColor={post.accentColor || post.backdropColor}
         />
+      )}
+
+      {SECTOR_INDUSTRY[post.slug] && (
+        <Section tone="bg" spacing="s" container="narrow">
+          <p className="text-body text-[var(--color-text-mute)]">
+            In the same line of work?{' '}
+            <Link
+              href={SECTOR_INDUSTRY[post.slug].href}
+              className="text-[var(--color-text)] underline underline-offset-4 hover:text-[var(--color-accent)]"
+            >
+              See how we build {SECTOR_INDUSTRY[post.slug].label}
+            </Link>
+            .
+          </p>
+        </Section>
       )}
 
       {/* Gallery, varying-width image stack */}

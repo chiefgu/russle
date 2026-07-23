@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
+import { BlogCapture } from '@/components/sections/BlogCapture';
+import { INDUSTRY_LINKS } from '@/content/industries';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { PostBody } from '@/components/sections/PostBody';
@@ -92,6 +94,25 @@ export function JournalArticle({
           <Link href={AUTHOR.url} className="link mt-1 w-fit text-[var(--color-text-mute)]">
             More about russle
           </Link>
+        </div>
+      </Section>
+
+      <Section tone="bg" spacing="s" container="narrow">
+        <BlogCapture source={post.slug ?? 'blog'} />
+      </Section>
+
+      <Section tone="bg" spacing="s" container="narrow">
+        <p className="label text-[var(--color-text-soft)]">Who we build for</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {INDUSTRY_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-[var(--radius-pill)] border border-[var(--color-line-2)] px-4 py-2 text-small text-[var(--color-text-mute)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-text)]"
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       </Section>
 

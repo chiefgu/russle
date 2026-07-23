@@ -5,7 +5,7 @@ import { Reveal } from '@/components/animations/Reveal';
 const COMPARISONS = [
   {
     title: 'Versus a template',
-    body: "Squarespace and Wix templates are free, and every competitor can buy the same one. Your brand becomes interchangeable. We build something only you have, on a setup you actually own.",
+    body: "Squarespace and Wix templates are free, and every competitor can buy the same one. Your brand becomes interchangeable. We build something only you have, designed around your business rather than a theme.",
   },
   {
     title: 'Versus piecing it together',
