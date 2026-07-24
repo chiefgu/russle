@@ -1,66 +1,8 @@
-import {
-  Globe,
-  Calendar,
-  ShoppingBag,
-  Mail,
-  Sparkles,
-  BrainCircuit,
-  Hammer,
-  Search,
-  LifeBuoy,
-} from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
 import { ButtonLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/animations/Reveal';
-
-const CAPABILITIES = [
-  {
-    icon: Hammer,
-    title: 'Custom builds',
-    body: 'If you need something specific that none of these cover, we build it. Almost everything we used to outsource, we now do in-house.',
-  },
-  {
-    icon: ShoppingBag,
-    title: 'E-commerce stores',
-    body: 'Online shops on our own platform. Products, stock, orders, payments. Comes with a dashboard and an iOS app for managing the shop from your phone.',
-  },
-  {
-    icon: Sparkles,
-    title: 'AI integrations',
-    body: 'Practical AI built into the site. Chatbots that actually answer questions, content help, smart booking, customer support, recommendations.',
-  },
-  {
-    icon: BrainCircuit,
-    title: 'AI search optimisation (GEO)',
-    body: 'Showing up when people ask ChatGPT, Perplexity, or Google AI Overviews for what you do. Schema, structured content, and brand signals that AI search engines actually read.',
-  },
-  {
-    icon: Globe,
-    title: 'Brochure and service-business sites',
-    body: 'A clean site that shows what you do, who you do it for, what it costs, and how to get in touch.',
-  },
-  {
-    icon: Calendar,
-    title: 'Online booking and reservations',
-    body: 'Customers book appointments, classes, or tables directly from your site. Clinics, studios, venues, restaurants, professional services.',
-  },
-  {
-    icon: Search,
-    title: 'SEO and AI search',
-    body: 'Ranking in Google and showing up in ChatGPT and AI Overviews. Technical SEO, content, and schema that search engines and AI actually read.',
-  },
-  {
-    icon: Mail,
-    title: 'Email marketing',
-    body: 'Welcome flows, newsletters, customer follow-ups, promotions. The retention work that keeps the same customer coming back.',
-  },
-  {
-    icon: LifeBuoy,
-    title: 'Hosting and care',
-    body: 'We host the site on our platform, keep it fast and secure, and fix the small things before they become problems. One bill, looked after by us.',
-  },
-];
+import { CapabilitiesGrid } from '@/components/sections/CapabilitiesGrid';
 
 export function Capabilities() {
   return (
@@ -76,27 +18,7 @@ export function Capabilities() {
         </Reveal>
       </div>
 
-      <Reveal>
-        <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
-          {CAPABILITIES.map((cap) => {
-            const Icon = cap.icon;
-            return (
-              <div
-                key={cap.title}
-                className="flex h-full flex-col bg-[var(--color-bg)] p-8 md:p-10"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line-2)] text-[var(--color-accent)]">
-                  <Icon className="h-5 w-5" aria-hidden />
-                </div>
-                <h3 className="h5 mt-6 text-balance">{cap.title}</h3>
-                <p className="text-body mt-4 text-[var(--color-text-mute)]">
-                  {cap.body}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </Reveal>
+      <CapabilitiesGrid />
 
       <Reveal delay={0.1}>
         <div className="mt-10">
