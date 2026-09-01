@@ -40,6 +40,10 @@ function CaseStudyBand({ item, flip }: { item: WorkMeta; flip: boolean }) {
     item.backdropTone === 'light'
       ? 'border-white/30 hover:bg-white hover:text-[var(--color-text)]'
       : 'border-black/20 hover:bg-[var(--color-text)] hover:text-[var(--color-bg)]';
+  const livePill =
+    item.backdropTone === 'light'
+      ? 'border-white/30 text-[var(--color-on-dark)] hover:bg-white hover:text-[var(--color-text)]'
+      : 'border-black/20 text-[var(--color-text)] hover:bg-[var(--color-text)] hover:text-[var(--color-bg)]';
 
   return (
     <section
@@ -117,10 +121,10 @@ function CaseStudyBand({ item, flip }: { item: WorkMeta; flip: boolean }) {
                     href={item.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-body inline-flex items-center gap-1 hover:opacity-70 transition-opacity ${onBackdropMute}`}
+                    className={`inline-flex items-center gap-2 rounded-[var(--radius-pill)] border px-6 py-3 text-body font-medium transition-colors ${livePill}`}
                   >
-                    Visit site
-                    <ArrowUpRight className="h-3 w-3" />
+                    Visit live site
+                    <ArrowUpRight className="h-4 w-4" />
                   </a>
                 )}
                 {item.status === 'launching-soon' && (

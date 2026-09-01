@@ -136,6 +136,24 @@ export default async function WorkDetailPage({
               </p>
             </Reveal>
 
+            {post.status === 'live' && post.live && (
+              <Reveal delay={0.2}>
+                <a
+                  href={post.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`mt-10 inline-flex items-center gap-2 rounded-[var(--radius-pill)] px-7 py-3.5 text-body font-medium transition-opacity hover:opacity-85 ${
+                    post.backdropTone === 'light'
+                      ? 'bg-white text-[var(--color-text)]'
+                      : 'bg-[var(--color-text)] text-[var(--color-bg)]'
+                  }`}
+                >
+                  Visit the live site
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </Reveal>
+            )}
+
             <Reveal delay={0.2}>
               <div
                 className={`mt-12 grid grid-cols-2 gap-x-8 gap-y-6 border-t pt-8 md:grid-cols-5 ${
@@ -148,43 +166,15 @@ export default async function WorkDetailPage({
                 <Meta label="Sector" value={post.sector} tone={post.backdropTone} />
                 <Meta label="Year" value={post.year} tone={post.backdropTone} />
                 <Meta label="Role" value={post.role} tone={post.backdropTone} />
-                {post.status === 'live' && post.live && (
-                  <div>
-                    <p
-                      className={`label ${
-                        post.backdropTone === 'light'
-                          ? 'text-white/50'
-                          : 'text-black/50'
-                      }`}
-                    >
-                      Status
-                    </p>
-                    <a
-                      href={post.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`text-body mt-2 inline-flex items-center gap-1 hover:opacity-70 transition-opacity ${onBackdrop}`}
-                    >
-                      Visit site
-                      <ArrowUpRight className="h-3 w-3" />
-                    </a>
-                  </div>
+                {post.status === 'live' && (
+                  <Meta label="Status" value="Live" tone={post.backdropTone} />
                 )}
                 {post.status === 'launching-soon' && (
-                  <div>
-                    <p
-                      className={`label ${
-                        post.backdropTone === 'light'
-                          ? 'text-white/50'
-                          : 'text-black/50'
-                      }`}
-                    >
-                      Status
-                    </p>
-                    <p className={`text-body mt-2 ${onBackdrop}`}>
-                      Launching soon
-                    </p>
-                  </div>
+                  <Meta
+                    label="Status"
+                    value="Launching soon"
+                    tone={post.backdropTone}
+                  />
                 )}
               </div>
             </Reveal>
@@ -321,6 +311,40 @@ export default async function WorkDetailPage({
           author={post.quote.author}
           role={post.quote.role}
         />
+      )}
+
+      {/* Live-site band, catches readers who reach the end convinced */}
+      {post.status === 'live' && post.live && (
+        <a
+          href={post.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group block"
+        >
+          <Section
+            tone="bg"
+            spacing="l"
+            container="main"
+            className="border-t border-[var(--color-line)]"
+          >
+            <div className="flex items-center justify-between gap-6">
+              <div>
+                <p className="label text-[var(--color-text-soft)]">
+                  See it live
+                </p>
+                <p className="h2 mt-3 transition-colors group-hover:text-[var(--color-accent)]">
+                  {new URL(post.live).hostname.replace(/^www\./, '')}
+                </p>
+              </div>
+              <div
+                className="hidden h-20 w-20 shrink-0 rounded-[var(--radius-l)] md:block"
+                style={{ background: post.backdropColor }}
+                aria-hidden
+              />
+              <ArrowUpRight className="h-12 w-12 shrink-0 text-[var(--color-text)] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </div>
+          </Section>
+        </a>
       )}
 
       {/* Next case */}
