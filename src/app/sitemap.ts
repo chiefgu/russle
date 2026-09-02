@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { getAllWork } from '@/lib/mdx';
 import { getPublishedPosts } from '@/lib/posts';
 import { INDUSTRY_SLUGS } from '@/content/industries';
+import { LOCATION_SLUGS } from '@/content/locations';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://russle.co.uk';
 
@@ -43,6 +44,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
+  const locationRoutes: MetadataRoute.Sitemap = LOCATION_SLUGS.map((slug) => ({
+    url: `${SITE_URL}/${slug}`,
+    lastModified: siteModified,
+    priority: 0.8,
+  }));
+
   const workRoutes: MetadataRoute.Sitemap = getAllWork().map((post) => ({
     url: `${SITE_URL}/work/${post.slug}`,
     lastModified: siteModified,
@@ -55,5 +62,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...industryRoutes, ...workRoutes, ...journalRoutes];
+  return [...staticRoutes, ...industryRoutes, ...locationRoutes, ...workRoutes, ...journalRoutes];
 }

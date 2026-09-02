@@ -20,16 +20,10 @@ const nextConfig: NextConfig = {
     return [
       { source: '/journal', destination: '/blog', permanent: true },
       { source: '/journal/:slug', destination: '/blog/:slug', permanent: true },
-      // Retired local SEO pages now point at the web design service.
-      { source: '/web-design-alderley-edge', destination: '/web-design', permanent: true },
-      { source: '/web-design-altrincham', destination: '/web-design', permanent: true },
+      // Locality pages revived for the local SEO drive (2026-09-02); only the
+      // places without a live page still redirect to the web design service.
       { source: '/web-design-chester', destination: '/web-design', permanent: true },
-      { source: '/web-design-didsbury', destination: '/web-design', permanent: true },
-      { source: '/web-design-hale', destination: '/web-design', permanent: true },
-      { source: '/web-design-knutsford', destination: '/web-design', permanent: true },
-      { source: '/web-design-macclesfield', destination: '/web-design', permanent: true },
       { source: '/web-design-prestbury', destination: '/web-design', permanent: true },
-      { source: '/web-design-wilmslow', destination: '/web-design', permanent: true },
       { source: '/south-manchester-cheshire-brand-web-design', destination: '/web-design', permanent: true },
       // Retired tier + pricing pages (reposition 2026-07-01).
       { source: '/services', destination: '/', permanent: true },

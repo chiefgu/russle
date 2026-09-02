@@ -5,14 +5,27 @@ import path from 'node:path';
 const SRC = path.resolve(__dirname);
 const SCRIPTS = path.resolve(__dirname, '..', 'scripts');
 
-// Retired in this reposition or generated — excluded from the copy scan.
+// Retired in the 2026-07-01 reposition — excluded from the copy scan.
+// NOTE: the web-design-* routes and LocalityPage were REVIVED for the local
+// SEO drive (2026-09-02) and are scanned again; only the truly dead files stay.
 const DOOMED = [
   'content/locality',
-  'app/(frontend)/web-design-',
   'app/(frontend)/south-manchester-cheshire-brand-web-design',
-  'components/sections/LocalityPage.tsx',
   'components/sections/RegionHub.tsx',
   'lib/locality.ts',
+];
+
+// Local SEO drive (2026-09-02): locality pages and the site frame carry
+// self-geo and local-audience copy by design. Geo rules are scoped to allow
+// these files; every other rule (em dash, price, false claims) still applies
+// to them in full.
+const LOCAL_OK = [
+  'content/locations.ts',
+  'components/sections/LocalityPage.tsx',
+  'components/sections/vignettes/LocalVignette.tsx',
+  'app/(frontend)/web-design-',
+  'app/(frontend)/layout.tsx',
+  'components/layout/Footer.tsx',
 ];
 // Generated or machine files that legitimately contain long strings / dashes.
 const IGNORED = [
@@ -45,11 +58,11 @@ function scannedFiles(): string[] {
   });
 }
 
-const BANNED: { label: string; re: RegExp }[] = [
+const BANNED: { label: string; re: RegExp; allow?: string[] }[] = [
   { label: 'em dash', re: /—/ },
-  { label: 'independent business framing', re: /independent\s+business|\bindependents\b/i },
-  { label: 'self geo: Alderley Edge', re: /Alderley Edge/ },
-  { label: 'self geo: South Manchester', re: /South Manchester/ },
+  { label: 'independent business framing', re: /independent\s+business|\bindependents\b/i, allow: LOCAL_OK },
+  { label: 'self geo: Alderley Edge', re: /Alderley Edge/, allow: LOCAL_OK },
+  { label: 'self geo: South Manchester', re: /South Manchester/, allow: LOCAL_OK },
   { label: 'price on site', re: /£/ },
   { label: 'brand & growth agency self-descriptor', re: /brand\s*&\s*growth\s*agency|brand and growth agency/i },
   { label: 'ads as a marketed service', re: /\bads\b/i },
@@ -68,9 +81,12 @@ const BANNED: { label: string; re: RegExp }[] = [
 describe('national repositioning guard', () => {
   // Read every file once; test all banned terms against each. O(files), not O(files*terms).
   const contents = scannedFiles().map((f) => ({ rel: path.relative(path.resolve(__dirname, '..'), f), text: readFileSync(f, 'utf8') }));
-  for (const { label, re } of BANNED) {
+  for (const { label, re, allow } of BANNED) {
     it(`has no "${label}" in retained source`, () => {
-      const hits = contents.filter((c) => re.test(c.text)).map((c) => c.rel);
+      const hits = contents
+        .filter((c) => !(allow ?? []).some((a) => c.rel.includes(a)))
+        .filter((c) => re.test(c.text))
+        .map((c) => c.rel);
       expect(hits, `Found "${label}" in:\n${hits.join('\n')}`).toEqual([]);
     });
   }

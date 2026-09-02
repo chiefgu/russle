@@ -4,17 +4,23 @@ import path from 'node:path';
 
 const CONFIG = readFileSync(path.resolve(__dirname, '..', 'next.config.ts'), 'utf8');
 
+// Only places without a live locality page stay redirected. The rest were
+// revived for the local SEO drive (2026-09-02) and must NOT be redirected,
+// or the redirect shadows the page.
 const RETIRED = [
+  '/web-design-chester',
+  '/web-design-prestbury',
+  '/south-manchester-cheshire-brand-web-design',
+];
+
+const REVIVED = [
   '/web-design-alderley-edge',
   '/web-design-altrincham',
-  '/web-design-chester',
   '/web-design-didsbury',
   '/web-design-hale',
   '/web-design-knutsford',
   '/web-design-macclesfield',
-  '/web-design-prestbury',
   '/web-design-wilmslow',
-  '/south-manchester-cheshire-brand-web-design',
 ];
 
 function assertRedirect(source: string, destination: string) {
@@ -28,6 +34,11 @@ describe('retired locality redirects', () => {
   for (const source of RETIRED) {
     it(`301s ${source} to /web-design`, () => {
       expect(assertRedirect(source, '/web-design')).toBe(true);
+    });
+  }
+  for (const source of REVIVED) {
+    it(`does NOT redirect the revived ${source}`, () => {
+      expect(CONFIG.includes(`source: '${source}'`)).toBe(false);
     });
   }
 });

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Container } from './Container';
 import { Wordmark } from '@/components/ui/Wordmark';
 import { INDUSTRY_LINKS } from '@/content/industries';
+import { LOCATION_LINKS } from '@/content/locations';
 
 const FOOTER_COLUMNS = [
   {
@@ -96,12 +97,29 @@ export function Footer() {
           ))}
         </div>
 
+        {/* Areas strip: locality pages, full width above the copyright bar. */}
+        <div className="border-t border-[var(--color-line)] py-8">
+          <p className="label text-[var(--color-text-soft)]">Areas</p>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+            {LOCATION_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-small text-[var(--color-text-mute)] hover:text-[var(--color-accent)] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div className="flex flex-col gap-4 border-t border-[var(--color-line)] py-8 md:flex-row md:items-center md:justify-between">
           <p className="text-small text-[var(--color-text-mute)]">
             © {year} russle. All rights reserved.
           </p>
           <p className="text-small text-[var(--color-text-mute)]">
-            Based in Cheshire, working across the UK.
+            Based in Alderley Edge, Cheshire. Working across the UK.
           </p>
         </div>
       </Container>
