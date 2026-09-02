@@ -1,5 +1,4 @@
 import { Hero } from '@/components/sections/Hero';
-import { ReviewsBar } from '@/components/sections/ReviewsBar';
 import { TrustpilotStrip } from '@/components/sections/TrustpilotStrip';
 import { ClientTiles } from '@/components/sections/ClientTiles';
 import { ReviewsBlock } from '@/components/sections/ReviewsBlock';
@@ -14,23 +13,29 @@ import { hasPlacesConfig } from '@/lib/google-places';
 import { getAllWork } from '@/lib/mdx';
 
 export default async function HomePage() {
-  const work = getAllWork()
-    .filter((w) => w.slug !== 'makeup-by-abigail')
-    .slice(0, 4);
+  // Mum's Granola is pinned as the final slide so the Google-reviews section
+  // that follows always hands off from it.
+  const allWork = getAllWork().filter((w) => w.slug !== 'makeup-by-abigail');
+  const pinnedLast = allWork.find((w) => w.slug === 'mums-granola');
+  const work = [
+    ...allWork
+      .filter((w) => w.slug !== 'mums-granola')
+      .slice(0, pinnedLast ? 3 : 4),
+    ...(pinnedLast ? [pinnedLast] : []),
+  ];
   const placesReady = hasPlacesConfig();
 
   return (
     <>
       <Hero />
-      <ReviewsBar />
       <TrustpilotStrip />
       <ClientTiles />
       <Capabilities />
       <CaseStudyShowcase items={work} />
+      {placesReady && <ReviewsBlock />}
       <OfferBlock />
       <ProcessSteps />
       <FreeReviewBand />
-      {placesReady && <ReviewsBlock />}
       <FAQSection />
       <CTAStrip />
     </>

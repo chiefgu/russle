@@ -2,7 +2,10 @@ import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import { GeistMono } from 'geist/font/mono';
 import { ConsentGatedAnalytics } from '@/components/layout/ConsentGatedAnalytics';
+import { AnnouncementBar } from '@/components/layout/AnnouncementBar';
+import { ANNOUNCEMENT_BAR_HEIGHT } from '@/components/layout/announcement';
 import { Navbar } from '@/components/layout/Navbar';
+import { getPlaceSummary } from '@/lib/google-places';
 import { Footer } from '@/components/layout/Footer';
 import { CookieBanner } from '@/components/layout/CookieBanner';
 import { PageviewTracker } from '@/components/layout/PageviewTracker';
@@ -72,7 +75,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const placeSummary = await getPlaceSummary();
   return (
     <html lang="en" className={GeistMono.variable}>
       <head>
@@ -107,7 +111,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <Navbar />
+        <AnnouncementBar summary={placeSummary} />
+        <Navbar topOffset={placeSummary ? ANNOUNCEMENT_BAR_HEIGHT : 0} />
         <main id="main">{children}</main>
         <Footer />
 

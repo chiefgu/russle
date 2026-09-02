@@ -1,12 +1,13 @@
 import { Star } from 'lucide-react';
 import { Section } from '@/components/layout/Section';
 import { Tag } from '@/components/ui/Tag';
+import { ReviewsCarousel } from '@/components/sections/ReviewsCarousel';
 import { getPlaceSummary, type PlaceReview } from '@/lib/google-places';
 
 /**
  * Full reviews block. Pulls 3 to 5 most recent reviews from the russle
- * Google Business Profile and renders them as cards. Renders nothing when
- * Places isn't configured or returns no data.
+ * Google Business Profile and renders them as a scroll-snap carousel.
+ * Renders nothing when Places isn't configured or returns no data.
  */
 export async function ReviewsBlock({ limit = 5 }: { limit?: number }) {
   const summary = await getPlaceSummary();
@@ -58,11 +59,11 @@ export async function ReviewsBlock({ limit = 5 }: { limit?: number }) {
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ReviewsCarousel>
         {cards.map((review, i) => (
           <ReviewCard key={i} review={review} />
         ))}
-      </div>
+      </ReviewsCarousel>
     </Section>
   );
 }

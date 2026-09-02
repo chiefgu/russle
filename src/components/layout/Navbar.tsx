@@ -31,9 +31,12 @@ const CASE_STUDIES = [
   { slug: 'berry-boys', title: 'Berry Boys', sector: 'Ecommerce · multi-store site' },
 ];
 
-export function Navbar() {
+export function Navbar({ topOffset = 0 }: { topOffset?: number }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // Fixed-position offset so the navbar sits below the announcement bar until
+  // the bar scrolls off screen, then pins to the top as before.
+  const [navTop, setNavTop] = useState(topOffset);
   const [openMega, setOpenMega] = useState<MegaKind | null>(null);
   const closeTimer = useRef<number | null>(null);
   const pathname = usePathname();
@@ -54,11 +57,14 @@ export function Navbar() {
 
   // Transparent at top, solid once scrolled
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+      setNavTop(Math.max(0, topOffset - window.scrollY));
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [topOffset]);
 
   // Close mega on Escape
   useEffect(() => {
@@ -90,10 +96,11 @@ export function Navbar() {
     <header
       data-navbar
       style={{
+        top: navTop,
         background: showSolid ? 'var(--nav-bg, var(--color-bg))' : 'transparent',
       }}
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-colors duration-200',
+        'fixed inset-x-0 z-50 transition-colors duration-200',
       )}
     >
       <div className="mx-auto flex max-w-[1800px] items-center justify-between px-4 py-5 sm:px-6 md:px-8">
