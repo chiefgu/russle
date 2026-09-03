@@ -45,10 +45,10 @@ export async function generateMetadata({
     ...(post.metaTitle
       ? { title: { absolute: post.metaTitle } }
       : { title: post.title }),
-    description: post.metaDescription ?? clampDescription(post.summary),
+    description: clampDescription(post.metaDescription ?? post.summary),
     openGraph: {
       title: `russle | ${post.title}`,
-      description: post.metaDescription ?? clampDescription(post.summary),
+      description: clampDescription(post.metaDescription ?? post.summary),
       images: post.cover ? [{ url: post.cover }] : [{ url: '/og.png' }],
     },
   };

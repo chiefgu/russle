@@ -21,6 +21,22 @@ export function titleWithBrand(title: string, brand = 'russle'): string {
 }
 
 /**
+ * Bring an already-composed title inside the limit. Applied to whatever we end
+ * up rendering, including a `meta.title` authored in the CMS, because an
+ * override that truncates in results helps nobody. A title still over the
+ * limit once the brand suffix is gone can only be fixed by shortening it in
+ * the CMS.
+ */
+export function fitTitle(title: string, brand = 'russle'): string {
+  if (title.length <= TITLE_MAX) return title;
+  const suffix = ` | ${brand}`;
+  if (title.endsWith(suffix)) {
+    return title.slice(0, -suffix.length);
+  }
+  return title;
+}
+
+/**
  * Excerpts double as meta descriptions. Most end with a boilerplate studio
  * sentence ("From russle, a web design, ecommerce and SEO studio.") that reads
  * well on the page but wastes the description's limited space. Drop trailing

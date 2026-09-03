@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { titleWithBrand, clampDescription, TITLE_MAX, DESCRIPTION_MAX } from './seo-meta';
+import { titleWithBrand, clampDescription, fitTitle, TITLE_MAX, DESCRIPTION_MAX } from './seo-meta';
 
 // The real post titles and excerpts flagged as over-length by the OpenSEO
 // site audit (2026-09-03). Blog metadata is composed from Payload records, so
@@ -54,6 +54,37 @@ describe('titleWithBrand', () => {
       expect(title.length).toBeGreaterThan(TITLE_MAX);
       expect(title.length).toBeLessThanOrEqual(TITLE_MAX + 2);
     }
+  });
+});
+
+describe('fitTitle', () => {
+  // These posts carry a `meta.title` in Payload with the brand already
+  // appended, so the composed value is what has to be brought inside the
+  // limit. Values as rendered before the fix.
+  const CMS_TITLES = [
+    'Conversion-led web design: turning visitors into customers | russle',
+    'Email marketing for small businesses: where to start | russle',
+    'Is SEO worth it for a small business? An honest answer | russle',
+    'Squarespace vs Wix: which is better for a small business? | russle',
+    'Website launch checklist: get these right before you go live | russle',
+    'What is a growth retainer, and what should it include? | russle',
+  ];
+
+  it('leaves a title that already fits untouched', () => {
+    expect(fitTitle('Web Design Cheshire | russle')).toBe('Web Design Cheshire | russle');
+  });
+
+  it('brings every over-long CMS title inside the limit', () => {
+    for (const title of CMS_TITLES) {
+      const out = fitTitle(title);
+      expect(out.length, title).toBeLessThanOrEqual(TITLE_MAX);
+      expect(out.endsWith(' | russle')).toBe(false);
+    }
+  });
+
+  it('leaves a long title alone when it has no brand suffix to drop', () => {
+    const long = 'A title with no brand suffix that is definitely longer than sixty characters';
+    expect(fitTitle(long)).toBe(long);
   });
 });
 
