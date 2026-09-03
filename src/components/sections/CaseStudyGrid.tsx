@@ -39,6 +39,11 @@ export function CaseStudyGrid({ items, variant = 'home', showHeader = true }: Ca
         </div>
       )}
 
+      {/* Without the visible header the card H3s would follow the page H1
+          directly, skipping a level. The page title already says what this is,
+          so the section heading is for assistive tech and crawlers only. */}
+      {!showHeader && <h2 className="sr-only">Case studies</h2>}
+
       <Stagger className={`grid gap-6 sm:grid-cols-2 ${cols}`}>
         {items.map((item) => (
           <StaggerItem key={item.slug}>

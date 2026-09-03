@@ -838,7 +838,7 @@ export const INDUSTRIES: Record<string, IndustryPageData> = {
       'Fashion and apparel brands live or die on presentation. We build editorial storefronts with the drop mechanics to match: waitlists, back-in-stock alerts and a checkout that keeps up.',
     metaTitle: 'Web Design for Fashion & Apparel Brands',
     metaDescription:
-      'russle designs and builds ecommerce for UK fashion and apparel brands. Editorial storefronts, drops and waitlists, back-in-stock alerts, Shopify or our platform.',
+      'russle builds ecommerce for UK fashion and apparel brands. Editorial storefronts, drops and waitlists, back-in-stock alerts, Shopify or our platform.',
     hero: 'B',
     blocks: ['build', 'flow', 'pains', 'faq', 'cta'],
     buildHeading: 'Drop mechanics, editorial finish.',

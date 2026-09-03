@@ -24,6 +24,7 @@ const SECTOR_INDUSTRY: Record<string, { href: string; label: string }> = {
 };
 import { Testimonial } from '@/components/sections/Testimonial';
 import { getAllWork, getWorkBySlug, getWorkSlugs } from '@/lib/mdx';
+import { clampDescription } from '@/lib/seo-meta';
 
 type Params = { slug: string };
 
@@ -40,11 +41,14 @@ export async function generateMetadata({
   const post = getWorkBySlug(slug);
   if (!post) return { title: 'Not found' };
   return {
-    title: post.title,
-    description: post.summary,
+    // metaTitle is a complete title, so it bypasses the "russle | %s" template.
+    ...(post.metaTitle
+      ? { title: { absolute: post.metaTitle } }
+      : { title: post.title }),
+    description: post.metaDescription ?? clampDescription(post.summary),
     openGraph: {
       title: `russle | ${post.title}`,
-      description: post.summary,
+      description: post.metaDescription ?? clampDescription(post.summary),
       images: post.cover ? [{ url: post.cover }] : [{ url: '/og.png' }],
     },
   };

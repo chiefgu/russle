@@ -388,7 +388,7 @@ export const LOCATIONS: Record<string, LocalityPageData> = {
       'russle is based here in the village. We design and build custom websites and online stores for Alderley Edge businesses, and for clients across Cheshire and beyond.',
     metaTitle: 'Web Design Alderley Edge',
     metaDescription:
-      'russle is a web design and SEO studio based in Alderley Edge, building custom sites and stores for village businesses and clients across Cheshire. Rated 5.0 on Google.',
+      'russle is a web design and SEO studio based in Alderley Edge, building custom sites and stores for village businesses and across Cheshire.',
     vignetteQuery: 'web design alderley edge',
     vignettePlaceLine: 'Based in Alderley Edge, SK9',
     vignetteVariant: 'listing',

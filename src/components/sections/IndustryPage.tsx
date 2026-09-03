@@ -114,7 +114,7 @@ export function IndustryPage({ data, vignette }: { data: IndustryPageData; vigne
     pains: () => (
       <Section key="pains" tone="dark" spacing="xl">
         <div className="mb-14 max-w-3xl">
-          <Reveal><Tag tone="on-dark">The old way</Tag></Reveal>
+          <Reveal><Tag as="h2" tone="on-dark">The old way</Tag></Reveal>
         </div>
         <div className="grid gap-14 md:grid-cols-3 md:gap-10">
           {data.pains.map((pain, i) => {

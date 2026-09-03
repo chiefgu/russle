@@ -60,7 +60,7 @@ export function ServicePage({ data, visual }: { data: ServicePageData; visual?: 
 
       <Section tone="bg" spacing="xl">
         <div className="mb-10 max-w-3xl">
-          <Reveal><Tag>What you get</Tag></Reveal>
+          <Reveal><Tag as="h2">What you get</Tag></Reveal>
         </div>
         <Reveal>
           <div className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)] sm:grid-cols-2 lg:grid-cols-3">
@@ -76,7 +76,7 @@ export function ServicePage({ data, visual }: { data: ServicePageData; visual?: 
 
       <Section tone="surface" spacing="xl">
         <div className="mb-10 max-w-2xl">
-          <Reveal><Tag>How it works</Tag></Reveal>
+          <Reveal><Tag as="h2">How it works</Tag></Reveal>
         </div>
         <ol className="grid gap-px overflow-hidden rounded-[var(--radius-l)] bg-[var(--color-line)]">
           {data.how.map((step, i) => (

@@ -26,6 +26,9 @@ const LOCAL_OK = [
   'app/(frontend)/web-design-',
   'app/(frontend)/layout.tsx',
   'components/layout/Footer.tsx',
+  // A contact page saying where the studio is and how far it travels is
+  // normal, and it carries local relevance for the same drive.
+  'app/(frontend)/contact/page.tsx',
 ];
 // Generated or machine files that legitimately contain long strings / dashes.
 const IGNORED = [

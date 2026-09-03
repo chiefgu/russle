@@ -52,6 +52,11 @@ export type WorkMeta = {
   slug: string;
   title: string;
   summary: string;
+  // Search-result overrides. `title` and `summary` are written for the page
+  // itself and run long; these keep the listing inside Google's limits without
+  // shortening what a reader sees. Optional: pages fall back to title/summary.
+  metaTitle?: string;
+  metaDescription?: string;
   client: string;
   sector: string;
   year: string;

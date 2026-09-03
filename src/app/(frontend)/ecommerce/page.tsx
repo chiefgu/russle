@@ -10,7 +10,7 @@ const data: ServicePageData = {
     'We build online shops on our own platform or as a custom Shopify storefront: products, stock, orders, and payments, with a dashboard and an iOS app so you run the shop from anywhere. Your store and your customers, not a marketplace’s.',
   metaTitle: 'Ecommerce',
   metaDescription:
-    'russle builds custom online stores for ambitious businesses across the UK, on our own platform or as a custom Shopify storefront. Products, stock, orders, payments, and a dashboard.',
+    'russle builds custom online stores for UK businesses, on our own platform or as a Shopify storefront. Products, stock, orders, payments and a dashboard.',
   included: [
     { title: 'Full storefront', body: 'Products, collections, cart, and checkout, built around your range.' },
     { title: 'Payments and orders', body: 'Take payment and manage orders on your own site, not through a marketplace.' },

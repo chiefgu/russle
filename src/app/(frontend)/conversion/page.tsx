@@ -10,7 +10,7 @@ import { ConversionExplainer } from '@/components/sections/ConversionExplainer';
 export const metadata: Metadata = {
   title: 'Conversion optimisation',
   description:
-    'russle makes the website you already have earn more. We research how visitors behave, build several versions of a page, and keep the one that turns more of them into customers, as part of the ongoing SEO retainer.',
+    'russle makes the website you already have earn more. We test versions of a page and keep the one that turns more visitors into customers.',
   alternates: { canonical: '/conversion' },
 };
 

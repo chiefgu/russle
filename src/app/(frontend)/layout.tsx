@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: 'russle | %s',
   },
   description:
-    'russle is a web design, ecommerce and SEO studio in Alderley Edge, Cheshire. We build fast, custom websites and online stores for businesses across Cheshire, Manchester and the UK, then run the SEO that gets them found.',
+    'A web design, ecommerce and SEO studio in Alderley Edge, Cheshire. Custom websites and online stores, then the SEO that gets them found.',
   keywords: [
     'web design',
     'website design',

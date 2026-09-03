@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { JournalArticle } from '@/components/sections/JournalArticle';
 import { getPostBySlug, getPublishedSlugs, getRelatedPosts } from '@/lib/posts';
 import { AUTHOR } from '@/lib/author';
+import { titleWithBrand, clampDescription } from '@/lib/seo-meta';
 import type { Media } from '@/payload-types';
 
 type Faq = { question: string; answer: string };
@@ -35,8 +36,8 @@ export async function generateMetadata({
   const meta = post.meta as { title?: string; description?: string } | undefined;
   // Lead with the post title (keyword-first) and suffix the brand. Use `absolute`
   // so the root layout's "russle | %s" template doesn't prepend a second "russle".
-  const title = meta?.title ?? `${post.title} | russle`;
-  const description = meta?.description ?? post.excerpt;
+  const title = meta?.title ?? titleWithBrand(post.title);
+  const description = meta?.description ?? clampDescription(post.excerpt);
   const image = ogImageUrl(post);
   return {
     title: { absolute: title },

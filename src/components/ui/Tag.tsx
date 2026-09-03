@@ -5,9 +5,15 @@ type TagProps = {
   tone?: 'default' | 'accent' | 'on-dark';
   className?: string;
   withDot?: boolean;
+  /**
+   * Element to render. Sections whose only label is a Tag should pass `as="h2"`
+   * so the document keeps a valid heading order (H1 → H2 → H3) for screen
+   * readers and crawlers. Styling is identical either way.
+   */
+  as?: 'span' | 'h2' | 'h3';
 };
 
-export function Tag({ children, tone = 'default', className, withDot = true }: TagProps) {
+export function Tag({ children, tone = 'default', className, withDot = true, as: Component = 'span' }: TagProps) {
   const toneClasses = {
     default: 'text-[var(--color-text-mute)]',
     accent: 'text-[var(--color-accent)]',
@@ -21,7 +27,7 @@ export function Tag({ children, tone = 'default', className, withDot = true }: T
   };
 
   return (
-    <span
+    <Component
       className={cn(
         'label inline-flex items-center gap-2',
         toneClasses[tone],
@@ -35,6 +41,6 @@ export function Tag({ children, tone = 'default', className, withDot = true }: T
         />
       )}
       {children}
-    </span>
+    </Component>
   );
 }
